@@ -101,11 +101,6 @@ const Community = () => {
         ))}
       </div>
 
-      <div className="text-center mt-12">
-        <p className="font-bold text-[26px] md:text-[34px] text-primary leading-tight">
-          "The room you build in<br />shapes who you become."
-        </p>
-      </div>
     </SectionWrapper>
   );
 };
