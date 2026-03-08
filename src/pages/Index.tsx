@@ -32,7 +32,7 @@ const Index = () => {
       <Navbar onOpenModal={openModal} />
       <Hero onOpenModal={openModal} />
       <PoweredBy />
-      <ToolsMarquee />
+      <ToolsOrbit />
       <WhyAINow />
       <Contrast />
       <Experience />
