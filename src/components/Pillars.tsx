@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
+import { toolLogos } from "@/lib/toolLogos";
 
 interface PillarData {
   num: string;
@@ -47,7 +48,7 @@ const pillars: PillarData[] = [
     builds: [
       "A live product or working MVP",
       "A landing page and launch funnel",
-      "A pitch-ready demo for Day 9",
+      "A pitch-ready demo for Demo Day",
     ],
     tools: ["Lovable", "Replit", "Supabase", "Claude API", "Stripe"],
   },
@@ -100,11 +101,11 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
               ))}
             </div>
 
-            <div className="flex flex-wrap gap-2 relative z-10">
+            <div className="flex flex-wrap gap-3 relative z-10 items-center">
               {p.tools.map((t) => (
-                <span key={t} className="text-[11px] text-muted-foreground/50 border border-border rounded-full px-3 py-1 font-semibold">
-                  {t}
-                </span>
+                <div key={t} className="w-8 h-8 rounded-lg bg-card border border-border flex items-center justify-center overflow-hidden p-1.5" title={t}>
+                  <img src={toolLogos[t] || ""} alt={t} className="w-full h-full object-contain" loading="lazy" />
+                </div>
               ))}
             </div>
           </motion.div>

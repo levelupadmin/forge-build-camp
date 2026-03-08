@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     q: "Why pay for this when there is so much free AI content out there?",
-    a: "Free content teaches. Forge makes you build. What you get here that YouTube cannot give you: 9 focused days with zero distractions, accountability partners in the same room, mentors who sit with your actual work, and a finished product at the end. You are compressing 6 months of solo learning into 9 days. That is what you are paying for.",
+    a: "Free content teaches. Forge makes you build. What you get here that YouTube cannot give you: focused days with zero distractions, accountability partners in the same room, mentors who sit with your actual work, and a finished product at the end. You are compressing 6 months of solo learning into 15 days. That is what you are paying for.",
   },
 ];
 

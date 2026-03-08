@@ -22,7 +22,7 @@ const Experience = () => {
         <div>
           <p className="text-[17px] leading-[1.75] text-muted-foreground">
             You pack a bag. You leave the city behind.<br />
-            For 9 days, you have one job: build with AI.
+            You have one job: build with AI.
           </p>
           <p className="text-[17px] leading-[1.75] text-muted-foreground mt-4">
             No Zoom calls. No commute. No distractions.<br />

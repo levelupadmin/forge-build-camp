@@ -31,7 +31,7 @@ const FinalCTA = ({ onOpenModal }: FinalCTAProps) => {
         </p>
 
         <h2 className="font-bold text-[42px] md:text-[72px] leading-[1.08] tracking-[-0.025em] text-foreground">
-          9 days from now,<br />you could have built<br /><span className="text-primary">something real.</span>
+          15 days from now,<br />you could have built<br /><span className="text-primary">something real.</span>
         </h2>
 
         <p className="text-[17px] text-muted-foreground max-w-[460px] mx-auto mt-4 leading-relaxed">

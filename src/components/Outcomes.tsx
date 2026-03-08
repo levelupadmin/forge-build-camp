@@ -5,7 +5,7 @@ import SectionWrapper from "./SectionWrapper";
 const outcomes = [
   { icon: Palette, title: "AI Creative Workflow", desc: "A repeatable system for generating content, ads, and visuals. Yours to use from Day 1 back home." },
   { icon: Cog, title: "Working Automation", desc: "One live automation already running in your business before you even get back." },
-  { icon: Wrench, title: "Product or MVP", desc: "A launched or near-launch prototype you built with your own hands in 9 days." },
+  { icon: Wrench, title: "Product or MVP", desc: "A launched or near-launch prototype you built with your own hands." },
   { icon: Rocket, title: "Launch Funnel", desc: "A landing page and basic funnel ready to drive real traffic to your product." },
   { icon: Handshake, title: "Your Cohort", desc: "Handpicked builders from across the country. Lifetime community access after the program." },
   { icon: Lightbulb, title: "Momentum", desc: "The confidence and clarity to keep building with AI long after you leave." },

@@ -9,7 +9,7 @@ const Trailer = () => {
   return (
     <SectionWrapper id="trailer" label="SEE THE EXPERIENCE">
       <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-12">
-        This is what <span className="text-primary">9 days</span> looks like.
+        This is what <span className="text-primary">the residency</span> looks like.
       </h2>
 
       <div className="max-w-[900px] mx-auto">
