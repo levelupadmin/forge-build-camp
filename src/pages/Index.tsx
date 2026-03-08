@@ -1,12 +1,51 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import ToolsMarquee from "@/components/ToolsMarquee";
+import Contrast from "@/components/Contrast";
+import Experience from "@/components/Experience";
+import Pillars from "@/components/Pillars";
+import OnlinePrep from "@/components/OnlinePrep";
+import Schedule from "@/components/Schedule";
+import Outcomes from "@/components/Outcomes";
+import Mentors from "@/components/Mentors";
+import Community from "@/components/Community";
+import SocialProof from "@/components/SocialProof";
+import WhoIsFor from "@/components/WhoIsFor";
+import Pricing from "@/components/Pricing";
+import FAQs from "@/components/FAQs";
+import FinalCTA from "@/components/FinalCTA";
+import Footer from "@/components/Footer";
+import InviteModal from "@/components/InviteModal";
 
 const Index = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-forge-bg">
+      {/* Noise overlay */}
+      <div className="noise-overlay" />
+
+      <Navbar onOpenModal={openModal} />
+      <Hero onOpenModal={openModal} />
+      <ToolsMarquee />
+      <Contrast />
+      <Experience />
+      <Pillars onOpenModal={openModal} />
+      <OnlinePrep />
+      <Schedule />
+      <Outcomes />
+      <Mentors />
+      <Community />
+      <SocialProof />
+      <WhoIsFor />
+      <Pricing onOpenModal={openModal} />
+      <FAQs />
+      <FinalCTA onOpenModal={openModal} />
+      <Footer />
+      <InviteModal isOpen={modalOpen} onClose={closeModal} />
     </div>
   );
 };
