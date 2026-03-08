@@ -10,7 +10,7 @@ const faqs = [
   },
   {
     q: "What is included in the price?",
-    a: "Everything. 9-day residential stay, all accommodation, all meals, full access to all three pillar sessions, daily mentor feedback, online prep access, tool credits, Demo Day, and lifetime community access. You arrive with your laptop. We handle the rest.",
+    a: "Everything. 15-day program (6 days online prep + 9 days residential), all accommodation, all meals, full access to all three pillar sessions, daily mentor feedback, online prep access, tool credits, Demo Day, and lifetime community access. You arrive with your laptop. We handle the rest.",
   },
   {
     q: "Where is the residency?",
