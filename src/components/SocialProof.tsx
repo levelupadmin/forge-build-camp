@@ -47,8 +47,8 @@ const SocialProof = () => {
             <p className="text-[16px] text-foreground italic leading-[1.7] mt-8">{t.quote}</p>
             <div className="mt-6">
               <p className="font-semibold text-foreground text-[15px]">{t.name}</p>
-              <p className="text-[13px] text-forge-muted">{t.role}</p>
-              <p className="text-[13px] text-forge-muted">{t.program}</p>
+              <p className="text-[13px] text-muted-foreground">{t.role}</p>
+              <p className="text-[13px] text-muted-foreground">{t.program}</p>
             </div>
           </motion.div>
         ))}
