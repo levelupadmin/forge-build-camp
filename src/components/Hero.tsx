@@ -60,7 +60,7 @@ const Hero = ({ onOpenModal }: HeroProps) => {
         {/* CTA */}
         <div className="mt-8">
           <button onClick={onOpenModal} className="w-full sm:w-auto bg-primary text-primary-foreground font-semibold rounded-full px-10 py-4 sm:py-3.5 text-base cta-pulse">
-            Request an Invite →
+            Request an Invite
           </button>
         </div>
       </motion.div>
