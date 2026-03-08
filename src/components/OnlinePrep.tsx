@@ -15,7 +15,7 @@ const OnlinePrep = () => {
         You arrive ready.<br />Not from scratch.
       </h2>
 
-      <p className="text-[16px] text-forge-muted max-w-[560px] mx-auto text-center mb-12 leading-relaxed">
+      <p className="text-[16px] text-muted-foreground max-w-[560px] mx-auto text-center mb-12 leading-relaxed">
         Before the residency starts, you get access to a focused online prep series. Short daily sessions, 1 to 2 hours each. So when you arrive, you are set up and ready to build from Day 1.
       </p>
 
