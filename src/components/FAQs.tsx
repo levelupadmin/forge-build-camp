@@ -17,7 +17,7 @@ const faqs = [
     a: "Full location details, accommodation info, and travel guidance are shared with accepted participants. The residency takes place at a carefully selected location away from city distractions.",
   },
   {
-    q: "What do I actually build in 9 days?",
+    q: "What do I actually build during the program?",
     a: "Three things. An AI creative output, which could be an ad, short film, or a full content workflow. A working automation that runs in your business from Day 1 back home. And a product or MVP with a landing page and basic funnel. You pitch all three on Demo Day.",
   },
   {
