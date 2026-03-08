@@ -31,7 +31,7 @@ const Mentors = () => {
           >
             <div className="w-20 h-20 rounded-full mx-auto mb-4 bg-[rgba(255,255,255,0.03)] border border-primary/20" />
             <p className="font-bold text-[18px] text-foreground">{m.title}</p>
-            <p className="text-sm text-forge-muted mt-1">{m.bio}</p>
+            <p className="text-sm text-muted-foreground mt-1">{m.bio}</p>
             <span className="inline-block mt-3 text-[10px] text-primary border border-primary/30 rounded-full px-3 py-1 font-semibold uppercase tracking-wider">
               {m.tag}
             </span>
