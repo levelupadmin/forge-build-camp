@@ -2,7 +2,7 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import PoweredBy from "@/components/PoweredBy";
-import ToolsMarquee from "@/components/ToolsMarquee";
+import ToolsOrbit from "@/components/ToolsOrbit";
 import WhyAINow from "@/components/WhyAINow";
 import Contrast from "@/components/Contrast";
 import Experience from "@/components/Experience";
