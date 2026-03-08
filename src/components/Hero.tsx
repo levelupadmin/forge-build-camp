@@ -30,11 +30,11 @@ const Hero = ({ onOpenModal }: HeroProps) => {
       {/* Dark overlay on video */}
       <div className="absolute inset-0 bg-background/70" />
 
-      {/* Amber glow blob with parallax */}
+      {/* Accent glow blob with parallax */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full amber-glow-blob will-change-transform"
         style={{
-          background: "radial-gradient(circle, hsla(40,100%,47%,0.08), transparent 70%)",
+          background: "radial-gradient(circle, hsla(230,80%,62%,0.10), transparent 70%)",
           transform: `translate(-50%, calc(-50% + ${scrollY * 0.15}px))`,
         }}
       />
@@ -46,18 +46,15 @@ const Hero = ({ onOpenModal }: HeroProps) => {
         transition={{ duration: 0.55, ease: "easeOut" }}
         className="relative z-10 text-center max-w-[720px] px-6"
       >
-        {/* Headline */}
         <h1 className="font-bold text-[40px] md:text-[72px] leading-[1.08] md:leading-[1.05] tracking-[-0.025em] text-foreground">
           Learn AI by<br />
           <span className="text-primary">Building</span> with AI.
         </h1>
 
-        {/* Tagline */}
         <p className="mt-6 text-[15px] md:text-[17px] text-muted-foreground tracking-wide">
           <span className="text-primary font-semibold">20 builders</span> × <span className="text-primary font-semibold">9 days</span> × <span className="text-primary font-semibold">1 room</span> = Infinite learning
         </p>
 
-        {/* CTA */}
         <div className="mt-8">
           <button onClick={onOpenModal} className="w-full sm:w-auto bg-primary text-primary-foreground font-semibold rounded-full px-10 py-4 sm:py-3.5 text-base cta-pulse">
             Request an Invite

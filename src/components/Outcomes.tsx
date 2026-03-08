@@ -30,7 +30,7 @@ const Outcomes = () => {
           >
             <o.icon className="text-primary mb-3" size={28} />
             <p className="font-semibold text-foreground text-[15px]">{o.title}</p>
-            <p className="text-sm text-forge-muted mt-1">{o.desc}</p>
+            <p className="text-sm text-muted-foreground mt-1">{o.desc}</p>
           </motion.div>
         ))}
       </div>

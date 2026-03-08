@@ -29,7 +29,7 @@ const SocialProof = () => {
         What happens when you<br />build with the right people.
       </h2>
 
-      <p className="text-sm text-forge-dim text-center mb-8">
+      <p className="text-sm text-muted-foreground/50 text-center mb-8">
         These quotes are from past Forge residential programs in filmmaking and content creation. Forge AI Residency follows the same format. Immersive. Mentor-led. Build-first.
       </p>
 
@@ -47,14 +47,14 @@ const SocialProof = () => {
             <p className="text-[16px] text-foreground italic leading-[1.7] mt-8">{t.quote}</p>
             <div className="mt-6">
               <p className="font-semibold text-foreground text-[15px]">{t.name}</p>
-              <p className="text-[13px] text-forge-muted">{t.role}</p>
-              <p className="text-[13px] text-forge-muted">{t.program}</p>
+              <p className="text-[13px] text-muted-foreground">{t.role}</p>
+              <p className="text-[13px] text-muted-foreground">{t.program}</p>
             </div>
           </motion.div>
         ))}
       </div>
 
-      <p className="text-[12px] text-forge-dim text-center mt-8 italic">
+      <p className="text-[12px] text-muted-foreground/50 text-center mt-8 italic">
         Forge AI Residency participants will be featured after Cohort 01 completes.
       </p>
     </SectionWrapper>

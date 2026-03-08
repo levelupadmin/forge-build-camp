@@ -14,7 +14,7 @@ const Mentors = () => {
         Learn from people who<br /><span className="text-primary">use AI for a living.</span>
       </h2>
 
-      <p className="text-[17px] text-forge-muted max-w-[520px] mx-auto text-center mb-12 leading-relaxed">
+      <p className="text-[17px] text-muted-foreground max-w-[520px] mx-auto text-center mb-12 leading-relaxed">
         Your mentors are not professors. They are builders, creators, and operators who use AI every single day in their work.
       </p>
 
@@ -31,7 +31,7 @@ const Mentors = () => {
           >
             <div className="w-20 h-20 rounded-full mx-auto mb-4 bg-[rgba(255,255,255,0.03)] border border-primary/20" />
             <p className="font-bold text-[18px] text-foreground">{m.title}</p>
-            <p className="text-sm text-forge-muted mt-1">{m.bio}</p>
+            <p className="text-sm text-muted-foreground mt-1">{m.bio}</p>
             <span className="inline-block mt-3 text-[10px] text-primary border border-primary/30 rounded-full px-3 py-1 font-semibold uppercase tracking-wider">
               {m.tag}
             </span>
@@ -39,7 +39,7 @@ const Mentors = () => {
         ))}
       </div>
 
-      <p className="text-[13px] text-forge-dim text-center mt-8">
+      <p className="text-[13px] text-muted-foreground/50 text-center mt-8">
         Mentor profiles announced with Cohort 01 dates. All mentors are active builders in the AI space.
       </p>
     </SectionWrapper>

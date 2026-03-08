@@ -30,7 +30,7 @@ const WhoIsFor = () => {
           >
             <p.icon className="text-primary mb-3" size={24} />
             <p className="font-semibold text-foreground text-[15px]">{p.title}</p>
-            <p className="text-sm text-forge-muted mt-1">{p.desc}</p>
+            <p className="text-sm text-muted-foreground mt-1">{p.desc}</p>
           </motion.div>
         ))}
       </div>

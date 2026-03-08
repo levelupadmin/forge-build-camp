@@ -47,11 +47,11 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
 
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((l) => (
-              <a key={l.label} href={l.href} className="text-forge-muted text-sm hover:text-foreground transition-colors">
+              <a key={l.label} href={l.href} className="text-muted-foreground text-sm hover:text-foreground transition-colors">
                 {l.label}
               </a>
             ))}
-            <a href="#" className="flex items-center gap-1.5 text-forge-muted text-sm hover:text-foreground transition-colors">
+            <a href="#" className="flex items-center gap-1.5 text-muted-foreground text-sm hover:text-foreground transition-colors">
               <FileText size={14} />
               Brochure
             </a>
@@ -79,7 +79,7 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 bg-forge-bg flex flex-col"
+            className="fixed inset-0 z-50 bg-background flex flex-col"
           >
             <div className="flex items-center justify-between px-6 h-16">
               <div className="flex items-center gap-2">

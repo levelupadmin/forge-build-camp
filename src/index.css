@@ -4,37 +4,37 @@
 
 @layer base {
   :root {
-    --bg-base: 0 0% 3.1%;
-    --bg-surface: 0 0% 6.7%;
-    --bg-card: 0 0% 100% / 0.03;
-    --border-card: 0 0% 100% / 0.08;
-    --border-subtle: 0 0% 100% / 0.05;
-    --amber: 40 100% 47.1%;
-    --amber-glow: 40 100% 47.1% / 0.12;
-    --amber-dim: 40 100% 47.1% / 0.55;
-    --text-white: 30 18% 93%;
-    --text-muted: 24 3% 52%;
-    --text-dim: 20 3% 26%;
+    --bg-base: 225 25% 5%;
+    --bg-surface: 225 25% 8%;
+    --bg-card: 225 30% 100% / 0.04;
+    --border-card: 225 30% 100% / 0.08;
+    --border-subtle: 225 30% 100% / 0.05;
+    --accent-blue: 230 80% 62%;
+    --accent-glow: 230 80% 62% / 0.12;
+    --accent-dim: 230 80% 62% / 0.55;
+    --text-white: 220 20% 95%;
+    --text-muted: 220 8% 55%;
+    --text-dim: 220 8% 30%;
     
-    --background: 0 0% 3.1%;
-    --foreground: 30 18% 93%;
-    --card: 0 0% 6.7%;
-    --card-foreground: 30 18% 93%;
-    --popover: 0 0% 6.7%;
-    --popover-foreground: 30 18% 93%;
-    --primary: 40 100% 47.1%;
-    --primary-foreground: 0 0% 0%;
-    --secondary: 0 0% 6.7%;
-    --secondary-foreground: 30 18% 93%;
-    --muted: 0 0% 6.7%;
-    --muted-foreground: 24 3% 52%;
-    --accent: 40 100% 47.1%;
-    --accent-foreground: 0 0% 0%;
+    --background: 225 25% 5%;
+    --foreground: 220 20% 95%;
+    --card: 225 25% 8%;
+    --card-foreground: 220 20% 95%;
+    --popover: 225 25% 8%;
+    --popover-foreground: 220 20% 95%;
+    --primary: 230 80% 62%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 225 25% 8%;
+    --secondary-foreground: 220 20% 95%;
+    --muted: 225 25% 8%;
+    --muted-foreground: 220 8% 55%;
+    --accent: 230 80% 62%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 30 18% 93%;
-    --border: 0 0% 100% / 0.08;
-    --input: 0 0% 100% / 0.10;
-    --ring: 40 100% 47.1%;
+    --destructive-foreground: 220 20% 95%;
+    --border: 225 30% 100% / 0.08;
+    --input: 225 30% 100% / 0.10;
+    --ring: 230 80% 62%;
     --radius: 0.75rem;
   }
 }
@@ -71,7 +71,7 @@
   background-size: 40px 40px;
 }
 
-/* Amber glow blob animation */
+/* Accent glow blob animation */
 @keyframes glow-drift {
   0%, 100% { transform: translate(0, 0) scale(1); }
   25% { transform: translate(20px, -20px) scale(1.05); }
@@ -96,8 +96,8 @@
 
 /* CTA pulse */
 @keyframes cta-pulse {
-  0%, 100% { transform: scale(1); box-shadow: 0 0 28px rgba(240,165,0,0.30); }
-  50% { transform: scale(1.02); box-shadow: 0 0 40px rgba(240,165,0,0.45); }
+  0%, 100% { transform: scale(1); box-shadow: 0 0 28px hsla(230,80%,62%,0.30); }
+  50% { transform: scale(1.02); box-shadow: 0 0 40px hsla(230,80%,62%,0.45); }
 }
 
 .cta-pulse {
@@ -130,7 +130,7 @@
 .section-label {
   font-family: 'Open Sans', sans-serif;
   font-size: 11px;
-  color: hsl(var(--amber));
+  color: hsl(var(--primary));
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-weight: 700;
@@ -147,13 +147,13 @@
 
 /* Pricing card ambient glow */
 @keyframes pricing-glow {
-  0%, 100% { border-color: rgba(240,165,0,0.25); box-shadow: 0 0 48px rgba(240,165,0,0.05); }
-  50% { border-color: rgba(240,165,0,0.45); box-shadow: 0 0 64px rgba(240,165,0,0.10); }
+  0%, 100% { border-color: hsla(230,80%,62%,0.25); box-shadow: 0 0 48px hsla(230,80%,62%,0.05); }
+  50% { border-color: hsla(230,80%,62%,0.45); box-shadow: 0 0 64px hsla(230,80%,62%,0.10); }
 }
 
 .pricing-card-glow {
   animation: pricing-glow 4s ease-in-out infinite;
-  border-color: rgba(240,165,0,0.35);
+  border-color: hsla(230,80%,62%,0.35);
 }
 
 /* Marquee fade mask */
@@ -165,3 +165,26 @@
 /* Custom scrollbar hide */
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Orbital rotation */
+@keyframes orbit-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.orbit-spin {
+  animation: orbit-spin 60s linear infinite;
+}
+
+.orbit-spin-reverse {
+  animation: orbit-spin 80s linear infinite reverse;
+}
+
+/* Counter-rotate to keep icons upright */
+.counter-rotate {
+  animation: orbit-spin 60s linear infinite reverse;
+}
+
+.counter-rotate-reverse {
+  animation: orbit-spin 80s linear infinite;
+}

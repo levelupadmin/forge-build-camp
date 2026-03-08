@@ -27,16 +27,6 @@ export default {
         accent: { DEFAULT: "hsl(var(--accent))", foreground: "hsl(var(--accent-foreground))" },
         popover: { DEFAULT: "hsl(var(--popover))", foreground: "hsl(var(--popover-foreground))" },
         card: { DEFAULT: "hsl(var(--card))", foreground: "hsl(var(--card-foreground))" },
-        amber: {
-          DEFAULT: "hsl(var(--amber))",
-          glow: "hsla(var(--amber-glow))",
-          dim: "hsla(var(--amber-dim))",
-        },
-        "forge-white": "hsl(var(--text-white))",
-        "forge-muted": "hsl(var(--text-muted))",
-        "forge-dim": "hsl(var(--text-dim))",
-        "forge-bg": "hsl(var(--bg-base))",
-        "forge-surface": "hsl(var(--bg-surface))",
       },
       borderRadius: {
         lg: "var(--radius)",

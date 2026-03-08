@@ -15,7 +15,7 @@ const OnlinePrep = () => {
         You arrive ready.<br />Not from scratch.
       </h2>
 
-      <p className="text-[16px] text-forge-muted max-w-[560px] mx-auto text-center mb-12 leading-relaxed">
+      <p className="text-[16px] text-muted-foreground max-w-[560px] mx-auto text-center mb-12 leading-relaxed">
         Before the residency starts, you get access to a focused online prep series. Short daily sessions, 1 to 2 hours each. So when you arrive, you are set up and ready to build from Day 1.
       </p>
 
@@ -31,12 +31,12 @@ const OnlinePrep = () => {
           >
             <span className="text-[11px] text-primary font-semibold">{p.num}</span>
             <p className="font-semibold text-foreground mt-2 text-[15px]">{p.title}</p>
-            <p className="text-sm text-forge-muted mt-1">{p.desc}</p>
+            <p className="text-sm text-muted-foreground mt-1">{p.desc}</p>
           </motion.div>
         ))}
       </div>
 
-      <p className="text-sm text-forge-dim text-center mt-8 italic">
+      <p className="text-sm text-muted-foreground/50 text-center mt-8 italic">
         Sessions are recorded. Attend live or catch up at your pace. You just need a laptop and 1 to 2 hours a day.
       </p>
     </SectionWrapper>
