@@ -9,7 +9,7 @@ const testimonials = [
     program: "Past Forge Filmmaking Residency",
   },
   {
-    quote: "Being in the same room as 20 people who are as serious as you completely changes your energy. You do not want to fall behind. You want to build more. It is addictive in the best way.",
+    quote: "Being in the same room as people who are as serious as you completely changes your energy. You do not want to fall behind. You want to build more. It is addictive in the best way.",
     name: "Priya S.",
     role: "Marketer, Mumbai",
     program: "Past Forge Creator Residency",
@@ -25,7 +25,7 @@ const testimonials = [
 const SocialProof = () => {
   return (
     <SectionWrapper label="FROM PAST FORGE PARTICIPANTS">
-      <h2 className="font-syne font-[800] text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-4">
+      <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-4">
         What happens when you<br />build with the right people.
       </h2>
 
@@ -43,7 +43,7 @@ const SocialProof = () => {
             transition={{ duration: 0.4, delay: i * 0.1 }}
             className="glass-card p-6 relative"
           >
-            <span className="font-syne font-[800] text-[64px] text-primary/20 absolute top-2 left-4 leading-none">"</span>
+            <span className="font-bold text-[64px] text-primary/20 absolute top-2 left-4 leading-none">"</span>
             <p className="text-[16px] text-foreground italic leading-[1.7] mt-8">{t.quote}</p>
             <div className="mt-6">
               <p className="font-semibold text-foreground text-[15px]">{t.name}</p>

@@ -11,12 +11,12 @@ const preps = [
 const OnlinePrep = () => {
   return (
     <SectionWrapper label="BEFORE THE RESIDENCY">
-      <h2 className="font-syne font-[800] text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-6">
+      <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-6">
         You arrive ready.<br />Not from scratch.
       </h2>
 
       <p className="text-[16px] text-forge-muted max-w-[560px] mx-auto text-center mb-12 leading-relaxed">
-        In the 4 to 5 days before the residency starts, you get access to a focused online prep series. Short daily sessions, 1 to 2 hours each. So when you land in Dharamshala, you are set up, tuned in, and ready to build from Day 1.
+        Before the residency starts, you get access to a focused online prep series. Short daily sessions, 1 to 2 hours each. So when you arrive, you are set up and ready to build from Day 1.
       </p>
 
       <div className="grid sm:grid-cols-2 gap-4 max-w-[700px] mx-auto">
@@ -29,8 +29,8 @@ const OnlinePrep = () => {
             transition={{ duration: 0.4, delay: i * 0.08 }}
             className="glass-card p-5"
           >
-            <span className="font-mono text-[11px] text-primary">{p.num}</span>
-            <p className="font-medium text-foreground mt-2 text-[15px]">{p.title}</p>
+            <span className="text-[11px] text-primary font-semibold">{p.num}</span>
+            <p className="font-semibold text-foreground mt-2 text-[15px]">{p.title}</p>
             <p className="text-sm text-forge-muted mt-1">{p.desc}</p>
           </motion.div>
         ))}

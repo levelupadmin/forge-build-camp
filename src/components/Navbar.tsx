@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, FileText } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
 interface NavbarProps {
@@ -41,8 +41,8 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-20 flex items-center justify-between h-16">
           <a href="#" className="flex items-center gap-2">
-            <span className="font-syne font-[800] text-[17px] text-foreground tracking-tight">FORGE</span>
-            <span className="font-mono text-[10px] text-primary uppercase tracking-[0.15em]">AI RESIDENCY</span>
+            <span className="font-bold text-[17px] text-foreground tracking-tight">FORGE</span>
+            <span className="text-[10px] text-primary uppercase tracking-[0.15em] font-semibold">AI RESIDENCY</span>
           </a>
 
           <div className="hidden md:flex items-center gap-8">
@@ -51,6 +51,10 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
                 {l.label}
               </a>
             ))}
+            <a href="#" className="flex items-center gap-1.5 text-forge-muted text-sm hover:text-foreground transition-colors">
+              <FileText size={14} />
+              Brochure
+            </a>
           </div>
 
           <div className="hidden md:block">
@@ -79,8 +83,8 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
           >
             <div className="flex items-center justify-between px-6 h-16">
               <div className="flex items-center gap-2">
-                <span className="font-syne font-[800] text-[17px] text-foreground">FORGE</span>
-                <span className="font-mono text-[10px] text-primary uppercase tracking-[0.15em]">AI RESIDENCY</span>
+                <span className="font-bold text-[17px] text-foreground">FORGE</span>
+                <span className="text-[10px] text-primary uppercase tracking-[0.15em] font-semibold">AI RESIDENCY</span>
               </div>
               <button onClick={() => setMenuOpen(false)} className="text-foreground p-2 -mr-2" aria-label="Close menu">
                 <X size={24} />
@@ -92,11 +96,15 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
                   key={l.label}
                   href={l.href}
                   onClick={() => setMenuOpen(false)}
-                  className="font-syne text-2xl text-foreground"
+                  className="text-2xl font-bold text-foreground"
                 >
                   {l.label}
                 </a>
               ))}
+              <a href="#" className="flex items-center gap-2 text-2xl font-bold text-foreground">
+                <FileText size={22} />
+                Brochure
+              </a>
             </div>
             <div className="px-6 pb-8">
               <button

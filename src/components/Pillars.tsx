@@ -60,7 +60,7 @@ interface PillarsProps {
 const Pillars = ({ onOpenModal }: PillarsProps) => {
   return (
     <SectionWrapper id="pillars" label="THREE PILLARS">
-      <h2 className="font-syne font-[800] text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-12">
+      <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-12">
         Three skills.<br />One residency.
       </h2>
 
@@ -74,27 +74,25 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
             transition={{ duration: 0.5, delay: i * 0.1 }}
             className="glass-card p-6 md:p-8 relative overflow-hidden"
           >
-            {/* Watermark number */}
-            <span className="absolute top-4 right-6 font-syne font-[800] text-[72px] text-primary/[0.12] leading-none select-none">
+            <span className="absolute top-4 right-6 font-bold text-[72px] text-primary/[0.12] leading-none select-none">
               {p.num}
             </span>
 
             <div className="flex items-center justify-between mb-4 relative z-10">
-              <span className="font-mono text-[11px] text-primary border border-primary/30 rounded-full px-3 py-1">
+              <span className="text-[11px] text-primary border border-primary/30 rounded-full px-3 py-1 font-semibold uppercase tracking-wider">
                 {p.tag}
               </span>
               <span className="text-[13px] text-forge-dim">{p.days}</span>
             </div>
 
-            <h3 className="font-syne font-[800] text-[22px] md:text-[26px] text-foreground mb-3 relative z-10">
+            <h3 className="font-bold text-[22px] md:text-[26px] text-foreground mb-3 relative z-10">
               {p.title}
             </h3>
 
             <p className="text-[15px] text-forge-muted leading-[1.7] mb-6 relative z-10">{p.body}</p>
 
-            {/* You'll build */}
             <div className="bg-[rgba(0,0,0,0.4)] border-l-2 border-primary rounded-[10px] p-4 mb-6 relative z-10">
-              <p className="text-[13px] text-forge-dim font-medium mb-2">You'll build:</p>
+              <p className="text-[13px] text-forge-dim font-semibold mb-2">You'll build:</p>
               {p.builds.map((b) => (
                 <p key={b} className="text-sm text-foreground leading-relaxed">
                   <span className="text-primary mr-2">✦</span>{b}
@@ -102,10 +100,9 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
               ))}
             </div>
 
-            {/* Tools */}
             <div className="flex flex-wrap gap-2 relative z-10">
               {p.tools.map((t) => (
-                <span key={t} className="font-mono text-[11px] text-forge-dim border border-[rgba(255,255,255,0.08)] rounded-full px-3 py-1">
+                <span key={t} className="text-[11px] text-forge-dim border border-[rgba(255,255,255,0.08)] rounded-full px-3 py-1 font-semibold">
                   {t}
                 </span>
               ))}

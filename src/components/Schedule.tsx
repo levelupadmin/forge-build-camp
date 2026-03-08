@@ -6,7 +6,7 @@ import SectionWrapper from "./SectionWrapper";
 const schedule = [
   {
     phase: "PRE-PROGRAM",
-    title: "Online Prep (4 to 5 days before)",
+    title: "Online Prep (before you arrive)",
     desc: "Short daily sessions covering AI basics, tool setup, and prompting. You arrive knowing your tools and your build idea.",
     outcome: "Your idea locked. Tools ready. Excited to get there.",
   },
@@ -47,31 +47,27 @@ const Schedule = () => {
 
   return (
     <SectionWrapper id="schedule" label="THE SCHEDULE">
-      <h2 className="font-syne font-[800] text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-12">
+      <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-12">
         9 days.<br />Here is exactly what happens.
       </h2>
 
       <div className="max-w-[680px] mx-auto">
-        {/* Desktop: timeline with amber line */}
         <div className="relative">
-          {/* Amber timeline line - desktop */}
           <div className="hidden md:block absolute left-[11px] top-0 bottom-0 w-px bg-primary/20" />
 
           {schedule.map((s, i) => (
             <div key={i} className="relative md:pl-10 mb-1">
-              {/* Timeline dot - desktop */}
               <div className="hidden md:block absolute left-0 top-5 w-[23px] h-[23px] rounded-full border-2 border-primary/40 bg-forge-bg z-10">
                 <div className="w-2.5 h-2.5 rounded-full bg-primary absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
               </div>
 
-              {/* Accordion item */}
               <button
                 onClick={() => setOpen(open === i ? null : i)}
                 className="w-full text-left py-5 border-b border-[rgba(255,255,255,0.06)] flex items-start justify-between gap-4"
               >
                 <div>
-                  <span className="font-mono text-[11px] text-primary tracking-wider">{s.phase}</span>
-                  <p className="font-syne font-[700] text-foreground text-[18px] mt-1">{s.title}</p>
+                  <span className="text-[11px] text-primary tracking-wider font-semibold">{s.phase}</span>
+                  <p className="font-bold text-foreground text-[18px] mt-1">{s.title}</p>
                 </div>
                 <ChevronDown
                   size={20}

@@ -45,11 +45,11 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
   }
 }
 
@@ -128,16 +128,12 @@
 
 /* Section label */
 .section-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Open Sans', sans-serif;
   font-size: 11px;
   color: hsl(var(--amber));
   text-transform: uppercase;
   letter-spacing: 0.18em;
-}
-
-/* Mono font */
-.font-mono {
-  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
 }
 
 /* Glass card */

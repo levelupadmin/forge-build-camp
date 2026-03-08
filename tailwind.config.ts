@@ -12,9 +12,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        syne: ['Syne', 'sans-serif'],
-        sans: ['DM Sans', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        sans: ['Open Sans', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
