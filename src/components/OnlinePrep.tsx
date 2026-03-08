@@ -31,7 +31,7 @@ const OnlinePrep = () => {
           >
             <span className="text-[11px] text-primary font-semibold">{p.num}</span>
             <p className="font-semibold text-foreground mt-2 text-[15px]">{p.title}</p>
-            <p className="text-sm text-forge-muted mt-1">{p.desc}</p>
+            <p className="text-sm text-muted-foreground mt-1">{p.desc}</p>
           </motion.div>
         ))}
       </div>
