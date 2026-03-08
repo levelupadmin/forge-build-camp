@@ -15,7 +15,7 @@ const Experience = () => {
   return (
     <SectionWrapper id="experience" label="THE RESIDENCY">
       <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-12">
-        9 days away from everything.<br />Nothing but building.
+        Step away from everything.<br />Nothing but building.
       </h2>
 
       <div className="grid md:grid-cols-[55%_45%] gap-10 items-start">
