@@ -51,7 +51,7 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
                 {l.label}
               </a>
             ))}
-            <a href="#" className="flex items-center gap-1.5 text-forge-muted text-sm hover:text-foreground transition-colors">
+            <a href="#" className="flex items-center gap-1.5 text-muted-foreground text-sm hover:text-foreground transition-colors">
               <FileText size={14} />
               Brochure
             </a>
