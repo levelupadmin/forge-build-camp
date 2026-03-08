@@ -49,7 +49,7 @@ const Footer = () => {
 
         <div className="border-t border-border mt-8 pt-6 text-center">
           <p className="text-[12px] text-muted-foreground/50">
-            © 2025 Forge by LevelUp Learning · All rights reserved · Cohort 01
+            © 2025 Forge by LevelUp Learning · All rights reserved
           </p>
         </div>
       </div>

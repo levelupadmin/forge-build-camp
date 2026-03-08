@@ -6,7 +6,7 @@ const rows = [
   ["Watch 40 hours of video", "Build something real every day"],
   ["Learn alone on your laptop", "Live and build with serious people"],
   ["Generic curriculum for all", "Three focused pillars for builders"],
-  ["Online cohort on Zoom", "Fully residential, fully immersive"],
+  ["Online classes on Zoom", "Fully residential, fully immersive"],
   ["A certificate you barely use", "A product, an automation, and a workflow"],
   ["Finish and figure it out yourself", "Leave with builds, a network, and momentum"],
 ];

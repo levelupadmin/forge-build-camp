@@ -106,7 +106,7 @@ const InviteModal = ({ isOpen, onClose }: InviteModalProps) => {
                   </motion.div>
                   <h3 className="font-bold text-[26px] text-foreground mt-4">You're on the list.</h3>
                   <p className="text-[15px] text-muted-foreground mt-2">Our team will reach out on WhatsApp within 48 hours with next steps.</p>
-                  <p className="text-[13px] text-muted-foreground/50 mt-3">Follow @leveluplearning on Instagram for Cohort 01 announcements.</p>
+                  <p className="text-[13px] text-muted-foreground/50 mt-3">Follow @leveluplearning on Instagram for updates and announcements.</p>
                   <button onClick={handleClose} className="mt-6 border border-border text-foreground rounded-full px-8 py-3 text-sm hover:border-foreground/30 transition-colors">
                     Done
                   </button>

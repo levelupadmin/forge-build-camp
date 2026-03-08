@@ -25,9 +25,9 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
 
       <div className="max-w-[520px] mx-auto glass-card backdrop-blur-sm p-8 pricing-card-glow">
         <div className="text-center mb-6">
-          <span className="text-[11px] text-primary tracking-wider font-semibold uppercase">COHORT 01 · ALL INCLUSIVE</span>
-          <p className="font-bold text-[60px] md:text-[68px] text-foreground mt-2 leading-none">₹1,20,000</p>
-          <p className="text-sm text-muted-foreground mt-2">per person, everything included</p>
+          <span className="text-[11px] text-primary tracking-wider font-semibold uppercase">ALL INCLUSIVE</span>
+          <p className="font-bold text-[60px] md:text-[68px] text-foreground mt-2 leading-none">₹90,000</p>
+          <p className="text-sm text-muted-foreground mt-2">per person, inclusive of GST</p>
         </div>
 
         <div className="h-px bg-primary/15 my-6" />

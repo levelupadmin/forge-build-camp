@@ -37,7 +37,7 @@ const schedule = [
   {
     phase: "DAY 09",
     title: "Demo Day",
-    desc: "Present everything you built to the cohort. Celebrate. Reflect. Leave with proof of work.",
+    desc: "Present everything you built. Celebrate. Reflect. Leave with proof of work.",
     outcome: "Three real builds. One unforgettable experience.",
   },
 ];

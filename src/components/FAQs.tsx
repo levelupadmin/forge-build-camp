@@ -25,7 +25,7 @@ const faqs = [
     a: "Not at all. It is built for founders, marketers, creators, and operators. The tools are designed for non-technical people. If you can use Google Docs, you can build here.",
   },
   {
-    q: "When is Cohort 01?",
+    q: "When does the next batch start?",
     a: "Dates are confirmed with accepted participants. Fill in the invite request and our team will reach out within 48 hours with full details.",
   },
   {

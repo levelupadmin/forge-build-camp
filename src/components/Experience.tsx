@@ -5,7 +5,7 @@ import { useParallax } from "@/hooks/use-parallax";
 
 const features = [
   { icon: Home, title: "Fully Residential", desc: "Stay, meals, and internet included for the entire program." },
-  { icon: Users, title: "Curated Cohort", desc: "Handpicked founders, creators, and builders. Lifetime community access." },
+  { icon: Users, title: "Curated Group", desc: "Handpicked founders, creators, and builders. Lifetime community access." },
   { icon: Wifi, title: "Zero Distractions", desc: "No Zoom calls. No commute. Just building, every single day." },
 ];
 
