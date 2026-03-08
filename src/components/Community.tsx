@@ -5,7 +5,7 @@ import SectionWrapper from "./SectionWrapper";
 const features = [
   { icon: MessageCircle, title: "Private Cohort Group", desc: "WhatsApp or Slack group with your cohort, active before, during, and after." },
   { icon: RefreshCw, title: "Alumni Network", desc: "Every future Forge AI cohort adds to your network. You stay connected." },
-  { icon: Target, title: "Accountability After", desc: "Monthly check-ins with your cohort. Keep building together long after Day 9." },
+  { icon: Target, title: "Accountability After", desc: "Monthly check-ins with your cohort. Keep building together long after the program." },
 ];
 
 const nodeCount = 10;
@@ -35,7 +35,7 @@ const Community = () => {
             The people in this room will go on to build companies, launch products, and do interesting things. You will want to know them. They will want to know you.
           </p>
           <p className="text-[17px] leading-[1.8] text-muted-foreground mt-4">
-            Long after the 9 days are over, the group chat stays active, the referrals keep coming, and the builds keep shipping.
+            Long after the program is over, the group chat stays active, the referrals keep coming, and the builds keep shipping.
           </p>
           <p className="text-[17px] leading-[1.8] text-muted-foreground mt-4">
             You are not just joining a program. You are joining the people who take AI seriously.

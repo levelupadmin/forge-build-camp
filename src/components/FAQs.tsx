@@ -10,14 +10,14 @@ const faqs = [
   },
   {
     q: "What is included in the price?",
-    a: "Everything. 9-day residential stay, all accommodation, all meals, full access to all three pillar sessions, daily mentor feedback, online prep access, tool credits, Demo Day, and lifetime community access. You arrive with your laptop. We handle the rest.",
+    a: "Everything. 15-day program (6 days online prep + 9 days residential), all accommodation, all meals, full access to all three pillar sessions, daily mentor feedback, online prep access, tool credits, Demo Day, and lifetime community access. You arrive with your laptop. We handle the rest.",
   },
   {
     q: "Where is the residency?",
     a: "Full location details, accommodation info, and travel guidance are shared with accepted participants. The residency takes place at a carefully selected location away from city distractions.",
   },
   {
-    q: "What do I actually build in 9 days?",
+    q: "What do I actually build during the program?",
     a: "Three things. An AI creative output, which could be an ad, short film, or a full content workflow. A working automation that runs in your business from Day 1 back home. And a product or MVP with a landing page and basic funnel. You pitch all three on Demo Day.",
   },
   {
@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     q: "Why pay for this when there is so much free AI content out there?",
-    a: "Free content teaches. Forge makes you build. What you get here that YouTube cannot give you: 9 focused days with zero distractions, accountability partners in the same room, mentors who sit with your actual work, and a finished product at the end. You are compressing 6 months of solo learning into 9 days. That is what you are paying for.",
+    a: "Free content teaches. Forge makes you build. What you get here that YouTube cannot give you: focused days with zero distractions, accountability partners in the same room, mentors who sit with your actual work, and a finished product at the end. You are compressing 6 months of solo learning into 15 days. That is what you are paying for.",
   },
 ];
 

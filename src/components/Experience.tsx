@@ -15,14 +15,14 @@ const Experience = () => {
   return (
     <SectionWrapper id="experience" label="THE RESIDENCY">
       <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-12">
-        9 days away from everything.<br />Nothing but building.
+        Step away from everything.<br />Nothing but building.
       </h2>
 
       <div className="grid md:grid-cols-[55%_45%] gap-10 items-start">
         <div>
           <p className="text-[17px] leading-[1.75] text-muted-foreground">
             You pack a bag. You leave the city behind.<br />
-            For 9 days, you have one job: build with AI.
+            You have one job: build with AI.
           </p>
           <p className="text-[17px] leading-[1.75] text-muted-foreground mt-4">
             No Zoom calls. No commute. No distractions.<br />
@@ -63,23 +63,6 @@ const Experience = () => {
           <div className="absolute inset-0 rounded-2xl shadow-[inset_0_0_0_1px_rgba(240,165,0,0.15)]" />
         </div>
       </div>
-
-      {/* Pull quote with parallax offset */}
-      <motion.div
-        className="mt-16 text-center"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-      >
-        <div className="flex items-center justify-center gap-4">
-          <div className="hidden md:block h-px w-16 bg-primary/30" />
-          <p className="font-bold text-[28px] md:text-[38px] text-primary leading-tight">
-            "Not a course. Not a bootcamp.<br />A 9-day AI build sprint."
-          </p>
-          <div className="hidden md:block h-px w-16 bg-primary/30" />
-        </div>
-      </motion.div>
     </SectionWrapper>
   );
 };

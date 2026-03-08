@@ -5,7 +5,7 @@ interface PricingProps {
 }
 
 const inclusions = [
-  "9-day residential stay, fully immersive",
+  "15-day program (6 online + 9 residential), fully immersive",
   "All accommodation included",
   "All meals included",
   "Full access to all 3 pillar sessions",

@@ -52,7 +52,7 @@ const Hero = ({ onOpenModal }: HeroProps) => {
         </h1>
 
         <p className="mt-6 text-[15px] md:text-[17px] text-muted-foreground tracking-wide">
-          <span className="text-primary font-semibold">20 builders</span> × <span className="text-primary font-semibold">9 days</span> × <span className="text-primary font-semibold">1 room</span> = Infinite learning
+          <span className="text-primary font-semibold">20 builders</span> × <span className="text-primary font-semibold">15 days</span> × <span className="text-primary font-semibold">1 room</span> = Infinite learning
         </p>
 
         <div className="mt-8">
