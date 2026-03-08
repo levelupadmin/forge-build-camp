@@ -27,7 +27,7 @@ const Index = () => {
   const closeModal = () => setModalOpen(false);
 
   return (
-    <div className="min-h-screen bg-forge-bg">
+    <div className="min-h-screen bg-background">
       <div className="noise-overlay" />
       <Navbar onOpenModal={openModal} />
       <Hero onOpenModal={openModal} />

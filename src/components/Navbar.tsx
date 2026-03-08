@@ -79,7 +79,7 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 bg-forge-bg flex flex-col"
+            className="fixed inset-0 z-50 bg-background flex flex-col"
           >
             <div className="flex items-center justify-between px-6 h-16">
               <div className="flex items-center gap-2">
