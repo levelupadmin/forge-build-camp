@@ -85,7 +85,7 @@ const Schedule = () => {
                     className="overflow-hidden"
                   >
                     <div className="pb-5 pt-2">
-                      <p className="text-sm text-forge-muted leading-relaxed">{s.desc}</p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
                       <p className="text-sm text-primary mt-3">
                         You'll have: <span className="text-foreground">{s.outcome}</span>
                       </p>

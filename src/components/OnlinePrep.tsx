@@ -36,7 +36,7 @@ const OnlinePrep = () => {
         ))}
       </div>
 
-      <p className="text-sm text-forge-dim text-center mt-8 italic">
+      <p className="text-sm text-muted-foreground/50 text-center mt-8 italic">
         Sessions are recorded. Attend live or catch up at your pace. You just need a laptop and 1 to 2 hours a day.
       </p>
     </SectionWrapper>

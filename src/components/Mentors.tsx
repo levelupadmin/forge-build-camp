@@ -39,7 +39,7 @@ const Mentors = () => {
         ))}
       </div>
 
-      <p className="text-[13px] text-forge-dim text-center mt-8">
+      <p className="text-[13px] text-muted-foreground/50 text-center mt-8">
         Mentor profiles announced with Cohort 01 dates. All mentors are active builders in the AI space.
       </p>
     </SectionWrapper>

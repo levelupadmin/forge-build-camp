@@ -69,7 +69,7 @@ const FAQs = () => {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <p className="pb-5 text-sm text-forge-muted leading-relaxed">{f.a}</p>
+                  <p className="pb-5 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
                 </motion.div>
               )}
             </AnimatePresence>
