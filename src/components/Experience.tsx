@@ -63,23 +63,6 @@ const Experience = () => {
           <div className="absolute inset-0 rounded-2xl shadow-[inset_0_0_0_1px_rgba(240,165,0,0.15)]" />
         </div>
       </div>
-
-      {/* Pull quote with parallax offset */}
-      <motion.div
-        className="mt-16 text-center"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-      >
-        <div className="flex items-center justify-center gap-4">
-          <div className="hidden md:block h-px w-16 bg-primary/30" />
-          <p className="font-bold text-[28px] md:text-[38px] text-primary leading-tight">
-            "Not a course. Not a bootcamp.<br />A 9-day AI build sprint."
-          </p>
-          <div className="hidden md:block h-px w-16 bg-primary/30" />
-        </div>
-      </motion.div>
     </SectionWrapper>
   );
 };
