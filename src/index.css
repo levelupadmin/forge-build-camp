@@ -4,37 +4,31 @@
 
 @layer base {
   :root {
-    --bg-base: 225 25% 5%;
-    --bg-surface: 225 25% 8%;
-    --bg-card: 225 30% 100% / 0.04;
-    --border-card: 225 30% 100% / 0.08;
-    --border-subtle: 225 30% 100% / 0.05;
-    --accent-blue: 230 80% 62%;
-    --accent-glow: 230 80% 62% / 0.12;
-    --accent-dim: 230 80% 62% / 0.55;
-    --text-white: 220 20% 95%;
-    --text-muted: 220 8% 55%;
-    --text-dim: 220 8% 30%;
+    --bg-base: 222 47% 6%;
+    --bg-surface: 222 47% 9%;
+    --bg-card: 222 47% 100% / 0.04;
+    --border-card: 222 47% 100% / 0.08;
+    --border-subtle: 222 47% 100% / 0.05;
     
-    --background: 225 25% 5%;
-    --foreground: 220 20% 95%;
-    --card: 225 25% 8%;
-    --card-foreground: 220 20% 95%;
-    --popover: 225 25% 8%;
-    --popover-foreground: 220 20% 95%;
-    --primary: 230 80% 62%;
+    --background: 222 47% 6%;
+    --foreground: 0 0% 100%;
+    --card: 222 47% 9%;
+    --card-foreground: 0 0% 100%;
+    --popover: 222 47% 9%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 225 25% 8%;
-    --secondary-foreground: 220 20% 95%;
-    --muted: 225 25% 8%;
-    --muted-foreground: 220 8% 55%;
-    --accent: 230 80% 62%;
+    --secondary: 222 47% 9%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 222 47% 9%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 91% 60%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 220 20% 95%;
-    --border: 225 30% 100% / 0.08;
-    --input: 225 30% 100% / 0.10;
-    --ring: 230 80% 62%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 222 47% 100% / 0.08;
+    --input: 222 47% 100% / 0.10;
+    --ring: 217 91% 60%;
     --radius: 0.75rem;
   }
 }
@@ -96,8 +90,8 @@
 
 /* CTA pulse */
 @keyframes cta-pulse {
-  0%, 100% { transform: scale(1); box-shadow: 0 0 28px hsla(230,80%,62%,0.30); }
-  50% { transform: scale(1.02); box-shadow: 0 0 40px hsla(230,80%,62%,0.45); }
+  0%, 100% { transform: scale(1); box-shadow: 0 0 28px hsla(217,91%,60%,0.30); }
+  50% { transform: scale(1.02); box-shadow: 0 0 40px hsla(217,91%,60%,0.45); }
 }
 
 .cta-pulse {
@@ -113,17 +107,6 @@
 
 .dot-pulse {
   animation: dot-pulse 2s ease-in-out infinite;
-}
-
-/* Marquee */
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.marquee-track {
-  animation: marquee 30s linear infinite;
-  will-change: transform;
 }
 
 /* Section label */
@@ -147,19 +130,13 @@
 
 /* Pricing card ambient glow */
 @keyframes pricing-glow {
-  0%, 100% { border-color: hsla(230,80%,62%,0.25); box-shadow: 0 0 48px hsla(230,80%,62%,0.05); }
-  50% { border-color: hsla(230,80%,62%,0.45); box-shadow: 0 0 64px hsla(230,80%,62%,0.10); }
+  0%, 100% { border-color: hsla(217,91%,60%,0.25); box-shadow: 0 0 48px hsla(217,91%,60%,0.05); }
+  50% { border-color: hsla(217,91%,60%,0.45); box-shadow: 0 0 64px hsla(217,91%,60%,0.10); }
 }
 
 .pricing-card-glow {
   animation: pricing-glow 4s ease-in-out infinite;
-  border-color: hsla(230,80%,62%,0.35);
-}
-
-/* Marquee fade mask */
-.marquee-mask {
-  mask-image: linear-gradient(to right, transparent, black 60px, black calc(100% - 60px), transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 60px, black calc(100% - 60px), transparent);
+  border-color: hsla(217,91%,60%,0.35);
 }
 
 /* Custom scrollbar hide */
@@ -180,7 +157,6 @@
   animation: orbit-spin 80s linear infinite reverse;
 }
 
-/* Counter-rotate to keep icons upright */
 .counter-rotate {
   animation: orbit-spin 60s linear infinite reverse;
 }

@@ -14,7 +14,7 @@ const FinalCTA = ({ onOpenModal }: FinalCTAProps) => {
       <div
         className="absolute top-1/2 left-1/2 w-[600px] h-[600px] rounded-full will-change-transform"
         style={{
-          background: "radial-gradient(circle, hsla(40,100%,47%,0.10), transparent 70%)",
+          background: "radial-gradient(circle, hsla(217,91%,60%,0.10), transparent 70%)",
           transform: `translate(-50%, calc(-50% + ${scrollY * 0.1}px))`,
         }}
       />
