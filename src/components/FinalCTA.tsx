@@ -27,7 +27,7 @@ const FinalCTA = ({ onOpenModal }: FinalCTAProps) => {
         className="relative z-10 text-center max-w-[720px] mx-auto px-6"
       >
         <p className="text-[11px] text-primary uppercase tracking-[0.18em] mb-6 font-semibold">
-          COHORT 01 · LIMITED SEATS
+          LIMITED SEATS · APPLY NOW
         </p>
 
         <h2 className="font-bold text-[42px] md:text-[72px] leading-[1.08] tracking-[-0.025em] text-foreground">
@@ -35,7 +35,7 @@ const FinalCTA = ({ onOpenModal }: FinalCTAProps) => {
         </h2>
 
         <p className="text-[17px] text-muted-foreground max-w-[460px] mx-auto mt-4 leading-relaxed">
-          Cohort 01 is forming now. The people in this room will be building for years.
+          The next batch is forming now. The people in this room will be building for years.
         </p>
 
         <button

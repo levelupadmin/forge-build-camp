@@ -44,7 +44,7 @@ const pillars: PillarData[] = [
     tag: "03 · AI PRODUCT BUILDING",
     days: "Days 6, 7 + 8",
     title: "Build and launch your first AI product",
-    body: "Go from idea to shipped product in days, no coding required. Build an MVP, create a landing page, set up a launch funnel, and pitch it to your cohort on Demo Day.",
+    body: "Go from idea to shipped product in days, no coding required. Build an MVP, create a landing page, set up a launch funnel, and pitch it on Demo Day.",
     builds: [
       "A live product or working MVP",
       "A landing page and launch funnel",

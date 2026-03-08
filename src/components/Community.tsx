@@ -3,9 +3,9 @@ import { MessageCircle, RefreshCw, Target } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
 
 const features = [
-  { icon: MessageCircle, title: "Private Cohort Group", desc: "WhatsApp or Slack group with your cohort, active before, during, and after." },
-  { icon: RefreshCw, title: "Alumni Network", desc: "Every future Forge AI cohort adds to your network. You stay connected." },
-  { icon: Target, title: "Accountability After", desc: "Monthly check-ins with your cohort. Keep building together long after the program." },
+  { icon: MessageCircle, title: "Private Group", desc: "WhatsApp or Slack group with your batch, active before, during, and after." },
+  { icon: RefreshCw, title: "Alumni Network", desc: "Every future Forge AI batch adds to your network. You stay connected." },
+  { icon: Target, title: "Accountability After", desc: "Monthly check-ins with your batch. Keep building together long after the program." },
 ];
 
 const nodeCount = 10;

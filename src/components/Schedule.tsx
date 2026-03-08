@@ -13,7 +13,7 @@ const schedule = [
   {
     phase: "DAY 01",
     title: "Arrive + Orient",
-    desc: "Check in. Meet your cohort. Meet your mentors. Set your personal 9-day build goal.",
+    desc: "Check in. Meet your group. Meet your mentors. Set your personal build goal.",
     outcome: "Your roadmap for the next 8 days.",
   },
   {
@@ -37,7 +37,7 @@ const schedule = [
   {
     phase: "DAY 09",
     title: "Demo Day",
-    desc: "Present everything you built to the cohort. Celebrate. Reflect. Leave with proof of work.",
+    desc: "Present everything you built. Celebrate. Reflect. Leave with proof of work.",
     outcome: "Three real builds. One unforgettable experience.",
   },
 ];
