@@ -47,7 +47,6 @@ const InviteModal = ({ isOpen, onClose }: InviteModalProps) => {
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -56,7 +55,6 @@ const InviteModal = ({ isOpen, onClose }: InviteModalProps) => {
             onClick={handleClose}
           />
 
-          {/* Modal */}
           <motion.div
             initial={{ opacity: 0, y: "100%" }}
             animate={{ opacity: 1, y: 0 }}
@@ -69,7 +67,7 @@ const InviteModal = ({ isOpen, onClose }: InviteModalProps) => {
                 <>
                   <div className="flex items-start justify-between mb-6">
                     <div>
-                      <h3 className="font-syne font-[800] text-[22px] text-foreground">Request an Invite</h3>
+                      <h3 className="font-bold text-[22px] text-foreground">Request an Invite</h3>
                       <p className="text-sm text-forge-muted mt-1">We review every application and reply within 48 hours.</p>
                     </div>
                     <button onClick={handleClose} className="text-forge-muted hover:text-foreground p-1 -mr-1 -mt-1">
@@ -78,82 +76,30 @@ const InviteModal = ({ isOpen, onClose }: InviteModalProps) => {
                   </div>
 
                   <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-                    <input
-                      type="text"
-                      required
-                      placeholder="Your full name"
-                      value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className={inputClass}
-                    />
-                    <input
-                      type="email"
-                      required
-                      placeholder="you@email.com"
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className={inputClass}
-                    />
-                    <input
-                      type="tel"
-                      required
-                      placeholder="+91 98765 43210"
-                      value={form.whatsapp}
-                      onChange={(e) => setForm({ ...form, whatsapp: e.target.value })}
-                      className={inputClass}
-                    />
-                    <select
-                      required
-                      value={form.role}
-                      onChange={(e) => setForm({ ...form, role: e.target.value })}
-                      className={`${inputClass} appearance-none`}
-                    >
+                    <input type="text" required placeholder="Your full name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className={inputClass} />
+                    <input type="email" required placeholder="you@email.com" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className={inputClass} />
+                    <input type="tel" required placeholder="+91 98765 43210" value={form.whatsapp} onChange={(e) => setForm({ ...form, whatsapp: e.target.value })} className={inputClass} />
+                    <select required value={form.role} onChange={(e) => setForm({ ...form, role: e.target.value })} className={`${inputClass} appearance-none`}>
                       {roles.map((r) => (
-                        <option key={r} value={r === "Select your role" ? "" : r} disabled={r === "Select your role"}>
-                          {r}
-                        </option>
+                        <option key={r} value={r === "Select your role" ? "" : r} disabled={r === "Select your role"}>{r}</option>
                       ))}
                     </select>
-                    <textarea
-                      required
-                      maxLength={200}
-                      rows={3}
-                      placeholder="I want to build..."
-                      value={form.build}
-                      onChange={(e) => setForm({ ...form, build: e.target.value })}
-                      className={`${inputClass} resize-none`}
-                    />
-                    <input
-                      type="text"
-                      placeholder="Instagram / Friend / Other"
-                      value={form.source}
-                      onChange={(e) => setForm({ ...form, source: e.target.value })}
-                      className={inputClass}
-                    />
-                    <button
-                      type="submit"
-                      className="w-full bg-primary text-primary-foreground font-semibold rounded-full py-4 text-base mt-2 cta-pulse"
-                    >
+                    <textarea required maxLength={200} rows={3} placeholder="I want to build..." value={form.build} onChange={(e) => setForm({ ...form, build: e.target.value })} className={`${inputClass} resize-none`} />
+                    <input type="text" placeholder="Instagram / Friend / Other" value={form.source} onChange={(e) => setForm({ ...form, source: e.target.value })} className={inputClass} />
+                    <button type="submit" className="w-full bg-primary text-primary-foreground font-semibold rounded-full py-4 text-base mt-2 cta-pulse">
                       Send My Request →
                     </button>
                   </form>
                 </>
               ) : (
                 <div className="text-center py-8">
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ type: "spring", damping: 15 }}
-                  >
+                  <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", damping: 15 }}>
                     <CheckCircle2 className="text-primary mx-auto" size={64} />
                   </motion.div>
-                  <h3 className="font-syne font-[800] text-[26px] text-foreground mt-4">You're on the list.</h3>
+                  <h3 className="font-bold text-[26px] text-foreground mt-4">You're on the list.</h3>
                   <p className="text-[15px] text-forge-muted mt-2">Our team will reach out on WhatsApp within 48 hours with next steps.</p>
                   <p className="text-[13px] text-forge-dim mt-3">Follow @leveluplearning on Instagram for Cohort 01 announcements.</p>
-                  <button
-                    onClick={handleClose}
-                    className="mt-6 border border-[rgba(255,255,255,0.18)] text-foreground rounded-full px-8 py-3 text-sm hover:border-[rgba(255,255,255,0.3)] transition-colors"
-                  >
+                  <button onClick={handleClose} className="mt-6 border border-[rgba(255,255,255,0.18)] text-foreground rounded-full px-8 py-3 text-sm hover:border-[rgba(255,255,255,0.3)] transition-colors">
                     Done
                   </button>
                 </div>

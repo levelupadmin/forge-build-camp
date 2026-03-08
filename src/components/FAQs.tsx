@@ -9,12 +9,12 @@ const faqs = [
     a: "None at all. Every tool we use across all three pillars is no-code or low-code. If you can use a laptop and a browser, you can build here.",
   },
   {
-    q: "What is included in the ₹1,20,000?",
+    q: "What is included in the price?",
     a: "Everything. 9-day residential stay, all accommodation, all meals, full access to all three pillar sessions, daily mentor feedback, online prep access, tool credits, Demo Day, and lifetime community access. You arrive with your laptop. We handle the rest.",
   },
   {
-    q: "Where exactly is the residency?",
-    a: "Cohort 01 is in Dharamshala, Himachal Pradesh. Full location details, accommodation info, and travel guidance are shared with accepted participants. Future cohorts may be in different locations.",
+    q: "Where is the residency?",
+    a: "Full location details, accommodation info, and travel guidance are shared with accepted participants. The residency takes place at a carefully selected location away from city distractions.",
   },
   {
     q: "What do I actually build in 9 days?",
@@ -26,15 +26,15 @@ const faqs = [
   },
   {
     q: "When is Cohort 01?",
-    a: "Approximately 2 months from now. Exact dates are confirmed with accepted participants. Fill in the invite request and our team will reach out within 48 hours with full details.",
+    a: "Dates are confirmed with accepted participants. Fill in the invite request and our team will reach out within 48 hours with full details.",
   },
   {
     q: "How does the invite process work?",
-    a: "Tap Request an Invite, fill in a short form, and our team reviews within 48 hours. We select based on fit and intent, not just whoever applies first. We keep the cohort to 20 seats, so every spot matters.",
+    a: "Tap Request an Invite, fill in a short form, and our team reviews within 48 hours. We select based on fit and intent, not just whoever applies first.",
   },
   {
-    q: "Why pay ₹1,20,000 when there is so much free AI content out there?",
-    a: "Free content teaches. Forge makes you build. What you get here that YouTube cannot give you: 9 focused days with zero distractions, 20 accountability partners in the same room, mentors who sit with your actual work, and a finished product at the end. You are compressing 6 months of solo learning into 9 days. That is what you are paying for.",
+    q: "Why pay for this when there is so much free AI content out there?",
+    a: "Free content teaches. Forge makes you build. What you get here that YouTube cannot give you: 9 focused days with zero distractions, accountability partners in the same room, mentors who sit with your actual work, and a finished product at the end. You are compressing 6 months of solo learning into 9 days. That is what you are paying for.",
   },
 ];
 
@@ -43,7 +43,7 @@ const FAQs = () => {
 
   return (
     <SectionWrapper id="faqs" label="FAQS">
-      <h2 className="font-syne font-[800] text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-12">
+      <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-12">
         Still thinking?<br />Here are the answers.
       </h2>
 
@@ -54,7 +54,7 @@ const FAQs = () => {
               onClick={() => setOpen(open === i ? null : i)}
               className="w-full text-left py-5 flex items-center justify-between gap-4"
             >
-              <span className="text-foreground font-medium text-[16px]">{f.q}</span>
+              <span className="text-foreground font-semibold text-[16px]">{f.q}</span>
               <span className="shrink-0 text-primary transition-transform duration-200">
                 {open === i ? <XIcon size={18} /> : <Plus size={18} />}
               </span>

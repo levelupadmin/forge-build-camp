@@ -1,39 +1,22 @@
 import { motion } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
 
-const criteria = [
-  "They have built real things with AI, not just taught about it",
-  "They are actively working in their field right now",
-  "They guide your actual build, not just deliver slides",
-  "They commit to all 9 days, in person, with you",
-];
-
 const mentors = [
-  { title: "AI Creativity Mentor", bio: "Builder and creator working in AI content", tag: "CREATIVITY" },
-  { title: "AI Automation Expert", bio: "Systems builder with automations running across multiple businesses", tag: "AUTOMATIONS" },
-  { title: "AI Product Builder", bio: "Founder who has shipped multiple AI-powered products", tag: "PRODUCT" },
+  { title: "AI Creative Director", bio: "Uses AI daily to produce content, ads, and visual campaigns for real brands.", tag: "CREATIVITY" },
+  { title: "Automation Architect", bio: "Runs AI-powered automations across multiple businesses. Builds systems that save hundreds of hours.", tag: "AUTOMATIONS" },
+  { title: "AI Product Builder", bio: "Ships AI products for a living. Has built and launched multiple products with AI tools.", tag: "PRODUCT" },
 ];
 
 const Mentors = () => {
   return (
     <SectionWrapper id="mentors" label="YOUR MENTORS">
-      <h2 className="font-syne font-[800] text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-4">
-        Learn from builders.<br />Not professors.
+      <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-4">
+        Learn from people who<br /><span className="text-primary">use AI for a living.</span>
       </h2>
 
       <p className="text-[17px] text-forge-muted max-w-[520px] mx-auto text-center mb-12 leading-relaxed">
-        Each pillar is led by a mentor who has already shipped AI products, built automations at scale, and launched things people actually use.
+        Your mentors are not professors. They are builders, creators, and operators who use AI every single day in their work.
       </p>
-
-      {/* Criteria card */}
-      <div className="glass-card border-l-2 border-l-primary max-w-[600px] mx-auto p-6 mb-12">
-        <p className="text-sm text-forge-dim font-medium mb-3">Every Forge AI mentor is selected because:</p>
-        {criteria.map((c) => (
-          <p key={c} className="text-[15px] text-foreground leading-[2]">
-            <span className="text-primary mr-2">✦</span>{c}
-          </p>
-        ))}
-      </div>
 
       {/* Mentor cards */}
       <div className="grid md:grid-cols-3 gap-4 max-w-[840px] mx-auto">
@@ -47,9 +30,9 @@ const Mentors = () => {
             className="glass-card p-6 text-center"
           >
             <div className="w-20 h-20 rounded-full mx-auto mb-4 bg-[rgba(255,255,255,0.03)] border border-primary/20" />
-            <p className="font-syne font-[700] text-[18px] text-foreground">{m.title}</p>
+            <p className="font-bold text-[18px] text-foreground">{m.title}</p>
             <p className="text-sm text-forge-muted mt-1">{m.bio}</p>
-            <span className="inline-block mt-3 font-mono text-[10px] text-primary border border-primary/30 rounded-full px-3 py-1">
+            <span className="inline-block mt-3 text-[10px] text-primary border border-primary/30 rounded-full px-3 py-1 font-semibold uppercase tracking-wider">
               {m.tag}
             </span>
           </motion.div>

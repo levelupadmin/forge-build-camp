@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
 
 interface HeroProps {
   onOpenModal: () => void;
@@ -8,8 +7,20 @@ interface HeroProps {
 const Hero = ({ onOpenModal }: HeroProps) => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Dot grid */}
-      <div className="absolute inset-0 dot-grid" />
+      {/* Background video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-30"
+        poster="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=1920&q=80"
+      >
+        <source src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4" type="video/mp4" />
+      </video>
+
+      {/* Dark overlay on video */}
+      <div className="absolute inset-0 bg-background/70" />
 
       {/* Amber glow blob */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full amber-glow-blob"
@@ -21,53 +32,26 @@ const Hero = ({ onOpenModal }: HeroProps) => {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.55, ease: "easeOut" }}
-        className="relative z-10 text-center max-w-[640px] px-6"
+        className="relative z-10 text-center max-w-[720px] px-6"
       >
-        {/* Cohort badge */}
-        <div className="inline-flex items-center gap-2 border border-primary/20 rounded-full px-4 py-1.5 mb-8">
-          <span className="w-2 h-2 rounded-full bg-primary dot-pulse inline-block" />
-          <span className="font-mono text-[11px] text-primary tracking-[0.1em]">
-            COHORT 01 &middot; DHARAMSHALA &middot; 20 SEATS
-          </span>
-        </div>
-
         {/* Headline */}
-        <h1 className="font-syne font-[800] text-[40px] md:text-[76px] leading-[1.08] md:leading-[1.05] tracking-[-0.025em] text-foreground">
+        <h1 className="font-bold text-[40px] md:text-[72px] leading-[1.08] md:leading-[1.05] tracking-[-0.025em] text-foreground">
           Learn AI by<br />
           <span className="text-primary">Building</span> with AI.
         </h1>
 
-        {/* Subheadline */}
-        <p className="mt-6 text-[17px] md:text-[19px] text-forge-muted max-w-[520px] mx-auto leading-relaxed">
-          A 9-day residential program in the Himalayas.<br className="hidden sm:block" />
-          Three AI skills. Real mentors. Real builds.<br className="hidden sm:block" />
-          Leave with products, not certificates.
+        {/* Tagline */}
+        <p className="mt-6 text-[15px] md:text-[17px] text-forge-muted tracking-wide">
+          <span className="text-primary font-semibold">20 builders</span> × <span className="text-primary font-semibold">9 days</span> × <span className="text-primary font-semibold">1 room</span> = Infinite learning
         </p>
 
-        {/* CTAs */}
-        <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:justify-center">
-          <button onClick={onOpenModal} className="w-full sm:w-auto bg-primary text-primary-foreground font-semibold rounded-full px-8 py-4 sm:py-3.5 text-base cta-pulse">
+        {/* CTA */}
+        <div className="mt-8">
+          <button onClick={onOpenModal} className="w-full sm:w-auto bg-primary text-primary-foreground font-semibold rounded-full px-10 py-4 sm:py-3.5 text-base cta-pulse">
             Request an Invite →
           </button>
-          <a href="#pillars" className="w-full sm:w-auto border border-[rgba(255,255,255,0.18)] text-foreground font-medium rounded-full px-8 py-4 sm:py-3.5 text-base text-center hover:border-[rgba(255,255,255,0.3)] transition-colors">
-            See What You'll Build
-          </a>
-        </div>
-
-        {/* Stats */}
-        <div className="mt-6 flex items-center justify-center gap-4 flex-wrap text-[13px] text-forge-muted">
-          <span>9 Days Residential</span>
-          <span className="text-forge-dim">|</span>
-          <span>3 AI Mentors</span>
-          <span className="text-forge-dim">|</span>
-          <span>20 Seats Only</span>
         </div>
       </motion.div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 chevron-bounce">
-        <ChevronDown className="text-primary" size={24} />
-      </div>
     </section>
   );
 };

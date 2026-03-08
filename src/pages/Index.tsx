@@ -1,7 +1,9 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import PoweredBy from "@/components/PoweredBy";
 import ToolsMarquee from "@/components/ToolsMarquee";
+import WhyAINow from "@/components/WhyAINow";
 import Contrast from "@/components/Contrast";
 import Experience from "@/components/Experience";
 import Pillars from "@/components/Pillars";
@@ -25,12 +27,12 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-forge-bg">
-      {/* Noise overlay */}
       <div className="noise-overlay" />
-
       <Navbar onOpenModal={openModal} />
       <Hero onOpenModal={openModal} />
+      <PoweredBy />
       <ToolsMarquee />
+      <WhyAINow />
       <Contrast />
       <Experience />
       <Pillars onOpenModal={openModal} />

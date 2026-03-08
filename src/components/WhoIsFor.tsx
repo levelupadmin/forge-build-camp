@@ -6,7 +6,7 @@ const personas = [
   { icon: Zap, title: "The Founder", desc: "You want AI leverage in your business. Automate work, build faster, stop depending on developers." },
   { icon: Megaphone, title: "The Marketer", desc: "You want to create better content, automate campaigns, and use AI to scale what you already do." },
   { icon: Clapperboard, title: "The Creator", desc: "You want to explore AI filmmaking, AI content tools, and what the new creative stack actually looks like." },
-  { icon: HardHat, title: "The Builder", desc: "You have an idea and want to ship an MVP. Lovable, Replit, and AI APIs are your new toolkit." },
+  { icon: HardHat, title: "The Builder", desc: "You have an idea and want to ship an MVP. AI tools are your new toolkit." },
   { icon: Wrench, title: "The Operator", desc: "You want to automate workflows, cut manual work, and run your business more efficiently." },
   { icon: Rocket, title: "The Curious One", desc: "You just know AI matters and you want to learn it by actually building something real." },
 ];
@@ -14,7 +14,7 @@ const personas = [
 const WhoIsFor = () => {
   return (
     <SectionWrapper label="WHO THIS IS FOR">
-      <h2 className="font-syne font-[800] text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-12">
+      <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-12">
         Built for people who<br />learn by doing.
       </h2>
 

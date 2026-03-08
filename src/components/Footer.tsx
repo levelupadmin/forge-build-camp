@@ -19,13 +19,13 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-20">
         <div className="grid md:grid-cols-3 gap-10">
           <div>
-            <p className="font-syne font-[800] text-foreground text-[16px]">FORGE AI RESIDENCY</p>
+            <p className="font-bold text-foreground text-[16px]">FORGE AI RESIDENCY</p>
             <p className="text-[13px] text-forge-muted mt-1">A Forge Program by LevelUp Learning</p>
             <p className="text-sm text-primary mt-2">Learn AI by Building with AI.</p>
           </div>
 
           <div>
-            <p className="text-[12px] text-forge-dim uppercase font-medium mb-3">Program</p>
+            <p className="text-[12px] text-forge-dim uppercase font-semibold mb-3">Program</p>
             <div className="flex flex-col gap-2">
               {footerLinks.program.map((l) => (
                 <a key={l.label} href={l.href} className="text-sm text-forge-muted hover:text-foreground transition-colors">
@@ -36,7 +36,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <p className="text-[12px] text-forge-dim uppercase font-medium mb-3">Connect</p>
+            <p className="text-[12px] text-forge-dim uppercase font-semibold mb-3">Connect</p>
             <div className="flex flex-col gap-2">
               {footerLinks.connect.map((l) => (
                 <a key={l.label} href={l.href} className="text-sm text-forge-muted hover:text-foreground transition-colors">
@@ -49,7 +49,7 @@ const Footer = () => {
 
         <div className="border-t border-[rgba(255,255,255,0.06)] mt-8 pt-6 text-center">
           <p className="text-[12px] text-forge-dim">
-            © 2025 Forge by LevelUp Learning &middot; All rights reserved &middot; Cohort 01 &middot; Dharamshala
+            © 2025 Forge by LevelUp Learning · All rights reserved · Cohort 01
           </p>
         </div>
       </div>
