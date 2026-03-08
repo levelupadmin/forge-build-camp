@@ -29,7 +29,7 @@ const SocialProof = () => {
         What happens when you<br />build with the right people.
       </h2>
 
-      <p className="text-sm text-forge-dim text-center mb-8">
+      <p className="text-sm text-muted-foreground/50 text-center mb-8">
         These quotes are from past Forge residential programs in filmmaking and content creation. Forge AI Residency follows the same format. Immersive. Mentor-led. Build-first.
       </p>
 
