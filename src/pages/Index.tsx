@@ -35,6 +35,7 @@ const Index = () => {
       <WhyAINow />
       <Contrast />
       <Experience />
+      <Trailer />
       <Pillars onOpenModal={openModal} />
       <OnlinePrep />
       <Schedule />

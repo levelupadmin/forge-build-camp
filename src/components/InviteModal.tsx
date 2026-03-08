@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, CheckCircle2 } from "lucide-react";
+import { X, CheckCircle2, Info } from "lucide-react";
 
 interface InviteModalProps {
   isOpen: boolean;
@@ -41,7 +41,7 @@ const InviteModal = ({ isOpen, onClose }: InviteModalProps) => {
     }, 300);
   };
 
-  const inputClass = "w-full bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.10)] rounded-[10px] px-4 py-3.5 text-foreground placeholder:text-forge-dim focus:border-primary/50 focus:outline-none transition-colors";
+  const inputClass = "w-full bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.10)] rounded-[10px] px-4 py-3.5 text-foreground placeholder:text-muted-foreground/40 focus:border-primary/50 focus:outline-none transition-colors";
 
   return (
     <AnimatePresence>
@@ -60,19 +60,27 @@ const InviteModal = ({ isOpen, onClose }: InviteModalProps) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed z-50 bottom-0 left-0 right-0 md:bottom-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-[480px] bg-forge-surface rounded-t-[20px] md:rounded-[20px] border-t-[3px] border-t-primary max-h-[90vh] overflow-y-auto scrollbar-hide"
+            className="fixed z-50 bottom-0 left-0 right-0 md:bottom-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-[480px] bg-card rounded-t-[20px] md:rounded-[20px] border-t-[3px] border-t-primary max-h-[90vh] overflow-y-auto scrollbar-hide"
           >
             <div className="p-7 md:p-8">
               {!submitted ? (
                 <>
-                  <div className="flex items-start justify-between mb-6">
+                  <div className="flex items-start justify-between mb-4">
                     <div>
                       <h3 className="font-bold text-[22px] text-foreground">Request an Invite</h3>
-                      <p className="text-sm text-forge-muted mt-1">We review every application and reply within 48 hours.</p>
+                      <p className="text-sm text-muted-foreground mt-1">We review every application and reply within 48 hours.</p>
                     </div>
-                    <button onClick={handleClose} className="text-forge-muted hover:text-foreground p-1 -mr-1 -mt-1">
+                    <button onClick={handleClose} className="text-muted-foreground hover:text-foreground p-1 -mr-1 -mt-1">
                       <X size={20} />
                     </button>
+                  </div>
+
+                  {/* Application fee note */}
+                  <div className="flex items-start gap-2.5 bg-primary/[0.06] border border-primary/15 rounded-xl px-4 py-3 mb-5">
+                    <Info size={16} className="text-primary mt-0.5 shrink-0" />
+                    <p className="text-[13px] text-primary/80 leading-relaxed">
+                      A small application fee of <span className="font-bold text-primary">₹500</span> is charged after review to confirm your seat. No payment required now.
+                    </p>
                   </div>
 
                   <form onSubmit={handleSubmit} className="flex flex-col gap-3">
@@ -97,9 +105,9 @@ const InviteModal = ({ isOpen, onClose }: InviteModalProps) => {
                     <CheckCircle2 className="text-primary mx-auto" size={64} />
                   </motion.div>
                   <h3 className="font-bold text-[26px] text-foreground mt-4">You're on the list.</h3>
-                  <p className="text-[15px] text-forge-muted mt-2">Our team will reach out on WhatsApp within 48 hours with next steps.</p>
-                  <p className="text-[13px] text-forge-dim mt-3">Follow @leveluplearning on Instagram for Cohort 01 announcements.</p>
-                  <button onClick={handleClose} className="mt-6 border border-[rgba(255,255,255,0.18)] text-foreground rounded-full px-8 py-3 text-sm hover:border-[rgba(255,255,255,0.3)] transition-colors">
+                  <p className="text-[15px] text-muted-foreground mt-2">Our team will reach out on WhatsApp within 48 hours with next steps.</p>
+                  <p className="text-[13px] text-muted-foreground/50 mt-3">Follow @leveluplearning on Instagram for Cohort 01 announcements.</p>
+                  <button onClick={handleClose} className="mt-6 border border-border text-foreground rounded-full px-8 py-3 text-sm hover:border-foreground/30 transition-colors">
                     Done
                   </button>
                 </div>

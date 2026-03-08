@@ -11,12 +11,12 @@ interface SectionWrapperProps {
 
 const SectionWrapper = ({ id, label, children, className = "", bg = "" }: SectionWrapperProps) => {
   return (
-    <section id={id} className={`py-20 md:py-28 border-t border-[rgba(255,255,255,0.05)] ${bg} ${className}`}>
+    <section id={id} className={`py-20 md:py-28 border-t border-[rgba(255,255,255,0.05)] overflow-hidden ${bg} ${className}`}>
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
+        initial={{ opacity: 0, y: 32 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.55, ease: "easeOut" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         className="max-w-7xl mx-auto px-6 lg:px-20"
       >
         {label && <p className="section-label text-center mb-4">{label}</p>}
