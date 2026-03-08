@@ -27,7 +27,7 @@ const FinalCTA = ({ onOpenModal }: FinalCTAProps) => {
         className="relative z-10 text-center max-w-[720px] mx-auto px-6"
       >
         <p className="text-[11px] text-primary uppercase tracking-[0.18em] mb-6 font-semibold">
-          COHORT 01 · LIMITED SEATS
+          LIMITED SEATS · APPLY NOW
         </p>
 
         <h2 className="font-bold text-[42px] md:text-[72px] leading-[1.08] tracking-[-0.025em] text-foreground">
