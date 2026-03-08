@@ -14,7 +14,7 @@ const Mentors = () => {
         Learn from people who<br /><span className="text-primary">use AI for a living.</span>
       </h2>
 
-      <p className="text-[17px] text-forge-muted max-w-[520px] mx-auto text-center mb-12 leading-relaxed">
+      <p className="text-[17px] text-muted-foreground max-w-[520px] mx-auto text-center mb-12 leading-relaxed">
         Your mentors are not professors. They are builders, creators, and operators who use AI every single day in their work.
       </p>
 
