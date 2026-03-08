@@ -21,7 +21,7 @@ const Contrast = () => {
 
       <div className="max-w-3xl mx-auto">
         <div className="hidden md:grid grid-cols-2 gap-4 mb-4">
-          <span className="text-[13px] text-forge-dim uppercase font-semibold">What others do</span>
+          <span className="text-[13px] text-muted-foreground/50 uppercase font-semibold">What others do</span>
           <span className="text-[13px] text-primary uppercase font-semibold">Forge AI Residency</span>
         </div>
 
@@ -32,10 +32,10 @@ const Contrast = () => {
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="glass-card p-4 md:grid md:grid-cols-2 md:gap-4 flex flex-col gap-3"
+              transition={{ duration: 0.4, delay: i * 0.12 }}
+              className="glass-card backdrop-blur-sm p-4 md:grid md:grid-cols-2 md:gap-4 flex flex-col gap-3"
             >
-              <div className="flex items-start gap-3 text-forge-dim text-sm">
+              <div className="flex items-start gap-3 text-muted-foreground/50 text-sm">
                 <X size={16} className="mt-0.5 shrink-0 opacity-40" />
                 <span>{left}</span>
               </div>

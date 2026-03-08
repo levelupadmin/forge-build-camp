@@ -1,15 +1,22 @@
 import { motion } from "framer-motion";
+import { useParallax } from "@/hooks/use-parallax";
 
 interface FinalCTAProps {
   onOpenModal: () => void;
 }
 
 const FinalCTA = ({ onOpenModal }: FinalCTAProps) => {
+  const scrollY = useParallax();
+
   return (
     <section className="relative py-24 md:py-32 overflow-hidden border-t border-[rgba(255,255,255,0.05)]">
       <div className="absolute inset-0 dot-grid" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full"
-        style={{ background: "radial-gradient(circle, hsla(40,100%,47%,0.10), transparent 70%)" }}
+      <div
+        className="absolute top-1/2 left-1/2 w-[600px] h-[600px] rounded-full will-change-transform"
+        style={{
+          background: "radial-gradient(circle, hsla(40,100%,47%,0.10), transparent 70%)",
+          transform: `translate(-50%, calc(-50% + ${scrollY * 0.1}px))`,
+        }}
       />
 
       <motion.div
@@ -27,7 +34,7 @@ const FinalCTA = ({ onOpenModal }: FinalCTAProps) => {
           9 days from now,<br />you could have built<br /><span className="text-primary">something real.</span>
         </h2>
 
-        <p className="text-[17px] text-forge-muted max-w-[460px] mx-auto mt-4 leading-relaxed">
+        <p className="text-[17px] text-muted-foreground max-w-[460px] mx-auto mt-4 leading-relaxed">
           Cohort 01 is forming now. The people in this room will be building for years.
         </p>
 
@@ -38,7 +45,7 @@ const FinalCTA = ({ onOpenModal }: FinalCTAProps) => {
           Request Your Invite →
         </button>
 
-        <p className="text-[13px] text-forge-dim mt-3">
+        <p className="text-[13px] text-muted-foreground/40 mt-3">
           Applications reviewed within 48 hours · Not first come, first served
         </p>
       </motion.div>

@@ -23,11 +23,11 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
         Everything included.<br />One price.
       </h2>
 
-      <div className="max-w-[520px] mx-auto glass-card p-8 border-[rgba(240,165,0,0.35)] shadow-[0_0_48px_rgba(240,165,0,0.07)]">
+      <div className="max-w-[520px] mx-auto glass-card backdrop-blur-sm p-8 pricing-card-glow">
         <div className="text-center mb-6">
           <span className="text-[11px] text-primary tracking-wider font-semibold uppercase">COHORT 01 · ALL INCLUSIVE</span>
           <p className="font-bold text-[60px] md:text-[68px] text-foreground mt-2 leading-none">₹1,20,000</p>
-          <p className="text-sm text-forge-muted mt-2">per person, everything included</p>
+          <p className="text-sm text-muted-foreground mt-2">per person, everything included</p>
         </div>
 
         <div className="h-px bg-primary/15 my-6" />
@@ -42,7 +42,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
 
         <div className="h-px bg-primary/15 my-6" />
 
-        <p className="text-[13px] text-amber-dim text-center italic mb-4">
+        <p className="text-[13px] text-primary/55 text-center italic mb-4">
           Early invite requests may receive priority pricing. Seats are reviewed. Not first come, first served.
         </p>
 

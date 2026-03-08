@@ -1,30 +1,42 @@
 import { motion } from "framer-motion";
+import { useParallax } from "@/hooks/use-parallax";
 
 interface HeroProps {
   onOpenModal: () => void;
 }
 
 const Hero = ({ onOpenModal }: HeroProps) => {
+  const scrollY = useParallax();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-30"
-        poster="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=1920&q=80"
+      {/* Background video with parallax */}
+      <div
+        className="absolute inset-0 will-change-transform"
+        style={{ transform: `translateY(${scrollY * 0.3}px)` }}
       >
-        <source src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4" type="video/mp4" />
-      </video>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-30 scale-110"
+          poster="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=1920&q=80"
+        >
+          <source src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4" type="video/mp4" />
+        </video>
+      </div>
 
       {/* Dark overlay on video */}
       <div className="absolute inset-0 bg-background/70" />
 
-      {/* Amber glow blob */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full amber-glow-blob"
-        style={{ background: "radial-gradient(circle, hsla(40,100%,47%,0.08), transparent 70%)" }}
+      {/* Amber glow blob with parallax */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full amber-glow-blob will-change-transform"
+        style={{
+          background: "radial-gradient(circle, hsla(40,100%,47%,0.08), transparent 70%)",
+          transform: `translate(-50%, calc(-50% + ${scrollY * 0.15}px))`,
+        }}
       />
 
       {/* Content */}
@@ -41,7 +53,7 @@ const Hero = ({ onOpenModal }: HeroProps) => {
         </h1>
 
         {/* Tagline */}
-        <p className="mt-6 text-[15px] md:text-[17px] text-forge-muted tracking-wide">
+        <p className="mt-6 text-[15px] md:text-[17px] text-muted-foreground tracking-wide">
           <span className="text-primary font-semibold">20 builders</span> × <span className="text-primary font-semibold">9 days</span> × <span className="text-primary font-semibold">1 room</span> = Infinite learning
         </p>
 

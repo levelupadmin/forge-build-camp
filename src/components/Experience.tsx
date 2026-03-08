@@ -1,5 +1,7 @@
 import { Home, Users, Wifi } from "lucide-react";
+import { motion } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
+import { useParallax } from "@/hooks/use-parallax";
 
 const features = [
   { icon: Home, title: "Fully Residential", desc: "Stay, meals, and internet included for the entire program." },
@@ -8,6 +10,8 @@ const features = [
 ];
 
 const Experience = () => {
+  const scrollY = useParallax();
+
   return (
     <SectionWrapper id="experience" label="THE RESIDENCY">
       <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-12">
@@ -16,16 +20,16 @@ const Experience = () => {
 
       <div className="grid md:grid-cols-[55%_45%] gap-10 items-start">
         <div>
-          <p className="text-[17px] leading-[1.75] text-forge-muted">
+          <p className="text-[17px] leading-[1.75] text-muted-foreground">
             You pack a bag. You leave the city behind.<br />
             For 9 days, you have one job: build with AI.
           </p>
-          <p className="text-[17px] leading-[1.75] text-forge-muted mt-4">
+          <p className="text-[17px] leading-[1.75] text-muted-foreground mt-4">
             No Zoom calls. No commute. No distractions.<br />
             Just you, a room full of serious builders,<br className="hidden md:block" />
             expert mentors, and complete focus.
           </p>
-          <p className="text-[17px] leading-[1.75] text-forge-muted mt-4">
+          <p className="text-[17px] leading-[1.75] text-muted-foreground mt-4">
             This is what learning feels like when<br className="hidden md:block" />
             you actually commit.
           </p>
@@ -36,26 +40,38 @@ const Experience = () => {
                 <f.icon className="text-primary mt-1 shrink-0" size={20} />
                 <div>
                   <p className="font-semibold text-foreground text-[15px]">{f.title}</p>
-                  <p className="text-sm text-forge-muted">{f.desc}</p>
+                  <p className="text-sm text-muted-foreground">{f.desc}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
+        {/* Image with parallax */}
         <div className="relative rounded-2xl overflow-hidden aspect-[16/9] md:aspect-[4/5]">
-          <img
-            src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800&q=80"
-            alt="Mountain retreat for AI residency"
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
+          <div
+            className="absolute inset-[-10%] will-change-transform"
+            style={{ transform: `translateY(${scrollY * -0.08}px)` }}
+          >
+            <img
+              src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800&q=80"
+              alt="Mountain retreat for AI residency"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
           <div className="absolute inset-0 rounded-2xl shadow-[inset_0_0_0_1px_rgba(240,165,0,0.15)]" />
         </div>
       </div>
 
-      {/* Pull quote */}
-      <div className="mt-16 text-center">
+      {/* Pull quote with parallax offset */}
+      <motion.div
+        className="mt-16 text-center"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
         <div className="flex items-center justify-center gap-4">
           <div className="hidden md:block h-px w-16 bg-primary/30" />
           <p className="font-bold text-[28px] md:text-[38px] text-primary leading-tight">
@@ -63,7 +79,7 @@ const Experience = () => {
           </p>
           <div className="hidden md:block h-px w-16 bg-primary/30" />
         </div>
-      </div>
+      </motion.div>
     </SectionWrapper>
   );
 };

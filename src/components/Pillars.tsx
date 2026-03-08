@@ -72,7 +72,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="glass-card p-6 md:p-8 relative overflow-hidden"
+            className="glass-card backdrop-blur-sm p-6 md:p-8 relative overflow-hidden hover:-translate-y-[2px] transition-transform duration-300"
           >
             <span className="absolute top-4 right-6 font-bold text-[72px] text-primary/[0.12] leading-none select-none">
               {p.num}
@@ -82,17 +82,17 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
               <span className="text-[11px] text-primary border border-primary/30 rounded-full px-3 py-1 font-semibold uppercase tracking-wider">
                 {p.tag}
               </span>
-              <span className="text-[13px] text-forge-dim">{p.days}</span>
+              <span className="text-[13px] text-muted-foreground/50">{p.days}</span>
             </div>
 
             <h3 className="font-bold text-[22px] md:text-[26px] text-foreground mb-3 relative z-10">
               {p.title}
             </h3>
 
-            <p className="text-[15px] text-forge-muted leading-[1.7] mb-6 relative z-10">{p.body}</p>
+            <p className="text-[15px] text-muted-foreground leading-[1.7] mb-6 relative z-10">{p.body}</p>
 
             <div className="bg-[rgba(0,0,0,0.4)] border-l-2 border-primary rounded-[10px] p-4 mb-6 relative z-10">
-              <p className="text-[13px] text-forge-dim font-semibold mb-2">You'll build:</p>
+              <p className="text-[13px] text-muted-foreground/50 font-semibold mb-2">You'll build:</p>
               {p.builds.map((b) => (
                 <p key={b} className="text-sm text-foreground leading-relaxed">
                   <span className="text-primary mr-2">✦</span>{b}
@@ -102,7 +102,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
 
             <div className="flex flex-wrap gap-2 relative z-10">
               {p.tools.map((t) => (
-                <span key={t} className="text-[11px] text-forge-dim border border-[rgba(255,255,255,0.08)] rounded-full px-3 py-1 font-semibold">
+                <span key={t} className="text-[11px] text-muted-foreground/50 border border-border rounded-full px-3 py-1 font-semibold">
                   {t}
                 </span>
               ))}
@@ -112,7 +112,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
       </div>
 
       <div className="text-center mt-12">
-        <p className="text-forge-muted mb-4">Ready to build all three?</p>
+        <p className="text-muted-foreground mb-4">Ready to build all three?</p>
         <button onClick={onOpenModal} className="w-full sm:w-auto bg-primary text-primary-foreground font-semibold rounded-full px-8 py-4 sm:py-3.5 text-base cta-pulse">
           Request an Invite →
         </button>

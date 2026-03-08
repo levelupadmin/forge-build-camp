@@ -141,6 +141,19 @@
   background: hsla(var(--bg-card));
   border: 1px solid hsla(var(--border-card));
   border-radius: 16px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Pricing card ambient glow */
+@keyframes pricing-glow {
+  0%, 100% { border-color: rgba(240,165,0,0.25); box-shadow: 0 0 48px rgba(240,165,0,0.05); }
+  50% { border-color: rgba(240,165,0,0.45); box-shadow: 0 0 64px rgba(240,165,0,0.10); }
+}
+
+.pricing-card-glow {
+  animation: pricing-glow 4s ease-in-out infinite;
+  border-color: rgba(240,165,0,0.35);
 }
 
 /* Marquee fade mask */
