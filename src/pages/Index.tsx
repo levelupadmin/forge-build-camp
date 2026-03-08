@@ -7,6 +7,7 @@ import WhyAINow from "@/components/WhyAINow";
 import Contrast from "@/components/Contrast";
 import Experience from "@/components/Experience";
 import Pillars from "@/components/Pillars";
+import Trailer from "@/components/Trailer";
 import OnlinePrep from "@/components/OnlinePrep";
 import Schedule from "@/components/Schedule";
 import Outcomes from "@/components/Outcomes";
