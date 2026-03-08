@@ -57,7 +57,7 @@ const Schedule = () => {
 
           {schedule.map((s, i) => (
             <div key={i} className="relative md:pl-10 mb-1">
-              <div className="hidden md:block absolute left-0 top-5 w-[23px] h-[23px] rounded-full border-2 border-primary/40 bg-forge-bg z-10">
+              <div className="hidden md:block absolute left-0 top-5 w-[23px] h-[23px] rounded-full border-2 border-primary/40 bg-background z-10">
                 <div className="w-2.5 h-2.5 rounded-full bg-primary absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
               </div>
 
