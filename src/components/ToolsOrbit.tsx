@@ -83,7 +83,14 @@ const ToolsOrbit = () => {
                   className="w-full h-full object-contain"
                   style={{ filter: svgFilter }}
                   loading="lazy"
-                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                  onError={(e) => {
+                    const img = e.target as HTMLImageElement;
+                    img.style.display = 'none';
+                    const span = document.createElement('span');
+                    span.className = 'text-[9px] font-bold text-primary';
+                    span.textContent = fallbackInitials[tool.name] || tool.name.slice(0,2).toUpperCase();
+                    img.parentElement?.appendChild(span);
+                  }}
                 />
               </div>
               <span className="text-[8px] md:text-[11px] text-muted-foreground mt-1 md:mt-1.5 font-semibold whitespace-nowrap">
