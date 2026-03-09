@@ -67,7 +67,7 @@ const InviteModal = ({ isOpen, onClose }: InviteModalProps) => {
                 <>
                   <div className="flex items-start justify-between mb-4">
                     <div>
-                      <h3 className="font-bold text-[22px] text-foreground">Request an Invite</h3>
+                      <h3 className="font-bold text-[22px] text-foreground">REQUEST AN INVITE</h3>
                       <p className="text-sm text-muted-foreground mt-1">We review every application and reply within 48 hours.</p>
                     </div>
                     <button onClick={handleClose} className="text-muted-foreground hover:text-foreground p-1 -mr-1 -mt-1">

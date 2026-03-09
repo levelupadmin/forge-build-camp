@@ -42,7 +42,7 @@ const FinalCTA = ({ onOpenModal }: FinalCTAProps) => {
           onClick={onOpenModal}
           className="mt-8 w-full sm:w-auto sm:min-w-[280px] bg-primary text-primary-foreground font-semibold rounded-full px-10 py-4 text-lg cta-pulse"
         >
-          Request Your Invite
+          REQUEST AN INVITE
         </button>
 
         <p className="text-[13px] text-muted-foreground/40 mt-3">

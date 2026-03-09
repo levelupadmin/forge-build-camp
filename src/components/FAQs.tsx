@@ -30,7 +30,7 @@ const faqs = [
   },
   {
     q: "How does the invite process work?",
-    a: "Tap Request an Invite, fill in a short form, and our team reviews within 48 hours. We select based on fit and intent, not just whoever applies first.",
+    a: "Tap REQUEST AN INVITE, fill in a short form, and our team reviews within 48 hours. We select based on fit and intent, not just whoever applies first.",
   },
   {
     q: "Why pay for this when there is so much free AI content out there?",
