@@ -114,7 +114,7 @@ const ToolsOrbit = () => {
                   src={tool.logo}
                   alt={tool.name}
                   className="w-full h-full object-contain"
-                  style={{ filter: tool.name === "Lovable" ? "none" : svgFilter }}
+                  style={{ filter: (tool.name === "Lovable" || tool.name === "Claude") ? "none" : svgFilter }}
                   loading="lazy"
                   onError={(e) => {
                     const img = e.target as HTMLImageElement;
