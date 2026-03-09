@@ -9,7 +9,7 @@ const innerTools: ToolItem[] = [
   { name: "ChatGPT", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg" },
   { name: "Midjourney", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/midjourney.svg" },
   { name: "Runway", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/runwayml.svg" },
-  { name: "Claude", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/anthropic.svg" },
+  { name: "Claude", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Claude_AI_logo.svg/480px-Claude_AI_logo.svg.png" },
   { name: "Lovable", logo: "https://lovable.dev/icon.svg" },
   { name: "ElevenLabs", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/elevenlabs.svg" },
 ];
@@ -93,9 +93,6 @@ const ToolsOrbit = () => {
                   }}
                 />
               </div>
-              <span className="text-[8px] md:text-[11px] text-muted-foreground mt-1 md:mt-1.5 font-semibold whitespace-nowrap">
-                {tool.name}
-              </span>
             </div>
           );
         })}
@@ -117,7 +114,7 @@ const ToolsOrbit = () => {
                   src={tool.logo}
                   alt={tool.name}
                   className="w-full h-full object-contain"
-                  style={{ filter: tool.name === "Lovable" ? "none" : svgFilter }}
+                  style={{ filter: (tool.name === "Lovable" || tool.name === "Claude") ? "none" : svgFilter }}
                   loading="lazy"
                   onError={(e) => {
                     const img = e.target as HTMLImageElement;
@@ -129,9 +126,6 @@ const ToolsOrbit = () => {
                   }}
                 />
               </div>
-              <span className="text-[9px] md:text-[12px] text-muted-foreground mt-1 md:mt-1.5 font-semibold whitespace-nowrap">
-                {tool.name}
-              </span>
             </div>
           );
         })}
