@@ -19,7 +19,7 @@ const SectionWrapper = ({ id, label, children, className = "", bg = "" }: Sectio
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="max-w-7xl mx-auto px-6 lg:px-20"
       >
-        {label && <p className="section-label text-center mb-4">{label}</p>}
+        
         {children}
       </motion.div>
     </section>
