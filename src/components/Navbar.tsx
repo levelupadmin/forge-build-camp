@@ -62,7 +62,7 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
               onClick={onOpenModal}
               className="bg-primary text-primary-foreground font-semibold text-[13px] rounded-full px-5 py-2.5 hover:opacity-90 transition-opacity"
             >
-              Request an Invite
+              REQUEST AN INVITE
             </button>
           </div>
 
