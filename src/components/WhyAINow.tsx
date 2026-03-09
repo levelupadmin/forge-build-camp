@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { TrendingUp, Zap, Clock } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
 import { useMemo } from "react";
 
