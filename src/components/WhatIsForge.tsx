@@ -10,8 +10,12 @@ const stats = [
 const WhatIsForge = () => {
   return (
     <SectionWrapper id="what-is-forge" label="THE RESIDENCY">
-      <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-6">
-        What is the Forge<br />AI Residency?
+      <p className="text-[18px] md:text-[22px] text-muted-foreground text-center mb-2 font-medium">What is</p>
+      <h2 className="font-bold text-[48px] md:text-[80px] leading-[1.0] tracking-tight text-foreground text-center mb-2">
+        the <span className="text-primary">Forge</span>
+      </h2>
+      <h2 className="font-bold text-[48px] md:text-[80px] leading-[1.0] tracking-tight text-foreground text-center mb-8">
+        AI Residency
       </h2>
 
       <p className="text-[17px] leading-[1.75] text-muted-foreground text-center max-w-[600px] mx-auto mb-12">
