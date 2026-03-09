@@ -126,9 +126,6 @@ const ToolsOrbit = () => {
                   }}
                 />
               </div>
-              <span className="text-[9px] md:text-[12px] text-muted-foreground mt-1 md:mt-1.5 font-semibold whitespace-nowrap">
-                {tool.name}
-              </span>
             </div>
           );
         })}

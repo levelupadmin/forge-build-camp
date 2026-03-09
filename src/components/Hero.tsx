@@ -23,7 +23,7 @@ const Hero = ({ onOpenModal }: HeroProps) => {
           className="absolute inset-0 w-full h-full object-cover opacity-30 scale-110"
           poster="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=1920&q=80"
         >
-          <source src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4" type="video/mp4" />
+          <source src="/hero-bg.mp4" type="video/mp4" />
         </video>
       </div>
 
