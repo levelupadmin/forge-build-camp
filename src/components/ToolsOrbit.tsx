@@ -23,9 +23,18 @@ const outerTools: ToolItem[] = [
   { name: "Canva", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/canva.svg" },
   { name: "Zapier", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/zapier.svg" },
   { name: "Pika", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/pika.svg" },
-  { name: "Kling", logo: "https://framerusercontent.com/images/qjHqKmjvvVUhcGIaxPhBdN7Fmo.png" },
+  { name: "Kling", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/kling.svg" },
   { name: "Airtable", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/airtable.svg" },
 ];
+
+// Fallback text initials for logos that fail to load
+const fallbackInitials: Record<string, string> = {
+  "Midjourney": "MJ",
+  "ElevenLabs": "EL",
+  "Pika": "PK",
+  "Kling": "KL",
+  "HeyGen": "HG",
+};
 
 // Simple Icons are monochrome SVGs — render them white-tinted via CSS filter
 const svgFilter = "brightness(0) invert(1)";
