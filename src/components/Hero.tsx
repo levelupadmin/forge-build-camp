@@ -47,12 +47,11 @@ const Hero = ({ onOpenModal }: HeroProps) => {
         className="relative z-10 text-center max-w-[720px] px-6"
       >
         <h1 className="font-bold text-[40px] md:text-[72px] leading-[1.08] md:leading-[1.05] tracking-[-0.025em] text-foreground">
-          Learn AI by<br />
-          <span className="text-primary">Building</span> with AI.
+          the <span className="text-primary">Forge</span> AI Residency
         </h1>
 
-        <p className="mt-6 text-[15px] md:text-[17px] text-muted-foreground tracking-wide">
-          <span className="text-primary font-semibold">20 builders</span> × <span className="text-primary font-semibold">15 days</span> × <span className="text-primary font-semibold">1 room</span> = Infinite learning
+        <p className="mt-6 text-[15px] md:text-[17px] text-muted-foreground tracking-wide leading-relaxed max-w-[600px] mx-auto">
+          An invite-only residency designed to help you learn AI by building, experimenting, and launching while collaborating with a community of like-minded builders.
         </p>
 
         <div className="mt-8">
