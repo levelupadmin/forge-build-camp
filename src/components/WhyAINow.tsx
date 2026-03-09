@@ -124,9 +124,9 @@ const WhyAINow = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.4 }}
-        className="text-center text-[15px] text-muted-foreground mt-6 mb-14 max-w-[460px] mx-auto leading-relaxed"
+        className="text-center text-[22px] md:text-[28px] text-muted-foreground mt-8 mb-14 max-w-[600px] mx-auto leading-snug font-medium"
       >
-        That tiny sliver of builders? That's where <span className="text-foreground font-semibold">Forge puts you.</span>
+        That tiny sliver of builders?<br />That's where <span className="text-foreground font-bold">Forge puts you.</span>
       </motion.p>
     </SectionWrapper>
   );
