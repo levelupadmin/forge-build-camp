@@ -6,26 +6,29 @@ interface ToolItem {
 }
 
 const innerTools: ToolItem[] = [
-  { name: "ChatGPT", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/512px-ChatGPT_logo.svg.png" },
-  { name: "Midjourney", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Midjourney_Emblem.png/480px-Midjourney_Emblem.png" },
-  { name: "Runway", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Runway_AI_logo.png/480px-Runway_AI_logo.png" },
-  { name: "Claude", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Claude_AI_logo.svg/480px-Claude_AI_logo.svg.png" },
+  { name: "ChatGPT", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg" },
+  { name: "Midjourney", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/midjourney.svg" },
+  { name: "Runway", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/runwayml.svg" },
+  { name: "Claude", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/anthropic.svg" },
   { name: "Lovable", logo: "https://lovable.dev/icon.svg" },
-  { name: "ElevenLabs", logo: "https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/mn2vswkulfsiqhvbhmgj" },
+  { name: "ElevenLabs", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/elevenlabs.svg" },
 ];
 
 const outerTools: ToolItem[] = [
-  { name: "n8n", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/N8n-logo.svg/480px-N8n-logo.svg.png" },
-  { name: "Make", logo: "https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/iajnrmadtmmhpvkfhmne" },
-  { name: "Replit", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Replit_Logo.svg/480px-Replit_Logo.svg.png" },
-  { name: "HeyGen", logo: "https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/b1c5d45f1fbe4ebba5fe3ae46d72ec76" },
-  { name: "Supabase", logo: "https://cf-assets.www.cloudflare.com/slt3lc6tev37/3VFGwGzKOixuAiwsJPOXY4/26c1e99ff59b17beb1e3c97fdef5e218/supabase.png" },
-  { name: "Pika", logo: "https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/0c4b45da04d04e598764e8aa7d9c84cf" },
-  { name: "Canva", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Canva_icon_2021.svg/480px-Canva_icon_2021.svg.png" },
-  { name: "Higgsfield", logo: "https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/e80c45be01d14f1f95a9b0ebeac7f6b7" },
-  { name: "Kling", logo: "https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/ydmntpglmvfqmhpfmwjd" },
-  { name: "Zapier", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Zapier_logo.svg/480px-Zapier_logo.svg.png" },
+  { name: "n8n", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/n8n.svg" },
+  { name: "Make", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/make.svg" },
+  { name: "Replit", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/replit.svg" },
+  { name: "HeyGen", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/heygen.svg" },
+  { name: "Supabase", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/supabase.svg" },
+  { name: "Canva", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/canva.svg" },
+  { name: "Zapier", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/zapier.svg" },
+  { name: "Pika", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/pika.svg" },
+  { name: "Kling", logo: "https://framerusercontent.com/images/qjHqKmjvvVUhcGIaxPhBdN7Fmo.png" },
+  { name: "Airtable", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/airtable.svg" },
 ];
+
+// Simple Icons are monochrome SVGs — render them white-tinted via CSS filter
+const svgFilter = "brightness(0) invert(1)";
 
 const ToolsOrbit = () => {
   const outerRadius = 240;
@@ -52,24 +55,27 @@ const ToolsOrbit = () => {
           }}
         />
 
-        {/* Outer tools - static positioned */}
+        {/* Outer tools */}
         {outerTools.map((tool, i) => {
           const angle = (i / outerTools.length) * Math.PI * 2 - Math.PI / 2;
-          const r = 50; // percentage from center
+          const r = 50;
           const x = 50 + r * Math.cos(angle);
           const y = 50 + r * Math.sin(angle);
           return (
             <div
               key={tool.name}
               className="absolute flex flex-col items-center"
-              style={{
-                left: `${x}%`,
-                top: `${y}%`,
-                transform: "translate(-50%, -50%)",
-              }}
+              style={{ left: `${x}%`, top: `${y}%`, transform: "translate(-50%, -50%)" }}
             >
-              <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl bg-card border border-border flex items-center justify-center shadow-lg overflow-hidden p-1.5 md:p-2">
-                <img src={tool.logo} alt={tool.name} className="w-full h-full object-contain" loading="lazy" />
+              <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl bg-card border border-border flex items-center justify-center shadow-lg overflow-hidden p-2 md:p-2.5">
+                <img
+                  src={tool.logo}
+                  alt={tool.name}
+                  className="w-full h-full object-contain"
+                  style={{ filter: svgFilter }}
+                  loading="lazy"
+                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                />
               </div>
               <span className="text-[8px] md:text-[11px] text-muted-foreground mt-1 md:mt-1.5 font-semibold whitespace-nowrap">
                 {tool.name}
@@ -78,7 +84,7 @@ const ToolsOrbit = () => {
           );
         })}
 
-        {/* Inner tools - static positioned */}
+        {/* Inner tools */}
         {innerTools.map((tool, i) => {
           const angle = (i / innerTools.length) * Math.PI * 2 - Math.PI / 2;
           const r = 30;
@@ -88,14 +94,17 @@ const ToolsOrbit = () => {
             <div
               key={tool.name}
               className="absolute flex flex-col items-center"
-              style={{
-                left: `${x}%`,
-                top: `${y}%`,
-                transform: "translate(-50%, -50%)",
-              }}
+              style={{ left: `${x}%`, top: `${y}%`, transform: "translate(-50%, -50%)" }}
             >
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-card border border-border flex items-center justify-center shadow-lg overflow-hidden p-2 md:p-2.5">
-                <img src={tool.logo} alt={tool.name} className="w-full h-full object-contain" loading="lazy" />
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-card border border-border flex items-center justify-center shadow-lg overflow-hidden p-2 md:p-3">
+                <img
+                  src={tool.logo}
+                  alt={tool.name}
+                  className="w-full h-full object-contain"
+                  style={{ filter: tool.name === "Lovable" ? "none" : svgFilter }}
+                  loading="lazy"
+                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                />
               </div>
               <span className="text-[9px] md:text-[12px] text-muted-foreground mt-1 md:mt-1.5 font-semibold whitespace-nowrap">
                 {tool.name}
