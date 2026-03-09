@@ -104,13 +104,31 @@ const WhyAINow = () => {
         Every industry is being reshaped by AI. The question is not whether you should learn it. The question is how fast you can start building with it.
       </p>
 
+      {/* Insight callout — placed BEFORE the dot grid */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="max-w-[600px] mx-auto mb-12"
+      >
+        <div className="glass-card backdrop-blur-sm p-6 border-l-2 border-primary">
+          <p className="text-[17px] text-foreground leading-relaxed font-semibold mb-2">
+            You think AI is crowded because you're in an echo chamber.
+          </p>
+          <p className="text-[15px] text-muted-foreground leading-relaxed">
+            The real world hasn't even started. The builders who move now will define the next decade.
+          </p>
+        </div>
+      </motion.div>
+
       {/* Dot grid visualization */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="mb-6"
+        className="mb-4"
       >
         <p className="text-center font-bold text-[20px] md:text-[26px] text-foreground mb-1">
           Each dot is ~3.2 million people
@@ -121,23 +139,16 @@ const WhyAINow = () => {
         <DotGrid />
       </motion.div>
 
-      {/* Insight callout */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
+      {/* Caption below matrix */}
+      <motion.p
+        initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        className="max-w-[600px] mx-auto mt-10 mb-14"
+        transition={{ duration: 0.5, delay: 0.4 }}
+        className="text-center text-[15px] text-muted-foreground mt-6 mb-14 max-w-[460px] mx-auto leading-relaxed"
       >
-        <div className="glass-card backdrop-blur-sm p-6 border-l-2 border-primary">
-          <p className="text-[17px] text-foreground leading-relaxed font-semibold mb-2">
-            You think AI is crowded because you're in an echo chamber of the 0.06%.
-          </p>
-          <p className="text-[15px] text-muted-foreground leading-relaxed">
-            The real world hasn't even started. The builders who move now will define the next era. That tiny amber sliver? That's where Forge puts you.
-          </p>
-        </div>
-      </motion.div>
+        That tiny sliver of builders? That's where <span className="text-foreground font-semibold">Forge puts you.</span>
+      </motion.p>
 
       <div className="grid md:grid-cols-3 gap-4 max-w-[900px] mx-auto">
         {reasons.map((r, i) => (
