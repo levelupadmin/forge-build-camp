@@ -9,7 +9,7 @@ const innerTools: ToolItem[] = [
   { name: "ChatGPT", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg" },
   { name: "Midjourney", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/midjourney.svg" },
   { name: "Runway", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/runwayml.svg" },
-  { name: "Claude", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/anthropic.svg" },
+  { name: "Claude", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Claude_AI_logo.svg/480px-Claude_AI_logo.svg.png" },
   { name: "Lovable", logo: "https://lovable.dev/icon.svg" },
   { name: "ElevenLabs", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/elevenlabs.svg" },
 ];
