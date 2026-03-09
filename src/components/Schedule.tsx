@@ -3,6 +3,135 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
 
+const preps = [
+  { num: "PRE 01", title: "AI Foundations", desc: "What AI can actually do for founders and creators. The honest overview." },
+  { num: "PRE 02", title: "Tool Setup", desc: "Every tool configured, accounts created, and workflows ready before you arrive." },
+  { num: "PRE 03", title: "Prompting Basics", desc: "How to talk to AI so it actually does what you want. Core prompting patterns that carry through all three pillars." },
+  { num: "PRE 04", title: "Your Build Idea", desc: "Lock in your idea for the residency. What you want to automate. What product you want to build. You land with a plan." },
+];
+
+const schedule = [
+  {
+    phase: "DAY 01",
+    title: "Arrive + Orient",
+    desc: "Check in. Meet your group. Meet your mentors. Set your personal build goal.",
+    outcome: "Your roadmap for the next 8 days.",
+  },
+  {
+    phase: "DAYS 02 + 03",
+    title: "AI Creativity Sprint",
+    desc: "Full immersion in AI creative tools. Prompting, image generation, video creation, content workflows.",
+    outcome: "Your first AI creative output. An ad, reel, or short film.",
+  },
+  {
+    phase: "DAYS 04 + 05",
+    title: "Automation Sprint",
+    desc: "Build your first automation. Connect your tools. Create a pipeline that saves you real time.",
+    outcome: "One live automation running by the end of Day 5.",
+  },
+  {
+    phase: "DAYS 06, 07 + 08",
+    title: "Product + Launch Sprint",
+    desc: "Build your MVP. Create a landing page. Set up a basic funnel. Daily mentor feedback sessions. Iterate fast.",
+    outcome: "A working product and a funnel ready to test.",
+  },
+  {
+    phase: "DAY 09",
+    title: "Demo Day",
+    desc: "Present everything you built. Celebrate. Reflect. Leave with proof of work.",
+    outcome: "Three real builds. One unforgettable experience.",
+  },
+];
+
+const Schedule = () => {
+  const [open, setOpen] = useState<number | null>(0);
+
+  return (
+    <SectionWrapper id="schedule" label="THE SCHEDULE">
+      <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-4">
+        Pre-program + 9 days.<br />Here is exactly what happens.
+      </h2>
+
+      {/* Online Prep block */}
+      <div className="max-w-[680px] mx-auto mb-12">
+        <p className="text-[16px] text-muted-foreground text-center mb-6 leading-relaxed">
+          Before you arrive, you get access to a focused online prep series — short daily sessions so you land ready to build from Day 1.
+        </p>
+        <div className="grid sm:grid-cols-2 gap-3">
+          {preps.map((p, i) => (
+            <motion.div
+              key={p.num}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.35, delay: i * 0.07 }}
+              className="glass-card p-4"
+            >
+              <span className="text-[11px] text-primary font-semibold">{p.num}</span>
+              <p className="font-semibold text-foreground mt-1.5 text-[14px]">{p.title}</p>
+              <p className="text-sm text-muted-foreground mt-1">{p.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+        <p className="text-sm text-muted-foreground/50 text-center mt-4 italic">
+          Sessions are recorded. Attend live or catch up at your pace. You just need a laptop and 1–2 hours a day.
+        </p>
+      </div>
+
+      {/* 9-day schedule */}
+      <div className="max-w-[680px] mx-auto">
+        <div className="relative">
+          <div className="hidden md:block absolute left-[11px] top-0 bottom-0 w-px bg-primary/20" />
+
+          {schedule.map((s, i) => (
+            <div key={i} className="relative md:pl-10 mb-1">
+              <div className="hidden md:block absolute left-0 top-5 w-[23px] h-[23px] rounded-full border-2 border-primary/40 bg-background z-10">
+                <div className="w-2.5 h-2.5 rounded-full bg-primary absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+              </div>
+
+              <button
+                onClick={() => setOpen(open === i ? null : i)}
+                className="w-full text-left py-5 border-b border-[rgba(255,255,255,0.06)] flex items-start justify-between gap-4"
+              >
+                <div>
+                  <span className="text-[11px] text-primary tracking-wider font-semibold">{s.phase}</span>
+                  <p className="font-bold text-foreground text-[18px] mt-1">{s.title}</p>
+                </div>
+                <ChevronDown
+                  size={20}
+                  className={`shrink-0 mt-4 text-primary transition-transform duration-200 ${open === i ? "rotate-180" : ""}`}
+                />
+              </button>
+
+              <AnimatePresence>
+                {open === i && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="pb-5 pt-2">
+                      <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                      <p className="text-sm text-primary mt-3">
+                        You'll have: <span className="text-foreground">{s.outcome}</span>
+                      </p>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
+        </div>
+      </div>
+    </SectionWrapper>
+  );
+};
+
+export default Schedule;
+
+
 const schedule = [
   {
     phase: "PRE-PROGRAM",
