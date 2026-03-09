@@ -23,9 +23,18 @@ const outerTools: ToolItem[] = [
   { name: "Canva", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/canva.svg" },
   { name: "Zapier", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/zapier.svg" },
   { name: "Pika", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/pika.svg" },
-  { name: "Kling", logo: "https://framerusercontent.com/images/qjHqKmjvvVUhcGIaxPhBdN7Fmo.png" },
+  { name: "Kling", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/kling.svg" },
   { name: "Airtable", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/airtable.svg" },
 ];
+
+// Fallback text initials for logos that fail to load
+const fallbackInitials: Record<string, string> = {
+  "Midjourney": "MJ",
+  "ElevenLabs": "EL",
+  "Pika": "PK",
+  "Kling": "KL",
+  "HeyGen": "HG",
+};
 
 // Simple Icons are monochrome SVGs — render them white-tinted via CSS filter
 const svgFilter = "brightness(0) invert(1)";
@@ -74,7 +83,14 @@ const ToolsOrbit = () => {
                   className="w-full h-full object-contain"
                   style={{ filter: svgFilter }}
                   loading="lazy"
-                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                  onError={(e) => {
+                    const img = e.target as HTMLImageElement;
+                    img.style.display = 'none';
+                    const span = document.createElement('span');
+                    span.className = 'text-[9px] font-bold text-primary';
+                    span.textContent = fallbackInitials[tool.name] || tool.name.slice(0,2).toUpperCase();
+                    img.parentElement?.appendChild(span);
+                  }}
                 />
               </div>
               <span className="text-[8px] md:text-[11px] text-muted-foreground mt-1 md:mt-1.5 font-semibold whitespace-nowrap">
@@ -103,7 +119,14 @@ const ToolsOrbit = () => {
                   className="w-full h-full object-contain"
                   style={{ filter: tool.name === "Lovable" ? "none" : svgFilter }}
                   loading="lazy"
-                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                  onError={(e) => {
+                    const img = e.target as HTMLImageElement;
+                    img.style.display = 'none';
+                    const span = document.createElement('span');
+                    span.className = 'text-[9px] font-bold text-primary';
+                    span.textContent = fallbackInitials[tool.name] || tool.name.slice(0,2).toUpperCase();
+                    img.parentElement?.appendChild(span);
+                  }}
                 />
               </div>
               <span className="text-[9px] md:text-[12px] text-muted-foreground mt-1 md:mt-1.5 font-semibold whitespace-nowrap">
