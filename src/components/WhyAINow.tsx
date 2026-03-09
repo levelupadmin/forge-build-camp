@@ -85,22 +85,20 @@ const WhyAINow = () => {
         Every industry is being reshaped by AI. The question is not whether you should learn it. The question is how fast you can start building with it.
       </p>
 
-      {/* Insight callout — placed BEFORE the dot grid */}
+      {/* Insight callout */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="max-w-[600px] mx-auto mb-12"
+        className="max-w-[600px] mx-auto mb-12 text-center"
       >
-        <div className="glass-card backdrop-blur-sm p-6 border-l-2 border-primary">
-          <p className="text-[17px] text-foreground leading-relaxed font-semibold mb-2">
-            You think AI is crowded because you're in an echo chamber.
-          </p>
-          <p className="text-[15px] text-muted-foreground leading-relaxed">
-            The real world hasn't even started. The builders who move now will define the next decade.
-          </p>
-        </div>
+        <p className="text-[17px] text-foreground leading-relaxed font-semibold mb-2">
+          You think AI is crowded because you're in an echo chamber.
+        </p>
+        <p className="text-[15px] text-muted-foreground leading-relaxed">
+          The real world hasn't even started. The builders who move now will define the next decade.
+        </p>
       </motion.div>
 
       {/* Dot grid visualization */}
