@@ -2,19 +2,20 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import PoweredBy from "@/components/PoweredBy";
-import ToolsOrbit from "@/components/ToolsOrbit";
 import WhyAINow from "@/components/WhyAINow";
-import Contrast from "@/components/Contrast";
-import Experience from "@/components/Experience";
-import Pillars from "@/components/Pillars";
+import WhatIsForge from "@/components/WhatIsForge";
 import Trailer from "@/components/Trailer";
-import OnlinePrep from "@/components/OnlinePrep";
-import Schedule from "@/components/Schedule";
+import WhoIsFor from "@/components/WhoIsFor";
+import Pillars from "@/components/Pillars";
 import Outcomes from "@/components/Outcomes";
+import ToolsOrbit from "@/components/ToolsOrbit";
+import Schedule from "@/components/Schedule";
 import Mentors from "@/components/Mentors";
+import Experience from "@/components/Experience";
+import Contrast from "@/components/Contrast";
+import OnlinePrep from "@/components/OnlinePrep";
 import Community from "@/components/Community";
 import SocialProof from "@/components/SocialProof";
-import WhoIsFor from "@/components/WhoIsFor";
 import Pricing from "@/components/Pricing";
 import FAQs from "@/components/FAQs";
 import FinalCTA from "@/components/FinalCTA";
@@ -32,19 +33,20 @@ const Index = () => {
       <Navbar onOpenModal={openModal} />
       <Hero onOpenModal={openModal} />
       <PoweredBy />
-      <ToolsOrbit />
       <WhyAINow />
-      <Contrast />
-      <Experience />
+      <WhatIsForge />
       <Trailer />
+      <WhoIsFor />
       <Pillars onOpenModal={openModal} />
-      <OnlinePrep />
-      <Schedule />
       <Outcomes />
+      <ToolsOrbit />
+      <Schedule />
       <Mentors />
+      <Experience />
+      <Contrast />
+      <OnlinePrep />
       <Community />
       <SocialProof />
-      <WhoIsFor />
       <Pricing onOpenModal={openModal} />
       <FAQs />
       <FinalCTA onOpenModal={openModal} />
