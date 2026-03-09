@@ -115,7 +115,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
       <div className="text-center mt-12">
         <p className="text-muted-foreground mb-4">Ready to build all three?</p>
         <button onClick={onOpenModal} className="w-full sm:w-auto bg-primary text-primary-foreground font-semibold rounded-full px-8 py-4 sm:py-3.5 text-base cta-pulse">
-          Request an Invite
+          REQUEST AN INVITE
         </button>
       </div>
     </SectionWrapper>

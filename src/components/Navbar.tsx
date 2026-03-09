@@ -111,7 +111,7 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
                 onClick={() => { setMenuOpen(false); onOpenModal(); }}
                 className="w-full bg-primary text-primary-foreground font-semibold rounded-full py-4 text-base cta-pulse"
               >
-                Request an Invite
+                REQUEST AN INVITE
               </button>
             </div>
           </motion.div>

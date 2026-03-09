@@ -50,7 +50,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
           onClick={onOpenModal}
           className="w-full bg-primary text-primary-foreground font-semibold rounded-xl py-4 text-base cta-pulse"
         >
-          Request an Invite
+          REQUEST AN INVITE
         </button>
       </div>
     </SectionWrapper>
