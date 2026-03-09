@@ -1,13 +1,5 @@
 import { motion } from "framer-motion";
 
-const partners = [
-  "LevelUp Learning",
-  "Google AI",
-  "OpenAI",
-  "Runway",
-  "Lovable",
-];
-
 const PoweredBy = () => {
   return (
     <section className="py-10 border-t border-border">
@@ -21,12 +13,15 @@ const PoweredBy = () => {
         <p className="text-[11px] text-muted-foreground/50 uppercase tracking-[0.18em] text-center mb-6 font-semibold">
           Powered by
         </p>
-        <div className="flex items-center justify-center gap-8 md:gap-12 flex-wrap">
-          {partners.map((p) => (
-            <span key={p} className="text-[14px] text-muted-foreground/50 font-semibold tracking-wide">
-              {p}
-            </span>
-          ))}
+        <div className="flex items-center justify-center gap-3">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Claude_AI_logo.svg/480px-Claude_AI_logo.svg.png"
+            alt="Claude AI"
+            className="w-7 h-7 object-contain"
+          />
+          <span className="text-[16px] text-muted-foreground/70 font-semibold tracking-wide">
+            Claude
+          </span>
         </div>
       </motion.div>
     </section>
