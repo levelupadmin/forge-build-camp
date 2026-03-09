@@ -3,13 +3,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
 
+const preps = [
+  { num: "PRE 01", title: "AI Foundations", desc: "What AI can actually do for founders and creators. The honest overview." },
+  { num: "PRE 02", title: "Tool Setup", desc: "Every tool configured, accounts created, and workflows ready before you arrive." },
+  { num: "PRE 03", title: "Prompting Basics", desc: "How to talk to AI so it actually does what you want. Core prompting patterns that carry through all three pillars." },
+  { num: "PRE 04", title: "Your Build Idea", desc: "Lock in your idea for the residency. What you want to automate. What product you want to build. You land with a plan." },
+];
+
 const schedule = [
-  {
-    phase: "PRE-PROGRAM",
-    title: "Online Prep (before you arrive)",
-    desc: "Short daily sessions covering AI basics, tool setup, and prompting. You arrive knowing your tools and your build idea.",
-    outcome: "Your idea locked. Tools ready. Excited to get there.",
-  },
   {
     phase: "DAY 01",
     title: "Arrive + Orient",
@@ -47,10 +48,37 @@ const Schedule = () => {
 
   return (
     <SectionWrapper id="schedule" label="THE SCHEDULE">
-      <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-12">
-        9 days.<br />Here is exactly what happens.
+      <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-4">
+        Pre-program + 9 days.<br />Here is exactly what happens.
       </h2>
 
+      {/* Online Prep block */}
+      <div className="max-w-[680px] mx-auto mb-12">
+        <p className="text-[16px] text-muted-foreground text-center mb-6 leading-relaxed">
+          Before you arrive, you get access to a focused online prep series — short daily sessions so you land ready to build from Day 1.
+        </p>
+        <div className="grid sm:grid-cols-2 gap-3">
+          {preps.map((p, i) => (
+            <motion.div
+              key={p.num}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.35, delay: i * 0.07 }}
+              className="glass-card p-4"
+            >
+              <span className="text-[11px] text-primary font-semibold">{p.num}</span>
+              <p className="font-semibold text-foreground mt-1.5 text-[14px]">{p.title}</p>
+              <p className="text-sm text-muted-foreground mt-1">{p.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+        <p className="text-sm text-muted-foreground/50 text-center mt-4 italic">
+          Sessions are recorded. Attend live or catch up at your pace. You just need a laptop and 1–2 hours a day.
+        </p>
+      </div>
+
+      {/* 9-day schedule */}
       <div className="max-w-[680px] mx-auto">
         <div className="relative">
           <div className="hidden md:block absolute left-[11px] top-0 bottom-0 w-px bg-primary/20" />
