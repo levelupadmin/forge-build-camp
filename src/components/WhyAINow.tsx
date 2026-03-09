@@ -2,24 +2,6 @@ import { motion } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
 import { useMemo } from "react";
 
-const reasons = [
-  {
-    icon: TrendingUp,
-    title: "AI is moving faster than ever",
-    desc: "New tools launch every week. The gap between people who use AI and people who don't is growing every day.",
-  },
-  {
-    icon: Zap,
-    title: "Builders win. Watchers fall behind.",
-    desc: "Reading about AI is not the same as building with it. The people shipping AI products today will own the next decade.",
-  },
-  {
-    icon: Clock,
-    title: "The window is now",
-    desc: "Right now, AI tools are accessible to everyone. You don't need to code. You don't need a team. You just need to start building.",
-  },
-];
-
 // Dot grid: 50 cols x 50 rows = 2500 dots ≈ 8.1B people
 // Grey: 2100 dots (84% never used AI ~6.8B)
 // Green: 400 dots (16% free chatbot users ~1.3B)
@@ -148,23 +130,6 @@ const WhyAINow = () => {
       >
         That tiny sliver of builders? That's where <span className="text-foreground font-semibold">Forge puts you.</span>
       </motion.p>
-
-      <div className="grid md:grid-cols-3 gap-4 max-w-[900px] mx-auto">
-        {reasons.map((r, i) => (
-          <motion.div
-            key={r.title}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: i * 0.1 }}
-            className="glass-card backdrop-blur-sm p-6"
-          >
-            <r.icon className="text-primary mb-4" size={28} />
-            <p className="font-bold text-foreground text-[17px] mb-2">{r.title}</p>
-            <p className="text-sm text-muted-foreground leading-relaxed">{r.desc}</p>
-          </motion.div>
-        ))}
-      </div>
     </SectionWrapper>
   );
 };
