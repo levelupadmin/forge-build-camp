@@ -11,7 +11,6 @@ import Outcomes from "@/components/Outcomes";
 import ToolsOrbit from "@/components/ToolsOrbit";
 import Schedule from "@/components/Schedule";
 import Mentors from "@/components/Mentors";
-import Contrast from "@/components/Contrast";
 import Community from "@/components/Community";
 import SocialProof from "@/components/SocialProof";
 import Pricing from "@/components/Pricing";
@@ -40,7 +39,6 @@ const Index = () => {
       <ToolsOrbit />
       <Schedule />
       <Mentors />
-      <Contrast />
       <Community />
       <SocialProof />
       <Pricing onOpenModal={openModal} />
