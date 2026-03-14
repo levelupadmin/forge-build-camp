@@ -10,24 +10,23 @@ const mentors = [
 const Mentors = () => {
   return (
     <SectionWrapper id="mentors" label="YOUR MENTORS">
-      <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-4">
-        Learn from people who<br /><span className="text-primary">use AI for a living.</span>
+      <h2 className="font-bold text-[32px] md:text-[52px] leading-[1.1] tracking-tight text-foreground text-center mb-4">
+        Learn from people who<br /><span className="font-serif italic font-normal text-primary">use AI for a living.</span>
       </h2>
 
       <p className="text-[17px] text-muted-foreground max-w-[520px] mx-auto text-center mb-12 leading-relaxed">
         Your mentors are not professors. They are builders, creators, and operators who use AI every single day in their work.
       </p>
 
-      {/* Mentor cards */}
-      <div className="grid md:grid-cols-3 gap-4 max-w-[840px] mx-auto">
+      <div className="grid md:grid-cols-3 gap-5 max-w-[840px] mx-auto">
         {mentors.map((m, i) => (
           <motion.div
             key={m.tag}
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: i * 0.1 }}
-            className="glass-card p-6 text-center"
+            transition={{ duration: 0.5, delay: i * 0.12 }}
+            className="glass-card-hover p-7 text-center"
           >
             <div className="w-20 h-20 rounded-full mx-auto mb-4 bg-[rgba(255,255,255,0.03)] border border-primary/20" />
             <p className="font-bold text-[18px] text-foreground">{m.title}</p>
