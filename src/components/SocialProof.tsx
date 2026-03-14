@@ -25,26 +25,26 @@ const testimonials = [
 const SocialProof = () => {
   return (
     <SectionWrapper label="FROM PAST FORGE PARTICIPANTS">
-      <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-4">
-        What happens when you<br />build with the right people.
+      <h2 className="font-bold text-[32px] md:text-[52px] leading-[1.1] tracking-tight text-foreground text-center mb-4">
+        What happens when you<br />build with the <span className="font-serif italic font-normal text-primary">right people.</span>
       </h2>
 
-      <p className="text-sm text-muted-foreground/50 text-center mb-8">
+      <p className="text-sm text-muted-foreground/50 text-center mb-10">
         These quotes are from past Forge residential programs in filmmaking and content creation. Forge AI Residency follows the same format. Immersive. Mentor-led. Build-first.
       </p>
 
-      <div className="grid md:grid-cols-3 gap-4 max-w-[960px] mx-auto">
+      <div className="grid md:grid-cols-3 gap-5 max-w-[960px] mx-auto">
         {testimonials.map((t, i) => (
           <motion.div
             key={t.name}
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: i * 0.1 }}
-            className="glass-card p-6 relative"
+            transition={{ duration: 0.5, delay: i * 0.12 }}
+            className="glass-card-hover p-7 relative"
           >
-            <span className="font-bold text-[64px] text-primary/20 absolute top-2 left-4 leading-none">"</span>
-            <p className="text-[16px] text-foreground italic leading-[1.7] mt-8">{t.quote}</p>
+            <span className="font-serif text-[72px] text-primary/15 absolute top-1 left-4 leading-none">"</span>
+            <p className="text-[16px] text-foreground italic leading-[1.7] mt-10">{t.quote}</p>
             <div className="mt-6">
               <p className="font-semibold text-foreground text-[15px]">{t.name}</p>
               <p className="text-[13px] text-muted-foreground">{t.role}</p>

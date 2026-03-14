@@ -13,6 +13,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Open Sans', 'sans-serif'],
+        serif: ['Playfair Display', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
