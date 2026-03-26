@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import StatsStrip from "@/components/StatsStrip";
 import PoweredBy from "@/components/PoweredBy";
 import WhyAINow from "@/components/WhyAINow";
 import WhatIsForge from "@/components/WhatIsForge";
@@ -29,6 +30,7 @@ const Index = () => {
       <div className="noise-overlay" />
       <Navbar onOpenModal={openModal} />
       <Hero onOpenModal={openModal} />
+      <StatsStrip />
       <PoweredBy />
       <WhyAINow />
       <WhatIsForge />

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, FileText } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import forgeLogo from "@/assets/forge-logo.png";
+import levelupLogo from "@/assets/levelup-logo.png";
 
 interface NavbarProps {
   onOpenModal: () => void;
@@ -57,7 +58,8 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
             </a>
           </div>
 
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-4">
+            <img src={levelupLogo} alt="LevelUp Learning" className="h-5 opacity-70" />
             <button
               onClick={onOpenModal}
               className="bg-primary text-primary-foreground font-semibold text-[13px] rounded-full px-5 py-2.5 hover:opacity-90 transition-opacity"
@@ -66,9 +68,12 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
             </button>
           </div>
 
-          <button onClick={() => setMenuOpen(true)} className="md:hidden text-foreground p-2 -mr-2" aria-label="Open menu">
-            <Menu size={24} />
-          </button>
+          <div className="flex items-center gap-3 md:hidden">
+            <img src={levelupLogo} alt="LevelUp Learning" className="h-4 opacity-70" />
+            <button onClick={() => setMenuOpen(true)} className="text-foreground p-2 -mr-2" aria-label="Open menu">
+              <Menu size={24} />
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -108,7 +113,7 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
             <div className="px-6 pb-8">
               <button
                 onClick={() => { setMenuOpen(false); onOpenModal(); }}
-                className="w-full bg-primary text-primary-foreground font-semibold rounded-full py-4 text-base cta-pulse"
+                className="w-full bg-primary text-primary-foreground font-semibold rounded-full py-4 text-base"
               >
                 REQUEST AN INVITE
               </button>
