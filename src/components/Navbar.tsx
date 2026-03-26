@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, FileText } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import forgeLogo from "@/assets/forge-logo.png";
 
 interface NavbarProps {
   onOpenModal: () => void;

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useParallax } from "@/hooks/use-parallax";
 import { ChevronDown } from "lucide-react";
+import forgeLogo from "@/assets/forge-logo.png";
 
 interface HeroProps {
   onOpenModal: () => void;
