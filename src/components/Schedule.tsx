@@ -4,10 +4,11 @@ import { ChevronDown } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
 
 const preps = [
-  { num: "PRE 01", title: "AI Foundations", desc: "What AI can actually do for founders and creators. The honest overview." },
-  { num: "PRE 02", title: "Tool Setup", desc: "Every tool configured, accounts created, and workflows ready before you arrive." },
-  { num: "PRE 03", title: "Prompting Basics", desc: "How to talk to AI so it actually does what you want. Core prompting patterns that carry through all three pillars." },
-  { num: "PRE 04", title: "Your Build Idea", desc: "Lock in your idea for the residency. What you want to automate. What product you want to build. You land with a plan." },
+  { title: "The AI Mindset", desc: "Before you touch a single tool, understand how AI actually thinks. The mental model that makes every tool faster to learn." },
+  { title: "Prompting and Context Engineering", desc: "How to talk to AI and consistently get useful output. Works across every AI model ever built." },
+  { title: "AI and Business Thinking", desc: "Map your own business, find the stuck lever, and understand which pillar creates the most impact for your situation." },
+  { title: "What Good Looks Like", desc: "Real outputs built by real people like you. Founders, marketers, and operators with no technical background." },
+  { title: "Pre-Arrival Alignment", desc: "Final questions answered. What to expect day by day. Everything you need before you arrive." },
 ];
 
 const schedule = [
@@ -49,7 +50,7 @@ const Schedule = () => {
   return (
     <SectionWrapper id="schedule" label="THE SCHEDULE">
       <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-4">
-        Pre-program + 9 days.<br />Here is exactly what happens.
+        14 days. Here is exactly <span className="font-serif italic font-black">what happens.</span>
       </h2>
 
       {/* Online Prep block */}
@@ -60,15 +61,14 @@ const Schedule = () => {
         <div className="grid sm:grid-cols-2 gap-3">
           {preps.map((p, i) => (
             <motion.div
-              key={p.num}
+              key={p.title}
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: i * 0.07 }}
               className="glass-card p-4"
             >
-              <span className="text-[11px] text-primary font-semibold">{p.num}</span>
-              <p className="font-semibold text-foreground mt-1.5 text-[14px]">{p.title}</p>
+              <p className="font-semibold text-foreground text-[14px]">{p.title}</p>
               <p className="text-sm text-muted-foreground mt-1">{p.desc}</p>
             </motion.div>
           ))}
@@ -94,7 +94,7 @@ const Schedule = () => {
                 className="w-full text-left py-5 border-b border-[rgba(255,255,255,0.06)] flex items-start justify-between gap-4"
               >
                 <div>
-                  <span className="text-[11px] text-primary tracking-wider font-semibold">{s.phase}</span>
+                  <span className="text-[11px] text-primary tracking-wider font-mono">{s.phase}</span>
                   <p className="font-bold text-foreground text-[18px] mt-1">{s.title}</p>
                 </div>
                 <ChevronDown

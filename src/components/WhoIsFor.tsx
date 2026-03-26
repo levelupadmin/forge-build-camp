@@ -1,24 +1,22 @@
 import { motion } from "framer-motion";
-import { Zap, Megaphone, Clapperboard, HardHat, Wrench, Rocket } from "lucide-react";
+import { Zap, Megaphone, Wrench, Briefcase } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
 
 const personas = [
   { icon: Zap, title: "The Founder", desc: "You want AI leverage in your business. Automate work, build faster, stop depending on developers." },
   { icon: Megaphone, title: "The Marketer", desc: "You want to create better content, automate campaigns, and use AI to scale what you already do." },
-  { icon: Clapperboard, title: "The Creator", desc: "You want to explore AI filmmaking, AI content tools, and what the new creative stack actually looks like." },
-  { icon: HardHat, title: "The Builder", desc: "You have an idea and want to ship an MVP. AI tools are your new toolkit." },
   { icon: Wrench, title: "The Operator", desc: "You want to automate workflows, cut manual work, and run your business more efficiently." },
-  { icon: Rocket, title: "The Curious One", desc: "You just know AI matters and you want to learn it by actually building something real." },
+  { icon: Briefcase, title: "The Professional", desc: "You are good at what you do. AI makes you significantly better at it. You want to be the person in your industry who figured this out early." },
 ];
 
 const WhoIsFor = () => {
   return (
     <SectionWrapper label="WHO THIS IS FOR">
       <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-12">
-        Built for people who<br />learn by doing.
+        Built for people who <span className="font-serif italic font-black">move the needle.</span>
       </h2>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-[840px] mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-[720px] mx-auto">
         {personas.map((p, i) => (
           <motion.div
             key={p.title}

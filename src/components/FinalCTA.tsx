@@ -26,16 +26,16 @@ const FinalCTA = ({ onOpenModal }: FinalCTAProps) => {
         transition={{ duration: 0.55 }}
         className="relative z-10 text-center max-w-[720px] mx-auto px-6"
       >
-        <p className="text-[11px] text-primary uppercase tracking-[0.18em] mb-6 font-semibold">
+        <p className="text-[11px] text-primary uppercase tracking-[0.18em] mb-6 font-mono">
           LIMITED SEATS · APPLY NOW
         </p>
 
         <h2 className="font-bold text-[42px] md:text-[72px] leading-[1.08] tracking-[-0.025em] text-foreground">
-          15 days from now,<br />you could have built<br /><span className="text-primary">something real.</span>
+          Think <span className="font-serif italic font-black">YCombinator</span><br />meets an AI hackathon.
         </h2>
 
         <p className="text-[17px] text-muted-foreground max-w-[460px] mx-auto mt-4 leading-relaxed">
-          The next batch is forming now. The people in this room will be building for years.
+          20 seats. 14 days. One focus.
         </p>
 
         <button

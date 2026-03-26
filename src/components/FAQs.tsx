@@ -4,38 +4,15 @@ import { Plus, X as XIcon } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
 
 const faqs = [
-  {
-    q: "Do I need coding experience?",
-    a: "None at all. Every tool we use across all three pillars is no-code or low-code. If you can use a laptop and a browser, you can build here.",
-  },
-  {
-    q: "What is included in the price?",
-    a: "Everything. 15-day program (6 days online prep + 9 days residential), all accommodation, all meals, full access to all three pillar sessions, daily mentor feedback, online prep access, tool credits, Demo Day, and lifetime community access. You arrive with your laptop. We handle the rest.",
-  },
-  {
-    q: "Where is the residency?",
-    a: "Full location details, accommodation info, and travel guidance are shared with accepted participants. The residency takes place at a carefully selected location away from city distractions.",
-  },
-  {
-    q: "What do I actually build during the program?",
-    a: "Three things. An AI creative output, which could be an ad, short film, or a full content workflow. A working automation that runs in your business from Day 1 back home. And a product or MVP with a landing page and basic funnel. You pitch all three on Demo Day.",
-  },
-  {
-    q: "Is this only for people in tech?",
-    a: "Not at all. It is built for founders, marketers, creators, and operators. The tools are designed for non-technical people. If you can use Google Docs, you can build here.",
-  },
-  {
-    q: "When does the next batch start?",
-    a: "Dates are confirmed with accepted participants. Fill in the invite request and our team will reach out within 48 hours with full details.",
-  },
-  {
-    q: "How does the invite process work?",
-    a: "Tap REQUEST AN INVITE, fill in a short form, and our team reviews within 48 hours. We select based on fit and intent, not just whoever applies first.",
-  },
-  {
-    q: "Why pay for this when there is so much free AI content out there?",
-    a: "Free content teaches. Forge makes you build. What you get here that YouTube cannot give you: focused days with zero distractions, accountability partners in the same room, mentors who sit with your actual work, and a finished product at the end. You are compressing 6 months of solo learning into 15 days. That is what you are paying for.",
-  },
+  { q: "Who is this for?", a: "Founders, marketers, operators, and working professionals who want to build with AI. No coding background needed." },
+  { q: "Do I need to know how to code?", a: "No. None of the three tracks require coding. If you can write a brief, you can build with these tools." },
+  { q: "What is included in the program fee?", a: "Residential stay, all meals, all three tracks, expert faculty, curated experiences, community access, partner perks, and the Forge AI Goodie Bag. Everything except your travel to the venue." },
+  { q: "How many people are in each cohort?", a: "20. Hard limit. This is what allows faculty to actually work with you and not just present to you." },
+  { q: "What is the application fee for?", a: "It books your interview slot and signals intent to our selection team. It is separate from the program fee." },
+  { q: "What do I actually leave with?", a: "A working product, a live automation, an AI content system, and a network of 20 serious builders." },
+  { q: "I have a full-time job. Can I attend?", a: "Yes. Most participants are working professionals. You take a fixed block of time off and come back with something done." },
+  { q: "What if I have never used AI tools before?", a: "The pre-program sessions bring you up to speed before Day 1. You arrive ready to build, not to catch up." },
+  { q: "Why pay for this when free AI content exists everywhere?", a: "You have probably already found the free content. The question is whether it has actually moved anything forward for you. Forge is for people who are done watching and ready to build." },
 ];
 
 const FAQs = () => {
@@ -44,7 +21,7 @@ const FAQs = () => {
   return (
     <SectionWrapper id="faqs" label="FAQS">
       <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-12">
-        Still thinking?<br />Here are the answers.
+        Questions we get <span className="font-serif italic font-black">asked a lot.</span>
       </h2>
 
       <div className="max-w-[680px] mx-auto">
