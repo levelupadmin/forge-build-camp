@@ -44,6 +44,8 @@ const Hero = ({ onOpenModal }: HeroProps) => {
         transition={{ duration: 0.55, ease: "easeOut" }}
         className="relative z-10 text-center max-w-[720px] px-6"
       >
+        <img src={forgeLogo} alt="The Forge AI" className="h-14 md:h-20 mx-auto mb-6" />
+
         <h1 className="font-bold tracking-[-0.025em] text-foreground leading-[1.08] text-[48px] md:text-[80px]">
           Learn AI by <span className="font-serif italic font-black text-primary">Building</span> with AI.
         </h1>

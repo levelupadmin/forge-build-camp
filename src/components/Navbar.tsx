@@ -42,8 +42,7 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-20 flex items-center justify-between h-16">
           <a href="#" className="flex items-center gap-2">
-            <span className="font-bold text-[17px] text-foreground tracking-tight">LevelUp</span>
-            <span className="text-[10px] text-primary uppercase tracking-[0.15em] font-mono">Learning</span>
+            <img src={forgeLogo} alt="The Forge AI" className="h-7" />
           </a>
 
           <div className="hidden md:flex items-center gap-8">
@@ -84,8 +83,7 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
           >
             <div className="flex items-center justify-between px-6 h-16">
               <div className="flex items-center gap-2">
-                <span className="font-bold text-[17px] text-foreground">LevelUp</span>
-                <span className="text-[10px] text-primary uppercase tracking-[0.15em] font-mono">Learning</span>
+                <img src={forgeLogo} alt="The Forge AI" className="h-7" />
               </div>
               <button onClick={() => setMenuOpen(false)} className="text-foreground p-2 -mr-2" aria-label="Close menu">
                 <X size={24} />
