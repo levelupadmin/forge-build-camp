@@ -3,42 +3,42 @@ import SectionWrapper from "./SectionWrapper";
 
 const outcomes = [
   {
-    title: "AI Creative Workflow",
-    desc: "A repeatable system for generating content, ads, and visuals. Yours to use from Day 1 back home.",
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&q=80",
-  },
-  {
-    title: "Working Automation",
-    desc: "One live automation already running in your business before you even get back.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80",
-  },
-  {
-    title: "Product or MVP",
-    desc: "A launched or near-launch prototype you built with your own hands.",
+    title: "A Working Product",
+    desc: "Built on a vibe coding platform. A landing page, a website, or a mini funnel setup you can show someone today.",
     image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&q=80",
   },
   {
-    title: "Launch Funnel",
-    desc: "A landing page and basic funnel ready to drive real traffic to your product.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
+    title: "A Live Automation",
+    desc: "A workflow running without you, supported by AI agents. Saves you and your team hours every single week.",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80",
   },
   {
-    title: "Your Cohort",
-    desc: "Handpicked builders from across the country. Lifetime community access after the program.",
+    title: "An AI Content System",
+    desc: "A repeatable process for content, visuals, and video. A pack created by you with just your words and creativity.",
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&q=80",
+  },
+  {
+    title: "A Network",
+    desc: "A community of like-minded founders, operators, and builders you can depend on even after the program. Friends for life.",
     image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80",
   },
   {
-    title: "Momentum",
-    desc: "The confidence and clarity to keep building with AI long after you leave.",
+    title: "The Muscle Memory",
+    desc: "You have built with AI under pressure. Now you have the skillset to build anything back home and adapt to what is coming.",
     image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&q=80",
+  },
+  {
+    title: "A Head Start",
+    desc: "The mindset and confidence to build with AI for the future.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
   },
 ];
 
 const Outcomes = () => {
   return (
-    <SectionWrapper label="OUTCOMES">
+    <SectionWrapper label="YOUR OUTCOMES">
       <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-12">
-        You leave with<br /><span className="text-primary">real work.</span> Not notes.
+        Not just learning. <span className="font-serif italic font-black">Real building.</span>
       </h2>
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-[840px] mx-auto">

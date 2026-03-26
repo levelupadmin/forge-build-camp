@@ -5,7 +5,6 @@ import { toolLogos } from "@/lib/toolLogos";
 interface PillarData {
   num: string;
   tag: string;
-  days: string;
   title: string;
   body: string;
   builds: string[];
@@ -15,40 +14,35 @@ interface PillarData {
 const pillars: PillarData[] = [
   {
     num: "01",
-    tag: "01 · AI CREATIVITY",
-    days: "Days 2 + 3",
+    tag: "GENERATIVE AI",
     title: "Create content, visuals and videos with AI",
-    body: "Master prompt engineering, AI image generation, and AI video creation. Build a complete content workflow for ads, reels, and brand assets using the same tools professionals use today.",
+    body: "Learn to create content — image, video and scripts for Meta Ads, AI UGCs, social media reels, YouTube thumbnails, and talking head videos. The fundamentals that transfer across any tool.",
     builds: [
-      "An AI-generated short film or ad campaign",
-      "A repeatable AI content workflow",
-      "Brand visuals generated from scratch",
+      "AI generated scripts, UGC ads, social media creatives and posters",
+      "A content system you can repeat after you leave",
     ],
     tools: ["Runway", "Midjourney", "HeyGen", "ElevenLabs", "Kling"],
   },
   {
     num: "02",
-    tag: "02 · AI AUTOMATIONS",
-    days: "Days 4 + 5",
+    tag: "AI AUTOMATIONS",
     title: "Automate your work with AI agents",
-    body: "Build no-code automations that save real time. Connect apps, trigger AI agents, create pipelines without writing a single line of code. Leave with one live automation running from the moment you get back.",
+    body: "Build no-code automations that save real time. Connect apps, trigger AI agents, create pipelines without writing a single line of code.",
     builds: [
-      "One working multi-step automation",
-      "An AI agent pipeline connected to your tools",
-      "A system that saves you hours every week",
+      "2 live AI integrated automations and an AI agent of your choice",
+      "A workflow saving at least 5 hours a week",
     ],
     tools: ["n8n", "Make", "Zapier", "Claude", "OpenAI API", "Airtable"],
   },
   {
     num: "03",
-    tag: "03 · AI PRODUCT BUILDING",
-    days: "Days 6, 7 + 8",
+    tag: "AI PRODUCT BUILDING",
     title: "Build and launch your first AI product",
     body: "Go from idea to shipped product in days, no coding required. Build an MVP, create a landing page, set up a launch funnel, and pitch it on Demo Day.",
     builds: [
-      "A live product or working MVP",
-      "A landing page and launch funnel",
-      "A pitch-ready demo for Demo Day",
+      "A functional product or internal tool",
+      "Something you can demo live on Day 9",
+      "The foundation to keep building back home",
     ],
     tools: ["Lovable", "Replit", "Supabase", "Claude API", "Stripe"],
   },
@@ -62,7 +56,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
   return (
     <SectionWrapper id="pillars" label="THREE PILLARS">
       <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-12">
-        Three skills.<br />One residency.
+        Three <span className="font-serif italic font-black">Pillars.</span> Nine days.
       </h2>
 
       <div className="max-w-[840px] mx-auto flex flex-col gap-6">
@@ -79,11 +73,10 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
               {p.num}
             </span>
 
-            <div className="flex items-center justify-between mb-4 relative z-10">
-              <span className="text-[11px] text-primary border border-primary/30 rounded-full px-3 py-1 font-semibold uppercase tracking-wider">
+            <div className="mb-4 relative z-10">
+              <span className="text-[11px] text-primary border border-primary/30 rounded-full px-3 py-1 font-mono uppercase tracking-wider">
                 {p.tag}
               </span>
-              <span className="text-[13px] text-muted-foreground/50">{p.days}</span>
             </div>
 
             <h3 className="font-bold text-[22px] md:text-[26px] text-foreground mb-3 relative z-10">
