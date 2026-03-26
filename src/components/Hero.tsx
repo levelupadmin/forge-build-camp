@@ -47,39 +47,25 @@ const Hero = ({ onOpenModal }: HeroProps) => {
         <img src={forgeLogo} alt="The Forge AI" className="h-14 md:h-20 mx-auto mb-6" />
 
         <h1 className="font-bold tracking-[-0.025em] text-foreground leading-[1.08] text-[48px] md:text-[80px]">
-          Learn AI by <span className="font-serif italic font-black text-primary">Building</span> with AI.
+          <span className="md:inline block">Learn AI by</span>{" "}
+          <span className="md:inline block"><span className="font-serif italic font-black text-primary">Building</span> with AI.</span>
         </h1>
 
         <p className="mt-6 text-[15px] md:text-[17px] text-muted-foreground tracking-wide leading-relaxed max-w-[540px] mx-auto">
           An invite-only residency for founders, marketers, and operators who want to stop watching AI happen and start building with it.
         </p>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.5 }}
-          className="mt-6 flex items-center justify-center gap-3 md:gap-5 text-[12px] md:text-[13px] font-mono uppercase tracking-wider text-muted-foreground/70"
-        >
-          <span>600+ Alumni</span>
-          <span className="w-px h-3 bg-muted-foreground/30" />
-          <span>25+ Editions</span>
-          <span className="w-px h-3 bg-muted-foreground/30" />
-          <span>400+ Projects</span>
-          <span className="w-px h-3 bg-muted-foreground/30" />
-          <span>11 Cities</span>
-        </motion.div>
-
         <div className="mt-8">
           <button
             onClick={onOpenModal}
-            className="w-full sm:w-auto bg-primary text-primary-foreground font-semibold rounded-full px-12 py-4 sm:py-4 text-base btn-shine cta-pulse"
+            className="w-full sm:w-auto bg-primary text-primary-foreground font-semibold rounded-full px-7 py-3 text-sm"
           >
-            REQUEST AN INVITE →
+            REQUEST AN INVITE
           </button>
         </div>
 
         <p className="text-[13px] text-muted-foreground/40 mt-3">
-          Block 1 of 20 invites open.
+          Block 1 of 20 invites.
         </p>
       </motion.div>
 
