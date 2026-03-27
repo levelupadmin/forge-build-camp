@@ -17,7 +17,7 @@ const Hero = ({ onOpenModal }: HeroProps) => {
   const scrollY = useParallax();
 
   return (
-    <section className="relative min-h-[80vh] md:min-h-[85vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Video background */}
       <div
         className="absolute inset-0 will-change-transform"
@@ -52,7 +52,7 @@ const Hero = ({ onOpenModal }: HeroProps) => {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.55, ease: "easeOut" }}
-        className="relative z-10 text-center max-w-[720px] px-6 pt-16 mb-24"
+        className="relative z-10 text-center max-w-[720px] px-6 pt-20 mb-32"
       >
         <img src={forgeLogo} alt="The Forge AI" className="h-14 md:h-20 mx-auto mb-8" />
 

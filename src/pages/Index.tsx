@@ -28,7 +28,6 @@ const Index = () => {
       <div className="noise-overlay" />
       <Navbar onOpenModal={openModal} />
       <Hero onOpenModal={openModal} />
-      <PoweredBy />
       <WhyAINow />
       <WhatIsForge />
       <Trailer />
