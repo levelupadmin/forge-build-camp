@@ -69,8 +69,8 @@ const Hero = ({ onOpenModal }: HeroProps) => {
           </button>
         </div>
 
-        <p className="mt-3 font-mono text-[11px] tracking-[0.12em] uppercase" style={{ color: 'rgba(255,255,255,0.85)' }}>
-          <span className="text-[#3B82F6]">·</span> Block 1 of 20 invites
+        <p className="mt-3 text-[11px] tracking-[0.12em] uppercase" style={{ color: 'rgba(255,255,255,0.85)' }}>
+          Block 1 of 20 invites
         </p>
       </motion.div>
     </section>
