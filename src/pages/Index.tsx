@@ -29,8 +29,8 @@ const Index = () => {
       <Navbar onOpenModal={openModal} />
       <Hero onOpenModal={openModal} />
       <LogoStrip />
-      <WhyAINow />
       <WhatIsForge />
+      <WhyAINow />
       <Trailer />
       <WhoIsFor />
       <Pillars onOpenModal={openModal} />

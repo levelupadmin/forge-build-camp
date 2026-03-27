@@ -81,25 +81,9 @@ const WhyAINow = () => {
         AI is the most important<br />skill of <span className="text-primary">this decade.</span>
       </h2>
 
-      <p className="text-[16px] text-muted-foreground max-w-[520px] mx-auto text-center mb-12 leading-relaxed">
-        Every industry is being reshaped by AI. The question is not whether you should learn it. The question is how fast you can start building with it.
+      <p className="text-[15px] text-muted-foreground max-w-[520px] mx-auto text-center mb-10 leading-relaxed">
+        The real world hasn't even started.
       </p>
-
-      {/* Insight callout */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="max-w-[600px] mx-auto mb-12 text-center"
-      >
-        <p className="text-[17px] text-foreground leading-relaxed font-semibold mb-2">
-          You think AI is crowded because you're in an echo chamber.
-        </p>
-        <p className="text-[15px] text-muted-foreground leading-relaxed">
-          The real world hasn't even started. The builders who move now will define the next decade.
-        </p>
-      </motion.div>
 
       {/* Dot grid visualization */}
       <motion.div
