@@ -1,102 +1,115 @@
-# Comprehensive Content & Typography Update
 
-This is a large update touching 8 components plus global styles. Here is the full plan.
 
----
+# Hero & Navbar Overhaul
 
-## 1. Global Font Changes
-
-`**index.html**` — Update Google Fonts import to include DM Sans (400/500), Playfair Display (ital 700-900), and JetBrains Mono (400).
-
-`**src/index.css**` — Change base body font to `'DM Sans'`. Change heading font to `'DM Sans'` (Playfair Display used only for accent words inline). Update `.section-label` to use `'JetBrains Mono'` with `letter-spacing: 0.12em`.
-
-`**tailwind.config.ts**` — Update font families: `sans: ['DM Sans']`, `serif: ['Playfair Display']`, `mono: ['JetBrains Mono']`.
+## Files to modify
+- `src/components/Navbar.tsx` — Complete redesign
+- `src/components/Hero.tsx` — Content, background, stats bar integration
+- `src/components/StatsStrip.tsx` — Delete (stats move into Hero)
+- `src/pages/Index.tsx` — Remove StatsStrip and ToolsOrbit imports
 
 ---
 
-## 2. Hero Section (`Hero.tsx`)
+## 1. Navbar (`Navbar.tsx`)
 
-- Headline: `Learn AI by <span class="text-[#3B82F6]">Building</span> with AI.`
-- Descriptor: "An invite-only residency for founders, marketers, and operators..."
-- Stats strip: `600+ Alumni | 25+ Editions | 400+ Projects | 11 Cities`
-- Below CTA: `"Block 1 of 20 invites open."` in small muted text
-- Apply Playfair Display italic on "Building"
+**Desktop:**
+- Left: LevelUp Learning logo (larger, `h-6`)
+- Center: Frosted glass pill with links (About, Outcomes, Schedule, Pricing, Brochure). Pill styles: `backdrop-blur-[20px]`, `bg-[rgba(255,255,255,0.1)]`, `border border-[rgba(255,255,255,0.15)]`, `rounded-full`, `px-6 py-2.5`. Link text: DM Sans 500, 14px, white
+- Right: Remove REQUEST AN INVITE button from navbar entirely (keep only in hero)
 
----
+**Mobile:**
+- Frosted glass bar that hides on scroll (use scrolled state to toggle visibility with opacity/translate transition)
+- Left: LevelUp Learning logo (larger), no text
+- Right: Hamburger icon (Menu from lucide)
+- Mobile menu: Full-screen overlay with 5 links (About, Outcomes, Schedule, Pricing, Brochure) + REQUEST AN INVITE button at bottom
 
-## 3. Navbar (`Navbar.tsx`)
-
-- Change logo text from "FORGE / AI RESIDENCY" to "LevelUp Learning"
-
----
-
-## 4. Who This Is For (`WhoIsFor.tsx`)
-
-- Headline: "Built for people who move the needle."
-- Remove Creator, Builder, Curious One cards
-- Keep: Founder, Marketer, Operator + add Professional
-- Professional description as specified
-- Grid changes to 2x2
-
----
-
-## 5. Pillars (`Pillars.tsx`)
-
-- Headline: "Three Pillars. Nine days."
-- Pillar 1: "Generative AI" with new description and builds
-- Pillar 2: "AI Automations" with new builds
-- Pillar 3: "AI Product Building" with new builds
-- Remove day references from tags
-- Apply Playfair italic to pillar names in headings
+**Nav links update:**
+```ts
+const navLinks = [
+  { label: "About", href: "#experience" },
+  { label: "Outcomes", href: "#outcomes" },
+  { label: "Schedule", href: "#schedule" },
+  { label: "Pricing", href: "#pricing" },
+];
+// Brochure as separate link with FileText icon
+```
 
 ---
 
-## 6. Outcomes (`Outcomes.tsx`)
+## 2. Hero Background (`Hero.tsx`)
 
-- Label: "Your Outcomes"
-- Headline: "Not just learning. Real building."
-- Replace all 6 cards with new titles/descriptions as specified
-
----
-
-## 7. Schedule (`Schedule.tsx`)
-
-- Headline: "14 days. Here is exactly what happens."
-- Remove PRE 01/02/03/04 labels from prep cards
-- Replace 4 prep sessions with 5 new ones (The AI Mindset, Prompting and Context Engineering, AI and Business Thinking, What Good Looks Like, Pre-Arrival Alignment)
+- Video opacity: change from `opacity-40` to `opacity-70` (much more visible)
+- Dark overlay: change from `bg-background/60` to `bg-black/35`
+- Section height: `min-h-[85vh] md:min-h-[85vh]` (down from `min-h-screen`)
+- Remove the scroll indicator (ChevronDown) at bottom since stats bar takes that space
 
 ---
 
-## 8. Pricing (`Pricing.tsx`)
+## 3. Hero Content (`Hero.tsx`)
 
-- Price: `INR 1,20,000`
-- Headline: "The most focused nine days you will spend on your business this year."
-- Update inclusions list (9 items as specified)
-- Add exclusions list (3 items) with "✗" markers
-- Below CTA: "20 seats per cohort. Payment collected after acceptance only."
+**Headline:**
+```tsx
+<h1 className="font-serif italic font-black tracking-[-0.025em] text-[#F2EEE8] leading-[1.08] text-[48px] md:text-[80px]">
+  <span className="block">Learn AI by</span>
+  <span className="block">
+    <span className="font-bold not-italic" style={{ fontWeight: 700, color: '#3B82F6' }}>Building</span> with AI.
+  </span>
+</h1>
+```
+- "Building" = Playfair Display italic weight 700, blue #3B82F6, NOT bold
+- Rest = Playfair Display italic weight 900, white #F2EEE8
 
----
+**Button:**
+- `w-auto px-7 py-3 text-sm font-semibold rounded-full bg-[#3B82F6] text-white`
+- No arrow, no glow, no animation, centered
 
-## 9. FAQs (`FAQs.tsx`)
-
-- Headline: "Questions we get asked a lot."
-- Replace all FAQs with exactly 9 new Q&As as specified
-
----
-
-## 10. Final CTA (`FinalCTA.tsx`)
-
-- Headline: "Think YCombinator meets an AI hackathon."
-- Subline: "20 seats. 14 days. One focus."
-- Remove "15 days from now" text
-- Keep REQUEST AN INVITE button
+**Block text:**
+- `text-[11px] font-mono text-[rgba(255,255,255,0.85)]`
+- Content: `"· Block 1 of 20 invites"` (blue dot + text)
 
 ---
 
-## Typography Pattern for Headlines
+## 4. Stats Bar (inside Hero, pinned to bottom)
 
-Throughout, headlines use DM Sans bold with select accent words wrapped in `<span className="font-serif italic font-black">`. For example: "Three *Pillars.* Nine days." where "Pillars" is Playfair Display italic weight 900.
+Move stats from separate `StatsStrip` component into the Hero section, positioned absolutely at the bottom.
 
-**Files modified:** `index.html`, `src/index.css`, `tailwind.config.ts`, `src/components/Hero.tsx`, `src/components/Navbar.tsx`, `src/components/WhoIsFor.tsx`, `src/components/Pillars.tsx`, `src/components/Outcomes.tsx`, `src/components/Schedule.tsx`, `src/components/Pricing.tsx`, `src/components/FAQs.tsx`, `src/components/FinalCTA.tsx`
+```tsx
+<div className="absolute bottom-0 left-0 right-0 z-10"
+     style={{ background: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(10px)' }}>
+  <div className="max-w-5xl mx-auto flex items-center justify-center py-5 px-6">
+    {stats.map((stat, i) => (
+      <div className="flex-1 text-center flex items-center justify-center">
+        {i > 0 && <div className="w-px h-10 bg-white/15 mr-auto" />}
+        <div>
+          <div className="font-serif italic font-black text-[36px] text-[#F2EEE8]">{stat.number}</div>
+          <div className="font-mono text-[9px] uppercase tracking-[0.12em] text-white/50">{stat.label}</div>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+```
 
-Also the logo of the program should come in the hero section ask the user for the logo
+Stats: 600+ Alumni, 25+ Editions, 400+ Projects, 11 Cities. Thin vertical dividers between stats, no box borders.
+
+---
+
+## 5. Remove ToolsOrbit
+
+- Remove `<ToolsOrbit />` from `Index.tsx`
+- Remove the import
+- Keep `ToolsOrbit.tsx` file (just unused)
+
+---
+
+## 6. Remove StatsStrip
+
+- Remove `<StatsStrip />` from `Index.tsx`
+- Remove the import
+
+---
+
+## Stats Bar Design Notes
+
+Since the Refero MCP subscription is expired, the stats bar design follows the user's detailed spec directly: large Playfair Display italic numbers with small JetBrains Mono labels underneath, separated by thin vertical dividers, on a frosted dark background. This is a common pattern seen on sites like TheExperience.co and BHX Project for impact metrics.
+
