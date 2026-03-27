@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, FileText } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import forgeLogo from "@/assets/forge-logo.png";
 import levelupLogo from "@/assets/levelup-logo.png";
 
 interface NavbarProps {
@@ -10,10 +9,9 @@ interface NavbarProps {
 
 const navLinks = [
   { label: "About", href: "#experience" },
-  { label: "Pillars", href: "#pillars" },
+  { label: "Outcomes", href: "#outcomes" },
   { label: "Schedule", href: "#schedule" },
-  { label: "Mentors", href: "#mentors" },
-  { label: "FAQs", href: "#faqs" },
+  { label: "Pricing", href: "#pricing" },
 ];
 
 const Navbar = ({ onOpenModal }: NavbarProps) => {
@@ -34,49 +32,69 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
 
   return (
     <>
-      <nav
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          scrolled
-            ? "bg-[rgba(8,8,8,0.92)] backdrop-blur-[20px] border-b border-[rgba(255,255,255,0.06)]"
-            : "bg-transparent"
-        }`}
-      >
+      {/* Desktop Navbar */}
+      <nav className="fixed top-0 left-0 right-0 z-40 hidden md:block">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 flex items-center justify-between h-16">
-          <a href="#" className="flex items-center gap-2">
-            <img src={forgeLogo} alt="The Forge AI" className="h-7" />
+          <a href="#" className="flex items-center">
+            <img src={levelupLogo} alt="LevelUp Learning" className="h-6" />
           </a>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div
+            className="flex items-center gap-6 rounded-full px-6 py-2.5"
+            style={{
+              backdropFilter: "blur(20px)",
+              WebkitBackdropFilter: "blur(20px)",
+              background: "rgba(255,255,255,0.1)",
+              border: "1px solid rgba(255,255,255,0.15)",
+            }}
+          >
             {navLinks.map((l) => (
-              <a key={l.label} href={l.href} className="text-muted-foreground text-sm hover:text-foreground transition-colors">
+              <a
+                key={l.label}
+                href={l.href}
+                className="text-white text-[14px] font-medium hover:text-white/80 transition-colors"
+                style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}
+              >
                 {l.label}
               </a>
             ))}
-            <a href="#" className="flex items-center gap-1.5 text-muted-foreground text-sm hover:text-foreground transition-colors">
+            <a
+              href="#"
+              className="flex items-center gap-1.5 text-white text-[14px] font-medium hover:text-white/80 transition-colors"
+              style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}
+            >
               <FileText size={14} />
               Brochure
             </a>
           </div>
 
-          <div className="hidden md:flex items-center gap-4">
-            <img src={levelupLogo} alt="LevelUp Learning" className="h-5 opacity-70" />
-            <button
-              onClick={onOpenModal}
-              className="bg-primary text-primary-foreground font-semibold text-[13px] rounded-full px-5 py-2.5 hover:opacity-90 transition-opacity"
-            >
-              REQUEST AN INVITE
-            </button>
-          </div>
-
-          <div className="flex items-center gap-3 md:hidden">
-            <img src={levelupLogo} alt="LevelUp Learning" className="h-4 opacity-70" />
-            <button onClick={() => setMenuOpen(true)} className="text-foreground p-2 -mr-2" aria-label="Open menu">
-              <Menu size={24} />
-            </button>
-          </div>
+          <div className="w-[100px]" /> {/* Spacer to balance logo */}
         </div>
       </nav>
 
+      {/* Mobile Navbar */}
+      <nav
+        className={`fixed top-0 left-0 right-0 z-40 md:hidden transition-all duration-300 ${
+          scrolled ? "opacity-0 -translate-y-full pointer-events-none" : "opacity-100 translate-y-0"
+        }`}
+        style={{
+          backdropFilter: "blur(20px)",
+          WebkitBackdropFilter: "blur(20px)",
+          background: "rgba(255,255,255,0.08)",
+          borderBottom: "1px solid rgba(255,255,255,0.1)",
+        }}
+      >
+        <div className="flex items-center justify-between px-6 h-14">
+          <a href="#">
+            <img src={levelupLogo} alt="LevelUp Learning" className="h-5" />
+          </a>
+          <button onClick={() => setMenuOpen(true)} className="text-white p-2 -mr-2" aria-label="Open menu">
+            <Menu size={24} />
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -86,10 +104,8 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-50 bg-background flex flex-col"
           >
-            <div className="flex items-center justify-between px-6 h-16">
-              <div className="flex items-center gap-2">
-                <img src={forgeLogo} alt="The Forge AI" className="h-7" />
-              </div>
+            <div className="flex items-center justify-between px-6 h-14">
+              <img src={levelupLogo} alt="LevelUp Learning" className="h-5" />
               <button onClick={() => setMenuOpen(false)} className="text-foreground p-2 -mr-2" aria-label="Close menu">
                 <X size={24} />
               </button>
