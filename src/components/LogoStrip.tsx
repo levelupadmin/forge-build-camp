@@ -13,6 +13,9 @@ const logos = [
   { name: "NIFT", url: "https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/National_Institute_of_Fashion_Technology_logo.png/240px-National_Institute_of_Fashion_Technology_logo.png" },
 ];
 
+// Double the logos for seamless infinite scroll
+const marqueeLogos = [...logos, ...logos];
+
 const LogoStrip = () => {
   return (
     <motion.section
@@ -20,22 +23,26 @@ const LogoStrip = () => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="w-full py-12 md:py-16 bg-background border-b border-border"
+      className="w-full py-5 bg-background border-b border-border overflow-hidden"
     >
-      <p className="text-center font-mono text-[11px] md:text-[12px] uppercase tracking-[0.15em] text-muted-foreground mb-8">
+      <p className="text-center font-mono text-[10px] md:text-[11px] uppercase tracking-[0.15em] text-muted-foreground mb-4">
         Join 600+ dreamers from
       </p>
 
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-14 md:gap-y-8">
-          {logos.map((logo) => (
-            <div key={logo.name} className="flex items-center gap-2.5">
+      <div className="relative w-full overflow-hidden">
+        {/* Fade edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-background to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-background to-transparent z-10" />
+
+        <div className="flex animate-marquee w-max">
+          {marqueeLogos.map((logo, i) => (
+            <div key={`${logo.name}-${i}`} className="flex items-center gap-2 mx-6 flex-shrink-0">
               <img
                 src={logo.url}
                 alt={logo.name}
-                className="h-6 md:h-7 w-auto object-contain grayscale opacity-70"
+                className="h-5 w-auto object-contain grayscale opacity-60"
               />
-              <span className="text-[13px] md:text-[14px] font-medium text-foreground/70">
+              <span className="text-[12px] font-medium text-foreground/60 whitespace-nowrap">
                 {logo.name}
               </span>
             </div>
