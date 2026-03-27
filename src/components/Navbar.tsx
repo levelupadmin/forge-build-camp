@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, FileText } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import levelupLogo from "@/assets/levelup-logo.png";
 
@@ -12,6 +12,7 @@ const navLinks = [
   { label: "Outcomes", href: "#outcomes" },
   { label: "Schedule", href: "#schedule" },
   { label: "Pricing", href: "#pricing" },
+  { label: "Brochure", href: "#" },
 ];
 
 const Navbar = ({ onOpenModal }: NavbarProps) => {
@@ -34,13 +35,9 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
     <>
       {/* Desktop Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-40 hidden md:block">
-        <div className="max-w-7xl mx-auto px-6 lg:px-20 flex items-center justify-between h-16">
-          <a href="#" className="flex items-center">
-            <img src={levelupLogo} alt="LevelUp Learning" className="h-6" />
-          </a>
-
+        <div className="max-w-7xl mx-auto px-6 lg:px-20 flex items-center justify-center h-16">
           <div
-            className="flex items-center gap-6 rounded-full px-6 py-2.5"
+            className="flex items-center gap-6 rounded-full px-5 py-2.5"
             style={{
               backdropFilter: "blur(20px)",
               WebkitBackdropFilter: "blur(20px)",
@@ -48,27 +45,18 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
               border: "1px solid rgba(255,255,255,0.15)",
             }}
           >
+            <img src={levelupLogo} alt="LevelUp Learning" className="h-5 mr-2" />
+            <div className="w-px h-4 bg-white/20" />
             {navLinks.map((l) => (
               <a
                 key={l.label}
                 href={l.href}
                 className="text-white text-[14px] font-medium hover:text-white/80 transition-colors"
-                style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}
               >
                 {l.label}
               </a>
             ))}
-            <a
-              href="#"
-              className="flex items-center gap-1.5 text-white text-[14px] font-medium hover:text-white/80 transition-colors"
-              style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}
-            >
-              <FileText size={14} />
-              Brochure
-            </a>
           </div>
-
-          <div className="w-[100px]" /> {/* Spacer to balance logo */}
         </div>
       </nav>
 
@@ -121,10 +109,6 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
                   {l.label}
                 </a>
               ))}
-              <a href="#" className="flex items-center gap-2 text-2xl font-bold text-foreground">
-                <FileText size={22} />
-                Brochure
-              </a>
             </div>
             <div className="px-6 pb-8">
               <button
