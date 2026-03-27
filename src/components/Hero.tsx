@@ -52,11 +52,11 @@ const Hero = ({ onOpenModal }: HeroProps) => {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.55, ease: "easeOut" }}
-        className="relative z-10 text-center max-w-[720px] px-6 mb-24"
+        className="relative z-10 text-center max-w-[720px] px-6 pt-16 mb-24"
       >
-        <img src={forgeLogo} alt="The Forge AI" className="h-14 md:h-20 mx-auto mb-6" />
+        <img src={forgeLogo} alt="The Forge AI" className="h-14 md:h-20 mx-auto mb-8" />
 
-        <h1 className="font-serif italic font-black tracking-[-0.025em] leading-[1.08] text-[48px] md:text-[80px]" style={{ color: '#F2EEE8' }}>
+        <h1 className="font-bold tracking-[-0.025em] leading-[1.08] text-[48px] md:text-[80px]" style={{ color: '#F2EEE8' }}>
           <span className="block">Learn AI by</span>
           <span className="block">
             <span className="font-serif italic" style={{ fontWeight: 700, color: '#3B82F6' }}>Building</span> with AI.
@@ -71,7 +71,6 @@ const Hero = ({ onOpenModal }: HeroProps) => {
           <button
             onClick={onOpenModal}
             className="bg-[#3B82F6] text-white font-semibold rounded-full px-7 py-3 text-sm"
-            style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 600 }}
           >
             REQUEST AN INVITE
           </button>
@@ -97,7 +96,7 @@ const Hero = ({ onOpenModal }: HeroProps) => {
               {i > 0 && <div className="w-px h-10 bg-white/15 flex-shrink-0" />}
               <div className="text-center flex-1">
                 <div
-                  className="font-serif italic font-black text-[28px] md:text-[36px]"
+                  className="font-bold text-[28px] md:text-[36px]"
                   style={{ color: "#F2EEE8" }}
                 >
                   {stat.number}
