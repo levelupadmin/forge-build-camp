@@ -6,13 +6,6 @@ interface HeroProps {
   onOpenModal: () => void;
 }
 
-const stats = [
-  { number: "600+", label: "Alumni" },
-  { number: "25+", label: "Editions" },
-  { number: "400+", label: "Projects" },
-  { number: "11", label: "Cities" },
-];
-
 const Hero = ({ onOpenModal }: HeroProps) => {
   const scrollY = useParallax();
 
@@ -52,7 +45,7 @@ const Hero = ({ onOpenModal }: HeroProps) => {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.55, ease: "easeOut" }}
-        className="relative z-10 text-center max-w-[720px] px-6 pt-20 mb-32"
+        className="relative z-10 text-center max-w-[720px] px-6 pt-20"
       >
         <img src={forgeLogo} alt="The Forge AI" className="h-14 md:h-20 mx-auto mb-8" />
 
@@ -80,38 +73,6 @@ const Hero = ({ onOpenModal }: HeroProps) => {
           <span className="text-[#3B82F6]">·</span> Block 1 of 20 invites
         </p>
       </motion.div>
-
-      {/* Stats bar pinned to bottom */}
-      <div
-        className="absolute bottom-0 left-0 right-0 z-10"
-        style={{
-          background: "rgba(0,0,0,0.4)",
-          backdropFilter: "blur(10px)",
-          WebkitBackdropFilter: "blur(10px)",
-        }}
-      >
-        <div className="max-w-5xl mx-auto flex items-center justify-center py-5 px-6">
-          {stats.map((stat, i) => (
-            <div key={stat.label} className="flex-1 flex items-center justify-center">
-              {i > 0 && <div className="w-px h-10 bg-white/15 flex-shrink-0" />}
-              <div className="text-center flex-1">
-                <div
-                  className="font-bold text-[28px] md:text-[36px]"
-                  style={{ color: "#F2EEE8" }}
-                >
-                  {stat.number}
-                </div>
-                <div
-                  className="font-mono text-[8px] md:text-[9px] uppercase tracking-[0.12em]"
-                  style={{ color: "rgba(255,255,255,0.5)" }}
-                >
-                  {stat.label}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
     </section>
   );
 };

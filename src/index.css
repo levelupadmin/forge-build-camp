@@ -4,30 +4,30 @@
 
 @layer base {
   :root {
-    --bg-base: 0 0% 0%;
-    --bg-surface: 0 0% 3%;
-    --bg-card: 0 0% 100% / 0.04;
-    --border-card: 0 0% 100% / 0.08;
-    --border-subtle: 0 0% 100% / 0.05;
+    --bg-base: 0 0% 100%;
+    --bg-surface: 0 0% 97%;
+    --bg-card: 0 0% 0% / 0.03;
+    --border-card: 0 0% 0% / 0.08;
+    --border-subtle: 0 0% 0% / 0.05;
     
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
-    --card: 0 0% 3%;
-    --card-foreground: 0 0% 100%;
-    --popover: 0 0% 3%;
-    --popover-foreground: 0 0% 100%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 8%;
+    --card: 0 0% 97%;
+    --card-foreground: 0 0% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
     --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 6%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 6%;
-    --muted-foreground: 215 20% 65%;
+    --secondary: 0 0% 94%;
+    --secondary-foreground: 0 0% 8%;
+    --muted: 0 0% 94%;
+    --muted-foreground: 215 14% 40%;
     --accent: 217 91% 60%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 100% / 0.08;
-    --input: 0 0% 100% / 0.10;
+    --border: 0 0% 0% / 0.10;
+    --input: 0 0% 0% / 0.10;
     --ring: 217 91% 60%;
     --radius: 0.75rem;
   }
@@ -61,7 +61,7 @@
 
 /* Dot grid */
 .dot-grid {
-  background-image: radial-gradient(circle, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
