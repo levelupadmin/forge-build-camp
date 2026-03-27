@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import StatsStrip from "@/components/StatsStrip";
 import PoweredBy from "@/components/PoweredBy";
 import WhyAINow from "@/components/WhyAINow";
 import WhatIsForge from "@/components/WhatIsForge";
@@ -9,7 +8,6 @@ import Trailer from "@/components/Trailer";
 import WhoIsFor from "@/components/WhoIsFor";
 import Pillars from "@/components/Pillars";
 import Outcomes from "@/components/Outcomes";
-import ToolsOrbit from "@/components/ToolsOrbit";
 import Schedule from "@/components/Schedule";
 import Mentors from "@/components/Mentors";
 import Community from "@/components/Community";
@@ -30,7 +28,6 @@ const Index = () => {
       <div className="noise-overlay" />
       <Navbar onOpenModal={openModal} />
       <Hero onOpenModal={openModal} />
-      <StatsStrip />
       <PoweredBy />
       <WhyAINow />
       <WhatIsForge />
@@ -38,7 +35,6 @@ const Index = () => {
       <WhoIsFor />
       <Pillars onOpenModal={openModal} />
       <Outcomes />
-      <ToolsOrbit />
       <Schedule />
       <Mentors />
       <Community />
