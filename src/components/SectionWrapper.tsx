@@ -12,7 +12,7 @@ interface SectionWrapperProps {
 
 const SectionWrapper = ({ id, label, children, className = "" }: SectionWrapperProps) => {
   return (
-    <section id={id} className={`py-20 md:py-28 overflow-hidden ${className}`}>
+    <section id={id} className={`py-14 md:py-20 overflow-hidden ${className}`}>
       <motion.div
         initial={{ opacity: 0, y: 32 }}
         whileInView={{ opacity: 1, y: 0 }}

@@ -1,13 +1,66 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Play } from "lucide-react";
+import { useState } from "react";
 import SectionWrapper from "./SectionWrapper";
+import forgeLogoBlack from "@/assets/forge-ai-logo.png";
 
 const stats = [
   { value: "20", label: "BUILDERS" },
   { value: "9", label: "DAYS" },
   { value: "1", label: "BOOTCAMP" },
 ];
+
+const descriptionText =
+  "A 9-day fully residential program where handpicked founders, marketers, and operators learn to build with AI by creating products, automating their business, and creating AI-powered content while living and working alongside a community of like-minded builders and AI experts as their mentors.";
+
+const ScrollBoldText = ({ text }: { text: string }) => {
+  const containerRef = useRef<HTMLParagraphElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 0.9", "end 0.4"],
+  });
+
+  const words = text.split(" ");
+
+  return (
+    <p
+      ref={containerRef}
+      className="text-[16px] md:text-[17px] leading-[1.8] text-center max-w-[640px] mx-auto mb-10"
+    >
+      {words.map((word, i) => {
+        const start = i / words.length;
+        const end = (i + 1) / words.length;
+        return <ScrollWord key={i} word={word} progress={scrollYProgress} start={start} end={end} />;
+      })}{" "}
+    </p>
+  );
+};
+
+const ScrollWord = ({
+  word,
+  progress,
+  start,
+  end,
+}: {
+  word: string;
+  progress: any;
+  start: number;
+  end: number;
+}) => {
+  const opacity = useTransform(progress, [start, end], [0.3, 1]);
+  const fontWeight = useTransform(progress, [start, end], [400, 700]);
+  const color = useTransform(progress, [start, end], [
+    "hsl(var(--muted-foreground))",
+    "hsl(var(--foreground))",
+  ]);
+
+  return (
+    <motion.span style={{ opacity, fontWeight, color }} className="inline-block mr-[0.3em]">
+      {word}
+    </motion.span>
+  );
+};
 
 const WhatIsForge = () => {
   const [playing, setPlaying] = useState(false);
@@ -34,21 +87,15 @@ const WhatIsForge = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-center mb-4"
         >
-          <p className="text-[18px] md:text-[22px] text-muted-foreground font-medium mb-1">What is the</p>
-          <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.05] tracking-[-0.025em] text-foreground">
-            <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>Forge</span> AI Residency
-          </h2>
+          <p className="text-[18px] md:text-[22px] text-muted-foreground font-medium mb-3">What is the</p>
+          <img
+            src={forgeLogoBlack}
+            alt="The Forge AI Residency"
+            className="h-10 md:h-14 mx-auto dark:invert"
+          />
         </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-[16px] md:text-[17px] leading-[1.8] text-muted-foreground text-center max-w-[640px] mx-auto mb-14"
-        >
-          A 9-day fully residential program where handpicked founders, marketers, and operators learn to build with AI by creating products, automating their business, and creating AI-powered content while living and working alongside a community of like-minded builders and AI experts as their mentors.
-        </motion.p>
+        <ScrollBoldText text={descriptionText} />
 
         {/* Trailer Video */}
         <motion.div
@@ -56,7 +103,7 @@ const WhatIsForge = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="max-w-[900px] mx-auto mb-12"
+          className="max-w-[900px] mx-auto mb-8"
         >
           <div className="relative rounded-2xl overflow-hidden aspect-video border border-foreground/[0.08] shadow-lg">
             {!playing ? (
@@ -89,21 +136,24 @@ const WhatIsForge = () => {
           </div>
         </motion.div>
 
-        {/* Stats Strip */}
+        {/* Bento Stat Boxes */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="flex items-center justify-center gap-3 md:gap-6"
+          className="flex items-center justify-center gap-3 md:gap-4"
         >
-          {stats.map((s, i) => (
-            <div key={s.label} className="flex items-center gap-3 md:gap-6">
-              {i > 0 && (
-                <span className="text-foreground/20 text-[14px] md:text-[18px] font-light select-none">|</span>
-              )}
-              <p className="text-primary font-bold text-[14px] md:text-[18px] uppercase tracking-[0.2em]">
-                {s.value} {s.label}
+          {stats.map((s) => (
+            <div
+              key={s.label}
+              className="bg-primary rounded-xl p-4 md:p-6 text-center min-w-[100px] md:min-w-[130px]"
+            >
+              <p className="text-primary-foreground font-bold text-[28px] md:text-[36px] leading-none">
+                {s.value}
+              </p>
+              <p className="text-primary-foreground/80 text-[10px] md:text-[12px] uppercase tracking-[0.15em] mt-1 font-semibold">
+                {s.label}
               </p>
             </div>
           ))}
