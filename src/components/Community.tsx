@@ -16,9 +16,6 @@ const Community = () => {
       </h2>
 
       <div className="max-w-[640px] mx-auto mb-12">
-        <p className="text-[16px] leading-[1.8] text-muted-foreground text-center">
-          Most programs end when the program ends. Forge does not work like that.
-        </p>
         <p className="text-[16px] leading-[1.8] text-muted-foreground mt-4 text-center">
           The people in this room will go on to build companies, launch products, and do interesting things. You will want to know them.
         </p>
