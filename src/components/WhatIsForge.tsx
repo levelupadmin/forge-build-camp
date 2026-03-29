@@ -1,42 +1,17 @@
-import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Play } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
 
-function AnimatedNumber({ value, delay = 0 }: { value: number; delay?: number }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const motionVal = useMotionValue(0);
-  const rounded = useTransform(motionVal, (v) => Math.round(v));
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      animate(motionVal, value, { duration: 1.2, ease: "easeOut" });
-    }, delay * 1000);
-    const unsub = rounded.on("change", (v) => {
-      if (ref.current) ref.current.textContent = String(v);
-    });
-    return () => { clearTimeout(timeout); unsub(); };
-  }, [value, delay, motionVal, rounded]);
-
-  return <span ref={ref}>0</span>;
-}
-
-const cards = [
-  { value: 20, label: "Builders" },
-  { value: 9, label: "Days" },
-  { value: 1, label: "Bootcamp" },
+const stats = [
+  { value: "20", label: "BUILDERS" },
+  { value: "9", label: "DAYS" },
+  { value: "1", label: "BOOTCAMP" },
 ];
 
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, scale: 0.9, y: 20 },
-  visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
-};
-
 const WhatIsForge = () => {
+  const [playing, setPlaying] = useState(false);
+
   return (
     <SectionWrapper id="what-is-forge">
       <div className="relative">
@@ -75,37 +50,61 @@ const WhatIsForge = () => {
           A 9-day fully residential program where handpicked founders, marketers, and operators learn to build with AI by creating products, automating their business, and creating AI-powered content while living and working alongside a community of like-minded builders and AI experts as their mentors.
         </motion.p>
 
+        {/* Trailer Video */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-40px" }}
-          className="flex flex-row items-center justify-center gap-2 md:gap-4 relative z-10"
+          initial={{ opacity: 0, scale: 0.96 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="max-w-[900px] mx-auto mb-12"
         >
-          {cards.map((card, i) => (
-            <div key={card.label} className="flex items-center gap-2 md:gap-4">
-              {i > 0 && (
-                <motion.span
-                  variants={itemVariants}
-                  className="text-[24px] md:text-[48px] font-light text-muted-foreground/25 select-none"
-                >
-                  ×
-                </motion.span>
-              )}
-              <motion.div
-                variants={itemVariants}
-                whileHover={{ y: -4, boxShadow: "0 16px 48px hsla(217, 91%, 60%, 0.2)" }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="group relative w-[100px] md:w-[160px] py-6 md:py-10 rounded-2xl text-center cursor-default overflow-hidden bg-primary shadow-sm"
+          <div className="relative rounded-2xl overflow-hidden aspect-video border border-foreground/[0.08] shadow-lg">
+            {!playing ? (
+              <button
+                onClick={() => setPlaying(true)}
+                className="absolute inset-0 z-10 flex items-center justify-center group cursor-pointer"
               >
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-white/10 via-transparent to-white/5 pointer-events-none" />
-                <p className="text-[36px] md:text-[64px] font-bold text-primary-foreground leading-none relative z-10">
-                  <AnimatedNumber value={card.value} delay={0.3 + i * 0.15} />
+                <img
+                  src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=1200&q=80"
+                  alt="Forge AI Residency trailer thumbnail"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/40" />
+                <div className="relative z-10 w-20 h-20 md:w-24 md:h-24 rounded-full bg-primary flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <Play className="text-primary-foreground ml-1" size={32} fill="currentColor" />
+                </div>
+                <p className="absolute bottom-6 left-1/2 -translate-x-1/2 text-sm text-white/70 font-semibold tracking-wide z-10">
+                  Watch the trailer
                 </p>
-                <p className="text-[10px] md:text-[12px] uppercase tracking-[0.14em] text-primary-foreground/70 font-semibold mt-2 md:mt-3 relative z-10">
-                  {card.label}
-                </p>
-              </motion.div>
+              </button>
+            ) : (
+              <iframe
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0&modestbranding=1"
+                title="Forge AI Residency Trailer"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+              />
+            )}
+          </div>
+        </motion.div>
+
+        {/* Stats Strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="flex items-center justify-center gap-3 md:gap-6"
+        >
+          {stats.map((s, i) => (
+            <div key={s.label} className="flex items-center gap-3 md:gap-6">
+              {i > 0 && (
+                <span className="text-foreground/20 text-[14px] md:text-[18px] font-light select-none">|</span>
+              )}
+              <p className="text-primary font-bold text-[14px] md:text-[18px] uppercase tracking-[0.2em]">
+                {s.value} {s.label}
+              </p>
             </div>
           ))}
         </motion.div>

@@ -3,9 +3,8 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import LogoStrip from "@/components/LogoStrip";
 import WhatIsForge from "@/components/WhatIsForge";
-import Process from "@/components/Process";
+import VennDiagram from "@/components/VennDiagram";
 import WhyAINow from "@/components/WhyAINow";
-import Trailer from "@/components/Trailer";
 import WhoIsFor from "@/components/WhoIsFor";
 import Pillars from "@/components/Pillars";
 import Outcomes from "@/components/Outcomes";
@@ -31,9 +30,8 @@ const Index = () => {
       <Hero onOpenModal={openModal} />
       <LogoStrip />
       <WhatIsForge />
-      <Process />
+      <VennDiagram />
       <WhyAINow />
-      <Trailer />
       <WhoIsFor />
       <Pillars onOpenModal={openModal} />
       <Outcomes />
