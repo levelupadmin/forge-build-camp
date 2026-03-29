@@ -100,11 +100,6 @@ const WhatIsForge = () => {
               className="h-[72px] md:h-[110px] dark:invert"
             />
           </div>
-          <div className="mt-3 border border-primary/30 rounded-full px-8 py-2.5 flex items-center gap-3">
-            <span className="text-muted-foreground text-lg">+</span>
-            <span className="text-foreground text-lg md:text-xl font-medium tracking-wide">AI Residency</span>
-            <span className="text-muted-foreground text-lg">🎙</span>
-          </div>
         </motion.div>
 
         <ScrollBoldText text={descriptionText} />
