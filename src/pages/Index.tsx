@@ -2,8 +2,9 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import LogoStrip from "@/components/LogoStrip";
-import WhyAINow from "@/components/WhyAINow";
 import WhatIsForge from "@/components/WhatIsForge";
+import Process from "@/components/Process";
+import WhyAINow from "@/components/WhyAINow";
 import Trailer from "@/components/Trailer";
 import WhoIsFor from "@/components/WhoIsFor";
 import Pillars from "@/components/Pillars";
@@ -30,6 +31,7 @@ const Index = () => {
       <Hero onOpenModal={openModal} />
       <LogoStrip />
       <WhatIsForge />
+      <Process />
       <WhyAINow />
       <Trailer />
       <WhoIsFor />

@@ -24,12 +24,12 @@ const exclusions = [
 
 const Pricing = ({ onOpenModal }: PricingProps) => {
   return (
-    <SectionWrapper label="THE INVESTMENT" variant="muted">
+    <SectionWrapper label="THE INVESTMENT">
       <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-12">
         The most focused nine days you will<br />spend on your business <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>this year.</span>
       </h2>
 
-      <div className="max-w-[520px] mx-auto bg-white border border-black/[0.08] rounded-2xl p-8 shadow-lg relative overflow-hidden">
+      <div className="max-w-[520px] mx-auto bg-card border border-border rounded-2xl p-8 shadow-lg relative overflow-hidden">
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-primary" />
         
         <div className="text-center mb-6">

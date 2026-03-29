@@ -6,7 +6,7 @@ interface FinalCTAProps {
 
 const FinalCTA = ({ onOpenModal }: FinalCTAProps) => {
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden bg-primary/[0.03]">
+    <section className="relative py-24 md:py-32 overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}

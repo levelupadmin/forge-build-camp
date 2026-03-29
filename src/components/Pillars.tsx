@@ -9,6 +9,7 @@ interface PillarData {
   body: string;
   builds: string[];
   tools: string[];
+  accent: string;
 }
 
 const pillars: PillarData[] = [
@@ -22,6 +23,7 @@ const pillars: PillarData[] = [
       "A content system you can repeat after you leave",
     ],
     tools: ["Runway", "Midjourney", "HeyGen", "ElevenLabs", "Kling"],
+    accent: "from-blue-500 to-indigo-500",
   },
   {
     num: "02",
@@ -33,6 +35,7 @@ const pillars: PillarData[] = [
       "A workflow saving at least 5 hours a week",
     ],
     tools: ["n8n", "Make", "Zapier", "Claude", "OpenAI API", "Airtable"],
+    accent: "from-emerald-500 to-teal-500",
   },
   {
     num: "03",
@@ -45,6 +48,7 @@ const pillars: PillarData[] = [
       "The foundation to keep building back home",
     ],
     tools: ["Lovable", "Replit", "Supabase", "Claude API", "Stripe"],
+    accent: "from-orange-500 to-rose-500",
   },
 ];
 
@@ -55,23 +59,27 @@ interface PillarsProps {
 const Pillars = ({ onOpenModal }: PillarsProps) => {
   return (
     <SectionWrapper id="pillars" label="THREE PILLARS">
-      <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-12">
+      <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-14">
         Three <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>Pillars.</span> Nine days.
       </h2>
 
-      <div className="max-w-[840px] mx-auto flex flex-col gap-6">
+      <div className="max-w-[840px] mx-auto flex flex-col gap-8">
         {pillars.map((p, i) => (
           <motion.div
             key={p.num}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="bg-white border border-black/[0.06] rounded-2xl p-6 md:p-8 relative overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
+            transition={{ duration: 0.55, delay: i * 0.1 }}
+            className="relative rounded-2xl p-7 md:p-10 overflow-hidden bg-card border border-border shadow-sm hover:shadow-md transition-shadow duration-300"
           >
-            <span className="absolute top-4 right-6 font-bold text-[72px] text-primary/[0.08] leading-none select-none">
+            {/* Large watermark number */}
+            <span className="absolute top-2 right-6 font-bold text-[100px] md:text-[140px] text-foreground/[0.03] leading-none select-none pointer-events-none">
               {p.num}
             </span>
+
+            {/* Gradient accent line */}
+            <div className={`absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b ${p.accent}`} />
 
             <div className="mb-4 relative z-10">
               <span className="text-[11px] text-primary border border-primary/20 rounded-full px-3 py-1 font-mono uppercase tracking-wider">
@@ -79,13 +87,13 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
               </span>
             </div>
 
-            <h3 className="font-bold text-[22px] md:text-[26px] text-foreground mb-3 relative z-10">
+            <h3 className="font-bold text-[22px] md:text-[28px] text-foreground mb-3 relative z-10">
               {p.title}
             </h3>
 
-            <p className="text-[15px] text-muted-foreground leading-[1.7] mb-6 relative z-10">{p.body}</p>
+            <p className="text-[15px] text-muted-foreground leading-[1.7] mb-6 relative z-10 max-w-[600px]">{p.body}</p>
 
-            <div className="bg-primary/[0.04] border-l-2 border-primary rounded-xl p-4 mb-6 relative z-10">
+            <div className="bg-foreground/[0.03] border-l-2 border-primary rounded-xl p-4 mb-6 relative z-10">
               <p className="text-[13px] text-muted-foreground font-semibold mb-2">You'll build:</p>
               {p.builds.map((b) => (
                 <p key={b} className="text-sm text-foreground leading-relaxed">
@@ -96,7 +104,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
 
             <div className="flex flex-wrap gap-3 relative z-10 items-center">
               {p.tools.map((t) => (
-                <div key={t} className="w-9 h-9 rounded-xl bg-card border border-border flex items-center justify-center overflow-hidden p-1.5" title={t}>
+                <div key={t} className="w-9 h-9 rounded-xl bg-background border border-border flex items-center justify-center overflow-hidden p-1.5" title={t}>
                   <img src={toolLogos[t] || ""} alt={t} className="w-full h-full object-contain" loading="lazy" />
                 </div>
               ))}
@@ -105,7 +113,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
         ))}
       </div>
 
-      <div className="text-center mt-12">
+      <div className="text-center mt-14">
         <p className="text-muted-foreground mb-4 text-[16px]">Ready to build all three?</p>
         <button onClick={onOpenModal} className="w-full sm:w-auto bg-primary text-primary-foreground font-semibold rounded-full px-8 py-3.5 text-sm uppercase tracking-wider">
           REQUEST AN INVITE

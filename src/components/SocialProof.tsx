@@ -29,11 +29,11 @@ const SocialProof = () => {
         What happens when you<br />build with the <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>right people.</span>
       </h2>
 
-      <p className="text-sm text-muted-foreground/50 text-center mb-10">
+      <p className="text-sm text-muted-foreground/50 text-center mb-12">
         These quotes are from past Forge residential programs. Forge AI Residency follows the same format.
       </p>
 
-      <div className="grid md:grid-cols-3 gap-5 max-w-[960px] mx-auto">
+      <div className="grid md:grid-cols-3 gap-6 max-w-[960px] mx-auto">
         {testimonials.map((t, i) => (
           <motion.div
             key={t.name}
@@ -41,11 +41,11 @@ const SocialProof = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.12 }}
-            className="bg-white border border-black/[0.06] rounded-2xl p-7 relative shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300"
+            className="bg-card border border-border rounded-2xl p-8 relative shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300"
           >
-            <span className="font-serif text-[72px] text-primary/15 absolute top-1 left-4 leading-none">"</span>
-            <p className="text-[15px] text-foreground italic leading-[1.7] mt-10">{t.quote}</p>
-            <div className="mt-6">
+            <span className="font-serif text-[80px] text-primary/10 absolute top-0 left-5 leading-none select-none">"</span>
+            <p className="text-[15px] text-foreground italic leading-[1.8] mt-12">{t.quote}</p>
+            <div className="mt-8">
               <p className="font-semibold text-foreground text-[15px]">{t.name}</p>
               <p className="text-[13px] text-muted-foreground">{t.role}</p>
               <p className="text-[13px] text-muted-foreground">{t.program}</p>
