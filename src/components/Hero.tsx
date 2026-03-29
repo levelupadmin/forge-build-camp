@@ -50,13 +50,13 @@ const Hero = ({ onOpenModal }: HeroProps) => {
         <img src={forgeLogo} alt="The Forge AI" className="h-14 md:h-20 mx-auto mb-8" />
 
         <h1 className="font-bold tracking-[-0.025em] leading-[1.08] text-[48px] md:text-[80px]" style={{ color: '#F2EEE8' }}>
-          <span className="block">Learn AI by</span>
-          <span className="block">
+          <span className="block text-4xl">Learn AI by</span>
+          <span className="block text-4xl">
             <span className="font-serif italic" style={{ fontWeight: 700, color: '#3B82F6' }}>Building</span> with AI.
           </span>
         </h1>
 
-        <p className="mt-6 text-[15px] md:text-[17px] tracking-wide leading-relaxed max-w-[540px] mx-auto" style={{ color: 'rgba(255,255,255,0.65)' }}>
+        <p className="mt-6 md:text-[17px] tracking-wide leading-relaxed max-w-[540px] mx-auto text-sm text-primary-foreground">
           An invite-only residency for founders, marketers, and operators who want to stop watching AI happen and start building with it.
         </p>
 
