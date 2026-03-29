@@ -1,218 +1,69 @@
 
 
-# Full Site Redesign Plan — Forge AI Residency
+# Fixes: WhatIsForge Cards, WhyAINow Dots, Background Consistency, Logo Sources
 
-## Problems Identified
+## Reference Insights (Refero)
 
-1. **Typography inconsistency**: Headings mix font weights/styles unpredictably. Some use `font-serif italic font-black`, others `font-serif italic font-normal`, some just `text-primary`. No system.
-2. **Dark-theme artifacts on white background**: `glass-card` uses `rgba(0,0,0,0.4)` backgrounds (Pillars "You'll build" box), borders reference `rgba(255,255,255,...)`, input classes use dark-mode colors. The modal form inputs are styled for dark mode.
-3. **Section spacing is uneven**: Some sections feel cramped, others have too much whitespace. The "14 days" heading says 14 but program is 9 days.
-4. **Cards lack visual hierarchy**: Outcomes, WhoIsFor, Community, Mentors all use near-identical `glass-card` pattern — everything looks the same.
-5. **Mobile issues**: Nav disappears on scroll (intentional but odd), cards stack poorly, the dot grid is too wide, pricing text overflows.
-6. **No visual differentiation between sections**: After removing borders, sections blend into each other with no rhythm.
-7. **CTA inconsistency**: Some CTAs use `cta-pulse` animation, some don't. The `rounded-full` vs `rounded-xl` mix.
-8. **Outcomes section**: Background images with dark gradient overlay look muddy on white theme.
-9. **Schedule section**: Says "14 days" but program is 9 days. Timeline dots use dark-mode colors.
+**ManyChat landing** — Uses compact inline stat blocks (large bold numbers + small descriptors) in a horizontal row with generous whitespace. Pill-shaped CTAs, alternating section backgrounds between white and tinted panels.
+
+**Intercom pricing** — Cards side-by-side with one highlighted in dark/colored background and white text, others on white. Clear visual hierarchy through color contrast.
+
+**Key takeaway**: The "highlighted stat card" pattern (colored bg + white text) is a proven premium pattern. Cards should be compact and horizontal.
 
 ---
 
-## Design References (from Refero)
+## 1. WhatIsForge — Blue cards side-by-side (`WhatIsForge.tsx`)
 
-**Cursor.com pricing** (screen `1d484bbd`): Clean dark cards on dark background, consistent card sizing, subtle borders, clear hierarchy. Takeaway → consistent card sizing and clear type hierarchy.
+**Problem**: Cards stack vertically on mobile, taking too much space. Currently white bg with blue text.
 
-**Relume.io landing** (screen `635a8952`): Soft beige `#F7F3EF` background, clean vertical sections, logo wall in grayscale, testimonial cards with generous white space, pill-shaped CTAs. Takeaway → warm white/cream palette, structured vertical rhythm, clean card styling.
+**Fix**:
+- Change cards to `bg-primary` (blue) with white text/labels
+- Make cards compact: `w-[100px] md:w-[160px] py-6 md:py-8` so all 3 fit side-by-side even on mobile
+- Change layout from `flex-col md:flex-row` → `flex-row` always (horizontal on all screens)
+- Show `×` symbols on mobile too (remove `hidden md:block`)
+- Reduce number font size on mobile: `text-[36px] md:text-[64px]`
+- Labels: white, `text-white/80`
 
-**Partiful** (screen `d967ccf7`): Frosted-glass cards, theatrical display type, consistent card radii and padding. Takeaway → premium card styling with consistent inner padding.
+## 2. WhyAINow — Fix dot visibility (`WhyAINow.tsx`)
+
+**Problem**: Grey dots (`bg-foreground/12`) are nearly invisible on the warm off-white background.
+
+**Fix**:
+- Change grey dots from `bg-foreground/12` → `bg-foreground/25` for clear visibility
+- Change green dots from `bg-emerald-500/60` → `bg-emerald-500/80`
+- Add back the "echo chamber" narrative line: "You think AI is crowded because you're in an echo chamber." before "The real world hasn't even started."
+- Update the legend dot colors to match
+
+## 3. Background consistency (`SectionWrapper.tsx`, `index.css`)
+
+**Problem**: Alternating `hsl(30,15%,95%)` muted sections create a jarring off-white/white switch.
+
+**Fix**:
+- Remove the warm tint entirely. Set `--background: 0 0% 100%` (pure white)
+- Change muted variant from `bg-[hsl(30,15%,95%)]` → `bg-[#F7F7F7]` (neutral light gray, no warm tint)
+- Update `--bg-base`, `--card`, `--popover` to pure white equivalents
+- This eliminates the "keeps changing" feel — it's now white vs very subtle gray
+
+## 4. LogoStrip — Source real logos (`LogoStrip.tsx`)
+
+**Problem**: Some logos may not load (Wikipedia URLs can be unreliable). Need complete set.
+
+**Fix**: Replace all logo URLs with more reliable sources and add missing ones. Keep the two-row marquee layout. Update logos to use brand icon CDNs or direct SVG URLs where possible. Ensure all company/university names match their actual logos:
+
+**Row 1 (Companies)**: CRED, Google, McKinsey, Amazon, Netflix, Meta, Microsoft, Swiggy
+**Row 2 (Universities/Institutions)**: IIM, NIFT, Ashoka University, Christ University, Symbiosis, Loyola, Government of India
+
+Use `logo.clearbit.com` as a reliable fallback for company logos (e.g., `https://logo.clearbit.com/google.com`). Keep Wikipedia URLs for institutions where Clearbit won't work.
 
 ---
 
-## Redesign Plan by Section
-
-### 1. Global Theme & Typography System
-
-**Files**: `src/index.css`, `tailwind.config.ts`
-
-- Warm the white background slightly: `--background: 30 20% 98%` (warm off-white like Relume's `#F7F3EF`)
-- Fix all dark-mode color artifacts: replace `rgba(255,255,255,...)` borders/backgrounds with light-mode equivalents
-- Establish strict type scale:
-  - **Section label**: JetBrains Mono, 11px, uppercase, tracking 0.12em, primary color (keep as-is)
-  - **H2 headlines**: DM Sans Bold, 36px mobile / 56px desktop, tracking -0.025em, `text-foreground`
-  - **Accent word per headline**: Playfair Display Italic 700, `text-primary` — max ONE per heading
-  - **Body**: DM Sans Regular, 16px, `text-muted-foreground`, line-height 1.7
-  - **Cards**: DM Sans Semibold 16px title, Regular 14px body
-- Remove `cta-pulse` animation from all CTAs — keep buttons clean and static (premium feel)
-- Standardize all CTAs: `rounded-full px-8 py-3.5 text-sm font-semibold uppercase tracking-wider`
-- Glass card restyle: `bg-white border border-black/[0.06] rounded-2xl shadow-sm` — no backdrop-blur on white background (it's invisible anyway)
-
-### 2. Navbar
-
-**File**: `src/components/Navbar.tsx`
-
-- Desktop: Keep frosted pill but update for white theme — `bg-white/80 backdrop-blur-xl border border-black/[0.06]` with dark text
-- Nav links: `text-foreground/70 hover:text-foreground` instead of white
-- Mobile: Keep hamburger but don't hide on scroll — always visible. White background with subtle bottom border
-
-### 3. Hero
-
-**File**: `src/components/Hero.tsx`
-
-- Keep video background and current layout — it works well
-- Increase logo size slightly on mobile (`h-12` → `h-14`)
-- Ensure "Block 1 of 20 invites" uses DM Sans (already done)
-
-### 4. Logo Strip
-
-**File**: `src/components/LogoStrip.tsx`
-
-- Keep dual-row marquee — it's working well
-- Ensure logos have enough contrast on warm-white background
-
-### 5. What Is Forge (recently redesigned)
-
-**File**: `src/components/WhatIsForge.tsx`
-
-- Keep bento cards layout — verify glass cards look good on warm-white
-- Update card styling to new `bg-white border border-black/[0.06] shadow-sm`
-
-### 6. Why AI Now (Dot Grid)
-
-**File**: `src/components/WhyAINow.tsx`
-
-- Keep the dot grid — it's a strong visual differentiator
-- Reduce 2500 dots to improve performance and visual clarity: 40×25 = 1000 dots
-- Add more breathing room above and below
-- Caption text should follow the type system
-
-### 7. Trailer
-
-**File**: `src/components/Trailer.tsx`
-
-- Update overlay from `bg-background/60` to `bg-black/40`
-- Remove amber/orange glow shadow — use subtle `shadow-lg` instead
-- Keep play button but remove pulsing animation — just a clean circle
-
-### 8. Who Is For (Personas)
-
-**File**: `src/components/WhoIsFor.tsx`
-
-- Upgrade from basic cards to **feature-style layout**: icon on left, text on right, larger cards
-- Add subtle left-border accent in primary color on each card
-- Better hover: slight shadow increase, no translate
-
-### 9. Three Pillars
-
-**File**: `src/components/Pillars.tsx`
-
-- Fix the dark "You'll build" box: `bg-[rgba(0,0,0,0.4)]` → `bg-primary/[0.04] border-l-2 border-primary`
-- Increase card padding for breathing room
-- Tool logo icons: add subtle background circle behind each
-
-### 10. Outcomes
-
-**File**: `src/components/Outcomes.tsx`
-
-- Remove background images — they look muddy on white theme
-- Switch to clean numbered list or icon-based cards with colored accents
-- Use primary-tinted backgrounds per card (very subtle `bg-primary/[0.03]`)
-
-### 11. Schedule
-
-**File**: `src/components/Schedule.tsx`
-
-- Fix headline: "14 days" → match actual program (9 days + 5 days online prep)
-- Fix accordion border: `rgba(255,255,255,0.06)` → `border-border`
-- Style timeline dots for light theme: white bg with primary border
-
-### 12. Mentors
-
-**File**: `src/components/Mentors.tsx`
-
-- Replace empty avatar circles with colored gradient placeholder circles (initials or icons)
-- Fix `glass-card-hover` styling for white theme
-
-### 13. Community
-
-**File**: `src/components/Community.tsx`
-
-- Fix `bg-card` section background — ensure it creates subtle contrast on warm-white
-- Network visualization: update node colors for light theme visibility
-- SVG line colors: increase opacity for light background
-
-### 14. Social Proof
-
-**File**: `src/components/SocialProof.tsx`
-
-- Keep quote card layout
-- Add quotation mark styling: `text-primary/10` → `text-primary/15` for visibility on white
-- Fix `glass-card-hover` for white theme
-
-### 15. Pricing
-
-**File**: `src/components/Pricing.tsx`
-
-- Remove `pricing-card-glow` animation — keep it static and clean
-- Update card: `bg-white border border-black/[0.08] shadow-lg rounded-2xl`
-- Add a subtle primary-colored top border (2px) for visual interest
-- Checkmarks and X marks: ensure visible on white
-
-### 16. FAQs
-
-**File**: `src/components/FAQs.tsx`
-
-- Fix border: `rgba(255,255,255,0.06)` → `border-border`
-- Keep accordion pattern — it's clean
-
-### 17. Final CTA
-
-**File**: `src/components/FinalCTA.tsx`
-
-- Remove `dot-grid` background (too subtle on white)
-- Add a warm cream/primary-tinted background (`bg-primary/[0.03]`) to differentiate from rest of page
-- Remove CTA pulse animation
-
-### 18. Footer
-
-**File**: `src/components/Footer.tsx`
-
-- Keep clean and simple — just fix border colors for white theme
-
-### 19. Invite Modal
-
-**File**: `src/components/InviteModal.tsx`
-
-- Fix input styling: dark-mode `rgba(255,255,255,0.04)` → `bg-white border border-black/[0.08]`
-- Fix modal background: `bg-card` → explicit `bg-white`
-- Fix border-top: keep primary color accent
-
-### 20. Section Rhythm (SectionWrapper)
-
-**File**: `src/components/SectionWrapper.tsx`
-
-- Add alternating subtle backgrounds: every other section gets `bg-[#F9F8F6]` (warm gray) to create visual rhythm without borders
-- Pass a `variant` prop: `"default" | "muted"` to alternate
-
----
-
-## Files Changed Summary
+## Files Changed
 
 | File | Change |
 |------|--------|
-| `src/index.css` | Warm white palette, fix dark-mode artifacts, remove pulse animations |
-| `src/components/Navbar.tsx` | Light theme frosted pill, always-visible mobile nav |
-| `src/components/SectionWrapper.tsx` | Add alternating background variant |
-| `src/components/WhatIsForge.tsx` | Update card styling for light theme |
-| `src/components/WhyAINow.tsx` | Optimize dot grid, fix colors |
-| `src/components/Trailer.tsx` | Fix overlay and shadow for light theme |
-| `src/components/WhoIsFor.tsx` | Better card layout with left accent border |
-| `src/components/Pillars.tsx` | Fix dark "You'll build" box, update cards |
-| `src/components/Outcomes.tsx` | Remove muddy images, clean card style |
-| `src/components/Schedule.tsx` | Fix "14 days" text, light theme borders |
-| `src/components/Mentors.tsx` | Gradient avatar placeholders, fix cards |
-| `src/components/Community.tsx` | Fix network viz colors, section bg |
-| `src/components/SocialProof.tsx` | Fix quote cards for white theme |
-| `src/components/Pricing.tsx` | Remove glow animation, clean card style |
-| `src/components/FAQs.tsx` | Fix border colors |
-| `src/components/FinalCTA.tsx` | Tinted background, remove pulse |
-| `src/components/Footer.tsx` | Fix border for light theme |
-| `src/components/InviteModal.tsx` | Fix inputs and modal bg for white theme |
+| `src/components/WhatIsForge.tsx` | Blue bg cards, always horizontal, compact sizing |
+| `src/components/WhyAINow.tsx` | Fix dot opacity, add echo chamber line back |
+| `src/components/SectionWrapper.tsx` | Neutral gray muted variant |
+| `src/index.css` | Pure white background, remove warm tint |
+| `src/components/LogoStrip.tsx` | Reliable logo URLs via Clearbit + Wikipedia |
 
