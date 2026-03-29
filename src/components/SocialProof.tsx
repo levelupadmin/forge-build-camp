@@ -54,9 +54,6 @@ const SocialProof = () => {
         ))}
       </div>
 
-      <p className="text-[12px] text-muted-foreground/50 text-center mt-8 italic">
-        Forge AI Residency participants will be featured after the program completes.
-      </p>
     </SectionWrapper>
   );
 };
