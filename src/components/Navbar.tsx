@@ -42,7 +42,7 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
             style={{
               backdropFilter: "blur(20px)",
               WebkitBackdropFilter: "blur(20px)",
-              background: scrolled ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.1)",
+              background: scrolled ? "rgba(245,243,239,0.92)" : "rgba(255,255,255,0.1)",
               border: scrolled ? "1px solid rgba(0,0,0,0.06)" : "1px solid rgba(255,255,255,0.15)",
               transition: "all 0.3s ease",
             }}
@@ -70,7 +70,7 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
         style={{
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
-          background: scrolled ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.08)",
+          background: scrolled ? "rgba(245,243,239,0.95)" : "rgba(255,255,255,0.08)",
           borderBottom: scrolled ? "1px solid rgba(0,0,0,0.06)" : "1px solid rgba(255,255,255,0.1)",
         }}
       >

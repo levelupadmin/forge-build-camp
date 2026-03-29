@@ -13,12 +13,12 @@ const outcomes = [
 
 const Outcomes = () => {
   return (
-    <SectionWrapper label="YOUR OUTCOMES" variant="muted">
+    <SectionWrapper label="YOUR OUTCOMES">
       <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-12">
         Not just learning. <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>Real building.</span>
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-[840px] mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 max-w-[840px] mx-auto">
         {outcomes.map((o, i) => (
           <motion.div
             key={o.title}
@@ -26,7 +26,7 @@ const Outcomes = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.08 }}
-            className="bg-white border border-black/[0.06] rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300"
+            className="bg-card border border-border rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300"
           >
             <div className="w-10 h-10 rounded-xl bg-primary/[0.06] flex items-center justify-center mb-4">
               <o.icon className="text-primary" size={20} />

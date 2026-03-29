@@ -10,11 +10,9 @@ interface SectionWrapperProps {
   bg?: string;
 }
 
-const SectionWrapper = ({ id, label, children, className = "", variant = "default", bg }: SectionWrapperProps) => {
-  const bgClass = bg ? bg : variant === "muted" ? "bg-[#F7F7F7]" : "";
-
+const SectionWrapper = ({ id, label, children, className = "" }: SectionWrapperProps) => {
   return (
-    <section id={id} className={`py-16 md:py-24 overflow-hidden ${bgClass} ${className}`}>
+    <section id={id} className={`py-20 md:py-28 overflow-hidden ${className}`}>
       <motion.div
         initial={{ opacity: 0, y: 32 }}
         whileInView={{ opacity: 1, y: 0 }}

@@ -4,23 +4,23 @@
 
 @layer base {
   :root {
-    --bg-base: 0 0% 100%;
-    --bg-surface: 0 0% 97%;
-    --bg-card: 0 0% 97%;
+    --bg-base: 36 20% 96%;
+    --bg-surface: 36 20% 94%;
+    --bg-card: 36 20% 94%;
     --border-card: 0 0% 0% / 0.06;
     --border-subtle: 0 0% 0% / 0.04;
     
-    --background: 0 0% 100%;
+    --background: 36 20% 96%;
     --foreground: 0 0% 8%;
-    --card: 0 0% 97%;
+    --card: 36 15% 93%;
     --card-foreground: 0 0% 8%;
-    --popover: 0 0% 100%;
+    --popover: 36 20% 96%;
     --popover-foreground: 0 0% 8%;
     --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 30 10% 92%;
+    --secondary: 36 10% 90%;
     --secondary-foreground: 0 0% 8%;
-    --muted: 30 10% 92%;
+    --muted: 36 10% 90%;
     --muted-foreground: 215 14% 40%;
     --accent: 217 91% 60%;
     --accent-foreground: 0 0% 100%;
@@ -89,17 +89,17 @@
   font-weight: 400;
 }
 
-/* Glass card — light theme */
+/* Glass card — warm theme */
 .glass-card {
-  background: hsl(0 0% 100%);
+  background: hsl(36 15% 93%);
   border: 1px solid hsl(0 0% 0% / 0.06);
   border-radius: 16px;
   box-shadow: 0 1px 3px hsl(0 0% 0% / 0.04);
 }
 
-/* Enhanced glass card with hover — light theme */
+/* Enhanced glass card with hover */
 .glass-card-hover {
-  background: hsl(0 0% 100%);
+  background: hsl(36 15% 93%);
   border: 1px solid hsl(0 0% 0% / 0.06);
   border-radius: 16px;
   box-shadow: 0 1px 3px hsl(0 0% 0% / 0.04);
@@ -150,4 +150,12 @@
 
 .scroll-indicator {
   animation: scroll-bounce 2s ease-in-out infinite;
+}
+
+/* Thin horizontal rule for section separation */
+.section-divider {
+  height: 1px;
+  background: hsl(0 0% 0% / 0.06);
+  max-width: 120px;
+  margin: 0 auto;
 }

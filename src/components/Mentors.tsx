@@ -9,7 +9,7 @@ const mentors = [
 
 const Mentors = () => {
   return (
-    <SectionWrapper id="mentors" label="YOUR MENTORS" variant="muted">
+    <SectionWrapper id="mentors" label="YOUR MENTORS">
       <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-4">
         Learn from people who<br /><span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>use AI for a living.</span>
       </h2>
@@ -26,7 +26,7 @@ const Mentors = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.12 }}
-            className="bg-white border border-black/[0.06] rounded-2xl p-7 text-center shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300"
+            className="bg-card border border-border rounded-2xl p-7 text-center shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300"
           >
             <div className={`w-20 h-20 rounded-full mx-auto mb-4 bg-gradient-to-br ${m.gradient} opacity-80`} />
             <p className="font-bold text-[18px] text-foreground">{m.title}</p>
