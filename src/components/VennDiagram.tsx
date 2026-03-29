@@ -1,169 +1,240 @@
 import { motion } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
 
+const narratives = [
+  {
+    label: "Learning",
+    description: "AI moves fast. We give you the frameworks, tools, and mental models to not just keep up — but lead.",
+  },
+  {
+    label: "Networking",
+    description: "You're only as good as the room you're in. We curate a cohort of builders who push each other forward.",
+  },
+  {
+    label: "Building",
+    description: "Theory without execution is noise. You ship real products, automations, and content — every single day.",
+  },
+];
+
 const VennDiagram = () => {
-  const r = 130;
-  const rMobile = 85;
-  const cx = 250;
-  const cy = 220;
-  const offset = 80;
-  const offsetMobile = 52;
+  // Desktop dimensions
+  const cx = 260;
+  const cy = 230;
+  const r = 140;
+  const offset = 85;
+
+  // Mobile dimensions
+  const mcx = 165;
+  const mcy = 165;
+  const mr = 95;
+  const moffset = 58;
+
+  const circlePositions = [
+    { x: -1, y: -1 },   // top-left: Learning
+    { x: 1, y: -1 },    // top-right: Networking
+    { x: 0, y: 1 },     // bottom-center: Building
+  ];
+
+  const labelOffsets = [
+    { dx: -45, dy: -55 },
+    { dx: 45, dy: -55 },
+    { dx: 0, dy: 65 },
+  ];
 
   return (
-    <SectionWrapper>
+    <SectionWrapper id="ethos" label="OUR ETHOS">
+      <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-6">
+        What makes{" "}
+        <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>
+          the Forge
+        </span>{" "}
+        different
+      </h2>
+
+      <p className="text-[16px] md:text-[17px] leading-[1.8] text-muted-foreground text-center max-w-[520px] mx-auto mb-16">
+        Three forces, one intersection. Every part of the residency is designed around this philosophy.
+      </p>
+
       <div className="flex flex-col items-center">
-        {/* Desktop Venn */}
+        {/* Desktop SVG */}
         <div className="hidden md:block relative">
-          <svg width={500} height={440} viewBox="0 0 500 440" className="overflow-visible">
+          <svg width={520} height={480} viewBox="0 0 520 480" className="overflow-visible">
             <defs>
-              <radialGradient id="center-glow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.25" />
+              <radialGradient id="ethos-glow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.2" />
                 <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
               </radialGradient>
             </defs>
 
-            {/* Glow in center */}
-            <circle cx={cx} cy={cy + 20} r={80} fill="url(#center-glow)" />
-
-            {/* Learning - top left */}
-            <motion.circle
-              cx={cx - offset}
-              cy={cy - offset + 20}
-              r={r}
-              fill="none"
-              stroke="hsl(var(--foreground) / 0.12)"
-              strokeWidth={1.5}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0 }}
-            />
-            <motion.text
-              x={cx - offset - 30}
-              y={cy - offset - 30}
-              textAnchor="middle"
-              className="fill-foreground/60 text-[13px] font-semibold uppercase tracking-[0.15em]"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              Learning
-            </motion.text>
-
-            {/* Networking - top right */}
-            <motion.circle
-              cx={cx + offset}
-              cy={cy - offset + 20}
-              r={r}
-              fill="none"
-              stroke="hsl(var(--foreground) / 0.12)"
-              strokeWidth={1.5}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.15 }}
-            />
-            <motion.text
-              x={cx + offset + 30}
-              y={cy - offset - 30}
-              textAnchor="middle"
-              className="fill-foreground/60 text-[13px] font-semibold uppercase tracking-[0.15em]"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.45 }}
-            >
-              Networking
-            </motion.text>
-
-            {/* Building - bottom center */}
+            {/* Center glow */}
             <motion.circle
               cx={cx}
-              cy={cy + offset + 20}
-              r={r}
-              fill="none"
-              stroke="hsl(var(--foreground) / 0.12)"
-              strokeWidth={1.5}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-            />
-            <motion.text
-              x={cx}
-              y={cy + offset + r - 10}
-              textAnchor="middle"
-              className="fill-foreground/60 text-[13px] font-semibold uppercase tracking-[0.15em]"
+              cy={cy + 10}
+              r={90}
+              fill="url(#ethos-glow)"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-            >
-              Building
-            </motion.text>
+              transition={{ duration: 1, delay: 1.2 }}
+            />
+
+            {/* Circles */}
+            {circlePositions.map((pos, i) => (
+              <motion.circle
+                key={i}
+                cx={cx + pos.x * offset}
+                cy={cy + pos.y * offset + 10}
+                r={r}
+                fill="none"
+                stroke="hsl(var(--foreground) / 0.1)"
+                strokeWidth={1.5}
+                initial={{ opacity: 0, scale: 0.6 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: i * 0.4, ease: "easeOut" }}
+                style={{ transformOrigin: `${cx + pos.x * offset}px ${cy + pos.y * offset + 10}px` }}
+              />
+            ))}
+
+            {/* Labels */}
+            {circlePositions.map((pos, i) => (
+              <motion.text
+                key={`label-${i}`}
+                x={cx + pos.x * offset + labelOffsets[i].dx}
+                y={cy + pos.y * offset + 10 + labelOffsets[i].dy}
+                textAnchor="middle"
+                className="fill-foreground/50 text-[12px] font-semibold uppercase tracking-[0.18em]"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.4 + 0.3 }}
+              >
+                {narratives[i].label}
+              </motion.text>
+            ))}
 
             {/* Center text */}
-            <motion.text
-              x={cx}
-              y={cy + 14}
-              textAnchor="middle"
-              className="fill-primary text-[22px] font-serif italic font-bold"
-              initial={{ opacity: 0, scale: 0.8 }}
+            <motion.g
+              initial={{ opacity: 0, scale: 0.7 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.5 }}
+              transition={{ duration: 0.7, delay: 1.4, ease: "easeOut" }}
+              style={{ transformOrigin: `${cx}px ${cy + 10}px` }}
             >
-              the Forge
-            </motion.text>
+              <text
+                x={cx}
+                y={cy + 5}
+                textAnchor="middle"
+                className="fill-muted-foreground text-[13px] font-medium"
+              >
+                the
+              </text>
+              <text
+                x={cx}
+                y={cy + 28}
+                textAnchor="middle"
+                className="fill-primary text-[26px] font-serif italic font-bold"
+              >
+                Forge
+              </text>
+            </motion.g>
           </svg>
         </div>
 
-        {/* Mobile Venn */}
+        {/* Mobile SVG */}
         <div className="block md:hidden relative">
-          <svg width={320} height={300} viewBox="0 0 320 300" className="overflow-visible">
+          <svg width={330} height={340} viewBox="0 0 330 340" className="overflow-visible">
             <defs>
-              <radialGradient id="center-glow-m" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.25" />
+              <radialGradient id="ethos-glow-m" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.2" />
                 <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
               </radialGradient>
             </defs>
 
-            <circle cx={160} cy={155} r={55} fill="url(#center-glow-m)" />
+            <motion.circle
+              cx={mcx}
+              cy={mcy + 8}
+              r={60}
+              fill="url(#ethos-glow-m)"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 1.2 }}
+            />
 
-            <motion.circle cx={160 - offsetMobile} cy={155 - offsetMobile + 15} r={rMobile} fill="none" stroke="hsl(var(--foreground) / 0.12)" strokeWidth={1.2}
-              initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.7 }} />
-            <motion.text x={160 - offsetMobile - 20} y={155 - offsetMobile - 30} textAnchor="middle" className="fill-foreground/60 text-[11px] font-semibold uppercase tracking-[0.12em]"
-              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}>Learning</motion.text>
+            {circlePositions.map((pos, i) => (
+              <motion.circle
+                key={i}
+                cx={mcx + pos.x * moffset}
+                cy={mcy + pos.y * moffset + 8}
+                r={mr}
+                fill="none"
+                stroke="hsl(var(--foreground) / 0.1)"
+                strokeWidth={1.2}
+                initial={{ opacity: 0, scale: 0.6 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: i * 0.4, ease: "easeOut" }}
+                style={{ transformOrigin: `${mcx + pos.x * moffset}px ${mcy + pos.y * moffset + 8}px` }}
+              />
+            ))}
 
-            <motion.circle cx={160 + offsetMobile} cy={155 - offsetMobile + 15} r={rMobile} fill="none" stroke="hsl(var(--foreground) / 0.12)" strokeWidth={1.2}
-              initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }} />
-            <motion.text x={160 + offsetMobile + 20} y={155 - offsetMobile - 30} textAnchor="middle" className="fill-foreground/60 text-[11px] font-semibold uppercase tracking-[0.12em]"
-              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.45 }}>Networking</motion.text>
+            {circlePositions.map((pos, i) => {
+              const mLabelOffsets = [
+                { dx: -30, dy: -38 },
+                { dx: 30, dy: -38 },
+                { dx: 0, dy: 48 },
+              ];
+              return (
+                <motion.text
+                  key={`mlabel-${i}`}
+                  x={mcx + pos.x * moffset + mLabelOffsets[i].dx}
+                  y={mcy + pos.y * moffset + 8 + mLabelOffsets[i].dy}
+                  textAnchor="middle"
+                  className="fill-foreground/50 text-[10px] font-semibold uppercase tracking-[0.14em]"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.4 + 0.3 }}
+                >
+                  {narratives[i].label}
+                </motion.text>
+              );
+            })}
 
-            <motion.circle cx={160} cy={155 + offsetMobile + 15} r={rMobile} fill="none" stroke="hsl(var(--foreground) / 0.12)" strokeWidth={1.2}
-              initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.3 }} />
-            <motion.text x={160} y={155 + offsetMobile + rMobile - 5} textAnchor="middle" className="fill-foreground/60 text-[11px] font-semibold uppercase tracking-[0.12em]"
-              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.6 }}>Building</motion.text>
-
-            <motion.text x={160} y={160} textAnchor="middle" className="fill-primary text-[16px] font-serif italic font-bold"
-              initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.5 }}>the Forge</motion.text>
+            <motion.g
+              initial={{ opacity: 0, scale: 0.7 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 1.4, ease: "easeOut" }}
+              style={{ transformOrigin: `${mcx}px ${mcy + 8}px` }}
+            >
+              <text x={mcx} y={mcy + 3} textAnchor="middle" className="fill-muted-foreground text-[11px] font-medium">the</text>
+              <text x={mcx} y={mcy + 22} textAnchor="middle" className="fill-primary text-[20px] font-serif italic font-bold">Forge</text>
+            </motion.g>
           </svg>
         </div>
 
-        {/* Narrative line */}
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-[16px] md:text-[18px] leading-[1.8] text-muted-foreground text-center max-w-[560px] mt-8 md:mt-12"
-        >
-          We meet builders at the intersection of{" "}
-          <span className="font-semibold text-foreground">learning</span>,{" "}
-          <span className="font-semibold text-foreground">networking</span>, and{" "}
-          <span className="font-semibold text-foreground">building</span> — to turn them into AI-native operators.
-        </motion.p>
+        {/* Narrative cards below the diagram */}
+        <div className="grid md:grid-cols-3 gap-6 md:gap-10 max-w-[900px] mt-12 md:mt-16 w-full">
+          {narratives.map((n, i) => (
+            <motion.div
+              key={n.label}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.15 + 0.2 }}
+              className="text-center"
+            >
+              <h3 className="font-serif italic text-[24px] md:text-[28px] text-foreground font-bold mb-3">
+                {n.label}
+              </h3>
+              <p className="text-[14px] md:text-[15px] text-muted-foreground leading-[1.8]">
+                {n.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </SectionWrapper>
   );

@@ -30,11 +30,11 @@ const Index = () => {
       <Hero onOpenModal={openModal} />
       <LogoStrip />
       <WhatIsForge />
-      <VennDiagram />
       <WhyAINow />
       <WhoIsFor />
       <Pillars onOpenModal={openModal} />
       <Outcomes />
+      <VennDiagram />
       <Schedule />
       <Mentors />
       <Community />
