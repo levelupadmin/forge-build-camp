@@ -80,29 +80,29 @@ const WhatIsForge = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-40px" }}
-          className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 relative z-10"
+          className="flex flex-row items-center justify-center gap-2 md:gap-4 relative z-10"
         >
           {cards.map((card, i) => (
-            <div key={card.label} className="flex items-center gap-4 md:gap-6">
+            <div key={card.label} className="flex items-center gap-2 md:gap-4">
               {i > 0 && (
                 <motion.span
                   variants={itemVariants}
-                  className="text-[32px] md:text-[48px] font-light text-muted-foreground/25 select-none hidden md:block"
+                  className="text-[24px] md:text-[48px] font-light text-muted-foreground/25 select-none"
                 >
                   ×
                 </motion.span>
               )}
               <motion.div
                 variants={itemVariants}
-                whileHover={{ y: -4, boxShadow: "0 16px 48px hsla(217, 91%, 60%, 0.1)" }}
+                whileHover={{ y: -4, boxShadow: "0 16px 48px hsla(217, 91%, 60%, 0.2)" }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="group relative w-[200px] md:w-[220px] py-10 md:py-12 rounded-2xl text-center cursor-default overflow-hidden bg-white border border-black/[0.06] shadow-sm"
+                className="group relative w-[100px] md:w-[160px] py-6 md:py-10 rounded-2xl text-center cursor-default overflow-hidden bg-primary shadow-sm"
               >
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-primary/5 via-transparent to-primary/3 pointer-events-none" />
-                <p className="text-[56px] md:text-[72px] font-bold text-primary leading-none relative z-10">
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-white/10 via-transparent to-white/5 pointer-events-none" />
+                <p className="text-[36px] md:text-[64px] font-bold text-primary-foreground leading-none relative z-10">
                   <AnimatedNumber value={card.value} delay={0.3 + i * 0.15} />
                 </p>
-                <p className="text-[11px] md:text-[12px] uppercase tracking-[0.14em] text-muted-foreground/60 font-semibold mt-3 relative z-10">
+                <p className="text-[10px] md:text-[12px] uppercase tracking-[0.14em] text-primary-foreground/70 font-semibold mt-2 md:mt-3 relative z-10">
                   {card.label}
                 </p>
               </motion.div>

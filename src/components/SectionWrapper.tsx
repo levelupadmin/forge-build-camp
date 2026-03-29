@@ -11,7 +11,7 @@ interface SectionWrapperProps {
 }
 
 const SectionWrapper = ({ id, label, children, className = "", variant = "default", bg }: SectionWrapperProps) => {
-  const bgClass = bg ? bg : variant === "muted" ? "bg-[hsl(30,15%,95%)]" : "";
+  const bgClass = bg ? bg : variant === "muted" ? "bg-[#F7F7F7]" : "";
 
   return (
     <section id={id} className={`py-16 md:py-24 overflow-hidden ${bgClass} ${className}`}>
