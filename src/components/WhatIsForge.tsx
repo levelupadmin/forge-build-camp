@@ -40,22 +40,18 @@ const WhatIsForge = () => {
   return (
     <SectionWrapper id="what-is-forge">
       <div className="relative">
-        {/* Subtle glow behind bento grid */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/4 w-[600px] h-[400px] rounded-full bg-primary/5 blur-[100px] pointer-events-none" />
 
-        {/* Label */}
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4 }}
-          className="text-center mb-6"
-          style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, textTransform: "uppercase", letterSpacing: "0.12em", color: "hsl(var(--primary))" }}
+          className="section-label text-center mb-6"
         >
           THE RESIDENCY
         </motion.p>
 
-        {/* Headline */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -64,12 +60,11 @@ const WhatIsForge = () => {
           className="text-center mb-4"
         >
           <p className="text-[18px] md:text-[22px] text-muted-foreground font-medium mb-1">What is the</p>
-          <h2 className="font-bold text-[44px] md:text-[72px] leading-[1.05] tracking-tight text-foreground">
-            <span className="text-primary" style={{ fontFamily: "'Playfair Display', serif", fontStyle: "italic" }}>Forge</span> AI Residency
+          <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.05] tracking-[-0.025em] text-foreground">
+            <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>Forge</span> AI Residency
           </h2>
         </motion.div>
 
-        {/* Description */}
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -80,7 +75,6 @@ const WhatIsForge = () => {
           A 9-day fully residential program where handpicked founders, marketers, and operators learn to build with AI by creating products, automating their business, and creating AI-powered content while living and working alongside a community of like-minded builders and AI experts as their mentors.
         </motion.p>
 
-        {/* Bento Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -100,19 +94,11 @@ const WhatIsForge = () => {
               )}
               <motion.div
                 variants={itemVariants}
-                whileHover={{ y: -4, boxShadow: "0 16px 48px hsla(217, 91%, 60%, 0.12)" }}
+                whileHover={{ y: -4, boxShadow: "0 16px 48px hsla(217, 91%, 60%, 0.1)" }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="group relative w-[200px] md:w-[220px] py-10 md:py-12 rounded-2xl text-center cursor-default overflow-hidden"
-                style={{
-                  background: "rgba(255,255,255,0.6)",
-                  backdropFilter: "blur(12px)",
-                  WebkitBackdropFilter: "blur(12px)",
-                  border: "1px solid rgba(0,0,0,0.05)",
-                }}
+                className="group relative w-[200px] md:w-[220px] py-10 md:py-12 rounded-2xl text-center cursor-default overflow-hidden bg-white border border-black/[0.06] shadow-sm"
               >
-                {/* Hover shimmer */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-primary/5 via-transparent to-primary/3 pointer-events-none" />
-
                 <p className="text-[56px] md:text-[72px] font-bold text-primary leading-none relative z-10">
                   <AnimatedNumber value={card.value} delay={0.3 + i * 0.15} />
                 </p>

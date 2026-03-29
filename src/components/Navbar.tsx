@@ -41,17 +41,20 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
             style={{
               backdropFilter: "blur(20px)",
               WebkitBackdropFilter: "blur(20px)",
-              background: "rgba(255,255,255,0.1)",
-              border: "1px solid rgba(255,255,255,0.15)",
+              background: scrolled ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.1)",
+              border: scrolled ? "1px solid rgba(0,0,0,0.06)" : "1px solid rgba(255,255,255,0.15)",
+              transition: "all 0.3s ease",
             }}
           >
-            <img src={levelupLogo} alt="LevelUp Learning" className="h-5 mr-2" />
-            <div className="w-px h-4 bg-white/20" />
+            <img src={levelupLogo} alt="LevelUp Learning" className="h-5 mr-2" style={{ filter: scrolled ? "none" : "brightness(10)" }} />
+            <div className={`w-px h-4 ${scrolled ? "bg-black/10" : "bg-white/20"}`} />
             {navLinks.map((l) => (
               <a
                 key={l.label}
                 href={l.href}
-                className="text-white text-[14px] font-medium hover:text-white/80 transition-colors"
+                className={`text-[14px] font-medium transition-colors ${
+                  scrolled ? "text-foreground/70 hover:text-foreground" : "text-white hover:text-white/80"
+                }`}
               >
                 {l.label}
               </a>
@@ -60,23 +63,30 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
         </div>
       </nav>
 
-      {/* Mobile Navbar */}
+      {/* Mobile Navbar — always visible */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-40 md:hidden transition-all duration-300 ${
-          scrolled ? "opacity-0 -translate-y-full pointer-events-none" : "opacity-100 translate-y-0"
-        }`}
+        className="fixed top-0 left-0 right-0 z-40 md:hidden transition-all duration-300"
         style={{
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
-          background: "rgba(255,255,255,0.08)",
-          borderBottom: "1px solid rgba(255,255,255,0.1)",
+          background: scrolled ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.08)",
+          borderBottom: scrolled ? "1px solid rgba(0,0,0,0.06)" : "1px solid rgba(255,255,255,0.1)",
         }}
       >
         <div className="flex items-center justify-between px-6 h-14">
           <a href="#">
-            <img src={levelupLogo} alt="LevelUp Learning" className="h-5" />
+            <img
+              src={levelupLogo}
+              alt="LevelUp Learning"
+              className="h-5"
+              style={{ filter: scrolled ? "none" : "brightness(10)" }}
+            />
           </a>
-          <button onClick={() => setMenuOpen(true)} className="text-white p-2 -mr-2" aria-label="Open menu">
+          <button
+            onClick={() => setMenuOpen(true)}
+            className={`p-2 -mr-2 ${scrolled ? "text-foreground" : "text-white"}`}
+            aria-label="Open menu"
+          >
             <Menu size={24} />
           </button>
         </div>
@@ -113,7 +123,7 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
             <div className="px-6 pb-8">
               <button
                 onClick={() => { setMenuOpen(false); onOpenModal(); }}
-                className="w-full bg-primary text-primary-foreground font-semibold rounded-full py-4 text-base"
+                className="w-full bg-primary text-primary-foreground font-semibold rounded-full py-4 text-sm uppercase tracking-wider"
               >
                 REQUEST AN INVITE
               </button>

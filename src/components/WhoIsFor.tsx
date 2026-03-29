@@ -11,9 +11,9 @@ const personas = [
 
 const WhoIsFor = () => {
   return (
-    <SectionWrapper label="WHO THIS IS FOR">
-      <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-12">
-        Built for people who <span className="font-serif italic font-black">move the needle.</span>
+    <SectionWrapper label="WHO THIS IS FOR" variant="muted">
+      <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-12">
+        Built for people who <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>move the needle.</span>
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-[720px] mx-auto">
@@ -24,11 +24,15 @@ const WhoIsFor = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.08 }}
-            className="glass-card p-5 hover:translate-y-[-2px] active:translate-y-[-2px] transition-transform"
+            className="bg-white border border-black/[0.06] rounded-2xl p-5 flex gap-4 items-start shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300"
           >
-            <p.icon className="text-primary mb-3" size={24} />
-            <p className="font-semibold text-foreground text-[15px]">{p.title}</p>
-            <p className="text-sm text-muted-foreground mt-1">{p.desc}</p>
+            <div className="w-10 h-10 rounded-xl bg-primary/[0.06] flex items-center justify-center shrink-0">
+              <p.icon className="text-primary" size={20} />
+            </div>
+            <div>
+              <p className="font-semibold text-foreground text-[16px]">{p.title}</p>
+              <p className="text-[14px] text-muted-foreground mt-1 leading-relaxed">{p.desc}</p>
+            </div>
           </motion.div>
         ))}
       </div>

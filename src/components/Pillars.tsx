@@ -55,8 +55,8 @@ interface PillarsProps {
 const Pillars = ({ onOpenModal }: PillarsProps) => {
   return (
     <SectionWrapper id="pillars" label="THREE PILLARS">
-      <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-12">
-        Three <span className="font-serif italic font-black">Pillars.</span> Nine days.
+      <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-12">
+        Three <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>Pillars.</span> Nine days.
       </h2>
 
       <div className="max-w-[840px] mx-auto flex flex-col gap-6">
@@ -67,14 +67,14 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="glass-card backdrop-blur-sm p-6 md:p-8 relative overflow-hidden hover:-translate-y-[2px] transition-transform duration-300"
+            className="bg-white border border-black/[0.06] rounded-2xl p-6 md:p-8 relative overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
           >
-            <span className="absolute top-4 right-6 font-bold text-[72px] text-primary/[0.12] leading-none select-none">
+            <span className="absolute top-4 right-6 font-bold text-[72px] text-primary/[0.08] leading-none select-none">
               {p.num}
             </span>
 
             <div className="mb-4 relative z-10">
-              <span className="text-[11px] text-primary border border-primary/30 rounded-full px-3 py-1 font-mono uppercase tracking-wider">
+              <span className="text-[11px] text-primary border border-primary/20 rounded-full px-3 py-1 font-mono uppercase tracking-wider">
                 {p.tag}
               </span>
             </div>
@@ -85,8 +85,8 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
 
             <p className="text-[15px] text-muted-foreground leading-[1.7] mb-6 relative z-10">{p.body}</p>
 
-            <div className="bg-[rgba(0,0,0,0.4)] border-l-2 border-primary rounded-[10px] p-4 mb-6 relative z-10">
-              <p className="text-[13px] text-muted-foreground/50 font-semibold mb-2">You'll build:</p>
+            <div className="bg-primary/[0.04] border-l-2 border-primary rounded-xl p-4 mb-6 relative z-10">
+              <p className="text-[13px] text-muted-foreground font-semibold mb-2">You'll build:</p>
               {p.builds.map((b) => (
                 <p key={b} className="text-sm text-foreground leading-relaxed">
                   <span className="text-primary mr-2">✦</span>{b}
@@ -96,7 +96,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
 
             <div className="flex flex-wrap gap-3 relative z-10 items-center">
               {p.tools.map((t) => (
-                <div key={t} className="w-8 h-8 rounded-lg bg-card border border-border flex items-center justify-center overflow-hidden p-1.5" title={t}>
+                <div key={t} className="w-9 h-9 rounded-xl bg-card border border-border flex items-center justify-center overflow-hidden p-1.5" title={t}>
                   <img src={toolLogos[t] || ""} alt={t} className="w-full h-full object-contain" loading="lazy" />
                 </div>
               ))}
@@ -106,8 +106,8 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
       </div>
 
       <div className="text-center mt-12">
-        <p className="text-muted-foreground mb-4">Ready to build all three?</p>
-        <button onClick={onOpenModal} className="w-full sm:w-auto bg-primary text-primary-foreground font-semibold rounded-full px-8 py-4 sm:py-3.5 text-base cta-pulse">
+        <p className="text-muted-foreground mb-4 text-[16px]">Ready to build all three?</p>
+        <button onClick={onOpenModal} className="w-full sm:w-auto bg-primary text-primary-foreground font-semibold rounded-full px-8 py-3.5 text-sm uppercase tracking-wider">
           REQUEST AN INVITE
         </button>
       </div>
