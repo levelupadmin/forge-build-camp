@@ -23,15 +23,6 @@ const Community = () => {
           The people in this room will go on to build companies, launch products, and do interesting things. You will want to know them.
         </p>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-[20px] md:text-[24px] text-foreground font-medium text-center mt-8 leading-snug"
-        >
-          "The group chat stays active.<br />The referrals keep coming."
-        </motion.p>
       </div>
 
       <div className="grid md:grid-cols-3 gap-4 max-w-[840px] mx-auto">
