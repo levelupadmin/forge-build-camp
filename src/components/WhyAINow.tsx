@@ -21,8 +21,8 @@ const DotGrid = () => {
   }, []);
 
   const colorMap: Record<string, string> = {
-    grey: "bg-foreground/12",
-    green: "bg-emerald-500/60",
+    grey: "bg-foreground/25",
+    green: "bg-emerald-500/80",
     amber: "bg-primary/70",
     red: "bg-red-500/80",
   };
@@ -47,11 +47,11 @@ const DotGrid = () => {
 
       <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-5 text-[11px] md:text-[12px]">
         <span className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-sm bg-foreground/12 inline-block" />
+          <span className="w-2.5 h-2.5 rounded-sm bg-foreground/25 inline-block" />
           <span className="text-muted-foreground">Never used AI · <span className="text-foreground font-semibold">~6.8B</span></span>
         </span>
         <span className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-sm bg-emerald-500/60 inline-block" />
+          <span className="w-2.5 h-2.5 rounded-sm bg-emerald-500/80 inline-block" />
           <span className="text-muted-foreground">Free chatbot user · <span className="text-foreground font-semibold">~1.3B</span></span>
         </span>
         <span className="flex items-center gap-1.5">
@@ -74,6 +74,9 @@ const WhyAINow = () => {
         AI is the most important<br />skill of <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>this decade.</span>
       </h2>
 
+      <p className="text-[16px] md:text-[18px] text-muted-foreground max-w-[520px] mx-auto text-center mb-4 leading-relaxed">
+        You think AI is crowded because you're in an echo chamber.
+      </p>
       <p className="text-[16px] text-muted-foreground max-w-[520px] mx-auto text-center mb-12 leading-relaxed">
         The real world hasn't even started.
       </p>

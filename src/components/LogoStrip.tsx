@@ -1,25 +1,25 @@
 import { motion } from "framer-motion";
 
 const row1 = [
-  { name: "CRED", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/CRED_%28fintech_company%29_logo.png/480px-CRED_%28fintech_company%29_logo.png" },
-  { name: "Google", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/480px-Google_%22G%22_logo.svg.png" },
-  { name: "McKinsey & Co", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/McKinsey_and_Company_Logo_1.svg/480px-McKinsey_and_Company_Logo_1.svg.png" },
-  { name: "Amazon", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/480px-Amazon_logo.svg.png" },
-  { name: "Netflix", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Netflix_2015_N_logo.svg/480px-Netflix_2015_N_logo.svg.png" },
-  { name: "Meta", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/480px-Meta_Platforms_Inc._logo.svg.png" },
-  { name: "Microsoft", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/480px-Microsoft_logo.svg.png" },
-  { name: "Swiggy", url: "https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Swiggy_logo.svg/480px-Swiggy_logo.svg.png" },
+  { name: "Google", url: "https://logo.clearbit.com/google.com" },
+  { name: "McKinsey & Co", url: "https://logo.clearbit.com/mckinsey.com" },
+  { name: "Amazon", url: "https://logo.clearbit.com/amazon.com" },
+  { name: "Netflix", url: "https://logo.clearbit.com/netflix.com" },
+  { name: "Meta", url: "https://logo.clearbit.com/meta.com" },
+  { name: "Microsoft", url: "https://logo.clearbit.com/microsoft.com" },
+  { name: "Swiggy", url: "https://logo.clearbit.com/swiggy.com" },
+  { name: "CRED", url: "https://logo.clearbit.com/cred.club" },
 ];
 
 const row2 = [
-  { name: "IIM", url: "https://upload.wikimedia.org/wikipedia/en/thumb/5/59/IIM_Ahmedabad_Logo.svg/480px-IIM_Ahmedabad_Logo.svg.png" },
+  { name: "IIM Ahmedabad", url: "https://upload.wikimedia.org/wikipedia/en/thumb/5/59/IIM_Ahmedabad_Logo.svg/480px-IIM_Ahmedabad_Logo.svg.png" },
   { name: "NIFT", url: "https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/National_Institute_of_Fashion_Technology_logo.png/240px-National_Institute_of_Fashion_Technology_logo.png" },
   { name: "Ashoka University", url: "https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Ashoka_University_logo.svg/480px-Ashoka_University_logo.svg.png" },
   { name: "Christ University", url: "https://upload.wikimedia.org/wikipedia/en/thumb/c/cb/Christ_University_Logo.png/240px-Christ_University_Logo.png" },
   { name: "Symbiosis", url: "https://upload.wikimedia.org/wikipedia/en/thumb/a/a3/Symbiosis_International_University_logo.png/240px-Symbiosis_International_University_logo.png" },
-  { name: "Loyola", url: "https://upload.wikimedia.org/wikipedia/en/thumb/d/d5/Loyola_College_Chennai_logo.png/240px-Loyola_College_Chennai_logo.png" },
-  { name: "Government of India", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Emblem_of_India.svg/400px-Emblem_of_India.svg.png" },
-  { name: "CRED", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/CRED_%28fintech_company%29_logo.png/480px-CRED_%28fintech_company%29_logo.png" },
+  { name: "Loyola College", url: "https://upload.wikimedia.org/wikipedia/en/thumb/d/d5/Loyola_College_Chennai_logo.png/240px-Loyola_College_Chennai_logo.png" },
+  { name: "Govt. of India", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Emblem_of_India.svg/400px-Emblem_of_India.svg.png" },
+  { name: "Deloitte", url: "https://logo.clearbit.com/deloitte.com" },
 ];
 
 const MarqueeRow = ({ logos, reverse = false }: { logos: typeof row1; reverse?: boolean }) => {

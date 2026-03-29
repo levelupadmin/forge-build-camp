@@ -4,17 +4,17 @@
 
 @layer base {
   :root {
-    --bg-base: 30 20% 98%;
-    --bg-surface: 30 15% 95%;
-    --bg-card: 30 10% 96%;
+    --bg-base: 0 0% 100%;
+    --bg-surface: 0 0% 97%;
+    --bg-card: 0 0% 97%;
     --border-card: 0 0% 0% / 0.06;
     --border-subtle: 0 0% 0% / 0.04;
     
-    --background: 30 20% 98%;
+    --background: 0 0% 100%;
     --foreground: 0 0% 8%;
-    --card: 30 15% 96%;
+    --card: 0 0% 97%;
     --card-foreground: 0 0% 8%;
-    --popover: 30 20% 98%;
+    --popover: 0 0% 100%;
     --popover-foreground: 0 0% 8%;
     --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
