@@ -41,7 +41,7 @@ const InviteModal = ({ isOpen, onClose }: InviteModalProps) => {
     }, 300);
   };
 
-  const inputClass = "w-full bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.10)] rounded-[10px] px-4 py-3.5 text-foreground placeholder:text-muted-foreground/40 focus:border-primary/50 focus:outline-none transition-colors";
+  const inputClass = "w-full bg-white border border-black/[0.08] rounded-xl px-4 py-3.5 text-foreground placeholder:text-muted-foreground/40 focus:border-primary/50 focus:outline-none transition-colors text-[15px]";
 
   return (
     <AnimatePresence>
@@ -51,7 +51,7 @@ const InviteModal = ({ isOpen, onClose }: InviteModalProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-[rgba(0,0,0,0.7)] backdrop-blur-sm"
+            className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
             onClick={handleClose}
           />
 
@@ -60,7 +60,7 @@ const InviteModal = ({ isOpen, onClose }: InviteModalProps) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed z-50 bottom-0 left-0 right-0 md:bottom-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-[480px] bg-card rounded-t-[20px] md:rounded-[20px] border-t-[3px] border-t-primary max-h-[90vh] overflow-y-auto scrollbar-hide"
+            className="fixed z-50 bottom-0 left-0 right-0 md:bottom-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-[480px] bg-white rounded-t-[20px] md:rounded-[20px] border-t-[3px] border-t-primary max-h-[90vh] overflow-y-auto scrollbar-hide shadow-2xl"
           >
             <div className="p-7 md:p-8">
               {!submitted ? (
@@ -75,7 +75,6 @@ const InviteModal = ({ isOpen, onClose }: InviteModalProps) => {
                     </button>
                   </div>
 
-                  {/* Application fee note */}
                   <div className="flex items-start gap-2.5 bg-primary/[0.06] border border-primary/15 rounded-xl px-4 py-3 mb-5">
                     <Info size={16} className="text-primary mt-0.5 shrink-0" />
                     <p className="text-[13px] text-primary/80 leading-relaxed">
@@ -94,7 +93,7 @@ const InviteModal = ({ isOpen, onClose }: InviteModalProps) => {
                     </select>
                     <textarea required maxLength={200} rows={3} placeholder="I want to build..." value={form.build} onChange={(e) => setForm({ ...form, build: e.target.value })} className={`${inputClass} resize-none`} />
                     <input type="text" placeholder="Instagram / Friend / Other" value={form.source} onChange={(e) => setForm({ ...form, source: e.target.value })} className={inputClass} />
-                    <button type="submit" className="w-full bg-primary text-primary-foreground font-semibold rounded-full py-4 text-base mt-2 cta-pulse">
+                    <button type="submit" className="w-full bg-primary text-primary-foreground font-semibold rounded-full py-4 text-sm uppercase tracking-wider mt-2">
                       Send My Request
                     </button>
                   </form>

@@ -20,13 +20,13 @@ const FAQs = () => {
 
   return (
     <SectionWrapper id="faqs" label="FAQS">
-      <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-12">
-        Questions we get <span className="font-serif italic font-black">asked a lot.</span>
+      <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-12">
+        Questions we get <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>asked a lot.</span>
       </h2>
 
       <div className="max-w-[680px] mx-auto">
         {faqs.map((f, i) => (
-          <div key={i} className="border-b border-[rgba(255,255,255,0.06)]">
+          <div key={i} className="border-b border-border">
             <button
               onClick={() => setOpen(open === i ? null : i)}
               className="w-full text-left py-5 flex items-center justify-between gap-4"
@@ -46,7 +46,7 @@ const FAQs = () => {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <p className="pb-5 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
+                  <p className="pb-5 text-[14px] text-muted-foreground leading-relaxed">{f.a}</p>
                 </motion.div>
               )}
             </AnimatePresence>

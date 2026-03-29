@@ -39,9 +39,9 @@ const MarqueeRow = ({ logos, reverse = false }: { logos: typeof row1; reverse?: 
             <img
               src={logo.url}
               alt={logo.name}
-              className="h-5 w-auto object-contain grayscale opacity-60"
+              className="h-5 w-auto object-contain grayscale opacity-50"
             />
-            <span className="text-[12px] font-medium text-foreground/60 whitespace-nowrap">
+            <span className="text-[12px] font-medium text-foreground/50 whitespace-nowrap">
               {logo.name}
             </span>
           </div>
@@ -58,7 +58,7 @@ const LogoStrip = () => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="w-full py-6 bg-background border-b border-border overflow-hidden"
+      className="w-full py-8 bg-background overflow-hidden"
     >
       <p className="text-center text-[11px] md:text-[12px] uppercase tracking-[0.12em] text-muted-foreground mb-5">
         Join 600+ dreamers from

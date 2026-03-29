@@ -15,7 +15,7 @@ const footerLinks = {
 
 const Footer = () => {
   return (
-    <footer className="border-t border-border py-12">
+    <footer className="border-t border-border py-12 bg-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-20">
         <div className="grid md:grid-cols-3 gap-10">
           <div>

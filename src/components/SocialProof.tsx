@@ -25,12 +25,12 @@ const testimonials = [
 const SocialProof = () => {
   return (
     <SectionWrapper label="FROM PAST FORGE PARTICIPANTS">
-      <h2 className="font-bold text-[32px] md:text-[52px] leading-[1.1] tracking-tight text-foreground text-center mb-4">
-        What happens when you<br />build with the <span className="font-serif italic font-normal text-primary">right people.</span>
+      <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-4">
+        What happens when you<br />build with the <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>right people.</span>
       </h2>
 
       <p className="text-sm text-muted-foreground/50 text-center mb-10">
-        These quotes are from past Forge residential programs in filmmaking and content creation. Forge AI Residency follows the same format. Immersive. Mentor-led. Build-first.
+        These quotes are from past Forge residential programs. Forge AI Residency follows the same format.
       </p>
 
       <div className="grid md:grid-cols-3 gap-5 max-w-[960px] mx-auto">
@@ -41,10 +41,10 @@ const SocialProof = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.12 }}
-            className="glass-card-hover p-7 relative"
+            className="bg-white border border-black/[0.06] rounded-2xl p-7 relative shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300"
           >
             <span className="font-serif text-[72px] text-primary/15 absolute top-1 left-4 leading-none">"</span>
-            <p className="text-[16px] text-foreground italic leading-[1.7] mt-10">{t.quote}</p>
+            <p className="text-[15px] text-foreground italic leading-[1.7] mt-10">{t.quote}</p>
             <div className="mt-6">
               <p className="font-semibold text-foreground text-[15px]">{t.name}</p>
               <p className="text-[13px] text-muted-foreground">{t.role}</p>

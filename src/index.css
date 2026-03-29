@@ -4,30 +4,30 @@
 
 @layer base {
   :root {
-    --bg-base: 0 0% 100%;
-    --bg-surface: 0 0% 97%;
-    --bg-card: 0 0% 0% / 0.03;
-    --border-card: 0 0% 0% / 0.08;
-    --border-subtle: 0 0% 0% / 0.05;
+    --bg-base: 30 20% 98%;
+    --bg-surface: 30 15% 95%;
+    --bg-card: 30 10% 96%;
+    --border-card: 0 0% 0% / 0.06;
+    --border-subtle: 0 0% 0% / 0.04;
     
-    --background: 0 0% 100%;
+    --background: 30 20% 98%;
     --foreground: 0 0% 8%;
-    --card: 0 0% 97%;
+    --card: 30 15% 96%;
     --card-foreground: 0 0% 8%;
-    --popover: 0 0% 100%;
+    --popover: 30 20% 98%;
     --popover-foreground: 0 0% 8%;
     --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 94%;
+    --secondary: 30 10% 92%;
     --secondary-foreground: 0 0% 8%;
-    --muted: 0 0% 94%;
+    --muted: 30 10% 92%;
     --muted-foreground: 215 14% 40%;
     --accent: 217 91% 60%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 0% / 0.10;
-    --input: 0 0% 0% / 0.10;
+    --border: 0 0% 0% / 0.08;
+    --input: 0 0% 0% / 0.08;
     --ring: 217 91% 60%;
     --radius: 0.75rem;
   }
@@ -53,29 +53,10 @@
   inset: 0;
   pointer-events: none;
   z-index: 50;
-  opacity: 0.035;
+  opacity: 0.025;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
-}
-
-/* Dot grid */
-.dot-grid {
-  background-image: radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
-/* Accent glow blob animation */
-@keyframes glow-drift {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(20px, -20px) scale(1.05); }
-  50% { transform: translate(-15px, 25px) scale(0.95); }
-  75% { transform: translate(25px, 15px) scale(1.02); }
-}
-
-.amber-glow-blob {
-  animation: glow-drift 18s ease-in-out infinite;
-  will-change: transform;
 }
 
 /* Scroll chevron bounce */
@@ -86,17 +67,6 @@
 
 .chevron-bounce {
   animation: chevron-bounce 1.5s ease-in-out infinite;
-}
-
-/* CTA pulse */
-@keyframes cta-pulse {
-  0%, 100% { transform: scale(1); box-shadow: 0 0 28px hsla(217,91%,60%,0.30); }
-  50% { transform: scale(1.02); box-shadow: 0 0 40px hsla(217,91%,60%,0.45); }
-}
-
-.cta-pulse {
-  animation: cta-pulse 2s ease-in-out infinite;
-  will-change: transform;
 }
 
 /* Dot pulse for cohort badge */
@@ -119,51 +89,32 @@
   font-weight: 400;
 }
 
-/* Glass card */
+/* Glass card — light theme */
 .glass-card {
-  background: hsla(var(--bg-card));
-  border: 1px solid hsla(var(--border-card));
+  background: hsl(0 0% 100%);
+  border: 1px solid hsl(0 0% 0% / 0.06);
   border-radius: 16px;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 1px 3px hsl(0 0% 0% / 0.04);
 }
 
-/* Pricing card ambient glow */
-@keyframes pricing-glow {
-  0%, 100% { border-color: hsla(217,91%,60%,0.25); box-shadow: 0 0 48px hsla(217,91%,60%,0.05); }
-  50% { border-color: hsla(217,91%,60%,0.45); box-shadow: 0 0 64px hsla(217,91%,60%,0.10); }
+/* Enhanced glass card with hover — light theme */
+.glass-card-hover {
+  background: hsl(0 0% 100%);
+  border: 1px solid hsl(0 0% 0% / 0.06);
+  border-radius: 16px;
+  box-shadow: 0 1px 3px hsl(0 0% 0% / 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.pricing-card-glow {
-  animation: pricing-glow 4s ease-in-out infinite;
-  border-color: hsla(217,91%,60%,0.35);
+.glass-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px hsl(217 91% 60% / 0.08);
+  border-color: hsl(217 91% 60% / 0.2);
 }
 
 /* Custom scrollbar hide */
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-
-/* Orbital rotation */
-@keyframes orbit-spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.orbit-spin {
-  animation: orbit-spin 60s linear infinite;
-}
-
-.orbit-spin-reverse {
-  animation: orbit-spin 80s linear infinite reverse;
-}
-
-.counter-rotate {
-  animation: orbit-spin 60s linear infinite reverse;
-}
-
-.counter-rotate-reverse {
-  animation: orbit-spin 80s linear infinite;
-}
 
 /* Marquee infinite scroll */
 @keyframes marquee {
@@ -180,28 +131,6 @@
   animation: marquee 30s linear infinite;
 }
 
-/* Shimmer text effect */
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-.text-shimmer {
-  background: linear-gradient(
-    90deg,
-    hsl(var(--primary)) 0%,
-    hsl(217 91% 80%) 25%,
-    hsl(0 0% 100%) 50%,
-    hsl(217 91% 80%) 75%,
-    hsl(var(--primary)) 100%
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shimmer 4s linear infinite;
-}
-
 /* Floating blob */
 @keyframes float {
   0%, 100% { transform: translate(0, 0) scale(1); }
@@ -211,44 +140,6 @@
 
 .animate-float {
   animation: float 12s ease-in-out infinite;
-}
-
-/* Enhanced glass card with hover */
-.glass-card-hover {
-  background: hsla(var(--bg-card));
-  border: 1px solid hsla(var(--border-card));
-  border-radius: 16px;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.glass-card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 48px hsla(217, 91%, 60%, 0.08);
-  border-color: hsla(217, 91%, 60%, 0.25);
-}
-
-/* Button shine effect */
-@keyframes btn-shine {
-  0% { left: -100%; }
-  100% { left: 200%; }
-}
-
-.btn-shine {
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-shine::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, hsla(0, 0%, 100%, 0.15), transparent);
-  animation: btn-shine 3s ease-in-out infinite;
 }
 
 /* Scroll indicator */

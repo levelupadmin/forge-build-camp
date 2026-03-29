@@ -24,19 +24,21 @@ const exclusions = [
 
 const Pricing = ({ onOpenModal }: PricingProps) => {
   return (
-    <SectionWrapper label="THE INVESTMENT">
-      <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-12">
-        The most focused nine days you will<br />spend on your business <span className="font-serif italic font-black">this year.</span>
+    <SectionWrapper label="THE INVESTMENT" variant="muted">
+      <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-12">
+        The most focused nine days you will<br />spend on your business <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>this year.</span>
       </h2>
 
-      <div className="max-w-[520px] mx-auto glass-card backdrop-blur-sm p-8 pricing-card-glow">
+      <div className="max-w-[520px] mx-auto bg-white border border-black/[0.08] rounded-2xl p-8 shadow-lg relative overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-primary" />
+        
         <div className="text-center mb-6">
-          <span className="text-[11px] text-primary tracking-wider font-mono uppercase">ALL INCLUSIVE</span>
+          <span className="section-label">ALL INCLUSIVE</span>
           <p className="font-bold text-[60px] md:text-[68px] text-foreground mt-2 leading-none">INR 1,20,000</p>
           <p className="text-sm text-muted-foreground mt-2">per person, inclusive of GST</p>
         </div>
 
-        <div className="h-px bg-primary/15 my-6" />
+        <div className="h-px bg-border my-6" />
 
         <div className="space-y-2">
           {inclusions.map((item) => (
@@ -46,7 +48,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
           ))}
         </div>
 
-        <div className="h-px bg-primary/15 my-6" />
+        <div className="h-px bg-border my-6" />
 
         <div className="space-y-2">
           {exclusions.map((item) => (
@@ -56,11 +58,11 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
           ))}
         </div>
 
-        <div className="h-px bg-primary/15 my-6" />
+        <div className="h-px bg-border my-6" />
 
         <button
           onClick={onOpenModal}
-          className="w-full bg-primary text-primary-foreground font-semibold rounded-xl py-4 text-base cta-pulse"
+          className="w-full bg-primary text-primary-foreground font-semibold rounded-full py-4 text-sm uppercase tracking-wider"
         >
           REQUEST AN INVITE
         </button>
