@@ -60,7 +60,7 @@ const LogoStrip = () => {
       transition={{ duration: 0.5 }}
       className="w-full py-8 bg-background overflow-hidden"
     >
-      <p className="text-center text-[11px] md:text-[12px] uppercase tracking-[0.12em] text-muted-foreground mb-5">
+      <p className="text-center text-[11px] md:text-[12px] uppercase tracking-[0.12em] mb-5 text-secondary-foreground font-extrabold">
         Join 600+ dreamers from
       </p>
 
