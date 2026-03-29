@@ -97,7 +97,7 @@ const WhatIsForge = () => {
             <img
               src={forgeLogoBlack}
               alt="The Forge AI Residency"
-              className="h-[72px] md:h-[110px] dark:invert"
+              className="h-[86px] md:h-[132px] dark:invert"
             />
           </div>
         </motion.div>
