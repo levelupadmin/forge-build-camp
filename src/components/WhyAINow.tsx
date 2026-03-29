@@ -71,11 +71,11 @@ const WhyAINow = () => {
   return (
     <SectionWrapper id="why-ai" label="WHY AI. WHY NOW.">
       <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-4">
-        AI is the most important<br />skill of <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>this decade.</span>
+        AI is THE<br />skill of <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>this decade.</span>
       </h2>
 
       <p className="text-[16px] md:text-[18px] text-muted-foreground max-w-[520px] mx-auto text-center mb-12 leading-relaxed">
-        You think AI is crowded because you're in an echo chamber. The real world hasn't even started.
+        You think AI is crowded because you're in an echo chamber, but the real world hasn't even started.
       </p>
 
       <motion.div
