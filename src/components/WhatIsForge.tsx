@@ -87,7 +87,7 @@ const WhatIsForge = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="flex flex-col items-center mb-6"
         >
-          <p className="text-[64px] md:text-[96px] font-bold leading-[0.95] tracking-[-0.03em] text-foreground">
+          <p className="text-[64px] md:text-[96px] font-bold leading-[0.95] tracking-[-0.03em] text-foreground px-[60px] text-left pl-[39px] pr-[111px]">
             What
           </p>
           <div className="flex items-center gap-3 md:gap-5">
