@@ -85,13 +85,13 @@ const WhatIsForge = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-center mb-4"
+          className="flex items-center justify-center gap-3 md:gap-4 mb-4"
         >
-          <p className="md:text-[22px] font-medium mb-3 text-5xl text-secondary-foreground">What is</p>
+          <p className="md:text-[22px] font-medium text-5xl text-secondary-foreground whitespace-nowrap">What is</p>
           <img
             src={forgeLogoBlack}
             alt="The Forge AI Residency"
-            className="h-10 md:h-14 mx-auto dark:invert"
+            className="h-10 md:h-14 dark:invert"
           />
         </motion.div>
 
