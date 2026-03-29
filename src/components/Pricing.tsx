@@ -34,7 +34,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
         
         <div className="text-center mb-6">
           <span className="section-label">ALL INCLUSIVE</span>
-          <p className="font-bold text-[60px] md:text-[68px] text-foreground mt-2 leading-none">INR 1,20,000</p>
+          <p className="font-bold md:text-[68px] text-foreground mt-2 leading-none text-4xl">INR 1,20,000</p>
           <p className="text-sm text-muted-foreground mt-2">per person, inclusive of GST</p>
         </div>
 
