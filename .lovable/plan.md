@@ -1,41 +1,74 @@
+# Mentor Cards Redesign — Real Profiles
+
+## Summary
+
+Replace the generic placeholder mentor cards with real mentor profiles sourced from LinkedIn. Each card will feature: photo, name, designation, company logos, and 3-4 bullet points relevant to the AI Residency syllabus (Generative AI, Automations/Workflows, Product Building).
+
+## Mentor Data
+
+### 1. Vaibhav Kejriwal
+
+- **Role**: n8n Bangalore Ambassador | IIM A | IIT D
+- **Bullets**:
+  - Official n8n Ambassador — builds AI-powered automation workflows
+  - IIM Ahmedabad & IIT Delhi alumnus
+  - Runs a YouTube channel (AI with VK) teaching AI agents and automation
+  - Leads the "Human AI Collab" community of 280+ AI practitioners
+- **Photo**: LinkedIn profile image or initials placeholder
+- **LinkedIn**: linkedin.com/in/vaibhav-kejriwal
+
+### 2. Kevin Adams
+
+- **Role**: Artist | Founder | Creator
+- **Bullets**:
+  - Founder of creative agency Millennial Labs (500+ brands served)
+  - LinkedIn Design Top Voice — expert in AI-powered creative workflows
+  - Uses Midjourney, AI + Photoshop for commercial visual campaigns
+  - Redefining brand storytelling through AI-augmented design and performance marketing
+- **Photo**: LinkedIn profile image or initials placeholder
+- **LinkedIn**: linkedin.com/in/ikevinadams
+
+### 3. Sabilashan Ganeshan
+
+- **Role**: Ambassador @ Lovable | Country Lead @ Perplexity | BASIS AI Fellow
+- **Bullets**:
+  - Country Lead at Perplexity AI — at the frontier of AI search products
+  - Ambassador at Lovable — ships AI-built products rapidly
+  - Head of Product at STEM Link; AI strategy at Amor
+  - BASIS AI Fellow and Harvard-nominated innovator in AI education
+- **Photo**: LinkedIn profile image or initials placeholder
+- **LinkedIn**: linkedin.com/in/sabilashanganeshan
+
+### 4. Rahul Reddy
+
+- **Role**: Founder | Storyteller
+- **Bullets**:
+  - Founder of LevelUp Learning, India's Largest Creative Education Ecosystmer
+  - Built and scaled residential programs across filmmaking, AI, and creative tech
+  - Runs India's Largest Filmmaking Community with 300,000 members
+  - Producer of India's Biggest Shortfilm Chapter Zero LCU directed by Lokesh Kannagaraj
+- **Photo**: Use his LinkedIn profile image URL or a placeholder with initials
+- **LinkedIn**: linkedin.com/in/rahulreddy97
+
+## Card Design
+
+Each card will be a vertical card with:
+
+1. **Photo** — rectangular avatar at top (use LinkedIn photo URLs; fallback to initials with gradient)
+2. **Name** — bold, large
+3. **Designation** — muted text below name
+4. **Bullet points** — 3-4 short lines, left-aligned, with subtle check/dot icons
+5. **LinkedIn icon link** — small LinkedIn icon linking to their profile
+
+Grid: 4 columns on desktop (`md:grid-cols-4`), 2 on tablet, 1 on mobile. Remove the "Mentor profiles announced closer to program dates" disclaimer.
+
+## Photo Approach
+
+LinkedIn profile images cannot be hotlinked reliably. I will use **gradient avatar fallbacks with initials** (e.g., "RR" for Rahul Reddy) styled with distinct gradients per mentor. If you provide actual headshot images later, they can be swapped in.
+
+## Technical Details
 
 
-# WhatIsForge + WhyAINow Refinements
-
-## Changes
-
-### 1. WhatIsForge.tsx — Logo, scroll-bold animation, bento stats
-
-**Heading area:**
-- Replace the text "Forge AI Residency" with the uploaded logo image (black version for light bg). Copy `the_forge_ai_logos_1.png` to `src/assets/`. Display as an `<img>` next to "What is the" text.
-- Add a **scroll-driven word-bolding animation** for the description paragraph: as the user scrolls, each word transitions from `text-muted-foreground font-normal` to `text-foreground font-bold` progressively. Use `useScroll` + `useTransform` from framer-motion on the paragraph's ref, splitting the text into individual `<motion.span>` elements whose opacity/font-weight maps to scroll progress.
-
-**Stats strip → Bento boxes:**
-- Replace the pipe-separated text strip with three small square blue cards in a horizontal row.
-- Each card: `bg-primary rounded-xl p-4 md:p-6` with the number large and bold in white, label small underneath in white/80. Compact sizing, centered row with `gap-3 md:gap-4`.
-
-**Spacing:**
-- Reduce `mb-14` on description to `mb-10`, `mb-12` on trailer to `mb-8`.
-
-### 2. WhyAINow.tsx — Remove italic opener, restructure copy
-
-- **Remove** the italic line "Everyone is talking about AI. Almost nobody is building with it." (lines 73-81)
-- **Keep** the headline "AI is the most important skill of this decade."
-- **Merge** the echo chamber lines into a single description paragraph below the headline: "You think AI is crowded because you're in an echo chamber. The real world hasn't even started."
-- Then transition into "To prove it…" → dot grid visualization (keep as-is)
-
-### 3. SectionWrapper.tsx — Tighter spacing
-
-- Reduce padding from `py-20 md:py-28` to `py-14 md:py-20` for tighter section spacing.
-
----
-
-## Files
-
-| File | Change |
-|------|--------|
-| `src/assets/forge-ai-logo.png` | Copy uploaded logo |
-| `src/components/WhatIsForge.tsx` | Logo in heading, scroll-bold description, bento stat boxes, tighter spacing |
-| `src/components/WhyAINow.tsx` | Remove italic opener, restructure description |
-| `src/components/SectionWrapper.tsx` | Reduce vertical padding |
-
+| File                         | Change                                                                                                                     |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `src/components/Mentors.tsx` | Complete rewrite — real mentor data, new card layout with avatar/name/designation/bullets/tag/LinkedIn link, 4-column grid |
