@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import levelupLogo from "@/assets/levelup-logo.png";
+import levelupLogoDark from "@/assets/levelup-logo-dark.png";
 
 interface NavbarProps {
   onOpenModal: () => void;
