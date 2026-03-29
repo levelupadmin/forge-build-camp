@@ -85,14 +85,26 @@ const WhatIsForge = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex items-center justify-center gap-3 md:gap-4 mb-4"
+          className="flex flex-col items-center mb-6"
         >
-          <p className="md:text-[22px] font-medium mb-3 text-5xl text-secondary-foreground text-left px-[48px] pr-0 pl-0">What is</p>
-          <img
-            src={forgeLogoBlack}
-            alt="The Forge AI Residency"
-            className="h-14 md:h-[78px] dark:invert"
-          />
+          <p className="text-[64px] md:text-[96px] font-bold leading-[0.95] tracking-[-0.03em] text-foreground">
+            What
+          </p>
+          <div className="flex items-center gap-3 md:gap-5">
+            <p className="text-[64px] md:text-[96px] font-bold leading-[0.95] tracking-[-0.03em] text-foreground">
+              is
+            </p>
+            <img
+              src={forgeLogoBlack}
+              alt="The Forge AI Residency"
+              className="h-[72px] md:h-[110px] dark:invert"
+            />
+          </div>
+          <div className="mt-3 border border-primary/30 rounded-full px-8 py-2.5 flex items-center gap-3">
+            <span className="text-muted-foreground text-lg">+</span>
+            <span className="text-foreground text-lg md:text-xl font-medium tracking-wide">AI Residency</span>
+            <span className="text-muted-foreground text-lg">🎙</span>
+          </div>
         </motion.div>
 
         <ScrollBoldText text={descriptionText} />
