@@ -30,7 +30,7 @@ const Schedule = () => {
 
       <div className="max-w-[680px] mx-auto mb-12">
         <p className="text-[16px] text-muted-foreground text-center mb-6 leading-relaxed">
-          Before you arrive, you get access to a focused online prep series — short daily sessions so you land ready to build from Day 1.
+          Before you arrive, you get access to a focused online prep series short daily sessions so you land ready to build from Day 1.
         </p>
         <div className="grid sm:grid-cols-2 gap-3">
           {preps.map((p, i) => (

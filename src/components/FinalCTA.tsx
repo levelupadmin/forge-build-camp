@@ -6,7 +6,7 @@ interface FinalCTAProps {
 
 const FinalCTA = ({ onOpenModal }: FinalCTAProps) => {
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden">
+    <section className="relative md:py-32 overflow-hidden py-[6px]">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -15,15 +15,15 @@ const FinalCTA = ({ onOpenModal }: FinalCTAProps) => {
         className="relative z-10 text-center max-w-[720px] mx-auto px-6"
       >
         <p className="section-label mb-6">
-          LIMITED SEATS · APPLY NOW
+          LIMITED INVITES · APPLY NOW
         </p>
 
-        <h2 className="font-bold text-[42px] md:text-[72px] leading-[1.08] tracking-[-0.025em] text-foreground">
-          Think <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>YCombinator</span><br />meets an AI hackathon.
+        <h2 className="font-bold md:text-[72px] leading-[1.08] tracking-[-0.025em] text-foreground text-2xl">
+          Think <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>YCombinator</span> <br />meets an AI hackathon.
         </h2>
 
         <p className="text-[17px] text-muted-foreground max-w-[460px] mx-auto mt-4 leading-relaxed">
-          20 seats. 9 days. One focus.
+          20 builders. 9 days. One focus.
         </p>
 
         <button
