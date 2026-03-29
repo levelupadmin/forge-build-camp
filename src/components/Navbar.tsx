@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import levelupLogo from "@/assets/levelup-logo.png";
+import levelupLogoDark from "@/assets/levelup-logo-dark.png";
 
 interface NavbarProps {
   onOpenModal: () => void;
@@ -46,7 +47,7 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
               transition: "all 0.3s ease",
             }}
           >
-            <img src={levelupLogo} alt="LevelUp Learning" className="h-5 mr-2" style={{ filter: scrolled ? "none" : "brightness(10)" }} />
+            <img src={scrolled ? levelupLogoDark : levelupLogo} alt="LevelUp Learning" className="h-5 mr-2" />
             <div className={`w-px h-4 ${scrolled ? "bg-black/10" : "bg-white/20"}`} />
             {navLinks.map((l) => (
               <a
@@ -76,10 +77,9 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
         <div className="flex items-center justify-between px-6 h-14">
           <a href="#">
             <img
-              src={levelupLogo}
+              src={scrolled ? levelupLogoDark : levelupLogo}
               alt="LevelUp Learning"
               className="h-5"
-              style={{ filter: scrolled ? "none" : "brightness(10)" }}
             />
           </a>
           <button
@@ -103,7 +103,7 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
             className="fixed inset-0 z-50 bg-background flex flex-col"
           >
             <div className="flex items-center justify-between px-6 h-14">
-              <img src={levelupLogo} alt="LevelUp Learning" className="h-5" />
+              <img src={levelupLogoDark} alt="LevelUp Learning" className="h-5" />
               <button onClick={() => setMenuOpen(false)} className="text-foreground p-2 -mr-2" aria-label="Close menu">
                 <X size={24} />
               </button>
