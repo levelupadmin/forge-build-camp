@@ -34,6 +34,7 @@ const Index = () => {
       <WhoIsFor />
       <Pillars onOpenModal={openModal} />
       <Outcomes />
+      <VennDiagram />
       <Schedule />
       <Mentors />
       <Community />
