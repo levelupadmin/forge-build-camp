@@ -47,9 +47,6 @@ const Schedule = () => {
             </motion.div>
           ))}
         </div>
-        <p className="text-sm text-muted-foreground/50 text-center mt-4 italic">
-          Sessions are recorded. Attend live or catch up at your pace.
-        </p>
       </div>
 
       <div className="max-w-[680px] mx-auto">
