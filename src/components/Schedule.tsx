@@ -24,8 +24,8 @@ const Schedule = () => {
 
   return (
     <SectionWrapper id="schedule" label="THE SCHEDULE">
-      <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-4">
-        5 days prep + 9 days residency.<br />Here is exactly <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>what happens.</span>
+      <h2 className="font-bold md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-4 text-3xl">
+        The Gameplan
       </h2>
 
       <div className="max-w-[680px] mx-auto mb-12">
