@@ -11,8 +11,8 @@ const features = [
 const Community = () => {
   return (
     <SectionWrapper label="THE COMMUNITY">
-      <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-12">
-        Come for the learning.<br />Stay for the community.
+      <h2 className="font-bold md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-12 text-3xl">
+        Come for the learning. <br />Stay for the community.
       </h2>
 
       <div className="max-w-[640px] mx-auto mb-12">

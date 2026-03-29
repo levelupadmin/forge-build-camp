@@ -87,7 +87,7 @@ const WhatIsForge = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-center mb-4"
         >
-          <p className="text-[18px] md:text-[22px] text-muted-foreground font-medium mb-3">What is the</p>
+          <p className="md:text-[22px] font-medium mb-3 text-5xl text-secondary-foreground">What is</p>
           <img
             src={forgeLogoBlack}
             alt="The Forge AI Residency"
