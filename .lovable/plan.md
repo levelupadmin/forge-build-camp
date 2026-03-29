@@ -1,71 +1,41 @@
 
 
-# Restructure: Merge Trailer into WhatIsForge + Add Venn Diagram + Remove Process
+# WhatIsForge + WhyAINow Refinements
 
-## What Changes
+## Changes
 
-### 1. Merge WhatIsForge + Trailer into one cohesive section (`WhatIsForge.tsx`)
+### 1. WhatIsForge.tsx — Logo, scroll-bold animation, bento stats
 
-New flow inside the component (top to bottom):
-1. **Label**: "THE RESIDENCY"
-2. **Heading**: "What is the *Forge* AI Residency"
-3. **Description paragraph** (existing text)
-4. **Trailer video embed** (moved from Trailer.tsx — play button with thumbnail, click to play YouTube)
-5. **Stats strip**: `20 BUILDERS | 9 DAYS | 1 BOOTCAMP` — styled as a single horizontal line of large uppercase text with pipe separators (like the filmmaking screenshot: `24 FILMMAKERS | 12 DAYS | 1 RESORT`), not cards. Blue text, centered below the trailer.
+**Heading area:**
+- Replace the text "Forge AI Residency" with the uploaded logo image (black version for light bg). Copy `the_forge_ai_logos_1.png` to `src/assets/`. Display as an `<img>` next to "What is the" text.
+- Add a **scroll-driven word-bolding animation** for the description paragraph: as the user scrolls, each word transitions from `text-muted-foreground font-normal` to `text-foreground font-bold` progressively. Use `useScroll` + `useTransform` from framer-motion on the paragraph's ref, splitting the text into individual `<motion.span>` elements whose opacity/font-weight maps to scroll progress.
 
-### 2. Create Venn Diagram section (`VennDiagram.tsx`)
+**Stats strip → Bento boxes:**
+- Replace the pipe-separated text strip with three small square blue cards in a horizontal row.
+- Each card: `bg-primary rounded-xl p-4 md:p-6` with the number large and bold in white, label small underneath in white/80. Compact sizing, centered row with `gap-3 md:gap-4`.
 
-Inspired by the Ethos page from forgebylevelup.com (screenshots provided). Three overlapping circles in a Venn diagram layout:
-- **Learning** (top-left circle)
-- **Networking** (top-right circle)  
-- **Building** (bottom-center circle)
-- Center intersection: **"the Forge"** in primary/blue with a subtle radial glow
+**Spacing:**
+- Reduce `mb-14` on description to `mb-10`, `mb-12` on trailer to `mb-8`.
 
-Implementation: SVG-based circles with thin borders (`stroke: foreground/20`), text labels inside each circle. The center intersection gets a warm radial gradient glow (using the site's blue primary instead of the gold from the filmmaking site). Scroll-triggered animation — circles fade in and drift into position.
+### 2. WhyAINow.tsx — Remove italic opener, restructure copy
 
-Below the Venn diagram, a narrative line: *"We meet builders at the intersection of **learning**, **networking**, and **building** to turn them into AI-native operators."*
+- **Remove** the italic line "Everyone is talking about AI. Almost nobody is building with it." (lines 73-81)
+- **Keep** the headline "AI is the most important skill of this decade."
+- **Merge** the echo chamber lines into a single description paragraph below the headline: "You think AI is crowded because you're in an echo chamber. The real world hasn't even started."
+- Then transition into "To prove it…" → dot grid visualization (keep as-is)
 
-### 3. Remove Process section
+### 3. SectionWrapper.tsx — Tighter spacing
 
-Delete `Process.tsx` from the page flow. The "Learn → Build → Launch" narrative is replaced by the Venn diagram concept (Learning, Networking, Building).
-
-### 4. Remove Trailer section
-
-`Trailer.tsx` is no longer rendered separately — its video embed is absorbed into `WhatIsForge.tsx`.
-
-### 5. Update Index.tsx
-
-New flow:
-```
-Hero → LogoStrip → WhatIsForge (now includes trailer + stats) → VennDiagram (NEW) → WhyAINow → WhoIsFor → Pillars → Outcomes → Schedule → Mentors → Community → SocialProof → Pricing → FAQs → FinalCTA → Footer
-```
-
-Remove `Process` and `Trailer` imports/renders.
+- Reduce padding from `py-20 md:py-28` to `py-14 md:py-20` for tighter section spacing.
 
 ---
 
-## Technical Details
-
-### WhatIsForge.tsx — rebuilt
-- Remove the blue bento cards and `AnimatedNumber` component
-- Add trailer video (state: `playing`, thumbnail with play button, iframe on click)
-- Stats strip below trailer: simple text `20 BUILDERS  |  9 DAYS  |  1 BOOTCAMP` in `text-primary font-bold text-[14px] md:text-[18px] uppercase tracking-[0.2em]`
-
-### VennDiagram.tsx — new component
-- Three SVG circles (r ~120px desktop, ~80px mobile) with `stroke` borders and transparent fill
-- Positioned with slight overlaps (classic Venn arrangement)
-- Center intersection has a radial gradient glow (`bg-primary/20 blur-[40px]`)
-- "the Forge" text in center using primary color, italic serif
-- `motion.svg` with `whileInView` fade-in for each circle (staggered)
-- Below: narrative prose line with bold keywords
-
-### Files
+## Files
 
 | File | Change |
 |------|--------|
-| `src/components/WhatIsForge.tsx` | Rebuild — heading + description + trailer + stats strip |
-| `src/components/VennDiagram.tsx` | **NEW** — Venn diagram with Learning/Networking/Building |
-| `src/pages/Index.tsx` | Remove Process + Trailer, add VennDiagram |
-| `src/components/Process.tsx` | No longer imported (can delete later) |
-| `src/components/Trailer.tsx` | No longer imported (can delete later) |
+| `src/assets/forge-ai-logo.png` | Copy uploaded logo |
+| `src/components/WhatIsForge.tsx` | Logo in heading, scroll-bold description, bento stat boxes, tighter spacing |
+| `src/components/WhyAINow.tsx` | Remove italic opener, restructure description |
+| `src/components/SectionWrapper.tsx` | Reduce vertical padding |
 
