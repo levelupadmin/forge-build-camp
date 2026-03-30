@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { motion } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
 import {
@@ -69,19 +69,6 @@ const Mentors = () => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
 
-  const onSelect = useCallback(() => {
-    if (!api) return;
-    setCurrent(api.selectedScrollSnap());
-  }, [api]);
-
-  // Attach listener when api is ready
-  useState(() => {
-    if (!api) return;
-    api.on("select", onSelect);
-    onSelect();
-  });
-
-  // Use effect equivalent via callback ref
   const handleApi = useCallback((emblaApi: CarouselApi) => {
     setApi(emblaApi);
     if (emblaApi) {
@@ -90,73 +77,103 @@ const Mentors = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (!api) return;
+    setCurrent(api.selectedScrollSnap());
+    api.on("select", () => setCurrent(api.selectedScrollSnap()));
+  }, [api]);
+
   return (
-    <SectionWrapper id="mentors" label="YOUR MENTORS">
+    <SectionWrapper id="mentors" label="LEARN FROM">
       <h2 className="font-bold md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-4 text-3xl">
-        Learn from people who
-        <br />
+        the{" "}
         <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>
-          build with AI for a living.
+          Best
         </span>
       </h2>
 
       <p className="text-[16px] text-muted-foreground max-w-[520px] mx-auto text-center mb-12 leading-relaxed">
-        Your mentors are not professors. They are builders, creators, and operators who use AI every single day in their work.
+        Every mentor at the Forge is a practitioner of their craft. A working builder, a published creator, a full-time operator. Not a professor.
       </p>
 
-      <div className="max-w-[420px] mx-auto">
+      <div className="max-w-[900px] mx-auto">
         <Carousel
-          opts={{ align: "center", loop: true }}
+          opts={{ align: "center", loop: true, skipSnaps: false }}
           setApi={handleApi}
           className="w-full"
         >
-          <CarouselContent>
-            {mentors.map((m, i) => (
-              <CarouselItem key={m.name}>
-                <motion.div
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.05 }}
-                  className="bg-card border border-border rounded-2xl overflow-hidden shadow-sm flex flex-col"
+          <CarouselContent className="-ml-2 md:-ml-4">
+            {mentors.map((m, i) => {
+              const isActive = i === current;
+              return (
+                <CarouselItem
+                  key={m.name}
+                  className="pl-2 md:pl-4 basis-[60%] md:basis-[35%] lg:basis-[30%]"
                 >
-                  <div className={`w-full aspect-[4/3] bg-gradient-to-br ${m.gradient} flex items-center justify-center`}>
-                    <span className="text-white text-4xl font-bold tracking-wide opacity-90">
-                      {m.initials}
-                    </span>
-                  </div>
-
-                  <div className="p-5 flex flex-col flex-1">
-                    <p className="font-bold text-[17px] text-foreground leading-tight">{m.name}</p>
-                    <p className="text-[12px] text-muted-foreground mt-1 leading-snug">{m.role}</p>
-
-                    <ul className="mt-4 space-y-2 flex-1">
-                      {m.bullets.map((b, j) => (
-                        <li key={j} className="flex items-start gap-2 text-[13px] text-muted-foreground leading-snug">
-                          <span className="mt-1.5 w-1 h-1 rounded-full bg-primary shrink-0" />
-                          {b}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <a
-                      href={m.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-4 inline-flex items-center gap-1.5 text-[12px] text-primary hover:underline font-medium"
+                  <motion.div
+                    animate={{
+                      scale: isActive ? 1 : 0.85,
+                      opacity: isActive ? 1 : 0.5,
+                    }}
+                    transition={{ duration: 0.35, ease: "easeOut" }}
+                    className="bg-card border border-border rounded-2xl overflow-hidden shadow-sm flex flex-col cursor-pointer"
+                    onClick={() => api?.scrollTo(i)}
+                  >
+                    <div
+                      className={`w-full aspect-[3/4] bg-gradient-to-br ${m.gradient} flex items-center justify-center`}
                     >
-                      <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                      </svg>
-                      LinkedIn
-                    </a>
-                  </div>
-                </motion.div>
-              </CarouselItem>
-            ))}
+                      <span className="text-white text-5xl font-bold tracking-wide opacity-90">
+                        {m.initials}
+                      </span>
+                    </div>
+
+                    {isActive && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="p-5 flex flex-col"
+                      >
+                        <p className="font-bold text-[17px] text-foreground leading-tight text-center">
+                          {m.name}
+                        </p>
+                        <p className="text-[11px] text-primary font-semibold uppercase tracking-wider mt-1 text-center">
+                          {m.role}
+                        </p>
+
+                        <ul className="mt-4 space-y-2">
+                          {m.bullets.map((b, j) => (
+                            <li
+                              key={j}
+                              className="flex items-start gap-2 text-[13px] text-muted-foreground leading-snug"
+                            >
+                              <span className="mt-1.5 w-1 h-1 rounded-full bg-primary shrink-0" />
+                              {b}
+                            </li>
+                          ))}
+                        </ul>
+
+                        <a
+                          href={m.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-4 inline-flex items-center gap-1.5 text-[12px] text-primary hover:underline font-medium justify-center"
+                        >
+                          <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                          </svg>
+                          LinkedIn
+                        </a>
+                      </motion.div>
+                    )}
+                  </motion.div>
+                </CarouselItem>
+              );
+            })}
           </CarouselContent>
-          <CarouselPrevious className="-left-10 md:-left-14" />
-          <CarouselNext className="-right-10 md:-right-14" />
+          <CarouselPrevious className="-left-4 md:-left-10" />
+          <CarouselNext className="-right-4 md:-right-10" />
         </Carousel>
 
         {/* Dot indicators */}
