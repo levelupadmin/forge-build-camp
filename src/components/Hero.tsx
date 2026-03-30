@@ -50,8 +50,8 @@ const Hero = ({ onOpenModal }: HeroProps) => {
         <img src={forgeLogo} alt="The Forge AI" className="h-14 md:h-20 mx-auto mb-8" />
 
         <h1 className="font-bold tracking-[-0.025em] leading-[1.08] text-[48px] md:text-[80px]" style={{ color: '#F2EEE8' }}>
-          <span className="block text-4xl">Learn AI by</span>
-          <span className="block text-4xl">
+          <span className="block text-5xl">Learn AI by</span>
+          <span className="block text-5xl mr-px pl-0 pr-0 text-center">
             <span className="font-serif italic" style={{ fontWeight: 700, color: '#3B82F6' }}>Building</span> with AI.
           </span>
         </h1>
