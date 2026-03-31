@@ -108,7 +108,7 @@ const Mentors = () => {
               return (
                 <CarouselItem
                   key={m.name}
-                  className="pl-2 md:pl-4 basis-[60%] md:basis-[35%] lg:basis-[30%]"
+                  className="pl-2 md:pl-4 basis-[85%] md:basis-[35%] lg:basis-[30%]"
                 >
                   <motion.div
                     animate={{
