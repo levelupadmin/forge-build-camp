@@ -1,53 +1,87 @@
+# Redesign: Three Pillars → Interactive Horizontal Accordion
 
+## Summary
 
-# Redesign "Who This Is For" — Bento Grid Layout
-
-## What We're Building
-
-An asymmetric bento grid replacing the current 4 uniform cards. Two personas get large tiles with prominent photography, two get smaller tiles — creating visual hierarchy and an editorial, magazine-like feel.
-
-```text
-Mobile (390px):              Desktop (1024px+):
-┌──────────────┐             ┌─────────────────────┬──────────┐
-│              │             │                     │  [PHOTO] │
-│   [PHOTO]    │             │     [PHOTO]         │ Marketer │
-│  The Founder │             │     The Founder     │  desc... │
-│   desc...    │             │     desc...         ├──────────┤
-│              │             │                     │  [PHOTO] │
-├──────────────┤             │                     │ Operator │
-│   [PHOTO]    │             │                     │  desc... │
-│  Marketer    │             └─────────────────────┴──────────┘
-├──────────────┤             ┌────────────────────────────────┐
-│   [PHOTO]    │             │  [PHOTO]  The Professional    │
-│  Operator    │             │           desc...             │
-├──────────────┤             └────────────────────────────────┘
-│   [PHOTO]    │
-│ Professional │
-└──────────────┘
-```
-
-## Key Design Details
-
-- **Photography**: Generate 4 AI portraits (founder at laptop, marketer presenting, operator at whiteboard, professional in meeting) using the image generation skill. Save to `public/personas/`.
-- **Gradient overlay**: Each card has a bottom-to-top dark gradient over the photo so white text is legible.
-- **Hover effect**: Cards lift slightly with `scale(1.02)` and increased shadow on hover via framer-motion.
-- **Stagger animation**: Cards animate in with opacity + y-translate, staggered by 0.1s.
-- **Card styling**: `rounded-2xl overflow-hidden` with the photo as a CSS `background-image` covering the full card. Text sits at the bottom over the gradient.
-
-## Grid Structure (Desktop)
-
-- CSS Grid: `grid-cols-3 grid-rows-2`
-- Founder card: spans 2 columns, 2 rows (large hero tile)
-- Marketer card: 1 column, 1 row (top-right)
-- Operator card: 1 column, 1 row (bottom-right, below marketer)
-- Professional card: spans 3 columns, 1 row (full-width bottom banner, shorter height)
+Replace the current `Pillars.tsx` with an interactive horizontal accordion panel. Desktop: 3 panels in a row, one expanded (65%), two collapsed (17.5%). Auto-rotates every 5s. Mobile: vertical stack with toggle tabs at top. Full-bleed background images with gradient overlays, tool logos with hover tooltips.
 
 ## Files Changed
 
-1. **`src/components/WhoIsFor.tsx`** — Full rebuild with bento grid layout, photo backgrounds, gradient overlays, and framer-motion animations.
-2. **`public/personas/`** — 4 generated AI portrait images.
+### 1. `src/components/Pillars.tsx` — Full rewrite
 
-## Mobile Behavior
+**Data structure** — 3 pillars with updated copy per spec:
 
-On mobile (< 640px), the grid collapses to a single column with all 4 cards stacked, each showing a photo background with gradient text overlay. The Founder card remains taller than the others to preserve hierarchy.
+- Pillar 01: "Generative AI" — tools: Higgsfield, Midjourney, HeyGen, ElevenLabs, Runway
+- Pillar 02: "AI Automations" — tools: n8n, Make, Claude, OpenAI
+- Pillar 03: "AI Product Building" — tools: Lovable, Replit, Supabase (note: "Emergent" not in toolLogos, will use Replit as substitute)
 
+**State management:**
+
+- `activeIndex` state (0/1/2), starts at 0
+- `useEffect` with 5s `setInterval` for auto-rotation, cycles 0→1→2→0
+- Pause on hover (`onMouseEnter`/`onMouseLeave` sets `isPaused` ref)
+- Click on inactive panel sets `activeIndex` and resets timer
+- Progress bar animation via CSS `@keyframes` tied to a `key` that resets on panel change
+
+**Desktop layout (md+):**
+
+- Container: `flex` row, `h-[560px]`, `rounded-2xl overflow-hidden`
+- Active panel: `w-[65%]`, transition `width 0.6s ease-in-out`
+- Inactive panels: `w-[17.5%]`, cursor pointer
+- Each panel has a background image with CSS `background-size: cover`
+- Active overlay: `linear-gradient(to right, rgba(0,0,0,0.80), rgba(0,0,0,0.25))`
+- Inactive overlay: `rgba(0,0,0,0.72)`, hover reduces to 0.55
+- Inactive text: `writing-mode: vertical-rl` for rotated pillar number + name
+- Active content: positioned bottom-left with padding 48px
+
+**Mobile layout (<768px):**
+
+- Three toggle tabs at top (pill buttons): "Generative AI", "AI Automations", "AI Product Building"
+- Active tab highlighted with blue background
+- Below tabs: active pillar shown full-width, height 420px
+- Full-bleed image background with gradient overlay
+- All content (tag, headline, descriptor, tools, builds) visible
+- Tap a different tab to switch pillar, auto-rotate still runs
+
+**Tool logos row (both layouts):**
+
+- 36px circles with white bg, border `rgba(255,255,255,0.2)`
+- Overlapping with `-ml-1.5` (negative margin)
+- Uses existing `toolLogos` map from `@/lib/toolLogos`
+- Tooltip on hover showing tool name (using Radix Tooltip or simple CSS tooltip)
+
+**Progress bar:**
+
+- 2px bar at bottom of each panel
+- Inactive: `rgba(255,255,255,0.15)` background
+- Active: animates width 0→100% over 5s in `#3B82F6`
+- Resets when active panel changes (via React `key` prop)
+
+**Section header:**
+
+- Label: "The Core" — JetBrains Mono 10px, blue, uppercase
+- Headline: "Three Pillars. Nine days." — Playfair Display italic 900, white, centered
+- 48px margin below before panels
+
+**CTA below panels:**
+
+- "Request an Invite" button — blue bg, white text, rounded-full, auto-width centered
+- Calls `onOpenModal`
+
+### 2. `src/lib/toolLogos.ts` — Add missing entry
+
+- Add `"Emergent"` logo URL if available, otherwise map to a placeholder
+
+### 3. Generate 3 background images
+
+- `public/pillars/pillar-01.jpg` — cinematic creative studio
+- `public/pillars/pillar-02.jpg` — automation/workflow aesthetic
+- `public/pillars/pillar-03.jpg` — collaborative building scene
+
+No other files or sections are touched.
+
+## Technical Notes
+
+- All transitions use inline `style={{ transition: 'width 0.6s ease-in-out' }}` or Tailwind `transition-all duration-[600ms] ease-in-out`
+- Progress bar animation uses CSS `@keyframes` with `animation: progress 5s linear` and resets via changing the React `key`
+- Mobile tabs use simple button group, no carousel needed
+- Tooltip for tool logos: lightweight CSS-only tooltip (pseudo-element) to avoid adding dependencies
