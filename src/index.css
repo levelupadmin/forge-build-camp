@@ -159,3 +159,13 @@
   max-width: 120px;
   margin: 0 auto;
 }
+
+/* Pillar progress bar */
+@keyframes pillar-progress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+.pillar-progress-bar {
+  animation: pillar-progress 5s linear forwards;
+}
