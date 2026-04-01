@@ -92,13 +92,16 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
 
   return (
     <SectionWrapper id="pillars" label="THE CORE">
-      <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-12">
+      <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-4">
         Three{" "}
         <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>
           Pillars.
         </span>{" "}
         Nine days.
       </h2>
+      <p className="text-center text-muted-foreground text-base md:text-lg max-w-xl mx-auto mb-10">
+        Each pillar gives you real skills, real tools, and real output you take home.
+      </p>
 
       {/* MOBILE: Toggle tabs + stacked view */}
       <div className="md:hidden">
@@ -118,7 +121,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
           ))}
         </div>
 
-        <div className="relative rounded-2xl overflow-hidden h-[420px]">
+        <div className="relative rounded-2xl overflow-hidden h-[480px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeIndex}
@@ -135,186 +138,171 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
               <div
                 className="absolute inset-0"
                 style={{
-                  background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.15) 100%)",
+                  background: "linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.15) 100%)",
                 }}
               />
               <div className="relative z-10 flex flex-col justify-end h-full p-6 pb-8">
-                <span className="font-mono text-[9px] text-[#3B82F6] uppercase tracking-[0.12em] mb-2.5">
+                <span className="inline-block bg-primary text-primary-foreground text-[11px] font-semibold px-3 py-1 rounded-md mb-3 w-fit">
                   {pillars[activeIndex].tag}
                 </span>
-                <h3
-                  className="font-serif italic text-[32px] leading-[1.0] mb-3"
-                  style={{ color: "#F2EEE8", fontWeight: 900 }}
-                >
+                <h3 className="font-bold text-[36px] leading-[1.0] mb-3 text-white">
                   {pillars[activeIndex].title}
                 </h3>
-                <p className="text-[14px] leading-[1.65] max-w-[340px] mb-5" style={{ color: "rgba(255,255,255,0.65)" }}>
+                <p className="text-[14px] leading-[1.65] max-w-[340px] mb-5 text-white/65">
                   {pillars[activeIndex].desc}
                 </p>
-
-                {/* Tool logos */}
                 <div className="flex items-center mb-5">
                   {pillars[activeIndex].tools.map((t, ti) => (
                     <div key={t} className="group relative" style={{ marginLeft: ti > 0 ? "-6px" : 0 }}>
                       <div className="w-9 h-9 rounded-full bg-white/90 border border-white/20 flex items-center justify-center overflow-hidden p-1.5">
                         <img src={toolLogos[t] || ""} alt={t} className="w-full h-full object-contain" loading="lazy" />
                       </div>
-                      <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 font-mono text-[8px] text-white/50 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
-                        {t}
-                      </span>
                     </div>
                   ))}
                 </div>
-
-                {/* You will build */}
                 <div className="mt-1">
-                  <span className="font-mono text-[9px] text-[#3B82F6] uppercase tracking-[0.12em] block mb-2">
-                    You will build
-                  </span>
+                  <span className="font-bold text-[13px] text-white block mb-2">What you'll build</span>
                   {pillars[activeIndex].builds.map((b) => (
-                    <p key={b} className="text-[13px] leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>
-                      <span className="text-[#3B82F6] mr-2">→</span>
-                      {b}
+                    <p key={b} className="text-[13px] leading-relaxed text-white/70">
+                      <span className="text-primary mr-2">→</span>{b}
                     </p>
                   ))}
                 </div>
               </div>
-
-              {/* Progress bar */}
               <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/15">
-                <div
-                  key={`progress-mobile-${activeIndex}`}
-                  className="h-full bg-[#3B82F6] pillar-progress-bar"
-                />
+                <div key={`progress-mobile-${activeIndex}`} className="h-full bg-primary pillar-progress-bar" />
               </div>
             </motion.div>
           </AnimatePresence>
         </div>
       </div>
 
-      {/* DESKTOP: Horizontal accordion */}
+      {/* DESKTOP: Full-bleed hero with thumbnail cards */}
       <div
-        className="hidden md:flex h-[560px] rounded-2xl overflow-hidden"
+        className="hidden md:block relative rounded-2xl overflow-hidden h-[600px]"
         onMouseEnter={() => (isPaused.current = true)}
         onMouseLeave={() => (isPaused.current = false)}
       >
-        {pillars.map((p, i) => {
-          const isActive = activeIndex === i;
-          return (
+        {/* Full-bleed background image */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className="absolute inset-0"
+          >
             <div
-              key={i}
-              onClick={() => handleClick(i)}
-              className={`relative overflow-hidden transition-all duration-[600ms] ease-in-out ${
-                isActive ? "cursor-default" : "cursor-pointer"
-              }`}
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${pillars[activeIndex].image})` }}
+            />
+            <div
+              className="absolute inset-0"
               style={{
-                width: isActive ? "65%" : "17.5%",
+                background: "linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.5) 55%, rgba(0,0,0,0.25) 100%)",
               }}
-            >
-              {/* Background image */}
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700"
-                style={{
-                  backgroundImage: `url(${p.image})`,
-                  transform: !isActive ? "scale(1)" : "scale(1)",
-                }}
-              />
+            />
+          </motion.div>
+        </AnimatePresence>
 
-              {/* Overlay */}
-              <div
-                className="absolute inset-0 transition-all duration-500"
-                style={{
-                  background: isActive
-                    ? "linear-gradient(to right, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.25) 100%)"
-                    : "rgba(0,0,0,0.72)",
-                }}
-                onMouseEnter={(e) => {
-                  if (!isActive) e.currentTarget.style.background = "rgba(0,0,0,0.55)";
-                }}
-                onMouseLeave={(e) => {
-                  if (!isActive) e.currentTarget.style.background = "rgba(0,0,0,0.72)";
-                }}
-              />
+        {/* Content layer */}
+        <div className="relative z-10 flex h-full">
+          {/* Left: Active pillar content */}
+          <div className="flex-1 flex flex-col justify-end p-12 pr-8 max-w-[60%]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.45, delay: 0.1 }}
+              >
+                <span className="inline-block bg-primary text-primary-foreground text-[12px] font-semibold px-3.5 py-1.5 rounded-md mb-4">
+                  {pillars[activeIndex].tag}
+                </span>
+                <h3 className="font-bold text-[56px] leading-[1.0] mb-4 text-white">
+                  {pillars[activeIndex].title}
+                </h3>
+                <p className="text-[16px] leading-[1.7] max-w-[480px] mb-6 text-white/65">
+                  {pillars[activeIndex].desc}
+                </p>
 
-              {/* ACTIVE content */}
-              {isActive && (
-                <motion.div
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.15 }}
-                  className="relative z-10 flex flex-col justify-end h-full p-12"
-                >
-                  <span className="font-mono text-[9px] text-[#3B82F6] uppercase tracking-[0.12em] mb-2.5">
-                    {p.tag}
-                  </span>
-                  <h3
-                    className="font-serif italic text-[52px] leading-[1.0] mb-3.5"
-                    style={{ color: "#F2EEE8", fontWeight: 900 }}
-                  >
-                    {p.title}
-                  </h3>
-                  <p className="text-[15px] leading-[1.65] max-w-[380px] mb-6" style={{ color: "rgba(255,255,255,0.65)" }}>
-                    {p.desc}
-                  </p>
-
-                  {/* Tool logos */}
-                  <div className="flex items-center mb-5">
-                    {p.tools.map((t, ti) => (
-                      <div key={t} className="group relative" style={{ marginLeft: ti > 0 ? "-6px" : 0 }}>
-                        <div className="w-9 h-9 rounded-full bg-white/90 border border-white/20 flex items-center justify-center overflow-hidden p-1.5 transition-transform group-hover:scale-110">
-                          <img src={toolLogos[t] || ""} alt={t} className="w-full h-full object-contain" />
-                        </div>
-                        <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 font-mono text-[8px] text-white/50 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
-                          {t}
-                        </span>
+                {/* Tool logos */}
+                <div className="flex items-center mb-6 gap-[-6px]">
+                  {pillars[activeIndex].tools.map((t, ti) => (
+                    <div key={t} className="group relative" style={{ marginLeft: ti > 0 ? "-6px" : 0 }}>
+                      <div className="w-10 h-10 rounded-full bg-white/90 border border-white/20 flex items-center justify-center overflow-hidden p-1.5 transition-transform group-hover:scale-110">
+                        <img src={toolLogos[t] || ""} alt={t} className="w-full h-full object-contain" />
                       </div>
-                    ))}
-                  </div>
+                      <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 font-mono text-[9px] text-white/60 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+                        {t}
+                      </span>
+                    </div>
+                  ))}
+                </div>
 
-                  {/* You will build */}
-                  <div>
-                    <span className="font-mono text-[9px] text-[#3B82F6] uppercase tracking-[0.12em] block mb-2">
-                      You will build
-                    </span>
-                    {p.builds.map((b) => (
-                      <p key={b} className="text-[13px] leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>
-                        <span className="text-[#3B82F6] mr-2">→</span>
-                        {b}
-                      </p>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
+                {/* What you'll build */}
+                <div className="mt-2">
+                  <span className="font-bold text-[14px] text-white block mb-2">What you'll build</span>
+                  {pillars[activeIndex].builds.map((b) => (
+                    <p key={b} className="text-[14px] leading-relaxed text-white/70">
+                      <span className="text-primary mr-2">→</span>{b}
+                    </p>
+                  ))}
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
-              {/* INACTIVE content — vertical text */}
-              {!isActive && (
-                <div className="relative z-10 flex items-center justify-center h-full">
+          {/* Right: Thumbnail navigation cards */}
+          <div className="flex items-center gap-3 p-8 pl-0">
+            {pillars.map((p, i) => {
+              const isActive = activeIndex === i;
+              return (
+                <div
+                  key={i}
+                  onClick={() => handleClick(i)}
+                  className={`relative rounded-xl overflow-hidden transition-all duration-500 cursor-pointer h-[340px] ${
+                    isActive ? "w-[180px] ring-2 ring-primary ring-offset-2 ring-offset-black/50" : "w-[140px] hover:w-[155px]"
+                  }`}
+                >
                   <div
-                    className="flex flex-col items-center gap-4"
-                    style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}
-                  >
-                    <span className="font-mono text-[9px] text-[#3B82F6] uppercase tracking-[0.12em]">
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{ backgroundImage: `url(${p.image})` }}
+                  />
+                  <div
+                    className="absolute inset-0 transition-all duration-300"
+                    style={{
+                      background: isActive
+                        ? "linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 100%)"
+                        : "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.3) 100%)",
+                    }}
+                  />
+                  <div className="relative z-10 flex flex-col justify-end h-full p-4">
+                    <span className="font-mono text-[9px] text-primary uppercase tracking-wider mb-1">
                       {p.tag}
                     </span>
-                    <span className="font-semibold text-[16px]" style={{ color: "rgba(255,255,255,0.8)" }}>
+                    <span className="font-semibold text-[14px] text-white leading-tight">
                       {p.title}
                     </span>
                   </div>
+                  {/* Active indicator bar */}
+                  {isActive && (
+                    <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/15">
+                      <div key={`progress-thumb-${activeIndex}`} className="h-full bg-primary pillar-progress-bar" />
+                    </div>
+                  )}
                 </div>
-              )}
+              );
+            })}
+          </div>
+        </div>
 
-              {/* Progress bar */}
-              <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/15">
-                {isActive && (
-                  <div
-                    key={`progress-${activeIndex}`}
-                    className="h-full bg-[#3B82F6] pillar-progress-bar"
-                  />
-                )}
-              </div>
-            </div>
-          );
-        })}
+        {/* Bottom progress bar */}
+        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/10">
+          <div key={`progress-desktop-${activeIndex}`} className="h-full bg-primary pillar-progress-bar" />
+        </div>
       </div>
 
       {/* CTA */}
