@@ -103,9 +103,9 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
         Each pillar gives you real skills, real tools, and real output you take home.
       </p>
 
-      {/* MOBILE: Toggle tabs + stacked view */}
+      {/* MOBILE: Image on top, content below */}
       <div className="md:hidden">
-        <div className="flex gap-2 mb-4">
+        <div className="flex gap-2 mb-5">
           {pillars.map((p, i) => (
             <button
               key={i}
@@ -121,59 +121,59 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
           ))}
         </div>
 
-        <div className="relative rounded-2xl overflow-hidden h-[480px]">
+        {/* Image */}
+        <div className="relative rounded-2xl overflow-hidden aspect-[16/10] mb-6">
           <AnimatePresence mode="wait">
-            <motion.div
+            <motion.img
               key={activeIndex}
+              src={pillars[activeIndex].image}
+              alt={pillars[activeIndex].title}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }}
-              className="absolute inset-0"
-            >
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${pillars[activeIndex].image})` }}
-              />
-              <div
-                className="absolute inset-0"
-                style={{
-                  background: "linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.15) 100%)",
-                }}
-              />
-              <div className="relative z-10 flex flex-col justify-end h-full p-6 pb-8">
-                <span className="inline-block bg-primary text-primary-foreground text-[11px] font-semibold px-3 py-1 rounded-md mb-3 w-fit">
-                  {pillars[activeIndex].tag}
-                </span>
-                <h3 className="font-bold text-[36px] leading-[1.0] mb-3 text-white">
-                  {pillars[activeIndex].title}
-                </h3>
-                <p className="text-[14px] leading-[1.65] max-w-[340px] mb-5 text-white/65">
-                  {pillars[activeIndex].desc}
-                </p>
-                <div className="flex items-center mb-5">
-                  {pillars[activeIndex].tools.map((t, ti) => (
-                    <div key={t} className="group relative" style={{ marginLeft: ti > 0 ? "-6px" : 0 }}>
-                      <div className="w-9 h-9 rounded-full bg-white/90 border border-white/20 flex items-center justify-center overflow-hidden p-1.5">
-                        <img src={toolLogos[t] || ""} alt={t} className="w-full h-full object-contain" loading="lazy" />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-1">
-                  <span className="font-bold text-[13px] text-white block mb-2">What you'll build</span>
-                  {pillars[activeIndex].builds.map((b) => (
-                    <p key={b} className="text-[13px] leading-relaxed text-white/70">
-                      <span className="text-primary mr-2">→</span>{b}
-                    </p>
-                  ))}
-                </div>
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/15">
-                <div key={`progress-mobile-${activeIndex}`} className="h-full bg-primary pillar-progress-bar" />
-              </div>
-            </motion.div>
+              className="absolute inset-0 w-full h-full object-cover"
+            />
           </AnimatePresence>
+        </div>
+
+        {/* Content */}
+        <div className="text-center">
+          <span className="inline-block font-mono text-[11px] text-primary uppercase tracking-wider mb-2">
+            {pillars[activeIndex].tag}
+          </span>
+          <h3 className="font-bold text-[30px] leading-[1.1] mb-3 text-foreground">
+            {pillars[activeIndex].title}
+          </h3>
+          <p className="text-[14px] leading-[1.65] max-w-[340px] mx-auto mb-5 text-muted-foreground">
+            {pillars[activeIndex].desc}
+          </p>
+
+          {/* Tool logos */}
+          <div className="flex items-center justify-center mb-5">
+            {pillars[activeIndex].tools.map((t, ti) => (
+              <div key={t} style={{ marginLeft: ti > 0 ? "-6px" : 0 }}>
+                <div className="w-9 h-9 rounded-full bg-white/90 border border-white/20 flex items-center justify-center overflow-hidden p-1.5">
+                  <img src={toolLogos[t] || ""} alt={t} className="w-full h-full object-contain" loading="lazy" />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* What you'll build */}
+          <div className="text-left max-w-[320px] mx-auto">
+            <span className="font-bold text-[13px] text-foreground block mb-2">What you'll build</span>
+            {pillars[activeIndex].builds.map((b) => (
+              <p key={b} className="text-[13px] leading-relaxed text-muted-foreground mb-1">
+                <span className="text-primary mr-2">→</span>{b}
+              </p>
+            ))}
+          </div>
+        </div>
+
+        {/* Progress bar */}
+        <div className="mt-5 h-[2px] bg-foreground/10 rounded-full overflow-hidden">
+          <div key={`progress-mobile-${activeIndex}`} className="h-full bg-primary pillar-progress-bar" />
         </div>
       </div>
 
