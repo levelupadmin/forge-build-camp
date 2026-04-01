@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import LogoStrip from "@/components/LogoStrip";
@@ -16,34 +15,32 @@ import Pricing from "@/components/Pricing";
 import FAQs from "@/components/FAQs";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
-import InviteModal from "@/components/InviteModal";
+
+const TALLY_URL = "https://tally.so/r/kdWEXR";
 
 const Index = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const openModal = () => setModalOpen(true);
-  const closeModal = () => setModalOpen(false);
+  const openTally = () => window.open(TALLY_URL, "_blank", "noopener,noreferrer");
 
   return (
     <div className="min-h-screen bg-background">
       <div className="noise-overlay" />
-      <Navbar onOpenModal={openModal} />
-      <Hero onOpenModal={openModal} />
+      <Navbar onOpenModal={openTally} />
+      <Hero onOpenModal={openTally} />
       <LogoStrip />
       <WhatIsForge />
       <WhyAINow />
       <WhoIsFor />
-      <Pillars onOpenModal={openModal} />
+      <Pillars onOpenModal={openTally} />
       <Outcomes />
       <VennDiagram />
       <Schedule />
       <Mentors />
       <Community />
       <SocialProof />
-      <Pricing onOpenModal={openModal} />
+      <Pricing onOpenModal={openTally} />
       <FAQs />
-      <FinalCTA onOpenModal={openModal} />
+      <FinalCTA onOpenModal={openTally} />
       <Footer />
-      <InviteModal isOpen={modalOpen} onClose={closeModal} />
     </div>
   );
 };
