@@ -194,7 +194,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
 
       {/* DESKTOP: Split hero + thumbnail cards */}
       <div
-        className="hidden md:flex h-[560px] rounded-2xl overflow-hidden bg-black"
+        className="hidden md:flex relative h-[560px] rounded-2xl overflow-hidden bg-black"
         onMouseEnter={() => (isPaused.current = true)}
         onMouseLeave={() => (isPaused.current = false)}
       >
