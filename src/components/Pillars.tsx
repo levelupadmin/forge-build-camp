@@ -143,7 +143,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
               />
               <div className="relative z-10 flex flex-col justify-end h-full p-6 pb-8">
                 <span className="inline-block bg-primary text-primary-foreground text-[11px] font-semibold px-3 py-1 rounded-md mb-3 w-fit">
-                  {p.tag}
+                  {pillars[activeIndex].tag}
                 </span>
                 <h3 className="font-bold text-[36px] leading-[1.0] mb-3 text-white">
                   {pillars[activeIndex].title}
