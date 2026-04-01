@@ -192,129 +192,139 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
         </div>
       </div>
 
-      {/* DESKTOP: Horizontal accordion */}
+      {/* DESKTOP: Split hero + thumbnail cards */}
       <div
-        className="hidden md:flex h-[560px] rounded-2xl overflow-hidden"
+        className="hidden md:flex relative h-[560px] rounded-2xl overflow-hidden bg-black"
         onMouseEnter={() => (isPaused.current = true)}
         onMouseLeave={() => (isPaused.current = false)}
       >
-        {pillars.map((p, i) => {
-          const isActive = activeIndex === i;
-          return (
+        {/* Left panel — active pillar hero */}
+        <div className="relative w-[60%] overflow-hidden">
+          {pillars.map((p, i) => (
             <div
               key={i}
-              onClick={() => handleClick(i)}
-              className={`relative overflow-hidden transition-all duration-[600ms] ease-in-out ${
-                isActive ? "cursor-default" : "cursor-pointer"
-              }`}
+              className="absolute inset-0 bg-cover bg-center transition-opacity duration-500"
               style={{
-                width: isActive ? "65%" : "17.5%",
+                backgroundImage: `url(${p.image})`,
+                opacity: activeIndex === i ? 1 : 0,
               }}
-            >
-              {/* Background image */}
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700"
-                style={{
-                  backgroundImage: `url(${p.image})`,
-                  transform: !isActive ? "scale(1)" : "scale(1)",
-                }}
-              />
+            />
+          ))}
+          <div
+            className="absolute inset-0"
+            style={{
+              background: "linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.35) 70%, rgba(0,0,0,0.15) 100%)",
+            }}
+          />
 
-              {/* Overlay */}
-              <div
-                className="absolute inset-0 transition-all duration-500"
-                style={{
-                  background: isActive
-                    ? "linear-gradient(to right, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.25) 100%)"
-                    : "rgba(0,0,0,0.72)",
-                }}
-                onMouseEnter={(e) => {
-                  if (!isActive) e.currentTarget.style.background = "rgba(0,0,0,0.55)";
-                }}
-                onMouseLeave={(e) => {
-                  if (!isActive) e.currentTarget.style.background = "rgba(0,0,0,0.72)";
-                }}
-              />
+          <motion.div
+            key={activeIndex}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.1 }}
+            className="relative z-10 flex flex-col justify-end h-full p-12"
+          >
+            <span className="font-mono text-[9px] text-[#3B82F6] uppercase tracking-[0.12em] mb-3">
+              {pillars[activeIndex].tag}
+            </span>
+            <h3 className="font-bold uppercase text-[48px] leading-[0.95] tracking-[-0.02em] mb-4" style={{ color: "#F2EEE8" }}>
+              {pillars[activeIndex].title.split(" ").map((word, wi) => (
+                <span key={wi} className="block">{word}</span>
+              ))}
+            </h3>
+            <p className="text-[15px] leading-[1.65] max-w-[360px] mb-6" style={{ color: "rgba(255,255,255,0.6)" }}>
+              {pillars[activeIndex].desc}
+            </p>
 
-              {/* ACTIVE content */}
-              {isActive && (
-                <motion.div
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.15 }}
-                  className="relative z-10 flex flex-col justify-end h-full p-12"
-                >
-                  <span className="font-mono text-[9px] text-[#3B82F6] uppercase tracking-[0.12em] mb-2.5">
+            {/* Tool logos */}
+            <div className="flex items-center mb-5">
+              {pillars[activeIndex].tools.map((t, ti) => (
+                <div key={t} className="group relative" style={{ marginLeft: ti > 0 ? "-6px" : 0 }}>
+                  <div className="w-9 h-9 rounded-full bg-white/90 border border-white/20 flex items-center justify-center overflow-hidden p-1.5 transition-transform group-hover:scale-110">
+                    <img src={toolLogos[t] || ""} alt={t} className="w-full h-full object-contain" />
+                  </div>
+                  <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 font-mono text-[8px] text-white/50 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+                    {t}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* You will build */}
+            <div>
+              <span className="font-mono text-[9px] text-[#3B82F6] uppercase tracking-[0.12em] block mb-2">
+                You will build
+              </span>
+              {pillars[activeIndex].builds.map((b) => (
+                <p key={b} className="text-[13px] leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>
+                  <span className="text-[#3B82F6] mr-2">→</span>
+                  {b}
+                </p>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Progress bar */}
+          <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/15 z-20">
+            <div
+              key={`progress-hero-${activeIndex}`}
+              className="h-full bg-[#3B82F6] pillar-progress-bar"
+            />
+          </div>
+        </div>
+
+        {/* Right panel — thumbnail cards */}
+        <div className="w-[40%] flex gap-2 p-2">
+          {pillars.map((p, i) => {
+            const isActive = activeIndex === i;
+            return (
+              <div
+                key={i}
+                onClick={() => handleClick(i)}
+                className={`relative flex-1 rounded-xl overflow-hidden cursor-pointer transition-all duration-500 ${
+                  isActive ? "ring-2 ring-[#3B82F6] ring-offset-1 ring-offset-black" : "hover:opacity-90"
+                }`}
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${p.image})` }}
+                />
+                <div
+                  className="absolute inset-0 transition-all duration-300"
+                  style={{
+                    background: isActive
+                      ? "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 50%)"
+                      : "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.45) 50%)",
+                  }}
+                />
+                <div className="relative z-10 flex flex-col justify-end h-full p-4">
+                  <span className="font-mono text-[8px] text-[#3B82F6] uppercase tracking-[0.12em] mb-1">
                     {p.tag}
                   </span>
-                  <h3
-                    className="font-serif italic text-[52px] leading-[1.0] mb-3.5"
-                    style={{ color: "#F2EEE8", fontWeight: 900 }}
-                  >
+                  <span className="font-bold text-[14px] uppercase leading-tight" style={{ color: "rgba(255,255,255,0.85)" }}>
                     {p.title}
-                  </h3>
-                  <p className="text-[15px] leading-[1.65] max-w-[380px] mb-6" style={{ color: "rgba(255,255,255,0.65)" }}>
-                    {p.desc}
-                  </p>
-
-                  {/* Tool logos */}
-                  <div className="flex items-center mb-5">
-                    {p.tools.map((t, ti) => (
-                      <div key={t} className="group relative" style={{ marginLeft: ti > 0 ? "-6px" : 0 }}>
-                        <div className="w-9 h-9 rounded-full bg-white/90 border border-white/20 flex items-center justify-center overflow-hidden p-1.5 transition-transform group-hover:scale-110">
-                          <img src={toolLogos[t] || ""} alt={t} className="w-full h-full object-contain" />
-                        </div>
-                        <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 font-mono text-[8px] text-white/50 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
-                          {t}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* You will build */}
-                  <div>
-                    <span className="font-mono text-[9px] text-[#3B82F6] uppercase tracking-[0.12em] block mb-2">
-                      You will build
-                    </span>
-                    {p.builds.map((b) => (
-                      <p key={b} className="text-[13px] leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>
-                        <span className="text-[#3B82F6] mr-2">→</span>
-                        {b}
-                      </p>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-
-              {/* INACTIVE content — vertical text */}
-              {!isActive && (
-                <div className="relative z-10 flex items-center justify-center h-full">
-                  <div
-                    className="flex flex-col items-center gap-4"
-                    style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}
-                  >
-                    <span className="font-mono text-[9px] text-[#3B82F6] uppercase tracking-[0.12em]">
-                      {p.tag}
-                    </span>
-                    <span className="font-semibold text-[16px]" style={{ color: "rgba(255,255,255,0.8)" }}>
-                      {p.title}
-                    </span>
-                  </div>
+                  </span>
                 </div>
-              )}
-
-              {/* Progress bar */}
-              <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/15">
-                {isActive && (
-                  <div
-                    key={`progress-${activeIndex}`}
-                    className="h-full bg-[#3B82F6] pillar-progress-bar"
-                  />
-                )}
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
+
+        {/* Slide counter */}
+        <div className="absolute bottom-4 right-6 z-20 flex items-center gap-3">
+          <span className="font-mono text-[22px] font-bold" style={{ color: "#3B82F6" }}>
+            {String(activeIndex + 1).padStart(2, "0")}
+          </span>
+          <div className="w-16 h-[2px] bg-white/20 relative">
+            <div
+              className="absolute inset-y-0 left-0 bg-[#3B82F6] transition-all duration-300"
+              style={{ width: `${((activeIndex + 1) / pillars.length) * 100}%` }}
+            />
+          </div>
+          <span className="font-mono text-[11px]" style={{ color: "rgba(255,255,255,0.4)" }}>
+            {String(pillars.length).padStart(2, "0")}
+          </span>
+        </div>
       </div>
 
       {/* CTA */}
