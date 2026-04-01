@@ -255,17 +255,16 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
             </AnimatePresence>
           </div>
 
-          {/* Right: Thumbnail navigation cards */}
-          <div className="flex items-center gap-3 p-8 pl-0">
-            {pillars.map((p, i) => {
-              const isActive = activeIndex === i;
-              return (
+          {/* Right: Thumbnail cards for inactive pillars only */}
+          <div className="flex items-end gap-4 p-8 pl-0 pb-12">
+            {pillars
+              .map((p, i) => ({ p, i }))
+              .filter(({ i }) => i !== activeIndex)
+              .map(({ p, i }) => (
                 <div
                   key={i}
                   onClick={() => handleClick(i)}
-                  className={`relative rounded-xl overflow-hidden transition-all duration-500 cursor-pointer h-[340px] ${
-                    isActive ? "w-[180px] ring-2 ring-primary ring-offset-2 ring-offset-black/50" : "w-[140px] hover:w-[155px]"
-                  }`}
+                  className="relative rounded-xl overflow-hidden cursor-pointer w-[200px] h-[280px] transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl"
                 >
                   <div
                     className="absolute inset-0 bg-cover bg-center"
@@ -274,28 +273,19 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
                   <div
                     className="absolute inset-0 transition-all duration-300"
                     style={{
-                      background: isActive
-                        ? "linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 100%)"
-                        : "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.3) 100%)",
+                      background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%)",
                     }}
                   />
                   <div className="relative z-10 flex flex-col justify-end h-full p-4">
                     <span className="font-mono text-[9px] text-primary uppercase tracking-wider mb-1">
                       {p.tag}
                     </span>
-                    <span className="font-semibold text-[14px] text-white leading-tight">
+                    <span className="font-semibold text-[15px] text-white leading-tight">
                       {p.title}
                     </span>
                   </div>
-                  {/* Active indicator bar */}
-                  {isActive && (
-                    <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/15">
-                      <div key={`progress-thumb-${activeIndex}`} className="h-full bg-primary pillar-progress-bar" />
-                    </div>
-                  )}
                 </div>
-              );
-            })}
+              ))}
           </div>
         </div>
 
