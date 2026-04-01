@@ -1,87 +1,60 @@
-# Redesign: Three Pillars → Interactive Horizontal Accordion
 
-## Summary
 
-Replace the current `Pillars.tsx` with an interactive horizontal accordion panel. Desktop: 3 panels in a row, one expanded (65%), two collapsed (17.5%). Auto-rotates every 5s. Mobile: vertical stack with toggle tabs at top. Full-bleed background images with gradient overlays, tool logos with hover tooltips.
+# Redesign Pillars Section — Street Loom Hero Style
 
-## Files Changed
+## Reference Analysis
 
-### 1. `src/components/Pillars.tsx` — Full rewrite
+The uploaded image shows a split layout:
+- **Left ~60%**: Full-bleed hero image with large bold stacked text overlay (title), a short description, and a CTA — all bottom-left aligned
+- **Right ~40%**: A row of tall portrait-oriented thumbnail cards that act as navigation. Each card has its own background image with a label overlay at the bottom. These are the "inactive" items.
+- A **progress indicator** and slide counter at the bottom-right
+- Dark, cinematic color palette throughout
 
-**Data structure** — 3 pillars with updated copy per spec:
+## What Changes
 
-- Pillar 01: "Generative AI" — tools: Higgsfield, Midjourney, HeyGen, ElevenLabs, Runway
-- Pillar 02: "AI Automations" — tools: n8n, Make, Claude, OpenAI
-- Pillar 03: "AI Product Building" — tools: Lovable, Replit, Supabase (note: "Emergent" not in toolLogos, will use Replit as substitute)
+Rewrite the desktop layout in `src/components/Pillars.tsx` to match this split hero + thumbnail cards pattern. Keep all existing data, copy, tools, and mobile behavior intact.
 
-**State management:**
+### Desktop Layout (md+)
 
-- `activeIndex` state (0/1/2), starts at 0
-- `useEffect` with 5s `setInterval` for auto-rotation, cycles 0→1→2→0
-- Pause on hover (`onMouseEnter`/`onMouseLeave` sets `isPaused` ref)
-- Click on inactive panel sets `activeIndex` and resets timer
-- Progress bar animation via CSS `@keyframes` tied to a `key` that resets on panel change
+```text
+┌──────────────────────────────┬────────┬────────┬────────┐
+│                              │        │        │        │
+│   PILLAR 01                  │ [img]  │ [img]  │ [img]  │
+│   GENERATIVE                 │        │        │        │
+│   AI                         │  P.01  │  P.02  │  P.03  │
+│                              │ Gen AI │ Auto.  │ Prod.  │
+│   Description text...        │        │        │        │
+│   [tool icons]               │        │        │        │
+│   You will build: ...        │        │        │        │
+│                              │        │        │        │
+│   ── REQUEST AN INVITE       │        │        │        │
+│                              │  02    │──── 03 │        │
+│                     01 ━━━━━ 03       │        │        │
+└──────────────────────────────┴────────┴────────┴────────┘
+```
 
-**Desktop layout (md+):**
+- **Container**: Full-width, `h-[560px]`, `rounded-2xl overflow-hidden`, dark background
+- **Left panel (~60%)**: The active pillar's full-bleed background image with a dark gradient overlay (left-heavy). Content bottom-left: pillar tag, large stacked title (bold uppercase, ~48-52px), description, tool logos, "you will build" items
+- **Right panel (~40%)**: 3 tall thumbnail cards side by side. The active card has a blue border/highlight. Inactive cards are clickable. Each card shows the pillar image with a dark overlay and the pillar number + title at the bottom
+- **Progress indicator**: Bottom-right area showing current slide number (large) and a thin progress line, matching the reference's `01 ━━━ 03` counter style
+- Clicking any thumbnail card on the right switches the active pillar (left panel updates)
+- Auto-rotate every 5s with progress bar, pause on hover — same logic as current
 
-- Container: `flex` row, `h-[560px]`, `rounded-2xl overflow-hidden`
-- Active panel: `w-[65%]`, transition `width 0.6s ease-in-out`
-- Inactive panels: `w-[17.5%]`, cursor pointer
-- Each panel has a background image with CSS `background-size: cover`
-- Active overlay: `linear-gradient(to right, rgba(0,0,0,0.80), rgba(0,0,0,0.25))`
-- Inactive overlay: `rgba(0,0,0,0.72)`, hover reduces to 0.55
-- Inactive text: `writing-mode: vertical-rl` for rotated pillar number + name
-- Active content: positioned bottom-left with padding 48px
+### Key Differences from Current
 
-**Mobile layout (<768px):**
+1. **No accordion** — instead, a fixed split: large hero left + thumbnail strip right
+2. **All 3 thumbnails always visible** on the right (not just inactive ones)
+3. **Active thumbnail** gets a highlighted border (blue) or reduced overlay
+4. **Slide counter** bottom-right showing `01 ━━━━ 03` with the active number emphasized
+5. **Title styling**: Large uppercase stacked text instead of italic serif — closer to the reference's "MODERN KNIT MINIMALIST" style. Will use bold uppercase DM Sans for the title words stacked on separate lines
 
-- Three toggle tabs at top (pill buttons): "Generative AI", "AI Automations", "AI Product Building"
-- Active tab highlighted with blue background
-- Below tabs: active pillar shown full-width, height 420px
-- Full-bleed image background with gradient overlay
-- All content (tag, headline, descriptor, tools, builds) visible
-- Tap a different tab to switch pillar, auto-rotate still runs
+### Mobile Behavior
 
-**Tool logos row (both layouts):**
+Keep current mobile layout (toggle pills + full-width card) — no changes.
 
-- 36px circles with white bg, border `rgba(255,255,255,0.2)`
-- Overlapping with `-ml-1.5` (negative margin)
-- Uses existing `toolLogos` map from `@/lib/toolLogos`
-- Tooltip on hover showing tool name (using Radix Tooltip or simple CSS tooltip)
+### Files Changed
 
-**Progress bar:**
+1. **`src/components/Pillars.tsx`** — Rewrite desktop section only. Replace the `hidden md:flex` accordion with the new split hero + thumbnails layout. Mobile section stays identical.
 
-- 2px bar at bottom of each panel
-- Inactive: `rgba(255,255,255,0.15)` background
-- Active: animates width 0→100% over 5s in `#3B82F6`
-- Resets when active panel changes (via React `key` prop)
+No new assets needed — reuses existing `pillar-01.jpg`, `pillar-02.jpg`, `pillar-03.jpg`.
 
-**Section header:**
-
-- Label: "The Core" — JetBrains Mono 10px, blue, uppercase
-- Headline: "Three Pillars. Nine days." — Playfair Display italic 900, white, centered
-- 48px margin below before panels
-
-**CTA below panels:**
-
-- "Request an Invite" button — blue bg, white text, rounded-full, auto-width centered
-- Calls `onOpenModal`
-
-### 2. `src/lib/toolLogos.ts` — Add missing entry
-
-- Add `"Emergent"` logo URL if available, otherwise map to a placeholder
-
-### 3. Generate 3 background images
-
-- `public/pillars/pillar-01.jpg` — cinematic creative studio
-- `public/pillars/pillar-02.jpg` — automation/workflow aesthetic
-- `public/pillars/pillar-03.jpg` — collaborative building scene
-
-No other files or sections are touched.
-
-## Technical Notes
-
-- All transitions use inline `style={{ transition: 'width 0.6s ease-in-out' }}` or Tailwind `transition-all duration-[600ms] ease-in-out`
-- Progress bar animation uses CSS `@keyframes` with `animation: progress 5s linear` and resets via changing the React `key`
-- Mobile tabs use simple button group, no carousel needed
-- Tooltip for tool logos: lightweight CSS-only tooltip (pseudo-element) to avoid adding dependencies
