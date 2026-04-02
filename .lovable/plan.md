@@ -1,46 +1,26 @@
 
 
-# Pricing Redesign + Testimonial Carousel
+# Copy Logo Assets from Forge Home Page
 
-## 1. Pricing Section (`src/components/Pricing.tsx`)
+## What's happening now
+The current `LogoStrip.tsx` already has the "Join 600+ dreamers from" marquee with the same structure. However, it uses external URLs (Clearbit API, Wikipedia) which can be unreliable. The [Forge Home Page](/projects/79557e20-106f-4094-81ea-00560819e60d) project has proper local PNG logo files for all these companies and institutions.
 
-Keep heading + subheading as-is. Replace the single card with:
+## Plan
 
-**Location Hero Card** — Full-width rounded card with a cinematic Dharamshala mountain image background. Large translucent "DHARAMSHALA" text overlay. Small "Coming Soon" badge.
+### 1. Copy 17 logo PNGs from Forge Home Page
+Copy all assets from `public/images/learners/` in the Forge Home Page project to `public/images/learners/` in this project:
 
-**Date Strip** — Two columns below the image:
-- Left: "Online" badge, "7 Days", "June 9 — 17, 2026"
-- Right: "Offline" badge, "8 Days", "June 19 — 27, 2026"
+Row 1 (companies): `google.png`, `mckinsey.png`, `amazon.png`, `netflix.png`, `meta.png`, `microsoft.png`, `swiggy.png`, `zomato.png`, `cred.png`
 
-**Price Row** — "Program Fee" label + "INR 1,20,000" bold + "per person, inclusive of GST"
+Row 2 (institutions): `amex.png`, `ashoka.png`, `iim.png`, `symbiosis.png`, `christ.png`, `govt-india.png`, `nift.png`, `loyola.png`
 
-**CTA Button** — Same "REQUEST AN INVITE" full-width button
+### 2. Update `src/components/LogoStrip.tsx`
+- Replace all external URLs with local paths (`/images/learners/google.png`, etc.)
+- Add Zomato and American Express (present in the Forge Home Page but missing here)
+- Keep the same dark-theme styling (grayscale, 50% opacity) and marquee animation
+- Keep the two-row layout with opposite scroll directions
 
-**Inclusions/Exclusions Toggle Card** — Separate rounded card with two pill toggle buttons:
-- Green pill = "Inclusions" (active: `bg-emerald-500 text-white`), shows 9 items with green checkmarks
-- Red pill = "Exclusions" (active: `bg-red-500 text-white`), shows 3 items with red crosses
-- `useState` toggles between tabs; `AnimatePresence` for content swap
-
-**Footer** — "20 seats per cohort..." note
-
-**New asset**: Generate `src/assets/pricing-dharamshala.jpg` placeholder.
-
-## 2. Testimonial Carousel (`src/components/SocialProof.tsx`)
-
-Replace the 3-column grid with a single-card carousel:
-
-- One testimonial visible at a time, centered, max-w-[600px]
-- Each card: placeholder avatar image (circular, 64px), name, designation, program, and large italic quote
-- Auto-rotates every 5 seconds using `setInterval` + `useState`
-- Dot indicators at bottom (3 dots), clickable
-- Swipeable left/right via drag gesture (`motion.div` with `drag="x"`)
-- `AnimatePresence mode="wait"` for smooth cross-fade between cards
-- Add placeholder avatar images or use initials fallback
-
-**New assets**: Generate 3 placeholder avatar images (`src/assets/testimonial-rahul.jpg`, etc.)
-
-## Files Changed
-- `src/components/Pricing.tsx` — full rewrite
-- `src/components/SocialProof.tsx` — full rewrite
-- New assets: 1 Dharamshala image + 3 avatar images
+### Files changed
+- **`src/components/LogoStrip.tsx`** — update image URLs to local paths, add Zomato + Amex
+- **17 new assets** copied to `public/images/learners/`
 
