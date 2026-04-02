@@ -53,7 +53,7 @@ const compactOutcomes = [
 
 const Outcomes = () => {
   return (
-    <SectionWrapper label="YOUR OUTCOMES">
+    <SectionWrapper id="outcomes" label="YOUR OUTCOMES">
       <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-16 md:mb-20">
         Not just learning. <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>Real building.</span>
       </h2>

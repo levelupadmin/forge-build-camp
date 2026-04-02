@@ -29,7 +29,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
   const [activeTab, setActiveTab] = useState<"inclusions" | "exclusions">("inclusions");
 
   return (
-    <SectionWrapper label="THE INVESTMENT" className="py-[20px]">
+    <SectionWrapper id="pricing" label="THE INVESTMENT" className="py-[20px]">
       <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-12">
         The most focused days you will spend on your business
       </h2>
