@@ -74,7 +74,7 @@ const VennDiagram = () => {
               fill="url(#ethos-glow)"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 1, delay: 1.2 }}
             />
 
@@ -90,7 +90,7 @@ const VennDiagram = () => {
                 strokeWidth={1.5}
                 initial={{ opacity: 0, scale: 0.6 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
+                viewport={{ once: false, amount: 0.3 }}
                 transition={{ duration: 0.8, delay: i * 0.4, ease: "easeOut" }}
                 style={{ transformOrigin: `${cx + pos.x * offset}px ${cy + pos.y * offset + 10}px` }}
               />
@@ -106,7 +106,7 @@ const VennDiagram = () => {
                 className="fill-foreground/50 text-[12px] font-semibold uppercase tracking-[0.18em]"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
+                viewport={{ once: false, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: i * 0.4 + 0.3 }}
               >
                 {narratives[i].label}
@@ -117,7 +117,7 @@ const VennDiagram = () => {
             <motion.g
               initial={{ opacity: 0, scale: 0.7 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.7, delay: 1.4, ease: "easeOut" }}
               style={{ transformOrigin: `${cx}px ${cy + 10}px` }}
             >
@@ -158,7 +158,7 @@ const VennDiagram = () => {
               fill="url(#ethos-glow-m)"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 1, delay: 1.2 }}
             />
 
@@ -173,7 +173,7 @@ const VennDiagram = () => {
                 strokeWidth={1.2}
                 initial={{ opacity: 0, scale: 0.6 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
+                viewport={{ once: false, amount: 0.3 }}
                 transition={{ duration: 0.8, delay: i * 0.4, ease: "easeOut" }}
                 style={{ transformOrigin: `${mcx + pos.x * moffset}px ${mcy + pos.y * moffset + 8}px` }}
               />
@@ -194,7 +194,7 @@ const VennDiagram = () => {
                   className="fill-foreground/50 text-[10px] font-semibold uppercase tracking-[0.14em]"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: i * 0.4 + 0.3 }}
                 >
                   {narratives[i].label}
@@ -205,7 +205,7 @@ const VennDiagram = () => {
             <motion.g
               initial={{ opacity: 0, scale: 0.7 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.7, delay: 1.4, ease: "easeOut" }}
               style={{ transformOrigin: `${mcx}px ${mcy + 8}px` }}
             >
@@ -222,7 +222,7 @@ const VennDiagram = () => {
               key={n.label}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.6, delay: i * 0.15 + 0.2 }}
               className="text-center"
             >
