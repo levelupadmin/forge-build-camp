@@ -9,8 +9,16 @@ import imgDays23 from "@/assets/schedule-days23.jpg";
 import imgDays45 from "@/assets/schedule-days45.jpg";
 import imgDays678 from "@/assets/schedule-days678.jpg";
 import imgDay9 from "@/assets/schedule-day9.jpg";
+interface ScheduleItem {
+  label: string;
+  title: string;
+  image: string;
+  desc: string;
+  bullets?: string[];
+  outcome: string;
+}
 
-const scheduleData = [
+const scheduleData: ScheduleItem[] = [
   {
     label: "ONLINE PREP",
     title: "Online Prep: Prep Sessions",
