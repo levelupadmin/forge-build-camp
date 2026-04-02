@@ -173,7 +173,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
         </div>
 
         {/* Progress bar */}
-        <div className="mt-5 h-[2px] bg-foreground/10 rounded-full overflow-hidden">
+        <div className="mt-5 h-[2px] bg-white/10 rounded-full overflow-hidden">
           <div key={`progress-mobile-${activeIndex}`} className="h-full bg-primary pillar-progress-bar" />
         </div>
       </div>

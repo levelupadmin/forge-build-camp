@@ -47,7 +47,7 @@ const DotGrid = () => {
 
       <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-5 text-[11px] md:text-[12px]">
         <span className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-sm bg-foreground/25 inline-block" />
+          <span className="w-2.5 h-2.5 rounded-sm bg-white/[0.15] inline-block" />
           <span className="text-muted-foreground">Never used AI · <span className="text-foreground font-semibold">~6.8B</span></span>
         </span>
         <span className="flex items-center gap-1.5">

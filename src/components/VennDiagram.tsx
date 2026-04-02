@@ -209,7 +209,7 @@ const VennDiagram = () => {
               transition={{ duration: 0.7, delay: 1.4, ease: "easeOut" }}
               style={{ transformOrigin: `${mcx}px ${mcy + 8}px` }}
             >
-              <text x={mcx} y={mcy + 3} textAnchor="middle" className="fill-muted-foreground text-[11px] font-medium">the</text>
+              <text x={mcx} y={mcy + 3} textAnchor="middle" className="fill-white/55 text-[11px] font-medium">the</text>
               <text x={mcx} y={mcy + 22} textAnchor="middle" className="fill-primary text-[20px] font-serif italic font-bold">Forge</text>
             </motion.g>
           </svg>
