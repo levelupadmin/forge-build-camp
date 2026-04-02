@@ -2,6 +2,10 @@ import { motion } from "framer-motion";
 import { Box, Workflow, Film, Users, Brain, Rocket } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
 
+interface OutcomesProps {
+  onOpenModal: () => void;
+}
+
 import outcomeProduct from "@/assets/outcome-product.jpg";
 import outcomeAutomation from "@/assets/outcome-automation.jpg";
 import outcomeContent from "@/assets/outcome-content.jpg";
@@ -51,7 +55,7 @@ const compactOutcomes = [
   },
 ];
 
-const Outcomes = () => {
+const Outcomes = ({ onOpenModal }: OutcomesProps) => {
   return (
     <SectionWrapper id="outcomes" label="YOUR OUTCOMES">
       <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-16 md:mb-20">
@@ -155,6 +159,15 @@ const Outcomes = () => {
             </div>
           </motion.div>
         ))}
+      </div>
+
+      <div className="text-center mt-12">
+        <button
+          onClick={onOpenModal}
+          className="bg-primary text-primary-foreground font-semibold rounded-full px-8 py-3.5 text-sm uppercase tracking-wider btn-glow"
+        >
+          REQUEST AN INVITE
+        </button>
       </div>
     </SectionWrapper>
   );

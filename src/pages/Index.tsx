@@ -29,13 +29,13 @@ const Index = () => {
       <LogoStrip />
       <WhatIsForge />
       <WhyAINow />
-      <WhoIsFor />
+      <WhoIsFor onOpenModal={openTally} />
       <Pillars onOpenModal={openTally} />
-      <Outcomes />
+      <Outcomes onOpenModal={openTally} />
       <VennDiagram />
       <Schedule />
       <Mentors />
-      <Community />
+      <Community onOpenModal={openTally} />
       <SocialProof />
       <Pricing onOpenModal={openTally} />
       <FAQs />

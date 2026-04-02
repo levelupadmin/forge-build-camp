@@ -6,6 +6,10 @@ import marketerImg from "/personas/marketer.jpg";
 import operatorImg from "/personas/operator.jpg";
 import professionalImg from "/personas/professional.jpg";
 
+interface WhoIsForProps {
+  onOpenModal: () => void;
+}
+
 const personas = [
   {
     title: "The Founder",
@@ -33,7 +37,7 @@ const personas = [
   },
 ];
 
-const WhoIsFor = () => {
+const WhoIsFor = ({ onOpenModal }: WhoIsForProps) => {
   return (
     <SectionWrapper label="WHO THIS IS FOR" className="pl-0 pt-[18px] pb-[29px]">
       <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-12">
@@ -75,6 +79,15 @@ const WhoIsFor = () => {
             </div>
           </motion.div>
         ))}
+      </div>
+
+      <div className="text-center mt-12">
+        <button
+          onClick={onOpenModal}
+          className="bg-primary text-primary-foreground font-semibold rounded-full px-8 py-3.5 text-sm uppercase tracking-wider btn-glow"
+        >
+          REQUEST AN INVITE
+        </button>
       </div>
     </SectionWrapper>
   );
