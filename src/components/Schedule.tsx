@@ -63,10 +63,10 @@ const scheduleData = [
 ];
 
 const Schedule = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   const handleToggle = (i: number) => {
-    setActiveIndex(activeIndex === i ? i : i);
+    setActiveIndex(activeIndex === i ? null : i);
   };
 
   return (

@@ -222,7 +222,7 @@ const VennDiagram = () => {
               key={n.label}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.6, delay: i * 0.15 + 0.2 }}
               className="text-center"
             >
