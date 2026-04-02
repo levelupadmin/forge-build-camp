@@ -40,7 +40,7 @@ const MarqueeRow = ({ logos, reverse = false }: { logos: typeof row1; reverse?: 
             <img
               src={logo.url}
               alt={logo.name}
-              className="h-5 w-auto object-contain opacity-80"
+              className="h-7 md:h-6 w-auto object-contain opacity-80"
             />
             <span className="text-[12px] font-medium text-foreground/50 whitespace-nowrap">
               {logo.name}
