@@ -1,83 +1,97 @@
-# Premium Polish & Multi-Section Upgrade Plan
+# Typography Consistency Audit & Fix Plan
 
-## Summary
+## Current State — Font Audit
 
-Seven changes across multiple files to elevate visual quality, fix specific text/layout issues, add mentor photos, redesign the footer, and remove distracting UI elements.
+Here is every section heading, subheading, and body text style found across the site:
 
----
+### Font System (3 fonts)
 
-## 1. Fix "PRODUCT" to all-caps (Pillars)
+- **DM Sans** — primary font for headings, body, UI
+- **Playfair Display** — italic accent on select words
+- **JetBrains Mono** — labels, tags, mono elements
 
-**File:** `src/components/Pillars.tsx`
+### Inconsistencies Found
 
-- Change `title: "Product"` to `title: "PRODUCT"` on line 50.
+#### Section Headings (h2)
 
-## 2. Add separators between stats (WhatIsForge)
 
-**File:** `src/components/WhatIsForge.tsx`
+| Section        | Current Style                           | Issue                                   |
+| -------------- | --------------------------------------- | --------------------------------------- |
+| Hero           | `text-5xl` (48px) / hardcoded `#F2EEE8` | SKIP (user wants to keep)               |
+| WhatIsForge    | `text-7xl` / `md:text-[96px]`           | SKIP (user wants to keep)               |
+| WhyAINow       | `text-[36px] md:text-[56px]`            | ✓ Consistent                            |
+| Pillars        | `text-[36px] md:text-[56px]`            | ✓ Consistent                            |
+| **Experience** | `text-[32px] md:text-[48px]`            | **Smaller** — should be 36/56           |
+| **OnlinePrep** | `text-[32px] md:text-[48px]`            | **Smaller** — should be 36/56           |
+| **Contrast**   | `text-[32px] md:text-[48px]`            | **Smaller** — should be 36/56           |
+| Outcomes       | `text-[36px] md:text-[56px]`            | ✓ Consistent                            |
+| WhoIsFor       | `text-3xl md:text-[56px]`               | Mobile too small (30px vs 36px)         |
+| Community      | `text-3xl md:text-[56px]`               | Mobile too small                        |
+| Mentors        | `text-3xl md:text-[56px]`               | Mobile too small                        |
+| Schedule       | `text-3xl md:text-[56px]`               | Mobile too small                        |
+| SocialProof    | `text-[36px] md:text-[56px]`            | ✓ Consistent                            |
+| Pricing        | `text-[36px] md:text-[56px]`            | ✓ Consistent                            |
+| FAQs           | `text-[36px] md:text-[56px]`            | ✓ Consistent                            |
+| FinalCTA       | `text-2xl md:text-[72px]`               | Mobile way too small; desktop different |
+| Process        | `text-[36px] md:text-[56px]`            | ✓ Consistent                            |
 
-- Between the three stat boxes (20 BUILDERS, 9 DAYS, 1 BOOTCAMP), insert small `×` characters rendered as styled spans between each box. Use a `text-foreground/30` color, slightly smaller font.
 
-## 3. Remove side fade gradients from Community marquee
+#### Tracking on Headings
 
-**File:** `src/components/Community.tsx`
+Most use `tracking-[-0.025em]` but Experience, OnlinePrep, and Contrast use `tracking-tight` (different Tailwind shorthand, slightly different value).
 
-- Delete the two `pointer-events-none` gradient divs (lines 39-40) that create the white fade-out on left and right edges of the scrolling images.
+#### Playfair Display Usage
 
-## 4. Add real mentor photos
+Used correctly as `font-serif italic text-primary` with `fontWeight: 700` on accent words in: Pillars, WhyAINow, Outcomes, WhoIsFor, Mentors, SocialProof, FAQs, FinalCTA, Process. **Missing** from: Experience, OnlinePrep, Contrast (these have no italic accent word — acceptable but worth noting). The Contrast section uses `text-primary` on "build." without Playfair — should add `font-serif italic`.
 
-**File:** `src/components/Mentors.tsx`
+#### Body/Description Text
 
-- Add four high-quality headshot images from Unsplash (professional portrait photos showing faces clearly) as assets or direct URLs.
-- Replace the gradient+initials placeholder in each mentor card with an `<img>` tag showing the mentor's photo.
-- Use `object-cover` with `object-position: top` to ensure face visibility.
-- Mentor photo URLs (Unsplash, professional headshots):
-  - Vaibhav Kejriwal — Indian male professional headshot
-  - Kevin Adams — male creative professional
-  - Sabilashan Ganeshan — male professional
-  - Rahul Reddy — Indian male founder
-- Each image will be stored as `src/assets/mentor-{name}.jpg` assets copied from Unsplash.
+Most sections use `text-muted-foreground` with `text-[16px]` or `text-[17px]`. Consistent enough — no changes needed.
 
-## 5. Premium animations & transitions (global)
+#### Section Labels
 
-**Files:** `src/index.css`, multiple section components
-
-- Add a subtle `backdrop-blur` to the Navbar for a frosted glass effect.
-- Add smooth `hover:shadow-xl hover:-translate-y-1` transitions to all card-based sections (Outcomes, Pricing, WhoIsFor).
-- Add staggered fade-in animations to the FAQ accordion items.
-- Add a subtle scale-on-scroll effect to the Pricing hero image using `whileInView`.
-- Enhance the CTA buttons site-wide with a subtle glow/shadow on hover: `hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]`.
-
-## 6. Footer redesign — 3 variations presented as options
-
-**File:** `src/components/Footer.tsx`
-
-The user will pick one. All three share these elements: Forge logo, tagline, program links, connect links, email/newsletter CTA, social icons (Instagram, LinkedIn, WhatsApp), copyright, and a "back to top" action.
-
-### Variation A — "Editorial Split"
-
-Inspired by Wealthsimple. Two-column layout: left side has the Forge logo, tagline ("Learn AI by Building with AI"), and a brief one-liner about the program. Right side has three columns: Program links, Connect links, and a "Stay Updated" email input with a subscribe button. Bottom bar has copyright + legal links.
-
-## 7. Visual narrative polish
-
-- Increase letter-spacing on all section labels (`section-label` class) from `0.12em` to `0.15em`.
-- Add a subtle divider line between major sections using the existing `section-divider` class where transitions feel abrupt.
+All use the `.section-label` class via SectionWrapper — consistent.
 
 ---
 
-## Files to be modified
+## Plan — Changes to Make
+
+### 1. Standardize all h2 headings to `text-[36px] md:text-[56px]`
+
+**Files:** Experience.tsx, OnlinePrep.tsx, Contrast.tsx, WhoIsFor.tsx, Community.tsx, Mentors.tsx, Schedule.tsx, FinalCTA.tsx
+
+- **Experience.tsx** line 17: `text-[32px] md:text-[48px]` → `text-[36px] md:text-[56px]`, `tracking-tight` → `tracking-[-0.025em]`
+- **OnlinePrep.tsx** line 14: `text-[32px] md:text-[48px]` → `text-[36px] md:text-[56px]`, `tracking-tight` → `tracking-[-0.025em]`
+- **Contrast.tsx** line 17: `text-[32px] md:text-[48px]` → `text-[36px] md:text-[56px]`, `tracking-tight` → `tracking-[-0.025em]`
+- **WhoIsFor.tsx** line 39: `text-3xl` → `text-[36px]`
+- **Community.tsx** line 22: `text-3xl` → `text-[36px]`
+- **Mentors.tsx** line 89: `text-3xl` → `text-[36px]`
+- **Schedule.tsx** line 74: `text-3xl` → `text-[36px]`
+- **FinalCTA.tsx** line 21: `text-2xl md:text-[72px]` → `text-[36px] md:text-[56px]`
+
+### 2. Add Playfair accent to Contrast heading
+
+**File:** Contrast.tsx line 19: Change `<span className="text-primary">build.</span>` → `<span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>build.</span>`
+
+### 3. Consistent heading class pattern
+
+All h2s will use: `font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center`
+
+---
+
+## Files to Modify
 
 
-| File                             | Change                                          |
-| -------------------------------- | ----------------------------------------------- |
-| `src/components/Pillars.tsx`     | "PRODUCT" all-caps                              |
-| `src/components/WhatIsForge.tsx` | × separators between stat boxes                 |
-| `src/components/Community.tsx`   | Remove fade gradients                           |
-| `src/components/Mentors.tsx`     | Add real headshot photos                        |
-| `src/components/Footer.tsx`      | Redesign with 4 variation options               |
-| `src/index.css`                  | Enhanced animations, button glow, label spacing |
-| `src/components/Navbar.tsx`      | Frosted glass backdrop-blur                     |
-| `src/components/FinalCTA.tsx`    | Button hover glow                               |
-| `src/components/Pricing.tsx`     | Button hover glow, card hover effects           |
-| `src/components/Hero.tsx`        | Button hover glow                               |
-| 4 new assets                     | `src/assets/mentor-*.jpg`                       |
+| File                            | Change                               |
+| ------------------------------- | ------------------------------------ |
+| `src/components/Experience.tsx` | h2 size + tracking                   |
+| `src/components/OnlinePrep.tsx` | h2 size + tracking                   |
+| `src/components/Contrast.tsx`   | h2 size + tracking + Playfair accent |
+| `src/components/WhoIsFor.tsx`   | Mobile h2 size                       |
+| `src/components/Community.tsx`  | Mobile h2 size                       |
+| `src/components/Mentors.tsx`    | Mobile h2 size                       |
+| `src/components/Schedule.tsx`   | Mobile h2 size                       |
+| `src/components/FinalCTA.tsx`   | h2 size (both mobile + desktop)      |
+
+
+**Excluded:** WhatIsForge.tsx (per user request), Hero.tsx (hero section has its own visual treatment over video).
