@@ -34,7 +34,7 @@ const pillars: PillarData[] = [
   {
     num: "02",
     tag: "PILLAR 02",
-    title: "AI Automations",
+    title: "OPERATIONS",
     desc: "Map the manual work in your business and build AI that handles it for you.",
     builds: [
       "2 live AI automations and an AI agent of your choice",
