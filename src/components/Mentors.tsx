@@ -12,7 +12,7 @@ import {
 
 import mentorVaibhav from "@/assets/mentor-vaibhav.png";
 import mentorKevin from "@/assets/mentor-kevin.jpg";
-import mentorSabilashan from "@/assets/mentor-sabilashan.jpg";
+import mentorSabilashan from "@/assets/mentor-sabilashan.png";
 import mentorRahul from "@/assets/mentor-rahul.jpg";
 
 const mentors = [
