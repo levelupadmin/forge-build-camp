@@ -98,7 +98,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
           </button>
 
           <p className="text-[13px] text-muted-foreground/50 text-center mt-4">
-            20 seats per cohort. Payment collected after acceptance only.
+            20 invites per cohort.
           </p>
         </div>
 
