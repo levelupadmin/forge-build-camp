@@ -21,7 +21,7 @@ const mentors = [
     photo: mentorVaibhav,
     role: "n8n Bangalore Ambassador | IIM A | IIT D",
     bullets: [
-      "Official n8n Ambassador — builds AI-powered automation workflows",
+      "Official n8n Ambassador, builds AI-powered automation workflows",
       "IIM Ahmedabad & IIT Delhi alumnus",
       "Runs YouTube channel (AI with VK) teaching AI agents & automation",
       "Leads \"Human AI Collab\" community of 280+ AI practitioners",
