@@ -27,7 +27,7 @@ const pillars: PillarData[] = [
       "AI generated scripts, UGC ads and social media creatives",
       "A content system you can repeat after you leave",
     ],
-    tools: ["Higgsfield", "Midjourney", "HeyGen", "ElevenLabs", "Runway"],
+    tools: ["Higgsfield", "Gemini", "Midjourney"],
     image: pillar01,
     gradient: "linear-gradient(135deg, #0d0818, #1a0d2e)",
   },
