@@ -56,7 +56,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
 
           {/* Location Name */}
           <div className="absolute bottom-0 left-0 right-0 p-6">
-            <p className="text-white/40 text-[10px] uppercase tracking-[0.2em] font-semibold mb-1">Location</p>
+            <p className="text-white/40 text-[10px] uppercase tracking-[0.2em] font-semibold mb-1">{"\n"}</p>
             <h3 className="text-white font-bold text-[36px] md:text-[48px] leading-none tracking-[-0.02em]">
               DHARAMSHALA
             </h3>
