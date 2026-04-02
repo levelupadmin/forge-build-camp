@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Plus, X } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
 
+import imgDefault from "@/assets/schedule-default.jpg";
 import imgOnlinePrep from "@/assets/schedule-online-prep.jpg";
 import imgDay1 from "@/assets/schedule-day1.jpg";
 import imgDays23 from "@/assets/schedule-days23.jpg";
