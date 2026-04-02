@@ -101,7 +101,7 @@ const WhyAINow = () => {
         transition={{ duration: 0.5, delay: 0.4 }}
         className="text-center text-[22px] md:text-[28px] text-muted-foreground mt-10 max-w-[600px] mx-auto leading-snug font-medium"
       >
-        That tiny sliver of builders?<br />That's where <span className="text-foreground font-bold">Forge puts you.</span>
+        That tiny dot of builders?<br />That's where <span className="text-foreground font-bold">Forge puts you.</span>
       </motion.p>
     </SectionWrapper>
   );
