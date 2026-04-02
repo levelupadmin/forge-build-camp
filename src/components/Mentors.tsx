@@ -34,7 +34,7 @@ const mentors = [
     role: "Artist | Founder | Creator",
     bullets: [
       "Founder of creative agency Millennial Labs (500+ brands served)",
-      "LinkedIn Design Top Voice — AI-powered creative workflows",
+      "LinkedIn Design Top Voice, AI-powered creative workflows",
       "Uses Midjourney, AI + Photoshop for commercial visual campaigns",
       "Redefining brand storytelling through AI-augmented design",
     ],
