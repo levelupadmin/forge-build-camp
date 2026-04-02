@@ -8,7 +8,7 @@ import imgDinner from "@/assets/community-dinner.jpg";
 import imgTravel from "@/assets/community-travel.jpg";
 
 const cards = [
-  { image: imgCollab, label: "Late Night\nBuild Sessions" },
+  { image: imgCollab, label: "Build\nWorkshops" },
   { image: imgMeetup, label: "Offline\nCommunity Meet-ups" },
   { image: imgNetwork, label: "Networking\nEvents" },
   { image: imgDemoday, label: "Demo Day\nPresentations" },
