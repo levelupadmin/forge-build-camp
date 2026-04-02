@@ -60,7 +60,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
             <h3 className="text-white font-bold text-[36px] md:text-[48px] leading-none tracking-[-0.02em]">
               DHARAMSHALA
             </h3>
-            <p className="text-white/60 text-sm mt-1">Himachal Pradesh, India</p>
+            <p className="text-white/60 text-sm mt-1">{"\n"}</p>
           </div>
         </div>
 
