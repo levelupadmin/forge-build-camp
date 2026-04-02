@@ -125,7 +125,7 @@ const VennDiagram = () => {
                 x={cx}
                 y={cy + 5}
                 textAnchor="middle"
-                className="fill-muted-foreground text-[13px] font-medium"
+                className="fill-white/55 text-[13px] font-medium"
               >
                 the
               </text>
