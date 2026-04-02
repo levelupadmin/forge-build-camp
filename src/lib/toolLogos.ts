@@ -1,24 +1,24 @@
-// Centralized tool logo URLs
+// Centralized tool logo imports
+import higgsfield from "@/assets/tools/higgsfield.png";
+import emergent from "@/assets/tools/emergent.png";
+import gemini from "@/assets/tools/gemini.png";
+import lizardai from "@/assets/tools/lizardai.png";
+import openai from "@/assets/tools/openai.png";
+import claude from "@/assets/tools/claude.png";
+import perplexity from "@/assets/tools/perplexity.png";
+import n8n from "@/assets/tools/n8n.png";
+import claudecore from "@/assets/tools/claudecore.png";
+import midjourney from "@/assets/tools/midjourney.png";
+
 export const toolLogos: Record<string, string> = {
-  "ChatGPT": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/512px-ChatGPT_logo.svg.png",
-  "Midjourney": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Midjourney_Emblem.png/480px-Midjourney_Emblem.png",
-  "Runway": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Runway_AI_logo.png/480px-Runway_AI_logo.png",
-  "Claude": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Claude_AI_logo.svg/480px-Claude_AI_logo.svg.png",
-  "Claude API": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Claude_AI_logo.svg/480px-Claude_AI_logo.svg.png",
-  "Lovable": "https://lovable.dev/icon.svg",
-  "ElevenLabs": "https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/mn2vswkulfsiqhvbhmgj",
-  "n8n": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/N8n-logo.svg/480px-N8n-logo.svg.png",
-  "Make": "https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/iajnrmadtmmhpvkfhmne",
-  "Replit": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Replit_Logo.svg/480px-Replit_Logo.svg.png",
-  "HeyGen": "https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/b1c5d45f1fbe4ebba5fe3ae46d72ec76",
-  "Supabase": "https://cf-assets.www.cloudflare.com/slt3lc6tev37/3VFGwGzKOixuAiwsJPOXY4/26c1e99ff59b17beb1e3c97fdef5e218/supabase.png",
-  "Pika": "https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/0c4b45da04d04e598764e8aa7d9c84cf",
-  "Canva": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Canva_icon_2021.svg/480px-Canva_icon_2021.svg.png",
-  "Higgsfield": "https://share.google/MTilYgnBAvWvwPsl5",
-  "Kling": "https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/ydmntpglmvfqmhpfmwjd",
-  "Zapier": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Zapier_logo.svg/480px-Zapier_logo.svg.png",
-  "OpenAI": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/OpenAI_Logo.svg/480px-OpenAI_Logo.svg.png",
-  "OpenAI API": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/OpenAI_Logo.svg/480px-OpenAI_Logo.svg.png",
-  "Airtable": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Airtable_Logo.svg/480px-Airtable_Logo.svg.png",
-  "Stripe": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Stripe_Logo%2C_revised_2016.svg/480px-Stripe_Logo%2C_revised_2016.svg.png",
+  "Higgsfield": higgsfield,
+  "Gemini": gemini,
+  "Midjourney": midjourney,
+  "Claude": claude,
+  "n8n": n8n,
+  "Claude Core": claudecore,
+  "Emergent": emergent,
+  "Lizard AI": lizardai,
+  "OpenAI": openai,
+  "Perplexity": perplexity,
 };

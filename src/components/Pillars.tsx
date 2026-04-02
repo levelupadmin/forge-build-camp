@@ -53,7 +53,7 @@ const pillars: PillarData[] = [
       "A functional product or internal tool you can demo live on Day 9",
       "The foundation to keep building back home",
     ],
-    tools: ["Lovable", "Replit", "Supabase"],
+    tools: ["Emergent", "Lizard AI", "OpenAI", "Perplexity"],
     image: pillar03,
     gradient: "linear-gradient(135deg, #0a0f1a, #1a0f08)",
   },
