@@ -26,7 +26,7 @@ const ScrollBoldText = ({ text }: { text: string }) => {
   return (
     <p
       ref={containerRef}
-      className="text-[16px] md:text-[17px] leading-[1.7] text-center max-w-[640px] mx-auto mb-10"
+      className="text-[16px] md:text-[17px] leading-[1.2] text-center max-w-[640px] mx-auto mb-10"
     >
       {words.map((word, i) => {
         const start = i / words.length;
