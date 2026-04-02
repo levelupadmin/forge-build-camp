@@ -114,7 +114,7 @@ const Schedule = () => {
                   <span className="text-[11px] tracking-wider text-primary shrink-0 w-[90px] md:w-[120px] font-sans">
                     {item.label}
                   </span>
-                  <span className={`font-bold text-[16px] md:text-[18px] transition-colors ${isOpen ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"}`}>
+                  <span className={`font-bold text-[16px] md:text-[18px] transition-colors ${isOpen ? "text-foreground" : "text-muted-foreground md:group-hover:text-foreground"}`}>
                     {item.title.split(": ")[1] || item.title}
                   </span>
                 </div>

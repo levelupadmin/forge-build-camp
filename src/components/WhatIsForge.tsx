@@ -70,15 +70,6 @@ const WhatIsForge = () => {
       <div className="relative">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/4 w-[600px] h-[400px] rounded-full bg-primary/5 blur-[100px] pointer-events-none" />
 
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="section-label text-center mb-6"
-        >
-          THE RESIDENCY
-        </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}

@@ -102,9 +102,11 @@
 .card-premium {
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
-.card-premium:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 60px -12px hsl(0 0% 0% / 0.12);
+@media (hover: hover) {
+  .card-premium:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px -12px hsl(0 0% 0% / 0.12);
+  }
 }
 
 /* Glass card — warm theme */
