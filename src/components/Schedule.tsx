@@ -55,7 +55,7 @@ const scheduleData = [
   },
   {
     label: "DAY 09",
-    title: "Day 9 — Demo Day",
+    title: "Day 9: Demo Day",
     image: imgDay9,
     desc: "Present everything you built. Celebrate. Reflect. Leave with proof of work.",
     outcome: "Three real builds. One unforgettable experience.",
