@@ -51,7 +51,6 @@ const WhoIsFor = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
-            whileHover={{ scale: 1.02 }}
             className={`relative rounded-2xl overflow-hidden cursor-default group ${p.className}`}
           >
             {/* Photo background */}
