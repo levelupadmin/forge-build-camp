@@ -22,7 +22,7 @@ const Hero = ({ onOpenModal }: HeroProps) => {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover opacity-90 scale-110"
-          poster="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=1920&q=80"
+          poster=""
         >
           <source src="/hero-bg.mp4" type="video/mp4" />
         </video>
