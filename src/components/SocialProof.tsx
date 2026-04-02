@@ -143,7 +143,7 @@ const SocialProof = () => {
               </p>
               <p className="font-semibold text-foreground text-[15px]">{t.name}</p>
               <p className="text-[13px] text-muted-foreground">{t.role}</p>
-              <p className="text-[13px] text-muted-foreground/60">{t.program}</p>
+              <p className="text-[13px] text-muted-foreground">{t.role}</p>
             </div>
           </motion.div>
         </AnimatePresence>
