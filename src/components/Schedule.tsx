@@ -72,7 +72,7 @@ const Schedule = () => {
   return (
     <SectionWrapper id="schedule" label="THE SCHEDULE">
       <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-4">
-        The Gameplan
+        The&nbsp;Gameplan
       </h2>
       <p className="text-[16px] text-muted-foreground text-center mb-10 md:mb-14 leading-relaxed max-w-[560px] mx-auto">
         Before you arrive, you get access to a focused online prep series. Short daily sessions so you land ready to build from Day 1.
