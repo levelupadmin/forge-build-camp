@@ -103,7 +103,7 @@ const VennDiagram = () => {
                 x={cx + pos.x * offset + labelOffsets[i].dx}
                 y={cy + pos.y * offset + 10 + labelOffsets[i].dy}
                 textAnchor="middle"
-                className="fill-foreground/50 text-[12px] font-semibold uppercase tracking-[0.18em]"
+                className="fill-white/50 text-[12px] font-semibold uppercase tracking-[0.18em]"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: false, amount: 0.3 }}
