@@ -194,7 +194,7 @@ const VennDiagram = () => {
                   className="fill-foreground/50 text-[10px] font-semibold uppercase tracking-[0.14em]"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: i * 0.4 + 0.3 }}
                 >
                   {narratives[i].label}
