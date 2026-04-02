@@ -75,8 +75,8 @@ const SocialProof = () => {
         Dreamers became builders not just because of the right guidance but the people they surrounded themselves with.
       </p>
 
-      {/* Carousel */}
-      <div className="max-w-[600px] mx-auto overflow-hidden">
+      {/* Carousel — veo.com style: image on top, quote below */}
+      <div className="max-w-[560px] mx-auto overflow-hidden">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={current}
@@ -90,26 +90,28 @@ const SocialProof = () => {
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={0.15}
             onDragEnd={handleDragEnd}
-            className="bg-card border border-border rounded-2xl p-8 md:p-10 shadow-sm cursor-grab active:cursor-grabbing"
+            className="bg-card border border-border rounded-2xl overflow-hidden shadow-sm cursor-grab active:cursor-grabbing"
           >
-            <span className="font-serif text-[72px] text-primary/10 leading-none select-none block -mb-8">"</span>
-            <p className="text-[17px] md:text-[19px] text-foreground italic leading-[1.8] mb-8">
-              {t.quote}
-            </p>
-            <div className="flex items-center gap-4">
+            {/* Large Image */}
+            <div className="aspect-[4/3] w-full overflow-hidden">
               <img
                 src={t.image}
                 alt={t.name}
-                className="w-14 h-14 rounded-full object-cover border-2 border-border"
+                className="w-full h-full object-cover"
                 loading="lazy"
-                width={56}
-                height={56}
+                width={560}
+                height={420}
               />
-              <div>
-                <p className="font-semibold text-foreground text-[15px]">{t.name}</p>
-                <p className="text-[13px] text-muted-foreground">{t.role}</p>
-                <p className="text-[13px] text-muted-foreground/60">{t.program}</p>
-              </div>
+            </div>
+
+            {/* Quote + Attribution */}
+            <div className="p-6 md:p-8">
+              <p className="text-[18px] md:text-[22px] text-foreground font-medium leading-[1.6] mb-6">
+                "{t.quote}"
+              </p>
+              <p className="font-semibold text-foreground text-[15px]">{t.name}</p>
+              <p className="text-[13px] text-muted-foreground">{t.role}</p>
+              <p className="text-[13px] text-muted-foreground/60">{t.program}</p>
             </div>
           </motion.div>
         </AnimatePresence>
