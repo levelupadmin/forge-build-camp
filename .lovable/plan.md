@@ -1,60 +1,89 @@
 
 
-# Redesign Pillars Mobile Layout — Image on Top, Content Below
+# Redesign: Schedule Section — Hero Image + Day Accordion
 
-## Reference Analysis
+## Reference
 
-The uploaded screenshots from forgebylevelup.com show a mobile layout where:
-- A **large photo** sits at the top, rounded corners, taking significant vertical space
-- Below the image: **center-aligned content** — title, description, tool/tag pills, bullet outcomes, and a CTA
-- Clean separation between image and text — no overlay text on the image
+The uploaded screenshots from `creators.forgebylevelup.com/filmmaking` show:
+- Heading ("your Forge Journey") + subheading, center-aligned
+- One large photo below (rounded corners, full-width within container)
+- Below the image: a list of days as accordion rows — each row has a day title on the left and a `+`/`×` icon on the right
+- Clicking a day expands it to show the description; clicking also changes the hero image above
+- Clean, minimal — no bento grid cards, no timeline dots
 
 ## What Changes
 
-Rewrite only the mobile section (`md:hidden`) in `src/components/Pillars.tsx`. Desktop layout stays untouched.
+Rewrite `src/components/Schedule.tsx` entirely. No other files affected.
 
-### New Mobile Layout Structure
+### New Structure
 
 ```text
-┌────────────────────────┐
-│ [Gen AI] [Auto] [Prod] │  ← toggle pills (keep existing)
-├────────────────────────┤
-│                        │
-│      ┌──────────┐      │
-│      │          │      │
-│      │  IMAGE   │      │
-│      │          │      │
-│      └──────────┘      │
-│                        │
-│      PILLAR 01         │  ← tag, blue, mono, uppercase
-│    Generative AI       │  ← bold title, centered
-│                        │
-│   Description text     │  ← centered, muted
-│   centered here...     │
-│                        │
-│   [logo] [logo] [logo] │  ← tool icons row, centered
-│                        │
-│   ✓ Build outcome 1    │  ← "What you'll build" items
-│   ✓ Build outcome 2    │
-│                        │
-│   ━━━━━━━━━━━━━━━━━    │  ← progress bar
-└────────────────────────┘
+┌─────────────────────────────────────┐
+│         THE SCHEDULE (label)        │
+│         The Gameplan (h2)           │
+│     Subheading text (muted)         │
+│                                     │
+│  ┌─────────────────────────────┐    │
+│  │                             │    │
+│  │      HERO IMAGE             │    │
+│  │   (changes per active day)  │    │
+│  │                             │    │
+│  └─────────────────────────────┘    │
+│                                     │
+│  ─────────────────────────────────  │
+│  Online Prep                    +   │
+│  ─────────────────────────────────  │
+│  Day 1 — Arrive + Orient       +   │
+│  ─────────────────────────────────  │
+│  Days 2 + 3 — AI Creativity    ×   │
+│    Full immersion in AI...          │
+│    Outcome: Your first AI...        │
+│  ─────────────────────────────────  │
+│  Days 4 + 5 — Automation        +   │
+│  ─────────────────────────────────  │
+│  Days 6, 7 + 8 — Product       +   │
+│  ─────────────────────────────────  │
+│  Day 9 — Demo Day              +   │
+│  ─────────────────────────────────  │
+└─────────────────────────────────────┘
 ```
 
-### Details
+### Data Restructuring
 
-1. **Toggle pills** — keep as-is at the top
-2. **Image block** — `rounded-2xl overflow-hidden aspect-[16/10]` with the pillar's background image, `object-cover`. Animates with cross-fade on change. No text overlay on the image.
-3. **Content below image** — all center-aligned (`text-center`):
-   - Pillar tag: mono, blue, uppercase, 11px
-   - Title: bold, 28-32px, white
-   - Description: 14px, muted, max-w-[340px] mx-auto
-   - Tool logos: row of circles, centered, with overlapping style
-   - "What you'll build": left-aligned or centered list with arrow prefix
-4. **Progress bar** — thin 2px bar at very bottom
-5. **Auto-rotate** — same 5s timer logic, unchanged
+Merge the 5 online prep sessions into a single accordion row called **"Online Prep"** with a combined description listing all 5 topics. The remaining 5 schedule entries stay as individual rows. Total: **6 accordion rows**.
 
-### File Changed
+Each row gets an associated placeholder image (will generate 6 images or reuse existing assets). The hero image cross-fades when a different row is clicked/expanded.
 
-**`src/components/Pillars.tsx`** — Replace lines 107-178 (the `md:hidden` block) with the new stacked image-on-top layout. No other files touched.
+### Accordion Behavior
+
+- One row open at a time (clicking a new row closes the previous)
+- Active row shows `×` icon; inactive rows show `+`
+- Clicking a row both expands its content AND swaps the hero image above
+- `AnimatePresence` handles the image cross-fade and content expand/collapse
+
+### Image Block
+
+- `aspect-[16/10]` or `aspect-[16/9]`, `rounded-2xl`, `overflow-hidden`
+- Full container width (`max-w-[680px] mx-auto` matching accordion width)
+- Cross-fade animation on change using `motion.img` with `AnimatePresence`
+
+### Accordion Row Styling
+
+- No cards, no background color — just horizontal divider lines (`border-b border-border`)
+- Day label: bold, 18-20px, left-aligned (e.g., "Day 1 — Arrive + Orient")
+- Right side: `+` or `×` icon, toggling on click
+- Expanded content: description text + outcome, with slide-down animation
+- No timeline dots, no phase labels — clean minimal list
+
+### Mobile
+
+Same layout works at all breakpoints — single column, image on top, accordion below. Image aspect ratio may shift slightly (`aspect-[4/3]` on mobile for taller images).
+
+### Placeholder Images
+
+Generate 6 simple placeholder images for: Online prep (laptop/remote learning), Day 1 (arrival/orientation), Days 2-3 (creative tools), Days 4-5 (automation), Days 6-8 (building/product), Day 9 (demo day/celebration).
+
+### File
+
+**`src/components/Schedule.tsx`** — full rewrite. No other files changed.
 
