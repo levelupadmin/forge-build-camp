@@ -35,7 +35,7 @@ const personas = [
 
 const WhoIsFor = () => {
   return (
-    <SectionWrapper label="WHO THIS IS FOR" variant="muted" className="pl-0 pt-[18px] pb-[29px]">
+    <SectionWrapper label="WHO THIS IS FOR" className="pl-0 pt-[18px] pb-[29px]">
       <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-12">
         Built for people who{" "}
         <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>
