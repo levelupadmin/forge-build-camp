@@ -48,7 +48,7 @@ const scheduleData = [
   },
   {
     label: "DAYS 06, 07 + 08",
-    title: "Days 6, 7 + 8 — Product + Launch Sprint",
+    title: "Days 6, 7 + 8: Product + Launch Sprint",
     image: imgDays678,
     desc: "Build your MVP. Create a landing page. Set up a basic funnel. Daily mentor feedback sessions. Iterate fast.",
     outcome: "A working product and a funnel ready to test.",
