@@ -1,42 +1,70 @@
-import { motion } from "framer-motion";
-import { MessageCircle, RefreshCw, Target } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
 
-const features = [
-  { icon: MessageCircle, title: "Private Group", desc: "WhatsApp or Slack group with your batch, active before, during, and after." },
-  { icon: RefreshCw, title: "Alumni Network", desc: "Every future Forge AI batch adds to your network. You stay connected." },
-  { icon: Target, title: "Accountability After", desc: "Monthly check-ins with your batch. Keep building together long after the program." },
+import imgCollab from "@/assets/community-collab.jpg";
+import imgMeetup from "@/assets/community-meetup.jpg";
+import imgNetwork from "@/assets/community-network.jpg";
+import imgDemoday from "@/assets/community-demoday.jpg";
+import imgDinner from "@/assets/community-dinner.jpg";
+import imgTravel from "@/assets/community-travel.jpg";
+
+const cards = [
+  { image: imgCollab, label: "Late Night\nBuild Sessions" },
+  { image: imgMeetup, label: "Offline\nCommunity Meet-ups" },
+  { image: imgNetwork, label: "Networking\nEvents" },
+  { image: imgDemoday, label: "Demo Day\nPresentations" },
+  { image: imgDinner, label: "Batch\nDinners" },
+  { image: imgTravel, label: "Group\nAdventures" },
 ];
 
 const Community = () => {
   return (
     <SectionWrapper label="THE COMMUNITY">
-      <h2 className="font-bold md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-12 text-3xl">
-        Come for the learning. <br />Stay for the community.
+      <h2 className="font-bold md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-4 text-3xl">
+        Come for the learning. <br />
+        <span className="relative inline-block">
+          Stay for the community.
+          <span className="absolute bottom-0 left-0 w-full h-[6px] bg-primary/40 rounded-full -z-10 translate-y-[-4px]" />
+        </span>
       </h2>
 
-      <div className="max-w-[640px] mx-auto mb-12">
+      <div className="max-w-[560px] mx-auto mb-12">
         <p className="text-[16px] leading-[1.8] text-muted-foreground mt-4 text-center">
-          The people in this room will go on to build companies, launch products, and do interesting things. You will want to know them.
+          Your network is your net worth. The people in this room will go on to build companies, launch products, and do interesting things. You will want to know them.
         </p>
-
       </div>
 
-      <div className="grid md:grid-cols-3 gap-4 max-w-[840px] mx-auto">
-        {features.map((f, i) => (
-          <motion.div
-            key={f.title}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: i * 0.08 }}
-            className="bg-card border border-border rounded-2xl p-5 shadow-sm"
-          >
-            <f.icon className="text-primary mb-3" size={24} />
-            <p className="font-semibold text-foreground text-[15px]">{f.title}</p>
-            <p className="text-sm text-muted-foreground mt-1">{f.desc}</p>
-          </motion.div>
-        ))}
+      {/* Infinite scrolling marquee */}
+      <div className="relative overflow-hidden w-screen -ml-[50vw] left-[50%]">
+        {/* Fade masks */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-20 md:w-32 z-10 bg-gradient-to-r from-background to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-20 md:w-32 z-10 bg-gradient-to-l from-background to-transparent" />
+
+        <div className="flex community-marquee-track">
+          {/* Duplicate cards 3x for seamless loop */}
+          {[...cards, ...cards, ...cards].map((card, i) => (
+            <div
+              key={i}
+              className="shrink-0 w-[220px] md:w-[280px] aspect-[3/4] rounded-2xl overflow-hidden relative group mx-2"
+            >
+              <img
+                src={card.image}
+                alt={card.label}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+                width={280}
+                height={373}
+              />
+              {/* Dark gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+              {/* Label */}
+              <div className="absolute bottom-4 left-4 right-4">
+                <p className="text-white font-semibold text-[15px] md:text-[17px] leading-tight whitespace-pre-line">
+                  {card.label}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </SectionWrapper>
   );
