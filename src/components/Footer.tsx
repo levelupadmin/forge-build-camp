@@ -34,7 +34,7 @@ const Footer = () => {
           </div>
 
           {/* Right — Link columns */}
-          <div className="grid grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 gap-8">
             <div>
               <p className="text-[11px] text-muted-foreground/50 uppercase font-semibold tracking-[0.15em] mb-4">Program</p>
               <div className="flex flex-col gap-2.5">
@@ -54,23 +54,6 @@ const Footer = () => {
                     {l.label}
                   </a>
                 ))}
-              </div>
-            </div>
-
-            <div>
-              <p className="text-[11px] text-muted-foreground/50 uppercase font-semibold tracking-[0.15em] mb-4">Stay Updated</p>
-              <p className="text-[13px] text-muted-foreground leading-relaxed mb-3">
-                Get notified when applications open for the next cohort.
-              </p>
-              <div className="flex flex-col gap-2">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="w-full px-3 py-2 rounded-lg bg-muted border border-border text-[13px] text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-primary"
-                />
-                <button className="w-full bg-primary text-primary-foreground text-[12px] font-semibold uppercase tracking-wider rounded-lg py-2 hover:bg-primary/90 transition-colors btn-glow">
-                  Subscribe
-                </button>
               </div>
             </div>
           </div>
