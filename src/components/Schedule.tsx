@@ -37,7 +37,7 @@ const scheduleData = [
     title: "Days 2 + 3: AI Creativity Sprint",
     image: imgDays23,
     desc: "Full immersion in AI creative tools. Prompting, image generation, video creation, content workflows.",
-    outcome: "Your first AI creative output — an ad, reel, or short film.",
+    outcome: "Your first AI creative output: an ad, reel, or short film.",
   },
   {
     label: "DAYS 04 + 05",
