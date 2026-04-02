@@ -9,7 +9,7 @@ interface NavbarProps {
 }
 
 const navLinks = [
-  { label: "About", href: "#experience" },
+  { label: "About", href: "#what-is-forge" },
   { label: "Outcomes", href: "#outcomes" },
   { label: "Schedule", href: "#schedule" },
   { label: "Pricing", href: "#pricing" },
