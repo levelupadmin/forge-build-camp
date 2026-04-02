@@ -124,7 +124,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
                   : "bg-muted text-muted-foreground hover:bg-muted/80"
               }`}
             >
-              ✗ Exclusions
+              Exclusions
             </button>
           </div>
 
