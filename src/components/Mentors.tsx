@@ -10,12 +10,16 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 
+import mentorVaibhav from "@/assets/mentor-vaibhav.jpg";
+import mentorKevin from "@/assets/mentor-kevin.jpg";
+import mentorSabilashan from "@/assets/mentor-sabilashan.jpg";
+import mentorRahul from "@/assets/mentor-rahul.jpg";
+
 const mentors = [
   {
     name: "Vaibhav Kejriwal",
-    initials: "VK",
+    photo: mentorVaibhav,
     role: "n8n Bangalore Ambassador | IIM A | IIT D",
-    gradient: "from-blue-400 to-indigo-600",
     bullets: [
       "Official n8n Ambassador — builds AI-powered automation workflows",
       "IIM Ahmedabad & IIT Delhi alumnus",
@@ -26,9 +30,8 @@ const mentors = [
   },
   {
     name: "Kevin Adams",
-    initials: "KA",
+    photo: mentorKevin,
     role: "Artist | Founder | Creator",
-    gradient: "from-orange-400 to-rose-500",
     bullets: [
       "Founder of creative agency Millennial Labs (500+ brands served)",
       "LinkedIn Design Top Voice — AI-powered creative workflows",
@@ -39,9 +42,8 @@ const mentors = [
   },
   {
     name: "Sabilashan Ganeshan",
-    initials: "SG",
+    photo: mentorSabilashan,
     role: "Ambassador @ Lovable | Country Lead @ Perplexity",
-    gradient: "from-emerald-400 to-teal-500",
     bullets: [
       "Country Lead at Perplexity AI — frontier of AI search products",
       "Ambassador at Lovable — ships AI-built products rapidly",
@@ -52,9 +54,8 @@ const mentors = [
   },
   {
     name: "Rahul Reddy",
-    initials: "RR",
+    photo: mentorRahul,
     role: "Founder | Storyteller",
-    gradient: "from-purple-400 to-pink-500",
     bullets: [
       "Founder of LevelUp Learning — India's largest creative education ecosystem",
       "Built & scaled residential programs across filmmaking, AI & creative tech",
@@ -119,12 +120,15 @@ const Mentors = () => {
                     className="bg-card border border-border rounded-2xl overflow-hidden shadow-sm flex flex-col cursor-pointer"
                     onClick={() => api?.scrollTo(i)}
                   >
-                    <div
-                      className={`w-full aspect-[3/4] bg-gradient-to-br ${m.gradient} flex items-center justify-center`}
-                    >
-                      <span className="text-white text-5xl font-bold tracking-wide opacity-90">
-                        {m.initials}
-                      </span>
+                    <div className="w-full aspect-[3/4] relative overflow-hidden">
+                      <img
+                        src={m.photo}
+                        alt={m.name}
+                        loading="lazy"
+                        width={512}
+                        height={640}
+                        className="w-full h-full object-cover object-top"
+                      />
                     </div>
 
                     {isActive && (

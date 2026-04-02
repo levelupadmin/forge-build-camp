@@ -35,10 +35,6 @@ const Community = () => {
 
       {/* Infinite scrolling marquee */}
       <div className="relative overflow-hidden w-screen -ml-[50vw] left-[50%]">
-        {/* Fade masks */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-20 md:w-32 z-10 bg-gradient-to-r from-background to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-20 md:w-32 z-10 bg-gradient-to-l from-background to-transparent" />
-
         <div className="flex community-marquee-track">
           {/* Duplicate cards 3x for seamless loop */}
           {[...cards, ...cards, ...cards].map((card, i) => (
