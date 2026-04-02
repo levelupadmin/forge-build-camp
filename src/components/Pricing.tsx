@@ -77,7 +77,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
             <span className="inline-block bg-primary/10 text-primary text-[10px] uppercase tracking-[0.15em] font-semibold px-3 py-1 rounded-full mb-2">
               Offline
             </span>
-            <p className="font-bold text-foreground text-lg">8 Days</p>
+            <p className="font-bold text-foreground text-lg">9 Days</p>
             <p className="text-muted-foreground text-[13px]">June 19 — 27, 2026</p>
           </div>
         </div>
