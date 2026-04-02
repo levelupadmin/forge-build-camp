@@ -111,7 +111,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
             <button
               key={i}
               onClick={() => handleClick(i)}
-              className={`flex-1 py-2.5 px-2 rounded-full text-[11px] font-mono uppercase tracking-wider transition-all duration-300 ${
+              className={`flex-1 py-2.5 px-2 rounded-full text-[11px] uppercase tracking-wider transition-all duration-300 font-sans ${
                 activeIndex === i
                   ? "bg-primary text-primary-foreground"
                   : "bg-white/[0.08] text-white/50"
