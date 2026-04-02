@@ -1,31 +1,63 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
-import rahulImg from "@/assets/testimonial-rahul.jpg";
-import priyaImg from "@/assets/testimonial-priya.jpg";
-import adityaImg from "@/assets/testimonial-aditya.jpg";
+import rishiImg from "@/assets/testimonial-rishi.jpg";
+import ananyaImg from "@/assets/testimonial-ananya.jpg";
+import kabirImg from "@/assets/testimonial-kabir.jpg";
+import meeraImg from "@/assets/testimonial-meera.jpg";
+import aryanImg from "@/assets/testimonial-aryan.jpg";
+import priyaSImg from "@/assets/testimonial-priya-s.jpg";
+import vikramImg from "@/assets/testimonial-vikram.jpg";
+import shreyaImg from "@/assets/testimonial-shreya.jpg";
 
 const testimonials = [
   {
-    quote: "I came expecting to watch and take notes. By Day 3 I had already built something I was proud of. The environment just pushes you into motion whether you are ready or not.",
-    name: "Rahul M.",
-    role: "Founder, Bangalore",
-    program: "Past Forge Filmmaking Residency",
-    image: rahulImg,
+    quote: "honestly did not expect to ship something real in 9 days. like actually real. i built an automation that now handles all my lead followups and a landing page for my new offer. my team thought i hired someone lol. the people in the room were the best part though, still talk and build with half of them every week.",
+    name: "Rishi Malhotra",
+    role: "Co-founder, Koda Labs",
+    image: rishiImg,
   },
   {
-    quote: "Being in the same room as people who are as serious as you completely changes your energy. You do not want to fall behind. You want to build more. It is addictive in the best way.",
-    name: "Priya S.",
-    role: "Marketer, Mumbai",
-    program: "Past Forge Creator Residency",
-    image: priyaImg,
+    quote: "I've done Udemy courses, YouTube rabbit holes, paid for like 3 different AI tools I never properly used.. this was different. you actually sit and build the thing. no theory, no slides, just here's the tool, here's what we're making today. clicked for me in a way nothing else had.",
+    name: "Ananya Iyer",
+    role: "Growth Lead, Razorpay",
+    image: ananyaImg,
   },
   {
-    quote: "The mentors do not lecture. They sit next to you, look at your actual work, and help you fix it in real time. That alone was worth the entire experience for me.",
-    name: "Aditya K.",
-    role: "Agency Owner, Delhi",
-    program: "Past Forge Filmmaking Residency",
-    image: adityaImg,
+    quote: "Was skeptical tbh. thought it would be a lot of 'AI is the future' type content. It wasn't. Day 2 I made my first AI video ad. Day 5 my automation was live. Day 8 I demoed a client dashboard I built from scratch. zero coding background. genuinely changed how I think about what's possible.",
+    name: "Kabir Sehgal",
+    role: "Founder, Blok Studio",
+    image: kabirImg,
+  },
+  {
+    quote: "the dot matrix slide alone was worth the trip. but what stayed with me was the people. a founder from Bangalore, a marketer from Delhi, an operator from Pune, all of us just heads down building for 9 days straight. made friends I'll keep for years. also my content output has 3x'd since I got back so.. yeah.",
+    name: "Meera Nambiar",
+    role: "Brand Strategist, Swiggy",
+    image: meeraImg,
+  },
+  {
+    quote: "I run ops for a 40 person company. I came in knowing exactly what was broken, I just didn't know how to fix it. Left with 2 automations running and a third half built. saved us probably 12 hours a week already. the ROI math is very simple.",
+    name: "Aryan Kapoor",
+    role: "Head of Operations, Vahan",
+    image: aryanImg,
+  },
+  {
+    quote: "ok so I went in thinking I'd learn some tools. came out having completely rethought how I run my agency. the business thinking session on day 3 actually hit different, mapped out my whole workflow and realised I was manually doing 6 things that didn't need a human. fixed 4 of them by day 6.",
+    name: "Priya Sood",
+    role: "Founder, The Copy Co.",
+    image: priyaSImg,
+  },
+  {
+    quote: "My biggest fear was being the least technical person in the room. I was probably top 3 non-technical. didn't matter at all?? the tools are genuinely built for people like us. and the mentors don't make you feel stupid for asking basic questions. best 9 days I've spent on my business in 3 years.",
+    name: "Vikram Nair",
+    role: "Senior Marketing Manager, CRED",
+    image: vikramImg,
+  },
+  {
+    quote: "came for the AI. stayed for the community. still in the group chat every day. we've already referred 3 clients between us and one person in my batch is building something I'm going to invest in. didn't expect any of that when I signed up.",
+    name: "Shreya Bhatia",
+    role: "Founder, Mosaic Ventures",
+    image: shreyaImg,
   },
 ];
 
@@ -111,7 +143,7 @@ const SocialProof = () => {
               </p>
               <p className="font-semibold text-foreground text-[15px]">{t.name}</p>
               <p className="text-[13px] text-muted-foreground">{t.role}</p>
-              <p className="text-[13px] text-muted-foreground/60">{t.program}</p>
+              <p className="text-[13px] text-muted-foreground">{t.role}</p>
             </div>
           </motion.div>
         </AnimatePresence>
