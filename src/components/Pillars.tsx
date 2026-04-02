@@ -40,7 +40,7 @@ const pillars: PillarData[] = [
       "2 live AI automations and an AI agent of your choice",
       "A workflow saving at least 5 hours a week, running without you",
     ],
-    tools: ["n8n", "Make", "Claude", "OpenAI"],
+    tools: ["Claude", "n8n", "Claude Core"],
     image: pillar02,
     gradient: "linear-gradient(135deg, #0a1a0f, #0f1a2e)",
   },
