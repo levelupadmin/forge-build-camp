@@ -62,6 +62,15 @@ const Community = () => {
           ))}
         </div>
       </div>
+
+      <div className="text-center mt-12">
+        <button
+          onClick={onOpenModal}
+          className="bg-primary text-primary-foreground font-semibold rounded-full px-8 py-3.5 text-sm uppercase tracking-wider btn-glow"
+        >
+          REQUEST AN INVITE
+        </button>
+      </div>
     </SectionWrapper>
   );
 };
