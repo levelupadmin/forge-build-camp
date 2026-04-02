@@ -191,7 +191,7 @@ const VennDiagram = () => {
                   x={mcx + pos.x * moffset + mLabelOffsets[i].dx}
                   y={mcy + pos.y * moffset + 8 + mLabelOffsets[i].dy}
                   textAnchor="middle"
-                  className="fill-foreground/50 text-[10px] font-semibold uppercase tracking-[0.14em]"
+                  className="fill-white/50 text-[10px] font-semibold uppercase tracking-[0.14em]"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: false, amount: 0.3 }}
