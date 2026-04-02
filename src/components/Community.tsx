@@ -16,7 +16,11 @@ const cards = [
   { image: imgTravel, label: "Group\nAdventures" },
 ];
 
-const Community = () => {
+interface CommunityProps {
+  onOpenModal: () => void;
+}
+
+const Community = ({ onOpenModal }: CommunityProps) => {
   return (
     <SectionWrapper label="THE COMMUNITY" variant="dark">
       <h2 className="font-bold md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-4 text-3xl">

@@ -55,7 +55,7 @@ const compactOutcomes = [
   },
 ];
 
-const Outcomes = () => {
+const Outcomes = ({ onOpenModal }: OutcomesProps) => {
   return (
     <SectionWrapper id="outcomes" label="YOUR OUTCOMES">
       <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-16 md:mb-20">
