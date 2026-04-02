@@ -70,7 +70,7 @@ const WhoIsFor = () => {
               <p className="font-bold text-white text-lg md:text-xl tracking-tight">
                 {p.title}
               </p>
-              <p className="text-white/80 text-sm md:text-[15px] mt-1.5 leading-relaxed max-w-md">
+              <p className="text-white/80 text-sm md:text-[15px] mt-1.5 leading-relaxed max-w-md whitespace-pre-line">
                 {p.desc}
               </p>
             </div>
