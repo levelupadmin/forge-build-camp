@@ -13,16 +13,10 @@ import imgDay9 from "@/assets/schedule-day9.jpg";
 const scheduleData = [
   {
     label: "ONLINE PREP",
-    title: "Online Prep: 5 Sessions Before You Arrive",
+    title: "Online Prep: Prep Sessions",
     image: imgOnlinePrep,
-    desc: "Before you touch a single tool on-site, you'll complete five focused sessions that get you fully ready:",
-    bullets: [
-      "The AI Mindset: understand how AI actually thinks",
-      "Prompting & Context Engineering: talk to AI and get useful output every time",
-      "AI & Business Thinking: map your business and find the stuck lever",
-      "What Good Looks Like: real outputs from real people like you",
-      "Pre-Arrival Alignment: what to expect day by day",
-    ],
+    desc: "Before you touch a single tool on-site, you complete five focused sessions. You start by understanding how AI actually thinks, then learn to talk to it and get useful output every time. From there you map your own business and find the stuck lever, see real outputs built by real people like you, and finish with a full day-by-day brief so you land ready to build from Day 1.",
+
     outcome: "You arrive sharp, aligned, and ready to build from Day 1.",
   },
   {
