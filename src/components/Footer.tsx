@@ -1,5 +1,6 @@
 import { ArrowUp } from "lucide-react";
 import levelupLogoDark from "@/assets/levelup-logo-dark.png";
+import forgeLogoBlack from "@/assets/forge-ai-logo.png";
 
 const footerLinks = {
   program: [
