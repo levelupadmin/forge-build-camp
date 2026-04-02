@@ -12,9 +12,9 @@ const footerLinks = {
     { label: "FAQs", href: "#faqs" },
   ],
   connect: [
-    { label: "Instagram", href: "#" },
-    { label: "LinkedIn", href: "#" },
-    { label: "WhatsApp", href: "#" },
+    { label: "Instagram", href: "https://www.instagram.com/forgebylevelup/" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/leveluplearning/" },
+    { label: "WhatsApp", href: "https://wa.me/919791520177" },
   ],
 };
 
@@ -50,7 +50,7 @@ const Footer = () => {
               <p className="text-[11px] text-muted-foreground/50 uppercase font-semibold tracking-[0.15em] mb-4">Connect</p>
               <div className="flex flex-col gap-2.5">
                 {footerLinks.connect.map((l) => (
-                  <a key={l.label} href={l.href} className="text-[14px] text-muted-foreground hover:text-foreground transition-colors">
+                  <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors">
                     {l.label}
                   </a>
                 ))}
