@@ -1,25 +1,26 @@
 import { motion } from "framer-motion";
 
 const row1 = [
-  { name: "Google", url: "https://logo.clearbit.com/google.com" },
-  { name: "McKinsey & Co", url: "https://logo.clearbit.com/mckinsey.com" },
-  { name: "Amazon", url: "https://logo.clearbit.com/amazon.com" },
-  { name: "Netflix", url: "https://logo.clearbit.com/netflix.com" },
-  { name: "Meta", url: "https://logo.clearbit.com/meta.com" },
-  { name: "Microsoft", url: "https://logo.clearbit.com/microsoft.com" },
-  { name: "Swiggy", url: "https://logo.clearbit.com/swiggy.com" },
-  { name: "CRED", url: "https://logo.clearbit.com/cred.club" },
+  { name: "Google", url: "/images/learners/google.png" },
+  { name: "McKinsey & Co", url: "/images/learners/mckinsey.png" },
+  { name: "Amazon", url: "/images/learners/amazon.png" },
+  { name: "Netflix", url: "/images/learners/netflix.png" },
+  { name: "Meta", url: "/images/learners/meta.png" },
+  { name: "Microsoft", url: "/images/learners/microsoft.png" },
+  { name: "Swiggy", url: "/images/learners/swiggy.png" },
+  { name: "Zomato", url: "/images/learners/zomato.png" },
+  { name: "CRED", url: "/images/learners/cred.png" },
 ];
 
 const row2 = [
-  { name: "IIM Ahmedabad", url: "https://upload.wikimedia.org/wikipedia/en/thumb/5/59/IIM_Ahmedabad_Logo.svg/480px-IIM_Ahmedabad_Logo.svg.png" },
-  { name: "NIFT", url: "https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/National_Institute_of_Fashion_Technology_logo.png/240px-National_Institute_of_Fashion_Technology_logo.png" },
-  { name: "Ashoka University", url: "https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Ashoka_University_logo.svg/480px-Ashoka_University_logo.svg.png" },
-  { name: "Christ University", url: "https://upload.wikimedia.org/wikipedia/en/thumb/c/cb/Christ_University_Logo.png/240px-Christ_University_Logo.png" },
-  { name: "Symbiosis", url: "https://upload.wikimedia.org/wikipedia/en/thumb/a/a3/Symbiosis_International_University_logo.png/240px-Symbiosis_International_University_logo.png" },
-  { name: "Loyola College", url: "https://upload.wikimedia.org/wikipedia/en/thumb/d/d5/Loyola_College_Chennai_logo.png/240px-Loyola_College_Chennai_logo.png" },
-  { name: "Govt. of India", url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Emblem_of_India.svg/400px-Emblem_of_India.svg.png" },
-  { name: "Deloitte", url: "https://logo.clearbit.com/deloitte.com" },
+  { name: "IIM Ahmedabad", url: "/images/learners/iim.png" },
+  { name: "NIFT", url: "/images/learners/nift.png" },
+  { name: "Ashoka University", url: "/images/learners/ashoka.png" },
+  { name: "Christ University", url: "/images/learners/christ.png" },
+  { name: "Symbiosis", url: "/images/learners/symbiosis.png" },
+  { name: "Loyola College", url: "/images/learners/loyola.png" },
+  { name: "Govt. of India", url: "/images/learners/govt-india.png" },
+  { name: "American Express", url: "/images/learners/amex.png" },
 ];
 
 const MarqueeRow = ({ logos, reverse = false }: { logos: typeof row1; reverse?: boolean }) => {
