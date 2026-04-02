@@ -71,10 +71,12 @@ const WhyAINow = () => {
   return (
     <SectionWrapper id="why-ai" label="WHY AI. WHY NOW.">
       <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-4">
-        AI is THE<br />skill of <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>this decade.</span>
+        AI is not the Future.<br />It is the Present.
       </h2>
 
       <p className="text-[16px] md:text-[18px] text-muted-foreground max-w-[520px] mx-auto text-center mb-12 leading-relaxed">
+        The businesses that ignored the internet in 2005 did not survive 2015. The ones ignoring AI today will not survive 2030.
+        <br /><br />
         You think AI is crowded because you're in an echo chamber, but the real world hasn't even started.
       </p>
 
