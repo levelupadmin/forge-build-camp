@@ -117,7 +117,7 @@ const VennDiagram = () => {
             <motion.g
               initial={{ opacity: 0, scale: 0.7 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.7, delay: 1.4, ease: "easeOut" }}
               style={{ transformOrigin: `${cx}px ${cy + 10}px` }}
             >
