@@ -21,7 +21,7 @@ const pillars: PillarData[] = [
   {
     num: "01",
     tag: "PILLAR 01",
-    title: "Generative AI",
+    title: "CONTENT",
     desc: "Create content, visuals, and video that used to need a full production team.",
     builds: [
       "AI generated scripts, UGC ads and social media creatives",
