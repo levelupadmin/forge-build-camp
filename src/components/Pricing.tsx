@@ -31,8 +31,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
   return (
     <SectionWrapper label="THE INVESTMENT" className="py-[20px]">
       <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-12">
-        The most focused nine days you will<br />spend on your business{" "}
-        <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>this year.</span>
+        The most focused nine days you will spend on your business
       </h2>
 
       <div className="max-w-[520px] mx-auto space-y-4">
@@ -51,17 +50,17 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
           {/* Coming Soon Badge */}
           <div className="absolute top-4 right-4">
             <span className="bg-primary text-primary-foreground text-[10px] uppercase tracking-[0.15em] font-semibold px-3 py-1.5 rounded-full">
-              Coming Soon
+              EARLY BIRD OPEN
             </span>
           </div>
 
           {/* Location Name */}
           <div className="absolute bottom-0 left-0 right-0 p-6">
-            <p className="text-white/40 text-[10px] uppercase tracking-[0.2em] font-semibold mb-1">Location</p>
+            <p className="text-white/40 text-[10px] uppercase tracking-[0.2em] font-semibold mb-1">{"\n"}</p>
             <h3 className="text-white font-bold text-[36px] md:text-[48px] leading-none tracking-[-0.02em]">
               DHARAMSHALA
             </h3>
-            <p className="text-white/60 text-sm mt-1">Himachal Pradesh, India</p>
+            <p className="text-white/60 text-sm mt-1">{"\n"}</p>
           </div>
         </div>
 
