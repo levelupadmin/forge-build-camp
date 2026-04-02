@@ -29,7 +29,7 @@ const Community = () => {
 
       <div className="max-w-[560px] mx-auto mb-12">
         <p className="text-[16px] leading-[1.8] text-muted-foreground mt-4 text-center">
-          Your network is your net worth. The people in this room will go on to build companies, launch products, and do interesting things. You will want to know them.
+          The people in this room will go on to build companies, launch products, and do interesting things.
         </p>
       </div>
 

@@ -91,7 +91,7 @@ const WhyAINow = () => {
         <p className="text-center font-bold text-[20px] md:text-[26px] text-foreground mb-1">
           Each dot is ~3.2 million people
         </p>
-        <p className="text-center text-[13px] text-muted-foreground/60 mb-6 font-mono">
+        <p className="text-center text-[13px] mb-6 font-mono text-primary-foreground">
           1,000 dots = 8.1 billion humans
         </p>
         <DotGrid />
