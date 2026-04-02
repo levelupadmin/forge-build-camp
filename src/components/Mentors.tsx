@@ -10,7 +10,7 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 
-import mentorVaibhav from "@/assets/mentor-vaibhav.jpg";
+import mentorVaibhav from "@/assets/mentor-vaibhav.png";
 import mentorKevin from "@/assets/mentor-kevin.jpg";
 import mentorSabilashan from "@/assets/mentor-sabilashan.jpg";
 import mentorRahul from "@/assets/mentor-rahul.jpg";
