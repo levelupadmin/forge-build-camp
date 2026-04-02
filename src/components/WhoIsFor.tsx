@@ -27,7 +27,7 @@ const personas = [
   },
   {
     title: "The Professional",
-    desc: "You are good at what you do. But the person who knows how to use AI in your field will always move faster, charge more, and get chosen first. That person should be you.",
+    desc: "You are good at what you do. But the person who knows how to use AI in your field will move faster, charge more, and get chosen first.",
     image: professionalImg,
     className: "md:col-span-3 min-h-[240px] md:min-h-[220px]",
   },
