@@ -131,6 +131,14 @@
   animation: marquee 30s linear infinite;
 }
 
+.community-marquee-track {
+  animation: marquee 40s linear infinite;
+  width: max-content;
+}
+.community-marquee-track:hover {
+  animation-play-state: paused;
+}
+
 /* Floating blob */
 @keyframes float {
   0%, 100% { transform: translate(0, 0) scale(1); }
