@@ -86,7 +86,7 @@ const Mentors = () => {
 
   return (
     <SectionWrapper id="mentors" label="YOUR MENTORS">
-      <h2 className="font-bold md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-4 text-3xl">
+      <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-4">
         Learn from builders who use AI for a{" "}
         <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>
           Living

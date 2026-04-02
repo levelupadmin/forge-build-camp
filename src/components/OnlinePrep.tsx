@@ -11,7 +11,7 @@ const preps = [
 const OnlinePrep = () => {
   return (
     <SectionWrapper label="BEFORE THE RESIDENCY">
-      <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-6">
+      <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-6">
         You arrive ready.<br />Not from scratch.
       </h2>
 

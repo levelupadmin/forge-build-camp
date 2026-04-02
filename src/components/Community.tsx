@@ -19,7 +19,7 @@ const cards = [
 const Community = () => {
   return (
     <SectionWrapper label="THE COMMUNITY">
-      <h2 className="font-bold md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-4 text-3xl">
+      <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-4">
         Come for the learning. <br />
         <span className="relative inline-block">
           Stay for the community.
