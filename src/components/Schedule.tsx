@@ -27,7 +27,7 @@ const scheduleData = [
   },
   {
     label: "DAY 01",
-    title: "Day 1 — Arrive + Orient",
+    title: "Day 1: Arrive + Orient",
     image: imgDay1,
     desc: "Check in. Meet your group. Meet your mentors. Set your personal build goal.",
     outcome: "Your roadmap for the next 8 days.",
