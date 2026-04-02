@@ -12,7 +12,7 @@ import imgDay9 from "@/assets/schedule-day9.jpg";
 
 const scheduleData = [
   {
-    label: "Online Prep",
+    label: "ONLINE PREP",
     title: "Online Prep: 5 Sessions Before You Arrive",
     image: imgOnlinePrep,
     desc: "Before you touch a single tool on-site, you'll complete five focused sessions that get you fully ready:",
