@@ -9,25 +9,25 @@ import professionalImg from "/personas/professional.jpg";
 const personas = [
   {
     title: "The Founder",
-    desc: "You want AI leverage in your business. Automate work, build faster, stop depending on developers.",
+    desc: "Your competitors are shipping faster, spending less, and doing it with smaller teams. AI is why.\nYou do not need to hire more. You need to build smarter.",
     image: founderImg,
     className: "md:col-span-2 md:row-span-2 min-h-[320px] md:min-h-[480px]",
   },
   {
     title: "The Marketer",
-    desc: "You want to create better content, automate campaigns, and use AI to scale what you already do.",
+    desc: "Your briefs take hours. Your content calendar is always behind. Your reports are still manual.\nThere is a version of your job where none of that is true. AI gets you there.",
     image: marketerImg,
     className: "min-h-[240px] md:min-h-0",
   },
   {
     title: "The Operator",
-    desc: "You want to automate workflows, cut manual work, and run your business more efficiently.",
+    desc: "You can see exactly where the hours are being wasted. You have just not had the tools to fix it. Automations will feel like someone finally listened to you.",
     image: operatorImg,
     className: "min-h-[240px] md:min-h-0",
   },
   {
     title: "The Professional",
-    desc: "You are good at what you do. AI makes you significantly better at it. You want to be the person in your industry who figured this out early.",
+    desc: "You are good at what you do. But the person who knows how to use AI in your field will always move faster, charge more, and get chosen first. That person should be you.",
     image: professionalImg,
     className: "md:col-span-3 min-h-[240px] md:min-h-[220px]",
   },
@@ -70,7 +70,7 @@ const WhoIsFor = () => {
               <p className="font-bold text-white text-lg md:text-xl tracking-tight">
                 {p.title}
               </p>
-              <p className="text-white/80 text-sm md:text-[15px] mt-1.5 leading-relaxed max-w-md">
+              <p className="text-white/80 text-sm md:text-[15px] mt-1.5 leading-relaxed max-w-md whitespace-pre-line">
                 {p.desc}
               </p>
             </div>
