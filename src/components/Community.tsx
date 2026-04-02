@@ -18,7 +18,7 @@ const cards = [
 
 const Community = () => {
   return (
-    <SectionWrapper label="THE COMMUNITY">
+    <SectionWrapper label="THE COMMUNITY" variant="dark">
       <h2 className="font-bold md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-4 text-3xl">
         Come for the learning. <br />
         <span className="relative inline-block">

@@ -20,7 +20,15 @@ const footerLinks = {
 
 const Footer = () => {
   return (
-    <footer className="border-t border-border py-16 md:py-20 bg-background">
+    <footer
+      className="border-t border-white/[0.06] py-16 md:py-20"
+      style={{
+        background: "#0A0A0A",
+        ["--foreground" as string]: "0 0% 96%",
+        ["--muted-foreground" as string]: "0 0% 100% / 0.55",
+        ["--border" as string]: "0 0% 100% / 0.08",
+      }}
+    >
       <div className="max-w-7xl mx-auto px-6 lg:px-20">
         <div className="grid md:grid-cols-2 gap-12 md:gap-20">
           {/* Left — Brand */}
