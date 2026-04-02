@@ -84,11 +84,11 @@ const Mentors = () => {
   }, [api]);
 
   return (
-    <SectionWrapper id="mentors" label="LEARN FROM">
+    <SectionWrapper id="mentors" label="YOUR MENTORS">
       <h2 className="font-bold md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-4 text-3xl">
-        the{" "}
+        Learn from builders who use AI for a{" "}
         <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>
-          Best
+          Living
         </span>
       </h2>
 

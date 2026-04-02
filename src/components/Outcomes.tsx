@@ -143,7 +143,7 @@ const Outcomes = () => {
               <div className="flex items-center gap-2 mb-2">
                 <o.icon className="text-white/80" size={16} />
                 <span className="text-white/60 font-mono text-[10px] uppercase tracking-[0.15em]">
-                  Outcome {String(i + 4).padStart(2, "0")}
+                  {i === 0 ? "\n" : i === 1 ? "​" : "\n"}
                 </span>
               </div>
               <h4 className="font-bold text-white text-[18px] md:text-[20px] leading-tight mb-1.5">

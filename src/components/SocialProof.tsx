@@ -26,11 +26,11 @@ const SocialProof = () => {
   return (
     <SectionWrapper label="FROM PAST FORGE PARTICIPANTS">
       <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-4">
-        What happens when you<br />build with the <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>right people.</span>
+        What happens when you build with the <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>right people.</span>
       </h2>
 
       <p className="text-sm text-muted-foreground/50 text-center mb-12">
-        These quotes are from past Forge residential programs. Forge AI Residency follows the same format.
+        Dreamers became builders not just because of the right guidance but the people they surrounded themselves with.
       </p>
 
       <div className="grid md:grid-cols-3 gap-6 max-w-[960px] mx-auto">

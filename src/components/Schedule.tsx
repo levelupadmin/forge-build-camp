@@ -109,7 +109,7 @@ const Schedule = () => {
                 className="w-full flex items-center justify-between py-5 md:py-6 text-left group"
               >
                 <div className="flex items-center gap-3 md:gap-4">
-                  <span className="text-[11px] tracking-wider font-mono text-primary shrink-0 w-[90px] md:w-[120px]">
+                  <span className="text-[11px] tracking-wider text-primary shrink-0 w-[90px] md:w-[120px] font-sans">
                     {item.label}
                   </span>
                   <span className={`font-bold text-[16px] md:text-[18px] transition-colors ${isOpen ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"}`}>
