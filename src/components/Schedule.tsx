@@ -85,20 +85,18 @@ const Schedule = () => {
       <div className="max-w-[780px] mx-auto mb-8 md:mb-12">
         <div className="relative aspect-[16/10] md:aspect-[16/9] rounded-2xl overflow-hidden bg-muted">
           <AnimatePresence mode="wait">
-            {activeIndex !== null && (
-              <motion.img
-                key={activeIndex}
-                src={scheduleData[activeIndex].image}
-                alt={scheduleData[activeIndex].title}
-                className="absolute inset-0 w-full h-full object-cover"
-                initial={{ opacity: 0, scale: 1.04 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.98 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                width={1280}
-                height={800}
-              />
-            )}
+            <motion.img
+              key={activeIndex ?? "default"}
+              src={activeIndex !== null ? scheduleData[activeIndex].image : imgDefault}
+              alt={activeIndex !== null ? scheduleData[activeIndex].title : "Forge Residency"}
+              className="absolute inset-0 w-full h-full object-cover"
+              initial={{ opacity: 0, scale: 1.04 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              width={1280}
+              height={800}
+            />
           </AnimatePresence>
         </div>
       </div>
