@@ -77,7 +77,7 @@ const Schedule = () => {
         The&nbsp;Gameplan
       </h2>
       <p className="text-[16px] text-muted-foreground text-center mb-10 md:mb-14 leading-relaxed max-w-[560px] mx-auto">
-        Before you arrive, you get access to a focused online prep series. Short daily sessions so you land ready to build from Day 1.
+        Your Itinerary through the online and offline residency and how you will learn, build and grow.
       </p>
 
       {/* Hero Image */}
