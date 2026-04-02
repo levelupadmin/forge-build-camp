@@ -21,7 +21,7 @@ const DotGrid = () => {
   }, []);
 
   const colorMap: Record<string, string> = {
-    grey: "bg-foreground/25",
+    grey: "bg-white/[0.15]",
     green: "bg-emerald-500/80",
     amber: "bg-primary/70",
     red: "bg-red-500/80",
@@ -47,7 +47,7 @@ const DotGrid = () => {
 
       <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-5 text-[11px] md:text-[12px]">
         <span className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-sm bg-foreground/25 inline-block" />
+          <span className="w-2.5 h-2.5 rounded-sm bg-white/[0.15] inline-block" />
           <span className="text-muted-foreground">Never used AI · <span className="text-foreground font-semibold">~6.8B</span></span>
         </span>
         <span className="flex items-center gap-1.5">
@@ -69,7 +69,7 @@ const DotGrid = () => {
 
 const WhyAINow = () => {
   return (
-    <SectionWrapper id="why-ai" label="WHY AI. WHY NOW.">
+    <SectionWrapper id="why-ai" label="WHY AI. WHY NOW." variant="dark">
       <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-4">
         AI is not the Future.<br />
         It is the&nbsp;Present.<br />

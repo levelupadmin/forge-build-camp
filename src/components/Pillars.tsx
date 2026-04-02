@@ -91,7 +91,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
   };
 
   return (
-    <SectionWrapper id="pillars" label="THE CORE">
+    <SectionWrapper id="pillars" label="THE CORE" variant="dark">
       <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-4">
         Three{" "}
         <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>
@@ -114,7 +114,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
               className={`flex-1 py-2.5 px-2 rounded-full text-[11px] font-mono uppercase tracking-wider transition-all duration-300 ${
                 activeIndex === i
                   ? "bg-primary text-primary-foreground"
-                  : "bg-foreground/5 text-muted-foreground"
+                  : "bg-white/[0.08] text-white/50"
               }`}
             >
               {p.title}
@@ -173,7 +173,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
         </div>
 
         {/* Progress bar */}
-        <div className="mt-5 h-[2px] bg-foreground/10 rounded-full overflow-hidden">
+        <div className="mt-5 h-[2px] bg-white/10 rounded-full overflow-hidden">
           <div key={`progress-mobile-${activeIndex}`} className="h-full bg-primary pillar-progress-bar" />
         </div>
       </div>

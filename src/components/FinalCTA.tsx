@@ -6,7 +6,17 @@ interface FinalCTAProps {
 
 const FinalCTA = ({ onOpenModal }: FinalCTAProps) => {
   return (
-    <section className="relative overflow-hidden py-[6px] md:py-[120px]">
+    <section
+      className="relative overflow-hidden py-[6px] md:py-[120px]"
+      style={{
+        background: "#0A0A0A",
+        ["--foreground" as string]: "0 0% 96%",
+        ["--muted-foreground" as string]: "0 0% 100% / 0.55",
+      }}
+    >
+      {/* Radial blue glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-primary/[0.06] blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
