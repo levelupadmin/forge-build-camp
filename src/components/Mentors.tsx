@@ -57,7 +57,7 @@ const mentors = [
     photo: mentorRahul,
     role: "Founder | Storyteller",
     bullets: [
-      "Founder of LevelUp Learning — India's largest creative education ecosystem",
+      "Founder of LevelUp Learning, India's largest creative education ecosystem",
       "Built & scaled residential programs across filmmaking, AI & creative tech",
       "Runs India's largest filmmaking community with 300,000+ members",
       "Producer of India's biggest short film Chapter Zero LCU",

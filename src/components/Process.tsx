@@ -15,7 +15,7 @@ const phases = [
   {
     num: "03",
     verb: "Launch",
-    desc: "Demo Day. Present what you built. Leave with proof of work — not just notes.",
+    desc: "Demo Day. Present what you built. Leave with proof of work, not just notes.",
   },
 ];
 

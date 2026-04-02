@@ -12,7 +12,7 @@ const narratives = [
   },
   {
     label: "Building",
-    description: "Theory without execution is noise. You ship real products, automations, and content — every single day.",
+    description: "Theory without execution is noise. You ship real products, automations, and content, every single day.",
   },
 ];
 
