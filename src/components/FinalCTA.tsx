@@ -14,9 +14,6 @@ const FinalCTA = ({ onOpenModal }: FinalCTAProps) => {
         transition={{ duration: 0.55 }}
         className="relative z-10 text-center max-w-[720px] mx-auto px-6"
       >
-        <p className="section-label mb-6">
-          LIMITED INVITES · APPLY NOW
-        </p>
 
         <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground">
           Think <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>YCombinator</span> <br />meets an AI hackathon.

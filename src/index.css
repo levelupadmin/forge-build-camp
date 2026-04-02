@@ -102,9 +102,11 @@
 .card-premium {
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
-.card-premium:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 60px -12px hsl(0 0% 0% / 0.12);
+@media (hover: hover) {
+  .card-premium:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px -12px hsl(0 0% 0% / 0.12);
+  }
 }
 
 /* Glass card — warm theme */
@@ -124,10 +126,12 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.glass-card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px hsl(217 91% 60% / 0.08);
-  border-color: hsl(217 91% 60% / 0.2);
+@media (hover: hover) {
+  .glass-card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px hsl(217 91% 60% / 0.08);
+    border-color: hsl(217 91% 60% / 0.2);
+  }
 }
 
 /* Custom scrollbar hide */
