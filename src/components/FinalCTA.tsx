@@ -18,7 +18,7 @@ const FinalCTA = ({ onOpenModal }: FinalCTAProps) => {
           LIMITED INVITES · APPLY NOW
         </p>
 
-        <h2 className="font-bold md:text-[72px] leading-[1.08] tracking-[-0.025em] text-foreground text-2xl">
+        <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground">
           Think <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>YCombinator</span> <br />meets an AI hackathon.
         </h2>
 

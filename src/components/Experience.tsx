@@ -14,7 +14,7 @@ const Experience = () => {
 
   return (
     <SectionWrapper id="experience" label="THE RESIDENCY">
-      <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-12">
+      <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-12">
         Step away from everything.<br />Nothing but building.
       </h2>
 

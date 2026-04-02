@@ -14,9 +14,9 @@ const rows = [
 const Contrast = () => {
   return (
     <SectionWrapper id="contrast" label="WHY FORGE">
-      <h2 className="font-bold text-[32px] md:text-[48px] leading-[1.1] tracking-tight text-foreground text-center mb-12">
+      <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-12">
         Every AI course teaches.<br />
-        Forge makes you <span className="text-primary">build.</span>
+        Forge makes you <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>build.</span>
       </h2>
 
       <div className="max-w-3xl mx-auto">
