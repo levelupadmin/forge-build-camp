@@ -20,7 +20,7 @@ const testimonials = [
   {
     quote: "I've done Udemy courses, YouTube rabbit holes, paid for like 3 different AI tools I never properly used.. this was different. you actually sit and build the thing. no theory, no slides, just here's the tool, here's what we're making today. clicked for me in a way nothing else had.",
     name: "Ananya Iyer",
-    role: "Growth Lead, Razorpay",
+    role: "\n",
     image: ananyaImg,
   },
   {
