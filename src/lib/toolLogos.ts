@@ -14,7 +14,7 @@ export const toolLogos: Record<string, string> = {
   "Supabase": "https://cf-assets.www.cloudflare.com/slt3lc6tev37/3VFGwGzKOixuAiwsJPOXY4/26c1e99ff59b17beb1e3c97fdef5e218/supabase.png",
   "Pika": "https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/0c4b45da04d04e598764e8aa7d9c84cf",
   "Canva": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Canva_icon_2021.svg/480px-Canva_icon_2021.svg.png",
-  "Higgsfield": "https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/e80c45be01d14f1f95a9b0ebeac7f6b7",
+  "Higgsfield": "https://share.google/MTilYgnBAvWvwPsl5",
   "Kling": "https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/ydmntpglmvfqmhpfmwjd",
   "Zapier": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Zapier_logo.svg/480px-Zapier_logo.svg.png",
   "OpenAI": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/OpenAI_Logo.svg/480px-OpenAI_Logo.svg.png",
