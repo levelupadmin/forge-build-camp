@@ -103,7 +103,7 @@ const SocialProof = () => {
         <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>right people.</span>
       </h2>
 
-      <p className="text-sm text-muted-foreground/50 text-center mb-12">
+      <p className="text-sm text-center mb-12 text-muted-foreground">
         Dreamers became builders not just because of the right guidance but the people they surrounded themselves with.
       </p>
 
