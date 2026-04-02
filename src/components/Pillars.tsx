@@ -114,7 +114,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
               className={`flex-1 py-2.5 px-2 rounded-full text-[11px] font-mono uppercase tracking-wider transition-all duration-300 ${
                 activeIndex === i
                   ? "bg-primary text-primary-foreground"
-                  : "bg-foreground/5 text-muted-foreground"
+                  : "bg-white/[0.08] text-white/50"
               }`}
             >
               {p.title}
