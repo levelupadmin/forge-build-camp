@@ -21,7 +21,7 @@ const DotGrid = () => {
   }, []);
 
   const colorMap: Record<string, string> = {
-    grey: "bg-foreground/25",
+    grey: "bg-white/[0.15]",
     green: "bg-emerald-500/80",
     amber: "bg-primary/70",
     red: "bg-red-500/80",
