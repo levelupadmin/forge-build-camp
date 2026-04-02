@@ -86,7 +86,7 @@ const VennDiagram = () => {
                 cy={cy + pos.y * offset + 10}
                 r={r}
                 fill="none"
-                stroke="hsl(var(--foreground) / 0.1)"
+                stroke="rgba(255,255,255,0.12)"
                 strokeWidth={1.5}
                 initial={{ opacity: 0, scale: 0.6 }}
                 whileInView={{ opacity: 1, scale: 1 }}
