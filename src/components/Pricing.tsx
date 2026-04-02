@@ -31,8 +31,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
   return (
     <SectionWrapper label="THE INVESTMENT" className="py-[20px]">
       <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-12">
-        The most focused nine days you will<br />spend on your business{" "}
-        <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>this year.</span>
+        The most focused nine days you will spend on your business
       </h2>
 
       <div className="max-w-[520px] mx-auto space-y-4">
