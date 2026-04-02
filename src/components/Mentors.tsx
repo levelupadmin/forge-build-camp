@@ -45,8 +45,8 @@ const mentors = [
     photo: mentorSabilashan,
     role: "Ambassador @ Lovable | Country Lead @ Perplexity",
     bullets: [
-      "Country Lead at Perplexity AI — frontier of AI search products",
-      "Ambassador at Lovable — ships AI-built products rapidly",
+      "Country Lead at Perplexity AI, frontier of AI search products",
+      "Ambassador at Lovable, ships AI-built products rapidly",
       "Head of Product at STEM Link; AI strategy at Amor",
       "BASIS AI Fellow & Harvard-nominated innovator in AI education",
     ],
