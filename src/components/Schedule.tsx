@@ -41,7 +41,7 @@ const scheduleData = [
   },
   {
     label: "DAYS 04 + 05",
-    title: "Days 4 + 5 — Automation Sprint",
+    title: "Days 4 + 5: Automation Sprint",
     image: imgDays45,
     desc: "Build your first automation. Connect your tools. Create a pipeline that saves you real time.",
     outcome: "One live automation running by the end of Day 5.",
