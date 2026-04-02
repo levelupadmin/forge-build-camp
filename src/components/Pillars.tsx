@@ -47,7 +47,7 @@ const pillars: PillarData[] = [
   {
     num: "03",
     tag: "PILLAR 03",
-    title: "Product",
+    title: "PRODUCT",
     desc: "Build a working product without writing a single line of code. Spec it, prompt it, ship it.",
     builds: [
       "A functional product or internal tool you can demo live on Day 9",

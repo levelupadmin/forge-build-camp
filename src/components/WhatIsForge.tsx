@@ -151,17 +151,19 @@ const WhatIsForge = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="flex items-center justify-center gap-3 md:gap-4"
         >
-          {stats.map((s) => (
-            <div
-              key={s.label}
-              className="bg-primary rounded-xl p-4 md:p-6 text-center min-w-[100px] md:min-w-[130px]"
-            >
-              <p className="text-primary-foreground font-bold text-[28px] md:text-[36px] leading-none">
-                {s.value}
-              </p>
-              <p className="text-primary-foreground/80 text-[10px] md:text-[12px] uppercase tracking-[0.15em] mt-1 font-semibold">
-                {s.label}
-              </p>
+          {stats.map((s, i) => (
+            <div key={s.label} className="flex items-center gap-3 md:gap-4">
+              <div className="bg-primary rounded-xl p-4 md:p-6 text-center min-w-[100px] md:min-w-[130px]">
+                <p className="text-primary-foreground font-bold text-[28px] md:text-[36px] leading-none">
+                  {s.value}
+                </p>
+                <p className="text-primary-foreground/80 text-[10px] md:text-[12px] uppercase tracking-[0.15em] mt-1 font-semibold">
+                  {s.label}
+                </p>
+              </div>
+              {i < stats.length - 1 && (
+                <span className="text-foreground/30 text-[18px] md:text-[22px] font-light select-none">×</span>
+              )}
             </div>
           ))}
         </motion.div>

@@ -63,7 +63,7 @@ const Hero = ({ onOpenModal }: HeroProps) => {
         <div className="mt-8">
           <button
             onClick={onOpenModal}
-            className="bg-[#3B82F6] text-white font-semibold rounded-full px-7 py-3 text-sm"
+            className="bg-[#3B82F6] text-white font-semibold rounded-full px-7 py-3 text-sm btn-glow"
           >
             REQUEST AN INVITE
           </button>
