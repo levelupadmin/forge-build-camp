@@ -62,7 +62,7 @@ const LogoStrip = () => {
       className="w-full py-8 bg-background overflow-hidden"
     >
       <p className="text-center text-[11px] md:text-[12px] uppercase tracking-[0.12em] mb-5 text-secondary-foreground font-extrabold">
-        Join 600+ dreamers from
+        JOIN 600+ BUILDERS FROM
       </p>
 
       <div className="flex flex-col gap-3">
