@@ -31,7 +31,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
   return (
     <SectionWrapper label="THE INVESTMENT" className="py-[20px]">
       <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-12">
-        The most focused nine days you will spend on your business
+        The most focused days you will spend on your business
       </h2>
 
       <div className="max-w-[520px] mx-auto space-y-4">
@@ -70,7 +70,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
             <span className="inline-block bg-primary/10 text-primary text-[10px] uppercase tracking-[0.15em] font-semibold px-3 py-1 rounded-full mb-2">
               Online
             </span>
-            <p className="font-bold text-foreground text-lg">7 Days</p>
+            <p className="font-bold text-foreground text-lg">6 Days</p>
             <p className="text-muted-foreground text-[13px]">June 9 - 17, 2026</p>
           </div>
           <div className="bg-card border border-border rounded-xl p-4 text-center">
