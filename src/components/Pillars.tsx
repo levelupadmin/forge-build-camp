@@ -21,7 +21,7 @@ const pillars: PillarData[] = [
   {
     num: "01",
     tag: "PILLAR 01",
-    title: "Generative AI",
+    title: "CONTENT",
     desc: "Create content, visuals, and video that used to need a full production team.",
     builds: [
       "AI generated scripts, UGC ads and social media creatives",
@@ -34,7 +34,7 @@ const pillars: PillarData[] = [
   {
     num: "02",
     tag: "PILLAR 02",
-    title: "AI Automations",
+    title: "OPERATIONS",
     desc: "Map the manual work in your business and build AI that handles it for you.",
     builds: [
       "2 live AI automations and an AI agent of your choice",
@@ -47,7 +47,7 @@ const pillars: PillarData[] = [
   {
     num: "03",
     tag: "PILLAR 03",
-    title: "AI Product Building",
+    title: "Product",
     desc: "Build a working product without writing a single line of code. Spec it, prompt it, ship it.",
     builds: [
       "A functional product or internal tool you can demo live on Day 9",
