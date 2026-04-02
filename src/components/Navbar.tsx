@@ -13,7 +13,7 @@ const navLinks = [
   { label: "Outcomes", href: "#outcomes" },
   { label: "Schedule", href: "#schedule" },
   { label: "Pricing", href: "#pricing" },
-  { label: "Brochure", href: "#" },
+  { label: "\n", href: "#" },
 ];
 
 const Navbar = ({ onOpenModal }: NavbarProps) => {
