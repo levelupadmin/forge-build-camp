@@ -96,7 +96,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
         Three{" "}
         <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>
           Pillars.
-        </span>
+        </span>{" "}
         <br />
         Nine days.
       </h2>
