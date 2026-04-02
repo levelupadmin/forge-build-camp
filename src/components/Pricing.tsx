@@ -114,7 +114,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
                   : "bg-muted text-muted-foreground hover:bg-muted/80"
               }`}
             >
-              ✓ Inclusions
+              Inclusions
             </button>
             <button
               onClick={() => setActiveTab("exclusions")}
