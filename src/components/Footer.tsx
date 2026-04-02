@@ -12,9 +12,9 @@ const footerLinks = {
     { label: "FAQs", href: "#faqs" },
   ],
   connect: [
-    { label: "Instagram", href: "#" },
-    { label: "LinkedIn", href: "#" },
-    { label: "WhatsApp", href: "#" },
+    { label: "Instagram", href: "https://www.instagram.com/forgebylevelup/" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/leveluplearning/" },
+    { label: "WhatsApp", href: "https://wa.me/919791520177" },
   ],
 };
 
