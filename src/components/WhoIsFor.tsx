@@ -6,6 +6,10 @@ import marketerImg from "/personas/marketer.jpg";
 import operatorImg from "/personas/operator.jpg";
 import professionalImg from "/personas/professional.jpg";
 
+interface WhoIsForProps {
+  onOpenModal: () => void;
+}
+
 const personas = [
   {
     title: "The Founder",
