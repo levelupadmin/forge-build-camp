@@ -173,7 +173,7 @@ const VennDiagram = () => {
                 strokeWidth={1.2}
                 initial={{ opacity: 0, scale: 0.6 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
+                viewport={{ once: false, amount: 0.3 }}
                 transition={{ duration: 0.8, delay: i * 0.4, ease: "easeOut" }}
                 style={{ transformOrigin: `${mcx + pos.x * moffset}px ${mcy + pos.y * moffset + 8}px` }}
               />
