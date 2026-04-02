@@ -50,7 +50,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
           {/* Coming Soon Badge */}
           <div className="absolute top-4 right-4">
             <span className="bg-primary text-primary-foreground text-[10px] uppercase tracking-[0.15em] font-semibold px-3 py-1.5 rounded-full">
-              Coming Soon
+              EARLY BIRD OPEN
             </span>
           </div>
 
