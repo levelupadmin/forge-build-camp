@@ -2,6 +2,10 @@ import { motion } from "framer-motion";
 import { Box, Workflow, Film, Users, Brain, Rocket } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
 
+interface OutcomesProps {
+  onOpenModal: () => void;
+}
+
 import outcomeProduct from "@/assets/outcome-product.jpg";
 import outcomeAutomation from "@/assets/outcome-automation.jpg";
 import outcomeContent from "@/assets/outcome-content.jpg";
