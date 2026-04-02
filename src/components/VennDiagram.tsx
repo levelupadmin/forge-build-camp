@@ -4,7 +4,7 @@ import SectionWrapper from "./SectionWrapper";
 const narratives = [
   {
     label: "Learning",
-    description: "AI moves fast. We give you the frameworks, tools, and mental models to not just keep up — but lead.",
+    description: "AI moves fast. We give you the frameworks, tools, and mental models to not just keep up, but lead.",
   },
   {
     label: "Networking",
@@ -12,7 +12,7 @@ const narratives = [
   },
   {
     label: "Building",
-    description: "Theory without execution is noise. You ship real products, automations, and content — every single day.",
+    description: "Theory without execution is noise. You ship real products, automations, and content, every single day.",
   },
 ];
 

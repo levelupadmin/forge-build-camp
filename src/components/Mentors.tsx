@@ -21,7 +21,7 @@ const mentors = [
     photo: mentorVaibhav,
     role: "n8n Bangalore Ambassador | IIM A | IIT D",
     bullets: [
-      "Official n8n Ambassador — builds AI-powered automation workflows",
+      "Official n8n Ambassador, builds AI-powered automation workflows",
       "IIM Ahmedabad & IIT Delhi alumnus",
       "Runs YouTube channel (AI with VK) teaching AI agents & automation",
       "Leads \"Human AI Collab\" community of 280+ AI practitioners",
@@ -34,7 +34,7 @@ const mentors = [
     role: "Artist | Founder | Creator",
     bullets: [
       "Founder of creative agency Millennial Labs (500+ brands served)",
-      "LinkedIn Design Top Voice — AI-powered creative workflows",
+      "LinkedIn Design Top Voice, AI-powered creative workflows",
       "Uses Midjourney, AI + Photoshop for commercial visual campaigns",
       "Redefining brand storytelling through AI-augmented design",
     ],
@@ -45,8 +45,8 @@ const mentors = [
     photo: mentorSabilashan,
     role: "Ambassador @ Lovable | Country Lead @ Perplexity",
     bullets: [
-      "Country Lead at Perplexity AI — frontier of AI search products",
-      "Ambassador at Lovable — ships AI-built products rapidly",
+      "Country Lead at Perplexity AI, frontier of AI search products",
+      "Ambassador at Lovable, ships AI-built products rapidly",
       "Head of Product at STEM Link; AI strategy at Amor",
       "BASIS AI Fellow & Harvard-nominated innovator in AI education",
     ],
@@ -57,7 +57,7 @@ const mentors = [
     photo: mentorRahul,
     role: "Founder | Storyteller",
     bullets: [
-      "Founder of LevelUp Learning — India's largest creative education ecosystem",
+      "Founder of LevelUp Learning, India's largest creative education ecosystem",
       "Built & scaled residential programs across filmmaking, AI & creative tech",
       "Runs India's largest filmmaking community with 300,000+ members",
       "Producer of India's biggest short film Chapter Zero LCU",

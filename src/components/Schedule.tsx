@@ -13,49 +13,49 @@ import imgDay9 from "@/assets/schedule-day9.jpg";
 const scheduleData = [
   {
     label: "Online Prep",
-    title: "Online Prep — 5 Sessions Before You Arrive",
+    title: "Online Prep: 5 Sessions Before You Arrive",
     image: imgOnlinePrep,
     desc: "Before you touch a single tool on-site, you'll complete five focused sessions that get you fully ready:",
     bullets: [
-      "The AI Mindset — understand how AI actually thinks",
-      "Prompting & Context Engineering — talk to AI and get useful output every time",
-      "AI & Business Thinking — map your business and find the stuck lever",
-      "What Good Looks Like — real outputs from real people like you",
-      "Pre-Arrival Alignment — what to expect day by day",
+      "The AI Mindset: understand how AI actually thinks",
+      "Prompting & Context Engineering: talk to AI and get useful output every time",
+      "AI & Business Thinking: map your business and find the stuck lever",
+      "What Good Looks Like: real outputs from real people like you",
+      "Pre-Arrival Alignment: what to expect day by day",
     ],
     outcome: "You arrive sharp, aligned, and ready to build from Day 1.",
   },
   {
     label: "DAY 01",
-    title: "Day 1 — Arrive + Orient",
+    title: "Day 1: Arrive + Orient",
     image: imgDay1,
     desc: "Check in. Meet your group. Meet your mentors. Set your personal build goal.",
     outcome: "Your roadmap for the next 8 days.",
   },
   {
     label: "DAYS 02 + 03",
-    title: "Days 2 + 3 — AI Creativity Sprint",
+    title: "Days 2 + 3: AI Creativity Sprint",
     image: imgDays23,
     desc: "Full immersion in AI creative tools. Prompting, image generation, video creation, content workflows.",
-    outcome: "Your first AI creative output — an ad, reel, or short film.",
+    outcome: "Your first AI creative output: an ad, reel, or short film.",
   },
   {
     label: "DAYS 04 + 05",
-    title: "Days 4 + 5 — Automation Sprint",
+    title: "Days 4 + 5: Automation Sprint",
     image: imgDays45,
     desc: "Build your first automation. Connect your tools. Create a pipeline that saves you real time.",
     outcome: "One live automation running by the end of Day 5.",
   },
   {
     label: "DAYS 06, 07 + 08",
-    title: "Days 6, 7 + 8 — Product + Launch Sprint",
+    title: "Days 6, 7 + 8: Product + Launch Sprint",
     image: imgDays678,
     desc: "Build your MVP. Create a landing page. Set up a basic funnel. Daily mentor feedback sessions. Iterate fast.",
     outcome: "A working product and a funnel ready to test.",
   },
   {
     label: "DAY 09",
-    title: "Day 9 — Demo Day",
+    title: "Day 9: Demo Day",
     image: imgDay9,
     desc: "Present everything you built. Celebrate. Reflect. Leave with proof of work.",
     outcome: "Three real builds. One unforgettable experience.",
@@ -75,7 +75,7 @@ const Schedule = () => {
         The Gameplan
       </h2>
       <p className="text-[16px] text-muted-foreground text-center mb-10 md:mb-14 leading-relaxed max-w-[560px] mx-auto">
-        Before you arrive, you get access to a focused online prep series — short daily sessions so you land ready to build from Day 1.
+        Before you arrive, you get access to a focused online prep series. Short daily sessions so you land ready to build from Day 1.
       </p>
 
       {/* Hero Image */}
@@ -113,7 +113,7 @@ const Schedule = () => {
                     {item.label}
                   </span>
                   <span className={`font-bold text-[16px] md:text-[18px] transition-colors ${isOpen ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"}`}>
-                    {item.title.split(" — ")[1] || item.title}
+                    {item.title.split(": ")[1] || item.title}
                   </span>
                 </div>
                 <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${isOpen ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"}`}>
