@@ -71,7 +71,7 @@ const WhyAINow = () => {
   return (
     <SectionWrapper id="why-ai" label="WHY AI. WHY NOW." variant="dark">
       <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-4">
-        AI is not the Future.<br />
+        AI is not the future.<br />
         It is the&nbsp;Present.<br />
       </h2>
 
