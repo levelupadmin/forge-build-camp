@@ -5,7 +5,7 @@ import SectionWrapper from "./SectionWrapper";
 
 import imgDefault from "@/assets/schedule-default.jpg";
 import imgOnlinePrep from "@/assets/schedule-online-prep.png";
-import imgDay1 from "@/assets/schedule-day1.jpg";
+import imgDay1 from "@/assets/schedule-day1.png";
 import imgDays23 from "@/assets/schedule-days23.webp";
 import imgDays45 from "@/assets/schedule-days45.jpg";
 import imgDays678 from "@/assets/schedule-days678.jpg";
