@@ -1,24 +1,33 @@
 
 
-## Replace Pillar 02 Image
+## Redesign Testimonials Section (No Images)
 
-### Changes
+### Overview
+Remove all testimonial images and redesign the carousel cards to be visually striking using typography, color accents, and layout alone. Add location data to each testimonial for diversity context.
 
-1. **Copy uploaded image** to `public/pillars/pillar-02.jpg` (overwrite existing file)
-   - Source: `user-uploads://3-3.jpg`
-   - Destination: `public/pillars/pillar-02.jpg`
+### Data Changes
+Update testimonial objects: remove `image` field, add `location` field, fix Ananya's empty role.
 
-Wait — the user said "Pillar 03". Let me re-read: "Replace this image of the background image of Pillar section - Pillar 03"
+| Name | Role | Location |
+|------|------|----------|
+| Rishi Malhotra | Co-founder, Koda Labs | Mumbai |
+| Ananya Iyer | Freelance Designer | Chennai |
+| Kabir Sehgal | Founder, Blok Studio | Delhi |
+| Meera Nambiar | Brand Strategist, Swiggy | Bangalore |
+| Aryan Kapoor | Head of Operations, Vahan | Pune |
+| Priya Sood | Founder, The Copy Co. | Jaipur |
+| Vikram Nair | Senior Marketing Manager, CRED | Bangalore |
+| Shreya Bhatia | Founder, Mosaic Ventures | Mumbai |
 
-But Pillar 03 was just replaced with `3-2.jpg`. The user now wants to replace Pillar 03 again with this new image `3-3.jpg`.
+### Visual Design
+- Remove all image imports and the image block from cards
+- Card layout: large opening quotation mark (decorative, serif italic, primary color, ~80px), quote text prominently displayed, then attribution at bottom
+- Card gets a subtle gradient border or primary accent line on the left/top
+- Name in bold, role + company in muted foreground, location with a small map-pin icon or dot separator
+- Increase card max-width slightly to ~640px to let quotes breathe
+- Add a large decorative quote mark as a visual anchor (replaces the image as the visual element)
+- Keep the swipe/drag carousel and dot navigation as-is
 
-## Replace Pillar 03 Image
-
-### Changes
-
-1. **Copy uploaded image** to `public/pillars/pillar-03.jpg` (overwrite existing file)
-   - Source: `user-uploads://3-3.jpg`
-   - Destination: `public/pillars/pillar-03.jpg`
-
-No code changes needed since `Pillars.tsx` already imports from `/pillars/pillar-03.jpg`.
+### File Changes
+1. **`src/components/SocialProof.tsx`** -- Remove all image imports, update testimonial data with locations, redesign card markup (no image, add decorative quote mark, attribution with location)
 
