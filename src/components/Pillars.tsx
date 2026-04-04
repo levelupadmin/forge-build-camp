@@ -140,7 +140,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
 
         {/* Content */}
         <div className="text-center">
-          <span className="inline-block font-mono text-[11px] text-primary uppercase tracking-wider mb-2">
+          <span className="inline-block text-primary uppercase tracking-wider mb-2 font-sans text-base">
             {pillars[activeIndex].tag}
           </span>
           <h3 className="font-bold text-[30px] leading-[1.1] mb-3 text-foreground">
