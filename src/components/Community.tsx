@@ -1,19 +1,17 @@
 import SectionWrapper from "./SectionWrapper";
 
-import imgCollab from "@/assets/community-collab.jpg";
-import imgMeetup from "@/assets/community-meetup.jpg";
-import imgNetwork from "@/assets/community-network.jpg";
-import imgDemoday from "@/assets/community-demoday.jpg";
-import imgDinner from "@/assets/community-dinner.jpg";
-import imgTravel from "@/assets/community-travel.jpg";
+import imgMentors from "@/assets/community-mentors.jpg";
+import imgLectures from "@/assets/community-lectures.jpg";
+import imgExperiences from "@/assets/community-experiences.jpg";
+import imgCelebrates from "@/assets/community-celebrates.jpg";
+import imgMeetups from "@/assets/community-meetups.jpg";
 
 const cards = [
-  { image: imgCollab, label: "Build\nWorkshops" },
-  { image: imgMeetup, label: "Offline\nCommunity Meet-ups" },
-  { image: imgNetwork, label: "Networking\nEvents" },
-  { image: imgDemoday, label: "Demo Day\nPresentations" },
-  { image: imgDinner, label: "Batch\nDinners" },
-  { image: imgTravel, label: "Group\nAdventures" },
+  { image: imgMentors, label: "Work with\nour Mentors" },
+  { image: imgLectures, label: "Online\nGuest Lectures" },
+  { image: imgExperiences, label: "Offline Learning\nExperiences" },
+  { image: imgCelebrates, label: "A Community that\nCelebrates You" },
+  { image: imgMeetups, label: "Offline Community\nMeet-ups" },
 ];
 
 interface CommunityProps {
