@@ -55,7 +55,7 @@ const Footer = () => {
             </div>
 
             <div>
-              <p className="text-[11px] text-muted-foreground/50 uppercase font-semibold tracking-[0.15em] mb-4">Connect</p>
+              <p className="text-[11px] text-muted-foreground/50 uppercase font-semibold tracking-[0.15em] mb-4 text-slate-100">Connect</p>
               <div className="flex flex-col gap-2.5">
                 {footerLinks.connect.map((l) => (
                   <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors">
