@@ -1,7 +1,5 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Play } from "lucide-react";
-import { useState } from "react";
 import SectionWrapper from "./SectionWrapper";
 import forgeLogoBlack from "@/assets/forge-ai-logo.png";
 
