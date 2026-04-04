@@ -21,7 +21,7 @@ const Hero = ({ onOpenModal }: HeroProps) => {
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-90 scale-110"
+          className="absolute inset-0 w-full h-full object-cover opacity-90 scale-110 md:object-center object-[50%_30%]"
           poster=""
         >
           <source src="/hero-bg.mp4" type="video/mp4" />
