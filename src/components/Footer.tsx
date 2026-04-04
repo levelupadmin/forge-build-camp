@@ -36,7 +36,7 @@ const Footer = () => {
             <img src={levelupLogoDark} alt="LevelUp Learning" className="h-6 mb-4" />
             <img src={forgeLogoBlack} alt="Forge AI Residency" className="h-10 md:h-12 invert mt-3" />
             <p className="text-primary text-[15px] font-medium mt-1">Learn AI by Building with AI.</p>
-            <p className="text-[14px] text-muted-foreground mt-3 max-w-[360px] leading-relaxed">
+            <p className="text-[14px] text-muted-foreground mt-3 max-w-[360px] leading-relaxed text-slate-100">
               A 9-day residential program for founders, marketers, and operators who want to stop watching AI happen and start building with it.
             </p>
           </div>
@@ -44,7 +44,7 @@ const Footer = () => {
           {/* Right — Link columns */}
           <div className="grid grid-cols-2 gap-8">
             <div>
-              <p className="text-[11px] text-muted-foreground/50 uppercase font-semibold tracking-[0.15em] mb-4">Program</p>
+              <p className="text-[11px] text-muted-foreground/50 uppercase font-semibold tracking-[0.15em] mb-4 text-slate-100">Program</p>
               <div className="flex flex-col gap-2.5">
                 {footerLinks.program.map((l) => (
                   <a key={l.label} href={l.href} className="text-[14px] text-muted-foreground hover:text-foreground transition-colors">
@@ -55,7 +55,7 @@ const Footer = () => {
             </div>
 
             <div>
-              <p className="text-[11px] text-muted-foreground/50 uppercase font-semibold tracking-[0.15em] mb-4">Connect</p>
+              <p className="text-[11px] text-muted-foreground/50 uppercase font-semibold tracking-[0.15em] mb-4 text-slate-100">Connect</p>
               <div className="flex flex-col gap-2.5">
                 {footerLinks.connect.map((l) => (
                   <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer" className="text-[14px] text-muted-foreground hover:text-foreground transition-colors">
