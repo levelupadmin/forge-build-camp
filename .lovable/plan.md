@@ -1,15 +1,12 @@
 
 
-## Fix LogoStrip Faded Appearance
+## Replace Pillar 01 Image
 
-The logos look faded due to two things:
-1. **Image opacity** set to `opacity-80` (line 43) — should be `opacity-100`
-2. **Text opacity** set to `text-foreground/50` (line 45) — should be `text-foreground/70` or higher
+### Changes
 
-### Changes in `src/components/LogoStrip.tsx`
+1. **Copy uploaded image** to `public/pillars/pillar-01.jpg` (overwrite existing file)
+   - Source: `user-uploads://3.jpg`
+   - Destination: `public/pillars/pillar-01.jpg`
 
-- Line 43: Change `opacity-80` → remove it (full opacity)
-- Line 45: Change `text-foreground/50` → `text-foreground/70`
-
-This will make logos fully visible and text labels more readable while still keeping a subtle, non-distracting feel.
+No code changes needed since `Pillars.tsx` already imports from `/pillars/pillar-01.jpg`.
 
