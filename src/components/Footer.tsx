@@ -44,7 +44,7 @@ const Footer = () => {
           {/* Right — Link columns */}
           <div className="grid grid-cols-2 gap-8">
             <div>
-              <p className="text-[11px] text-muted-foreground/50 uppercase font-semibold tracking-[0.15em] mb-4">Program</p>
+              <p className="text-[11px] text-muted-foreground/50 uppercase font-semibold tracking-[0.15em] mb-4 text-slate-100">Program</p>
               <div className="flex flex-col gap-2.5">
                 {footerLinks.program.map((l) => (
                   <a key={l.label} href={l.href} className="text-[14px] text-muted-foreground hover:text-foreground transition-colors">
