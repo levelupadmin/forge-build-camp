@@ -61,7 +61,6 @@ const ScrollWord = ({
 };
 
 const WhatIsForge = () => {
-  const [playing, setPlaying] = useState(false);
 
   return (
     <SectionWrapper id="what-is-forge">
