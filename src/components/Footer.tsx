@@ -36,7 +36,7 @@ const Footer = () => {
             <img src={levelupLogoDark} alt="LevelUp Learning" className="h-6 mb-4" />
             <img src={forgeLogoBlack} alt="Forge AI Residency" className="h-10 md:h-12 invert mt-3" />
             <p className="text-primary text-[15px] font-medium mt-1">Learn AI by Building with AI.</p>
-            <p className="text-[14px] text-muted-foreground mt-3 max-w-[360px] leading-relaxed">
+            <p className="text-[14px] text-muted-foreground mt-3 max-w-[360px] leading-relaxed text-slate-100">
               A 9-day residential program for founders, marketers, and operators who want to stop watching AI happen and start building with it.
             </p>
           </div>
