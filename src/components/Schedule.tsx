@@ -9,7 +9,7 @@ import imgDay1 from "@/assets/schedule-day1.png";
 import imgDays23 from "@/assets/schedule-days23.webp";
 import imgDays45 from "@/assets/schedule-days45.jpg";
 import imgDays678 from "@/assets/schedule-days678.jpg";
-import imgDay9 from "@/assets/schedule-day9.jpg";
+import imgDay9 from "@/assets/schedule-day9.webp";
 interface ScheduleItem {
   label: string;
   title: string;
