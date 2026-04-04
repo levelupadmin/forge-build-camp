@@ -107,7 +107,7 @@ const Outcomes = ({ onOpenModal }: OutcomesProps) => {
                   <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center">
                     <o.icon className="text-primary" size={18} />
                   </div>
-                  <span className="text-primary font-mono text-[11px] uppercase tracking-[0.15em] font-semibold">
+                  <span className="text-primary text-[11px] uppercase tracking-[0.15em] font-semibold font-sans">
                     Outcome {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
