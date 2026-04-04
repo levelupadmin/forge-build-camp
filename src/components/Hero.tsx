@@ -70,7 +70,7 @@ const Hero = ({ onOpenModal }: HeroProps) => {
         </div>
 
         <p className="mt-3 text-[11px] tracking-[0.12em] uppercase" style={{ color: 'rgba(255,255,255,0.85)' }}>
-          Block 1 of 20 invites
+          NO CODING EXPERIENCE REQUIRED
         </p>
       </motion.div>
     </section>
