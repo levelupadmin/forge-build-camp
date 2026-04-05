@@ -102,7 +102,7 @@ const WhatIsForge = () => {
         >
           <div className="relative rounded-2xl overflow-hidden border border-foreground/[0.08] shadow-lg">
             <img
-              src="/337d79e9-f19c-4808-a8a2-b7658fc3faae.jpg"
+              src="/b0143e0c-7de5-43e5-909b-c14400bad77f.jpg"
               alt="Forge AI Residency group photo"
               className="w-full h-auto object-cover"
               loading="lazy"
