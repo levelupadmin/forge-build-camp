@@ -8,7 +8,7 @@ interface OutcomesProps {
 
 import outcomeProduct from "@/assets/2e22c1e7-d613-4897-84a2-4783a9591a9d.png";
 import outcomeAutomation from "@/assets/9b52020a-7e98-4938-b652-f587cb24fd35.png";
-import outcomeContent from "@/assets/outcome-content.jpg";
+import outcomeContent from "@/assets/7729dfc9-8472-4b35-90a7-f8d61dbc9814.png";
 import outcomeNetwork from "@/assets/outcome-network.jpg";
 import outcomeMuscle from "@/assets/outcome-muscle.jpg";
 import outcomeHeadstart from "@/assets/outcome-headstart.jpg";
@@ -90,7 +90,7 @@ const Outcomes = ({ onOpenModal }: OutcomesProps) => {
                     loading="lazy"
                     width={960}
                     height={640}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover mx-0 px-0 py-0 pb-0 pr-0 pl-[2px]"
                   />
                 </div>
               </motion.div>
