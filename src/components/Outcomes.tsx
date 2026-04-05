@@ -6,8 +6,8 @@ interface OutcomesProps {
   onOpenModal: () => void;
 }
 
-import outcomeProduct from "@/assets/27b2c116-ed78-4379-b252-aed104a1fd98.jpg";
-import outcomeAutomation from "@/assets/b0e499b9-50d0-4713-a1e9-f7326f48d771.jpg";
+import outcomeProduct from "@/assets/2e22c1e7-d613-4897-84a2-4783a9591a9d.png";
+import outcomeAutomation from "@/assets/9b52020a-7e98-4938-b652-f587cb24fd35.png";
 import outcomeContent from "@/assets/outcome-content.jpg";
 import outcomeNetwork from "@/assets/outcome-network.jpg";
 import outcomeMuscle from "@/assets/outcome-muscle.jpg";
