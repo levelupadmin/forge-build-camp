@@ -72,6 +72,21 @@ const Hero = ({ onOpenModal }: HeroProps) => {
         <p className="mt-3 text-[11px] tracking-[0.12em] uppercase" style={{ color: 'rgba(255,255,255,0.85)' }}>
           NO CODING EXPERIENCE REQUIRED
         </p>
+
+        {/* Perks Vault teaser pill */}
+        <button
+          onClick={() => document.getElementById('perks-vault')?.scrollIntoView({ behavior: 'smooth' })}
+          className="mt-6 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-md bg-white/[0.08] border border-white/20 hover:bg-white/[0.14] hover:border-white/30 transition-all group"
+        >
+          <span className="relative flex w-1.5 h-1.5">
+            <span className="absolute inline-flex h-full w-full rounded-full bg-[#3B82F6] opacity-75 animate-ping" />
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#3B82F6]" />
+          </span>
+          <span className="text-[11px] tracking-[0.1em] font-semibold text-white">
+            + $7.63M IN AI PERKS INCLUDED
+          </span>
+          <span className="text-white/50 text-[11px] group-hover:text-white/80 group-hover:translate-x-0.5 transition-all">↓</span>
+        </button>
       </motion.div>
     </section>
   );

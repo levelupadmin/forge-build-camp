@@ -8,13 +8,13 @@ interface PricingProps {
 }
 
 const inclusions = [
+  "AI Perks Vault ($7.63M+ in credits, 210 tools — lifetime access)",
   "Residential stay on double occupancy",
   "All meals throughout the program",
   "All three tracks: Generative AI, Automations, Product Building",
   "Expert faculty throughout the residency",
   "Curated experiences during the program",
   "Community access after the program",
-  "Perks from partner brands",
   "The Forge AI Goodie Bag",
   "Demo Day on Day 9",
 ];
