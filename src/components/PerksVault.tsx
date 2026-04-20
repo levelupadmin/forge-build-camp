@@ -15,9 +15,12 @@ interface Perk {
   featuredOnTop: boolean;
   approvalIndex: string;
   logoUrl: string;
+  regions: string[];
 }
 
-const ALL_PERKS = perksData as Perk[];
+// Vault positioning reflects India-default (what every Forge resident gets by default).
+// US-only perks are only surfaced inside the directory behind the region switch.
+const ALL_PERKS = (perksData as Perk[]).filter((p) => p.regions.includes("IN"));
 const TOTAL_CREDITS = ALL_PERKS.reduce((s, p) => s + p.creditsNumeric, 0);
 const CATEGORIES = new Set(ALL_PERKS.map((p) => p.category)).size;
 

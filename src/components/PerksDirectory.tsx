@@ -18,40 +18,55 @@ interface Perk {
   conditions: string;
   description: string;
   logoUrl: string;
+  regions: string[];
 }
 
 const ALL_PERKS = perksData as Perk[];
 const PAGE_SIZE = 12;
 
-// Build category list with counts, ordered by count desc.
-const categoryCounts = ALL_PERKS.reduce<Record<string, number>>((acc, p) => {
-  acc[p.category] = (acc[p.category] || 0) + 1;
-  return acc;
-}, {});
-const CATEGORIES: Array<{ label: string; count: number }> = [
-  { label: "All", count: ALL_PERKS.length },
-  ...Object.entries(categoryCounts)
-    .sort((a, b) => b[1] - a[1])
-    .map(([label, count]) => ({ label, count })),
-];
-
+type Region = "IN" | "US";
 type SortKey = "featured" | "credits" | "approval";
 
 const approvalScore = (a: string) => (a === "high" ? 3 : a === "average" ? 2 : 1);
+
+const inRegion = (p: Perk, r: Region) => p.regions.includes(r);
 
 interface PerksDirectoryProps {
   onUnlock: (perk: Perk) => void;
 }
 
 const PerksDirectory = ({ onUnlock }: PerksDirectoryProps) => {
+  const [region, setRegion] = useState<Region>("IN");
   const [activeCat, setActiveCat] = useState("All");
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState<SortKey>("featured");
   const [page, setPage] = useState(0);
 
+  // Region-scoped base pool + category counts re-derived per region.
+  const regionPool = useMemo(() => ALL_PERKS.filter((p) => inRegion(p, region)), [region]);
+  const categories = useMemo(() => {
+    const counts = regionPool.reduce<Record<string, number>>((acc, p) => {
+      acc[p.category] = (acc[p.category] || 0) + 1;
+      return acc;
+    }, {});
+    return [
+      { label: "All", count: regionPool.length },
+      ...Object.entries(counts)
+        .sort((a, b) => b[1] - a[1])
+        .map(([label, count]) => ({ label, count })),
+    ];
+  }, [regionPool]);
+
+  // If the active category drops to 0 in the new region, reset to "All".
+  const safeCat = useMemo(() => {
+    if (activeCat === "All") return "All";
+    const found = categories.find((c) => c.label === activeCat);
+    return found && found.count > 0 ? activeCat : "All";
+  }, [activeCat, categories]);
+
   const filtered = useMemo(() => {
-    let list = ALL_PERKS;
-    if (activeCat !== "All") list = list.filter((p) => p.category === activeCat);
+    let list = regionPool;
+    if (safeCat !== "All") list = list.filter((p) => p.category === safeCat);
     if (query.trim()) {
       const q = query.toLowerCase();
       list = list.filter(
@@ -71,7 +86,7 @@ const PerksDirectory = ({ onUnlock }: PerksDirectoryProps) => {
       });
     }
     return sorted;
-  }, [activeCat, query, sort]);
+  }, [regionPool, safeCat, query, sort]);
 
   const visibleCredits = filtered.reduce((s, p) => s + p.creditsNumeric, 0);
   const pageCount = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
@@ -90,6 +105,11 @@ const PerksDirectory = ({ onUnlock }: PerksDirectoryProps) => {
     setQuery(v);
     setPage(0);
   };
+  const onRegionChange = (r: Region) => {
+    setRegion(r);
+    setPage(0);
+  };
+
 
   return (
     <SectionWrapper id="perks-directory" label="THE CATALOG">
@@ -115,7 +135,7 @@ const PerksDirectory = ({ onUnlock }: PerksDirectoryProps) => {
               type="text"
               value={query}
               onChange={(e) => onQueryChange(e.target.value)}
-              placeholder={`Search ${ALL_PERKS.length} perks…`}
+              placeholder={`Search ${regionPool.length} perks…`}
               className="w-full bg-card border border-border rounded-full pl-10 pr-4 py-3 text-[14px] text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40 transition-all"
             />
           </div>
@@ -147,30 +167,68 @@ const PerksDirectory = ({ onUnlock }: PerksDirectoryProps) => {
           </div>
         </div>
 
-        {/* Category pills — horizontally scrollable on mobile */}
-        <div className="relative -mx-6 lg:mx-0">
-          <div className="flex gap-2 overflow-x-auto scrollbar-hide px-6 lg:px-0 pb-1">
-            {CATEGORIES.map((c) => (
+        {/* Region toggle + Category pills — region is sticky on the left */}
+        <div className="flex items-stretch gap-2">
+          {/* Region switch (fixed) */}
+          <div
+            role="tablist"
+            aria-label="Region filter"
+            className="flex shrink-0 items-center bg-card border border-border rounded-full p-1"
+          >
+            {([
+              { v: "IN" as const, flag: "🇮🇳", label: "India" },
+              { v: "US" as const, flag: "🇺🇸", label: "US" },
+            ]).map(({ v, flag, label }) => (
               <button
-                key={c.label}
-                onClick={() => onCatClick(c.label)}
-                className={`shrink-0 px-3.5 py-2 rounded-full text-[12px] font-semibold transition-colors border ${
-                  activeCat === c.label
-                    ? "bg-primary text-primary-foreground border-primary"
-                    : "bg-card text-muted-foreground border-border hover:text-foreground hover:border-foreground/20"
+                key={v}
+                role="tab"
+                aria-selected={region === v}
+                onClick={() => onRegionChange(v)}
+                className={`px-3 py-1.5 rounded-full text-[12px] font-semibold transition-colors whitespace-nowrap flex items-center gap-1.5 ${
+                  region === v
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                {c.label}{" "}
-                <span className={activeCat === c.label ? "opacity-70" : "opacity-50"}>
-                  {c.count}
+                <span className="text-[13px] leading-none" aria-hidden>
+                  {flag}
                 </span>
+                <span>{label}</span>
               </button>
             ))}
           </div>
-          {/* Edge fades */}
-          <div className="pointer-events-none absolute top-0 bottom-0 left-0 w-6 bg-gradient-to-r from-background to-transparent lg:hidden" />
-          <div className="pointer-events-none absolute top-0 bottom-0 right-0 w-6 bg-gradient-to-l from-background to-transparent lg:hidden" />
+
+          {/* Category pills — horizontally scrollable */}
+          <div className="relative flex-1 min-w-0">
+            <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-1">
+              {categories.map((c) => (
+                <button
+                  key={c.label}
+                  onClick={() => onCatClick(c.label)}
+                  className={`shrink-0 px-3.5 py-2 rounded-full text-[12px] font-semibold transition-colors border ${
+                    safeCat === c.label
+                      ? "bg-primary text-primary-foreground border-primary"
+                      : "bg-card text-muted-foreground border-border hover:text-foreground hover:border-foreground/20"
+                  }`}
+                >
+                  {c.label}{" "}
+                  <span className={safeCat === c.label ? "opacity-70" : "opacity-50"}>
+                    {c.count}
+                  </span>
+                </button>
+              ))}
+            </div>
+            {/* Right-edge fade when scrollable */}
+            <div className="pointer-events-none absolute top-0 bottom-0 right-0 w-6 bg-gradient-to-l from-background to-transparent" />
+          </div>
         </div>
+
+        {/* Region hint — only shown when user switches away from India default */}
+        {region === "US" && (
+          <p className="text-[12px] text-muted-foreground font-mono tracking-[0.1em] uppercase flex items-center gap-1.5">
+            <span aria-hidden>🇺🇸</span> Showing full catalog incl. US-only perks (Mercury, Brex, Ramp, Carta, etc.)
+          </p>
+        )}
       </div>
 
       {/* Results meta */}
@@ -193,7 +251,7 @@ const PerksDirectory = ({ onUnlock }: PerksDirectoryProps) => {
       {/* Grid */}
       <AnimatePresence mode="wait">
         <motion.div
-          key={`${activeCat}-${sort}-${query}-${safePage}`}
+          key={`${region}-${safeCat}-${sort}-${query}-${safePage}`}
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
