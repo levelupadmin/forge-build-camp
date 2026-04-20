@@ -13,8 +13,8 @@ const givens = [
   { label: "Three expert-led tracks", sub: "Generative AI · Automations · Product Building" },
   { label: "Mentor access + Demo Day", sub: "Working builders, not lecturers" },
   {
-    label: "AI Perks Vault — $7,739,956+ in credits",
-    sub: "220 tools, 19 categories. Lifetime access. Updated weekly.",
+    label: "AI Perks Vault — $7,627,856+ in credits",
+    sub: "210 tools curated for Indian founders. Lifetime access. Updated weekly.",
     emphasize: true,
   },
 ];
@@ -130,7 +130,7 @@ const ValueMath = ({ onOpenModal }: ValueMathProps) => {
           The headline
         </p>
         <p className="font-bold text-foreground text-[22px] md:text-[32px] leading-[1.25] tracking-[-0.015em]">
-          ₹1,20,000 in. <span className="text-primary">Up to $7.74M</span> back in AI credits.{" "}
+          ₹1,20,000 in. <span className="text-primary">Up to $7.63M</span> back in AI credits.{" "}
           <br className="hidden md:block" />
           <span className="font-serif italic text-muted-foreground" style={{ fontWeight: 500 }}>
             Plus everything else.

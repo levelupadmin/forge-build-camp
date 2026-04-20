@@ -40,10 +40,10 @@ type SortKey = "featured" | "credits" | "approval";
 const approvalScore = (a: string) => (a === "high" ? 3 : a === "average" ? 2 : 1);
 
 interface PerksDirectoryProps {
-  onOpenModal: () => void;
+  onUnlock: (perk: Perk) => void;
 }
 
-const PerksDirectory = ({ onOpenModal }: PerksDirectoryProps) => {
+const PerksDirectory = ({ onUnlock }: PerksDirectoryProps) => {
   const [activeCat, setActiveCat] = useState("All");
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState<SortKey>("featured");
@@ -115,7 +115,7 @@ const PerksDirectory = ({ onOpenModal }: PerksDirectoryProps) => {
               type="text"
               value={query}
               onChange={(e) => onQueryChange(e.target.value)}
-              placeholder="Search 220 perks…"
+              placeholder={`Search ${ALL_PERKS.length} perks…`}
               className="w-full bg-card border border-border rounded-full pl-10 pr-4 py-3 text-[14px] text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40 transition-all"
             />
           </div>
@@ -205,7 +205,7 @@ const PerksDirectory = ({ onOpenModal }: PerksDirectoryProps) => {
               No perks match that.
             </div>
           ) : (
-            pageItems.map((p) => <PerkCard key={p.company + p.credits} perk={p} onUnlock={onOpenModal} />)
+            pageItems.map((p) => <PerkCard key={p.company + p.credits} perk={p} onUnlock={() => onUnlock(p)} />)
           )}
         </motion.div>
       </AnimatePresence>

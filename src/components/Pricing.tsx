@@ -8,7 +8,7 @@ interface PricingProps {
 }
 
 const inclusions = [
-  "AI Perks Vault ($7.74M+ in credits, 220 tools — lifetime access)",
+  "AI Perks Vault ($7.63M+ in credits, 210 tools — lifetime access)",
   "Residential stay on double occupancy",
   "All meals throughout the program",
   "All three tracks: Generative AI, Automations, Product Building",

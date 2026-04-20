@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import LogoStrip from "@/components/LogoStrip";
@@ -18,11 +19,13 @@ import Pricing from "@/components/Pricing";
 import FAQs from "@/components/FAQs";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
+import PerkUnlockModal, { type ModalPerk } from "@/components/PerkUnlockModal";
 
 const TALLY_URL = "https://tally.so/r/kdWEXR";
 
 const Index = () => {
   const openTally = () => window.open(TALLY_URL, "_blank", "noopener,noreferrer");
+  const [unlockPerk, setUnlockPerk] = useState<ModalPerk | null>(null);
 
   return (
     <div className="min-h-screen bg-background">
@@ -35,8 +38,8 @@ const Index = () => {
       <WhoIsFor onOpenModal={openTally} />
       <Pillars onOpenModal={openTally} />
       <Outcomes onOpenModal={openTally} />
-      <PerksVault onOpenModal={openTally} />
-      <PerksDirectory onOpenModal={openTally} />
+      <PerksVault onOpenModal={openTally} onUnlock={setUnlockPerk} />
+      <PerksDirectory onUnlock={setUnlockPerk} />
       <VennDiagram />
       <Schedule />
       <Mentors />
@@ -47,6 +50,11 @@ const Index = () => {
       <FAQs />
       <FinalCTA onOpenModal={openTally} />
       <Footer />
+      <PerkUnlockModal
+        perk={unlockPerk}
+        onClose={() => setUnlockPerk(null)}
+        onRequestInvite={openTally}
+      />
     </div>
   );
 };

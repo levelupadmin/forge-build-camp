@@ -22,24 +22,26 @@ const TOTAL_CREDITS = ALL_PERKS.reduce((s, p) => s + p.creditsNumeric, 0);
 const CATEGORIES = new Set(ALL_PERKS.map((p) => p.category)).size;
 
 // Top 9 featured — modeled on getaiperks.com's editorial selection.
-// Skews toward AI tools + partner-curated perks most relevant to Forge builders.
-const FEATURED_9 = [
-  "Claude (via Partner)",
-  "OpenAI (via partner)",
-  "Gemini",
-  "ElevenLabs",
-  "Anthropic (via Partner)",
-  "Manus AI",
-  "Apollo.io",
-  "Framer",
-  "Atlassian",
+// Skews toward AI tools most relevant to Forge builders + curated for Indian founders
+// (US-only perks like OpenAI-via-partner, Mercury, Ramp, Carta intentionally excluded).
+const FEATURED_9: Array<{ company: string; creditsMatch?: string }> = [
+  { company: "Claude (via Partner)" },
+  { company: "Gemini" },
+  { company: "OpenAI", creditsMatch: "$1,200" },
+  { company: "ElevenLabs" },
+  { company: "Anthropic (via Partner)" },
+  { company: "Perplexity" },
+  { company: "Apollo.io" },
+  { company: "Framer" },
+  { company: "Notion" },
 ];
 
 interface PerksVaultProps {
   onOpenModal: () => void;
+  onUnlock: (perk: Perk) => void;
 }
 
-const PerksVault = ({ onOpenModal }: PerksVaultProps) => {
+const PerksVault = ({ onOpenModal, onUnlock }: PerksVaultProps) => {
   const counterRef = useRef<HTMLSpanElement>(null);
   const inView = useInView(counterRef, { once: true, margin: "-100px" });
   const mv = useMotionValue(0);
@@ -55,9 +57,9 @@ const PerksVault = ({ onOpenModal }: PerksVaultProps) => {
     return () => controls.stop();
   }, [inView, mv]);
 
-  const featured = FEATURED_9.map((name) => ALL_PERKS.find((p) => p.company === name)).filter(
-    (p): p is Perk => !!p,
-  );
+  const featured = FEATURED_9.map(({ company, creditsMatch }) =>
+    ALL_PERKS.find((p) => p.company === company && (creditsMatch ? p.credits === creditsMatch : true)),
+  ).filter((p): p is Perk => !!p);
 
   const scrollToDirectory = () => {
     document.getElementById("perks-directory")?.scrollIntoView({ behavior: "smooth" });
@@ -74,7 +76,7 @@ const PerksVault = ({ onOpenModal }: PerksVaultProps) => {
         </h2>
         <p className="text-muted-foreground text-[16px] md:text-[18px] leading-relaxed max-w-[620px] mx-auto mb-10">
           Every Forge resident gets the AI Perks Vault. A live, growing library of credits,
-          discounts, and partner access — included with your seat. Lifetime.
+          discounts, and partner access — curated for Indian founders. Included with your seat. Lifetime.
         </p>
 
         {/* The Number — animated counter */}
@@ -107,7 +109,7 @@ const PerksVault = ({ onOpenModal }: PerksVaultProps) => {
         <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto">
           {[
             { icon: Layers, label: "Perks", value: ALL_PERKS.length.toString() },
-            { icon: TrendingUp, label: "Credits", value: "$7.74M+" },
+            { icon: TrendingUp, label: "Credits", value: "$7.63M+" },
             { icon: Sparkles, label: "Categories", value: CATEGORIES.toString() },
             { icon: Zap, label: "Updates", value: "Weekly" },
           ].map(({ icon: Icon, label, value }, i) => (
@@ -157,7 +159,7 @@ const PerksVault = ({ onOpenModal }: PerksVaultProps) => {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.45, delay: i * 0.04 }}
               className="glass-card-hover p-4 md:p-5 flex items-center gap-3 md:gap-4 group cursor-pointer"
-              onClick={scrollToDirectory}
+              onClick={() => onUnlock(p)}
             >
               <div className="sm:hidden">
                 <LogoTile company={p.company} logoUrl={p.logoUrl} size={40} />

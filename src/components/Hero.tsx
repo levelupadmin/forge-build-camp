@@ -83,7 +83,7 @@ const Hero = ({ onOpenModal }: HeroProps) => {
             <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#3B82F6]" />
           </span>
           <span className="text-[11px] tracking-[0.1em] font-semibold text-white">
-            + $7.74M IN AI PERKS INCLUDED
+            + $7.63M IN AI PERKS INCLUDED
           </span>
           <span className="text-white/50 text-[11px] group-hover:text-white/80 group-hover:translate-x-0.5 transition-all">↓</span>
         </button>
