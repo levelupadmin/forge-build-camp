@@ -7,11 +7,12 @@ import WhyAINow from "@/components/WhyAINow";
 import WhoIsFor from "@/components/WhoIsFor";
 import Pillars from "@/components/Pillars";
 import Outcomes from "@/components/Outcomes";
+import PerksVault from "@/components/PerksVault";
+import ValueMath from "@/components/ValueMath";
 import Schedule from "@/components/Schedule";
 import Mentors from "@/components/Mentors";
 import Community from "@/components/Community";
 import SocialProof from "@/components/SocialProof";
-import Pricing from "@/components/Pricing";
 import FAQs from "@/components/FAQs";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
@@ -32,12 +33,13 @@ const Index = () => {
       <WhoIsFor onOpenModal={openTally} />
       <Pillars onOpenModal={openTally} />
       <Outcomes onOpenModal={openTally} />
+      <PerksVault onOpenModal={openTally} />
       <VennDiagram />
       <Schedule />
       <Mentors />
       <Community onOpenModal={openTally} />
       <SocialProof />
-      <Pricing onOpenModal={openTally} />
+      <ValueMath onOpenModal={openTally} />
       <FAQs />
       <FinalCTA onOpenModal={openTally} />
       <Footer />
