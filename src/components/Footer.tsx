@@ -1,6 +1,6 @@
 import { ArrowUp } from "lucide-react";
-import levelupLogoDark from "@/assets/levelup-logo-dark.png";
-import forgeLogoBlack from "@/assets/1f0a731c-f3dc-4534-83b1-cb3eac7d878b.png";
+import levelupLogoWhite from "@/assets/levelup-logo.png";
+import forgeLogoWhite from "@/assets/forge-logo.png";
 
 const footerLinks = {
   program: [
@@ -28,8 +28,8 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 gap-12 md:gap-20">
           {/* Left — Brand */}
           <div>
-            <img src={levelupLogoDark} alt="LevelUp Learning" className="h-6 mb-4 invert" />
-            <img src={forgeLogoBlack} alt="Forge AI Residency" className="h-10 md:h-12 invert mt-3" />
+            <img src={levelupLogoWhite} alt="LevelUp Learning" className="h-6 mb-4" />
+            <img src={forgeLogoWhite} alt="Forge AI Residency" className="h-10 md:h-12 mt-3" />
             <p className="text-white text-[15px] font-medium mt-1">Learn AI by Building with AI.</p>
             <p className="text-white/60 text-[14px] mt-3 max-w-[360px] leading-relaxed">
               A 9-day residential program for founders, marketers, and operators who want to stop watching AI happen and start building with it.
