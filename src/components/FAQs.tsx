@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, X as XIcon } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
+import SectionHeading, { Accent } from "./SectionHeading";
 
 const faqs = [
   { q: "Who is this for?", a: "Founders, marketers, operators, and working professionals who want to build with AI. No coding background needed." },
@@ -22,10 +23,10 @@ const FAQs = () => {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <SectionWrapper id="faqs" label="FAQS">
-      <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-12">
-        Questions we get <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>asked a lot.</span>
-      </h2>
+    <SectionWrapper id="faqs">
+      <SectionHeading label="FAQS">
+        Questions we get <Accent>asked a lot.</Accent>
+      </SectionHeading>
 
       <div className="max-w-[680px] mx-auto">
         {faqs.map((f, i) => (

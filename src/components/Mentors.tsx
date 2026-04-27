@@ -1,14 +1,8 @@
-import { useState, useCallback, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Linkedin, Plus, X } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
-  type CarouselApi,
-} from "@/components/ui/carousel";
+import SectionHeading, { Accent } from "./SectionHeading";
 
 import mentorVaibhav from "@/assets/mentor-vaibhav.png";
 import mentorKevin from "@/assets/mentor-kevin.jpg";
@@ -19,7 +13,8 @@ const mentors = [
   {
     name: "Vaibhav Kejriwal",
     photo: mentorVaibhav,
-    role: "n8n Bangalore Ambassador | IIM A | IIT D",
+    role: "n8n Bangalore Ambassador",
+    sub: "IIM A · IIT D",
     bullets: [
       "Official n8n Ambassador, builds AI-powered automation workflows",
       "IIM Ahmedabad & IIT Delhi alumnus",
@@ -31,7 +26,8 @@ const mentors = [
   {
     name: "Kevin Adams",
     photo: mentorKevin,
-    role: "Artist | Founder | Creator",
+    role: "Artist · Founder · Creator",
+    sub: "LinkedIn Design Top Voice",
     bullets: [
       "Founder of creative agency Millennial Labs (500+ brands served)",
       "LinkedIn Design Top Voice, AI-powered creative workflows",
@@ -43,7 +39,8 @@ const mentors = [
   {
     name: "Sabilashan Ganeshan",
     photo: mentorSabilashan,
-    role: "Ambassador @ Lovable | Country Lead @ Perplexity",
+    role: "Country Lead @ Perplexity",
+    sub: "Ambassador @ Lovable",
     bullets: [
       "Country Lead at Perplexity AI, frontier of AI search products",
       "Ambassador at Lovable, ships AI-built products rapidly",
@@ -55,7 +52,8 @@ const mentors = [
   {
     name: "Rahul Reddy",
     photo: mentorRahul,
-    role: "Founder | Storyteller",
+    role: "Founder · Storyteller",
+    sub: "LevelUp Learning",
     bullets: [
       "Founder of LevelUp Learning, India's largest creative education ecosystem",
       "Built & scaled residential programs across filmmaking, AI & creative tech",
@@ -67,133 +65,176 @@ const mentors = [
 ];
 
 const Mentors = () => {
-  const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
-
-  const handleApi = useCallback((emblaApi: CarouselApi) => {
-    setApi(emblaApi);
-    if (emblaApi) {
-      emblaApi.on("select", () => setCurrent(emblaApi.selectedScrollSnap()));
-      setCurrent(emblaApi.selectedScrollSnap());
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!api) return;
-    setCurrent(api.selectedScrollSnap());
-    api.on("select", () => setCurrent(api.selectedScrollSnap()));
-  }, [api]);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <SectionWrapper id="mentors" label="YOUR MENTORS">
-      <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-4">
-        Learn from builders who use AI for a{" "}
-        <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>
-          Living
-        </span>
-      </h2>
+    <SectionWrapper id="mentors">
+      <SectionHeading
+        label="YOUR MENTORS"
+        description="Every mentor at the Forge is a practitioner of their craft. A working builder, a published creator, a full-time operator. Not a professor."
+      >
+        Learn from builders who use AI for a <Accent>living.</Accent>
+      </SectionHeading>
 
-      <p className="text-[16px] text-muted-foreground max-w-[520px] mx-auto text-center mb-12 leading-relaxed">
-        Every mentor at the Forge is a practitioner of their craft. A working builder, a published creator, a full-time operator. Not a professor.
-      </p>
+      {/* Editorial grid — 2 cols mobile, 4 cols desktop. Hover on desktop reveals bio inline; tap opens modal on mobile */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 max-w-[1100px] mx-auto">
+        {mentors.map((m, i) => {
+          return (
+            <motion.button
+              key={m.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              onClick={() => setOpenIndex(i)}
+              className="group relative text-left rounded-2xl overflow-hidden aspect-[3/4] md:aspect-[4/5] bg-foreground/5 border border-foreground/[0.06] hover:border-primary/30 transition-colors"
+            >
+              <img
+                src={m.photo}
+                alt={m.name}
+                loading="lazy"
+                width={512}
+                height={640}
+                className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
+              />
+              {/* Default gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent transition-opacity duration-300 md:group-hover:opacity-0" />
 
-      <div className="max-w-[900px] mx-auto">
-        <Carousel
-          opts={{ align: "center", loop: true, skipSnaps: false }}
-          setApi={handleApi}
-          className="w-full"
-        >
-          <CarouselContent className="-ml-2 md:-ml-4">
-            {mentors.map((m, i) => {
-              const isActive = i === current;
-              return (
-                <CarouselItem
-                  key={m.name}
-                  className="pl-2 md:pl-4 basis-[85%] md:basis-[35%] lg:basis-[30%]"
-                >
-                  <motion.div
-                    animate={{
-                      scale: isActive ? 1 : 0.85,
-                      opacity: isActive ? 1 : 0.5,
-                    }}
-                    transition={{ duration: 0.35, ease: "easeOut" }}
-                    className="bg-card border border-border rounded-2xl overflow-hidden shadow-sm flex flex-col cursor-pointer"
-                    onClick={() => api?.scrollTo(i)}
-                  >
-                    <div className="w-full aspect-[3/4] relative overflow-hidden">
-                      <img
-                        src={m.photo}
-                        alt={m.name}
-                        loading="lazy"
-                        width={512}
-                        height={640}
-                        className="w-full h-full object-cover object-top"
-                      />
-                    </div>
+              {/* Default: name + role */}
+              <div className="absolute inset-0 flex flex-col justify-end p-3 md:p-5 md:group-hover:opacity-0 transition-opacity duration-300">
+                <p className="font-mono text-[9px] md:text-[10px] tracking-[0.22em] uppercase text-primary-foreground/70 mb-1.5">
+                  {m.sub}
+                </p>
+                <p className="font-bold text-white text-[15px] md:text-[20px] leading-tight">
+                  {m.name}
+                </p>
+                <p className="text-white/75 text-[11px] md:text-[13px] leading-snug mt-1">
+                  {m.role}
+                </p>
+              </div>
 
-                    {isActive && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="p-5 flex flex-col"
+              {/* Hover (desktop): primary-blue curtain with bullet summary */}
+              <div className="hidden md:flex absolute inset-0 flex-col justify-between p-5 bg-primary/95 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div>
+                  <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-white/75 mb-1.5">
+                    {m.sub}
+                  </p>
+                  <p className="font-bold text-white text-[20px] leading-tight">{m.name}</p>
+                  <p className="text-white/85 text-[12px] mt-1.5 font-semibold">{m.role}</p>
+                  <ul className="mt-4 space-y-1.5">
+                    {m.bullets.slice(0, 3).map((b, j) => (
+                      <li
+                        key={j}
+                        className="text-white/90 text-[11.5px] leading-[1.45] flex items-start gap-1.5"
                       >
-                        <p className="font-bold text-[17px] text-foreground leading-tight text-center">
-                          {m.name}
-                        </p>
-                        <p className="text-[11px] text-primary font-semibold uppercase tracking-wider mt-1 text-center">
-                          {m.role}
-                        </p>
+                        <span className="mt-[6px] w-1 h-1 rounded-full bg-white shrink-0" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <span className="inline-flex items-center gap-1.5 text-white text-[11px] font-semibold uppercase tracking-[0.14em]">
+                  View full bio <Plus size={12} />
+                </span>
+              </div>
 
-                        <ul className="mt-4 space-y-2">
-                          {m.bullets.map((b, j) => (
-                            <li
-                              key={j}
-                              className="flex items-start gap-2 text-[13px] text-muted-foreground leading-snug"
-                            >
-                              <span className="mt-1.5 w-1 h-1 rounded-full bg-primary shrink-0" />
-                              {b}
-                            </li>
-                          ))}
-                        </ul>
+              {/* Plus icon — always visible on mobile, fades on desktop hover */}
+              <div className="absolute top-3 right-3 md:top-4 md:right-4 w-8 h-8 md:w-9 md:h-9 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 md:group-hover:opacity-0 transition-opacity">
+                <Plus size={16} className="text-white" />
+              </div>
+            </motion.button>
+          );
+        })}
+      </div>
 
-                        <a
-                          href={m.linkedin}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="mt-4 inline-flex items-center gap-1.5 text-[12px] text-primary hover:underline font-medium justify-center"
-                        >
-                          <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                          </svg>
-                          LinkedIn
-                        </a>
-                      </motion.div>
-                    )}
-                  </motion.div>
-                </CarouselItem>
-              );
-            })}
-          </CarouselContent>
-          <CarouselPrevious className="-left-4 md:-left-10" />
-          <CarouselNext className="-right-4 md:-right-10" />
-        </Carousel>
-
-        {/* Dot indicators */}
-        <div className="flex justify-center gap-2 mt-6">
-          {mentors.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => api?.scrollTo(i)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                i === current ? "bg-primary w-6" : "bg-muted-foreground/30"
-              }`}
-              aria-label={`Go to mentor ${i + 1}`}
-            />
-          ))}
+      {/* Credentials rail */}
+      <div className="mt-12 md:mt-16 max-w-[1100px] mx-auto">
+        <p className="text-center font-mono text-[10px] tracking-[0.28em] uppercase text-muted-foreground mb-5">
+          Built at · studied at · teaching at
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-x-6 md:gap-x-10 gap-y-3">
+          {["Perplexity", "Lovable", "n8n", "IIM Ahmedabad", "IIT Delhi", "Millennial Labs", "LevelUp Learning", "STEM Link"].map(
+            (org) => (
+              <span
+                key={org}
+                className="font-semibold text-[13px] md:text-[15px] text-foreground/70 tracking-tight"
+              >
+                {org}
+              </span>
+            ),
+          )}
         </div>
       </div>
+
+      {/* Modal-like expansion */}
+      <AnimatePresence>
+        {openIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setOpenIndex(null)}
+            className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 md:p-8"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.96 }}
+              transition={{ duration: 0.3 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative bg-background rounded-3xl w-full max-w-[640px] max-h-[90vh] overflow-y-auto shadow-2xl"
+            >
+              <button
+                onClick={() => setOpenIndex(null)}
+                className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-foreground/5 hover:bg-foreground/10 flex items-center justify-center"
+                aria-label="Close"
+              >
+                <X size={18} />
+              </button>
+              <div className="grid md:grid-cols-[240px_1fr]">
+                <div className="aspect-[3/4] md:aspect-auto md:min-h-[360px] relative overflow-hidden md:rounded-l-3xl">
+                  <img
+                    src={mentors[openIndex].photo}
+                    alt={mentors[openIndex].name}
+                    className="absolute inset-0 w-full h-full object-cover object-top"
+                  />
+                </div>
+                <div className="p-6 md:p-7">
+                  <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-primary/80 mb-2">
+                    {mentors[openIndex].sub}
+                  </p>
+                  <h3 className="font-bold text-[24px] md:text-[28px] leading-tight text-foreground">
+                    {mentors[openIndex].name}
+                  </h3>
+                  <p className="text-primary text-[13px] md:text-[14px] font-semibold mt-1">
+                    {mentors[openIndex].role}
+                  </p>
+                  <ul className="mt-5 space-y-2.5">
+                    {mentors[openIndex].bullets.map((b, j) => (
+                      <li
+                        key={j}
+                        className="flex items-start gap-2.5 text-[13px] md:text-[14px] text-muted-foreground leading-[1.55]"
+                      >
+                        <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href={mentors[openIndex].linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex items-center gap-2 text-[13px] text-primary hover:underline font-semibold"
+                  >
+                    <Linkedin size={15} />
+                    View LinkedIn
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </SectionWrapper>
   );
 };

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
+import SectionHeading, { Accent } from "./SectionHeading";
 import { toolLogos } from "@/lib/toolLogos";
 import pillar01 from "/pillars/pillar-01.jpg";
 import pillar02 from "/pillars/pillar-02.jpg";
@@ -70,6 +71,8 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
 
   const startTimer = useCallback(() => {
     if (timerRef.current) clearInterval(timerRef.current);
+    // Disable auto-advance on mobile/touch — it's jarring while reading
+    if (typeof window !== "undefined" && window.matchMedia("(max-width: 768px)").matches) return;
     timerRef.current = setInterval(() => {
       if (!isPaused.current) {
         setActiveIndex((prev) => (prev + 1) % 3);
@@ -91,18 +94,15 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
   };
 
   return (
-    <SectionWrapper id="pillars" label="THE CORE" variant="dark">
-      <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-4">
-        Three{" "}
-        <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>
-          Pillars.
-        </span>{" "}
-        <br />
+    <SectionWrapper id="pillars" variant="dark">
+      <SectionHeading
+        label="THE CORE"
+        variant="dark"
+        description="Each pillar gives you real skills, real tools, and real output you take home."
+      >
+        Three <Accent>Pillars.</Accent> <br />
         Nine days.
-      </h2>
-      <p className="text-center text-muted-foreground text-base md:text-lg max-w-xl mx-auto mb-10">
-        Each pillar gives you real skills, real tools, and real output you take home.
-      </p>
+      </SectionHeading>
 
       {/* MOBILE: Image on top, content below */}
       <div className="md:hidden">

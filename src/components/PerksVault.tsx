@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useMotionValue, animate } from "framer-motion";
 import { Sparkles, TrendingUp, Layers, Zap, ArrowRight } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
+import SectionHeading, { Accent } from "./SectionHeading";
 import perksData from "@/data/perks.json";
 import { displayName } from "@/lib/perkUtils";
 
@@ -64,18 +65,14 @@ const PerksVault = ({ onOpenModal }: PerksVaultProps) => {
   ).filter((p): p is Perk => !!p);
 
   return (
-    <SectionWrapper id="perks-vault" label="THE VAULT">
+    <SectionWrapper id="perks-vault">
       <div className="text-center max-w-3xl mx-auto">
-        <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.06] tracking-[-0.025em] text-foreground mb-5">
-          Your invite unlocks{" "}
-          <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>
-            the vault.
-          </span>
-        </h2>
-        <p className="text-muted-foreground text-[16px] md:text-[18px] leading-relaxed max-w-[620px] mx-auto mb-10">
-          Every Forge resident gets the AI Perks Vault. A live, growing library of credits,
-          discounts, and partner access — curated for Indian founders. Included with your seat. Lifetime.
-        </p>
+        <SectionHeading
+          label="THE VAULT"
+          description="A curated, always-updating directory of grants, credits, discounts and partner offers that AI and startup tools publish for founders. We don't hand out credits — we show you every live offer worth claiming, who's most likely to approve you, and exactly how to apply. Access stays yours for life."
+        >
+          Your invite unlocks <Accent>the directory.</Accent>
+        </SectionHeading>
 
         {/* The Number — animated counter */}
         <motion.div
@@ -88,7 +85,7 @@ const PerksVault = ({ onOpenModal }: PerksVaultProps) => {
           <div className="absolute -inset-8 bg-primary/5 rounded-[40px] blur-2xl" aria-hidden />
           <div className="relative">
             <span className="block text-[11px] font-mono uppercase tracking-[0.2em] text-muted-foreground mb-3">
-              Total credits waiting
+              Total face value of offers tracked
             </span>
             <span
               ref={counterRef}
@@ -98,7 +95,7 @@ const PerksVault = ({ onOpenModal }: PerksVaultProps) => {
               ${display.toLocaleString("en-US")}
             </span>
             <span className="block mt-3 text-[13px] font-mono uppercase tracking-[0.2em] text-muted-foreground">
-              and counting · updated weekly
+              Across 210 partner programs · Directory updated weekly
             </span>
           </div>
         </motion.div>
@@ -106,10 +103,10 @@ const PerksVault = ({ onOpenModal }: PerksVaultProps) => {
         {/* Stat strip */}
         <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto">
           {[
-            { icon: Layers, label: "Perks", value: ALL_PERKS.length.toString() },
-            { icon: TrendingUp, label: "Credits", value: "$7.63M+" },
+            { icon: Layers, label: "Offers tracked", value: ALL_PERKS.length.toString() },
+            { icon: TrendingUp, label: "Face value", value: "$7.63M+" },
             { icon: Sparkles, label: "Categories", value: CATEGORIES.toString() },
-            { icon: Zap, label: "Updates", value: "Weekly" },
+            { icon: Zap, label: "Directory refresh", value: "Weekly" },
           ].map(({ icon: Icon, label, value }, i) => (
             <motion.div
               key={label}
@@ -137,7 +134,7 @@ const PerksVault = ({ onOpenModal }: PerksVaultProps) => {
           <div>
             <span className="section-label">FEATURED INSIDE</span>
             <h3 className="font-bold text-[22px] md:text-[28px] tracking-[-0.015em] text-foreground mt-2">
-              Nine of the ones you'll actually use.
+              Nine offers our residents apply to first.
             </h3>
           </div>
           <button
@@ -191,8 +188,9 @@ const PerksVault = ({ onOpenModal }: PerksVaultProps) => {
       {/* Legitimacy line */}
       <div className="mt-14 md:mt-20 max-w-2xl mx-auto text-center">
         <p className="text-muted-foreground text-[14px] md:text-[15px] leading-relaxed">
-          Names, values, and approval rates are public so you can see exactly what you're getting.{" "}
-          <span className="text-foreground">The claim links and referral codes are gated behind your invite.</span>
+          Every offer in the directory comes from the partner program itself — we don't issue or resell credits.{" "}
+          <span className="text-foreground">We track what's live, rate your odds of approval, and give you the exact application playbook.</span>{" "}
+          Approval is always at the partner's discretion.
         </p>
         <button
           onClick={onOpenModal}

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Box, Workflow, Film, Users, Brain, Rocket } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
+import SectionHeading, { Accent } from "./SectionHeading";
 
 interface OutcomesProps {
   onOpenModal: () => void;
@@ -9,159 +10,175 @@ interface OutcomesProps {
 import outcomeProduct from "@/assets/2e22c1e7-d613-4897-84a2-4783a9591a9d.png";
 import outcomeAutomation from "@/assets/9b52020a-7e98-4938-b652-f587cb24fd35.png";
 import outcomeContent from "@/assets/7729dfc9-8472-4b35-90a7-f8d61dbc9814.png";
-import outcomeNetwork from "@/assets/outcome-network.jpg";
-import outcomeMuscle from "@/assets/outcome-muscle.jpg";
-import outcomeHeadstart from "@/assets/outcome-headstart.jpg";
 
 const heroOutcomes = [
   {
+    number: "01",
     icon: Box,
+    kicker: "Deliverable One",
     title: "A Working Product",
     desc: "Built on a vibe coding platform. A landing page, a website, or a mini funnel setup you can show someone today.",
     image: outcomeProduct,
   },
   {
+    number: "02",
     icon: Workflow,
+    kicker: "Deliverable Two",
     title: "A Live Automation",
     desc: "A workflow running without you, supported by AI agents. Saves you and your team hours every single week.",
     image: outcomeAutomation,
   },
   {
+    number: "03",
     icon: Film,
+    kicker: "Deliverable Three",
     title: "An AI Content System",
     desc: "A repeatable process for content, visuals, and video. A pack created by you with just your words and creativity.",
     image: outcomeContent,
   },
 ];
 
-const compactOutcomes = [
+const softOutcomes = [
   {
     icon: Users,
-    title: "A Network",
-    desc: "A community of like-minded founders, operators, and builders you can depend on even after the program.",
-    image: outcomeNetwork,
+    stat: "20",
+    label: "Serious builders",
+    sub: "in your lifetime cohort",
   },
   {
     icon: Brain,
-    title: "The Muscle Memory",
-    desc: "You have built with AI under pressure. Now you have the skillset to build anything back home.",
-    image: outcomeMuscle,
+    stat: "9 days",
+    label: "Building under pressure",
+    sub: "the skill is yours forever",
   },
   {
     icon: Rocket,
-    title: "A Head Start",
-    desc: "The mindset and confidence to build with AI for the future.",
-    image: outcomeHeadstart,
+    stat: "∞",
+    label: "Head start",
+    sub: "on the next five years",
   },
 ];
 
 const Outcomes = ({ onOpenModal }: OutcomesProps) => {
   return (
-    <SectionWrapper id="outcomes" label="YOUR OUTCOMES">
-      <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-16 md:mb-20">
-        Not just learning. <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>Real building.</span>
-      </h2>
+    <SectionWrapper id="outcomes">
+      <SectionHeading
+        label="YOUR OUTCOMES"
+        description="Three deliverables shipped in nine days. Plus three things the program gives you that don't fit on a screenshot."
+      >
+        Not just learning. <Accent>Real building.</Accent>
+      </SectionHeading>
 
-      {/* Full-bleed stacked panels — top 3 outcomes */}
-      <div className="space-y-10 md:space-y-16">
+      {/* Hero deliverables — editorial numbered blocks */}
+      <div className="space-y-20 md:space-y-32 max-w-[1100px] mx-auto">
         {heroOutcomes.map((o, i) => {
           const isReversed = i % 2 === 1;
+          const Icon = o.icon;
           return (
-            <motion.div
+            <div
               key={o.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className={`flex flex-col ${isReversed ? "md:flex-row-reverse" : "md:flex-row"} gap-6 md:gap-10 items-center`}
+              className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 items-center ${
+                isReversed ? "md:[direction:rtl]" : ""
+              }`}
             >
               {/* Image */}
               <motion.div
-                initial={{ opacity: 0, x: isReversed ? 60 : -60 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, scale: 0.96 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-                className="w-full md:w-[55%] flex-shrink-0"
+                transition={{ duration: 0.7, ease: "easeOut" }}
+                className="relative md:[direction:ltr]"
               >
-                <div className="rounded-2xl overflow-hidden aspect-[16/10] shadow-lg">
+                {/* Giant number ghost */}
+                <span
+                  aria-hidden
+                  className="absolute -top-6 -left-2 md:-top-10 md:-left-6 font-editorial italic text-primary/15 leading-none select-none pointer-events-none z-0"
+                  style={{ fontSize: "clamp(96px, 18vw, 220px)", fontWeight: 600 }}
+                >
+                  {o.number}
+                </span>
+                <div className="relative rounded-2xl overflow-hidden aspect-[4/3] md:aspect-[5/4] shadow-xl border border-foreground/[0.06]">
                   <img
                     src={o.image}
                     alt={o.title}
                     loading="lazy"
                     width={960}
-                    height={640}
-                    className="w-full h-full object-cover mx-0 px-0 py-0 pb-0 pr-0 pl-[2px]"
+                    height={720}
+                    className="w-full h-full object-cover"
                   />
                 </div>
               </motion.div>
 
               {/* Text */}
               <motion.div
-                initial={{ opacity: 0, x: isReversed ? -40 : 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.6, delay: 0.25, ease: "easeOut" }}
-                className="w-full md:w-[45%] text-center md:text-left"
+                transition={{ duration: 0.6, delay: 0.15 }}
+                className="md:[direction:ltr] text-center md:text-left"
               >
-                <div className="inline-flex items-center gap-2 mb-4">
-                  <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <o.icon className="text-primary" size={18} />
-                  </div>
-                  <span className="text-primary text-[11px] uppercase tracking-[0.15em] font-semibold font-sans">
-                    Outcome {String(i + 1).padStart(2, "0")}
+                <div className="inline-flex items-center gap-2.5 mb-5">
+                  <span className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <Icon className="text-primary" size={16} strokeWidth={2} />
+                  </span>
+                  <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-primary/80">
+                    {o.kicker}
                   </span>
                 </div>
-                <h3 className="font-bold text-[28px] md:text-[40px] leading-[1.1] tracking-[-0.02em] text-foreground mb-4">
+                <h3
+                  className="font-bold tracking-[-0.02em] leading-[1.05] text-foreground"
+                  style={{ fontSize: "clamp(28px, 4.5vw, 48px)" }}
+                >
                   {o.title}
                 </h3>
-                <p className="text-muted-foreground text-[15px] md:text-[17px] leading-relaxed max-w-[400px] mx-auto md:mx-0">
+                <p className="mt-5 text-muted-foreground text-[15px] md:text-[17px] leading-[1.65] max-w-[460px] mx-auto md:mx-0">
                   {o.desc}
                 </p>
               </motion.div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Divider */}
+      <div className="max-w-[1100px] mx-auto mt-24 md:mt-32 mb-10 md:mb-14 flex items-center gap-4">
+        <span className="h-px flex-1 bg-foreground/10" />
+        <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
+          And three things you can't screenshot
+        </span>
+        <span className="h-px flex-1 bg-foreground/10" />
+      </div>
+
+      {/* Soft outcomes — stat strip */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-8 max-w-[1100px] mx-auto">
+        {softOutcomes.map((s, i) => {
+          const Icon = s.icon;
+          return (
+            <motion.div
+              key={s.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="text-center md:text-left"
+            >
+              <Icon className="text-primary mx-auto md:mx-0 mb-3" size={22} strokeWidth={1.8} />
+              <div
+                className="font-editorial italic text-primary font-bold leading-none tracking-[-0.02em]"
+                style={{ fontSize: "clamp(44px, 7vw, 72px)", fontWeight: 600 }}
+              >
+                {s.stat}
+              </div>
+              <p className="mt-3 text-foreground font-semibold text-[16px] md:text-[18px]">
+                {s.label}
+              </p>
+              <p className="mt-1 text-muted-foreground text-[13px] md:text-[14px]">{s.sub}</p>
             </motion.div>
           );
         })}
       </div>
 
-      {/* Compact row — bottom 3 outcomes */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-14 md:mt-20">
-        {compactOutcomes.map((o, i) => (
-          <motion.div
-            key={o.title}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="group relative rounded-2xl overflow-hidden aspect-[4/3] shadow-md"
-          >
-            <img
-              src={o.image}
-              alt={o.title}
-              loading="lazy"
-              width={960}
-              height={640}
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
-              <div className="flex items-center gap-2 mb-2">
-                <o.icon className="text-white/80" size={16} />
-                <span className="text-white/60 font-mono text-[10px] uppercase tracking-[0.15em]">
-                  {i === 0 ? "\n" : i === 1 ? "​" : "\n"}
-                </span>
-              </div>
-              <h4 className="font-bold text-white text-[18px] md:text-[20px] leading-tight mb-1.5">
-                {o.title}
-              </h4>
-              <p className="text-white/70 text-[13px] leading-relaxed">
-                {o.desc}
-              </p>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-
-      <div className="text-center mt-12">
+      <div className="text-center mt-16 md:mt-20">
         <button
           onClick={onOpenModal}
           className="bg-primary text-primary-foreground font-semibold rounded-full px-8 py-3.5 text-sm uppercase tracking-wider btn-glow"

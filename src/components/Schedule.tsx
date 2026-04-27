@@ -1,163 +1,238 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, X } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
+import SectionHeading, { Accent } from "./SectionHeading";
+import {
+  LogIn,
+  Compass,
+  BookOpen,
+  UtensilsCrossed,
+  Sparkles,
+  Workflow,
+  Rocket,
+  PartyPopper,
+  FileCheck2,
+  Users,
+  LucideIcon,
+} from "lucide-react";
 
-import imgDefault from "@/assets/schedule-default.jpg";
 import imgOnlinePrep from "@/assets/schedule-online-prep.png";
 import imgDay1 from "@/assets/11de0180-9fd9-4966-a4a4-aa091c0adaf9.png";
 import imgDays23 from "@/assets/schedule-days23-v2.png";
 import imgDays45 from "@/assets/schedule-days45.png";
 import imgDays678 from "@/assets/schedule-days678.jpg";
 import imgDay9 from "@/assets/8254fb1b-ea7c-433b-b7a4-8796e3238dd5.jpg";
-interface ScheduleItem {
-  label: string;
+
+interface Row {
+  icon: LucideIcon;
+  time: string;
   title: string;
-  image: string;
-  desc: string;
-  bullets?: string[];
-  outcome: string;
+  sub?: string;
 }
 
-const scheduleData: ScheduleItem[] = [
-  {
-    label: "ONLINE PREP",
-    title: "Online Prep: Prep Sessions",
-    image: imgOnlinePrep,
-    desc: "Before you touch a single tool on-site, you complete five focused sessions. You start by understanding how AI actually thinks, then learn to talk to it and get useful output every time. From there you map your own business and find the stuck lever, see real outputs built by real people like you, and finish with a full day-by-day brief so you land ready to build from Day 1.",
+interface ScheduleDay {
+  key: string;
+  label: string;      // "DAY 1"
+  subtitle: string;   // "Welcome to the Forge"
+  image: string;
+  rows: Row[];
+}
 
-    outcome: "You arrive sharp, aligned, and ready to build from Day 1.",
+const days: ScheduleDay[] = [
+  {
+    key: "prep",
+    label: "ONLINE PREP",
+    subtitle: "Five sessions before you arrive",
+    image: imgOnlinePrep,
+    rows: [
+      { icon: BookOpen, time: "Session 1", title: "The AI Mindset" },
+      { icon: BookOpen, time: "Session 2", title: "Prompting and Context Engineering" },
+      { icon: Users, time: "Session 3", title: "AI and Business Thinking" },
+      { icon: FileCheck2, time: "Session 4", title: "Case Study Breakdown" },
+      { icon: Compass, time: "Session 5", title: "Pre-Arrival Alignment" },
+    ],
   },
   {
+    key: "d1",
     label: "DAY 1",
-    title: "Day 1: Arrive + Orient",
+    subtitle: "Welcome to the Forge",
     image: imgDay1,
-    desc: "Check in. Meet your group. Meet your mentors. Set your personal build goal.",
-    outcome: "Your roadmap for the next 8 days.",
+    rows: [
+      { icon: LogIn, time: "2:00 PM", title: "Check In" },
+      { icon: Compass, time: "5:30 PM – 7:30 PM", title: "Orientation" },
+      { icon: BookOpen, time: "7:30 PM – 8:30 PM", title: "Learn Psychology Behind Storytelling" },
+      { icon: UtensilsCrossed, time: "8:30 PM – 9:30 PM", title: "Dinner" },
+      { icon: BookOpen, time: "9:30 PM – 10:30 PM", title: "Storytelling — Part II" },
+    ],
   },
   {
+    key: "d23",
     label: "DAYS 2 + 3",
-    title: "Days 2 + 3: AI Creativity Sprint",
+    subtitle: "Generative AI Foundations",
     image: imgDays23,
-    desc: "Full immersion in AI creative tools. Prompting, image generation, video creation, content workflows.",
-    outcome: "Your first AI creative output: an ad, reel, or short film.",
+    rows: [
+      { icon: Users, time: "9:00 AM", title: "Morning Standup and Focus" },
+      { icon: Sparkles, time: "9:15 AM – 11:15 AM", title: "Advanced Prompting for Real Work" },
+      { icon: Sparkles, time: "11:15 AM – 12:30 PM", title: "Build Your First Prompt Chain" },
+      { icon: UtensilsCrossed, time: "12:30 PM – 1:30 PM", title: "Lunch" },
+      { icon: Sparkles, time: "1:30 PM – 3:00 PM", title: "AI Image Generation" },
+      { icon: Sparkles, time: "3:00 PM – 6:00 PM", title: "Build Your Brand Visual Pack + First AI Ad" },
+      { icon: UtensilsCrossed, time: "7:00 PM", title: "Dinner + Build Night" },
+    ],
   },
   {
+    key: "d45",
     label: "DAYS 4 + 5",
-    title: "Days 4 + 5: Automation Sprint",
+    subtitle: "Automations And Agents",
     image: imgDays45,
-    desc: "Build your first automation. Connect your tools. Create a pipeline that saves you real time.",
-    outcome: "One live automation running by the end of Day 5.",
+    rows: [
+      { icon: Users, time: "9:00 AM", title: "Morning Standup and Focus" },
+      { icon: Workflow, time: "9:15 AM – 11:15 AM", title: "Automation Thinking + Building with n8n" },
+      { icon: Workflow, time: "11:15 AM – 12:30 PM", title: "Build Your First Automation" },
+      { icon: UtensilsCrossed, time: "12:30 PM – 1:30 PM", title: "Lunch" },
+      { icon: Workflow, time: "1:30 PM – 6:30 PM", title: "Claude Code + AI Agents + Build Systems" },
+      { icon: UtensilsCrossed, time: "7:00 PM – 10:30 PM", title: "Dinner + Build Night" },
+    ],
   },
   {
-    label: "DAYS 6, 7 + 8",
-    title: "Days 6, 7 + 8: Product + Launch Sprint",
+    key: "d678",
+    label: "DAYS 6 – 8",
+    subtitle: "Product + Launch Sprint",
     image: imgDays678,
-    desc: "Build your MVP. Create a landing page. Set up a basic funnel. Daily mentor feedback sessions. Iterate fast.",
-    outcome: "A working product and a funnel ready to test.",
+    rows: [
+      { icon: Users, time: "9:00 AM", title: "Morning Standup and Focus" },
+      { icon: Rocket, time: "9:15 AM – 12:30 PM", title: "Workflow Design + Full Business Systems" },
+      { icon: UtensilsCrossed, time: "12:30 PM – 1:30 PM", title: "Lunch" },
+      { icon: Rocket, time: "1:30 PM – 6:30 PM", title: "Landing Page · Funnel · MVP Build" },
+      { icon: Sparkles, time: "7:00 PM onwards", title: "Experience Night + Extended Build Session" },
+    ],
   },
   {
+    key: "d9",
     label: "DAY 9",
-    title: "Day 9: Demo Day",
+    subtitle: "Demo Day and Graduation",
     image: imgDay9,
-    desc: "Present everything you built. Celebrate. Reflect. Leave with proof of work.",
-    outcome: "Three real builds. One unforgettable experience.",
+    rows: [
+      { icon: UtensilsCrossed, time: "8:00 AM – 9:00 AM", title: "Breakfast" },
+      { icon: Rocket, time: "9:00 AM – 12:30 PM", title: "Demo Day" },
+      { icon: PartyPopper, time: "12:30 PM – 1:30 PM", title: "Farewell and Graduation" },
+      { icon: LogIn, time: "1:30 PM", title: "Checkout" },
+    ],
   },
 ];
 
 const Schedule = () => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(0);
-
-  const handleToggle = (i: number) => {
-    setActiveIndex(activeIndex === i ? null : i);
-  };
+  const [active, setActive] = useState(0);
+  const day = days[active];
 
   return (
-    <SectionWrapper id="schedule" label="THE SCHEDULE">
-      <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-4">
-        The&nbsp;Gameplan
-      </h2>
-      <p className="text-[16px] text-muted-foreground text-center mb-10 md:mb-14 leading-relaxed max-w-[560px] mx-auto">
-        Your Itinerary through the online and offline residency and how you will learn, build and grow.
-      </p>
+    <SectionWrapper id="schedule" variant="dark">
+      <SectionHeading
+        label="THE GAMEPLAN"
+        variant="dark"
+        description="Five pre-arrival sessions to prime you. Then you land in Dharamshala and build with AI every day, morning to night, until you walk out with three real things shipped."
+      >
+        <Accent>Nine&nbsp;days.</Accent> Three builds. <br className="md:hidden" />
+        <span className="text-white/55">One unforgettable week.</span>
+      </SectionHeading>
 
-      {/* Hero Image */}
-      <div className="max-w-[780px] mx-auto mb-8 md:mb-12">
-        <div className="relative aspect-[16/10] md:aspect-[16/9] rounded-2xl overflow-hidden bg-muted">
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={activeIndex ?? "default"}
-              src={activeIndex !== null ? scheduleData[activeIndex].image : imgDefault}
-              alt={activeIndex !== null ? scheduleData[activeIndex].title : "Forge Residency"}
-              className="absolute inset-0 w-full h-full object-cover"
-              initial={{ opacity: 0, scale: 1.04 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.98 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              width={1280}
-              height={800}
-            />
-          </AnimatePresence>
+      {/* Day tabs — horizontal scrolling strip */}
+      <div className="mb-10 md:mb-14 -mx-6 lg:-mx-20 overflow-x-auto scrollbar-hide">
+        <div className="px-6 lg:px-20 flex gap-2 min-w-max">
+          {days.map((d, i) => {
+            const isActive = i === active;
+            return (
+              <button
+                key={d.key}
+                onClick={() => setActive(i)}
+                className={`group relative shrink-0 px-5 py-3 rounded-full border transition-all ${
+                  isActive
+                    ? "border-[#1A6AFF] bg-[#1A6AFF]/15 text-white"
+                    : "border-white/10 text-white/50 hover:text-white hover:border-white/20"
+                }`}
+              >
+                <span className="font-mono text-[10px] tracking-[0.2em] uppercase">
+                  {d.label}
+                </span>
+              </button>
+            );
+          })}
         </div>
       </div>
 
-      {/* Accordion */}
-      <div className="max-w-[780px] mx-auto">
-        {scheduleData.map((item, i) => {
-          const isOpen = activeIndex === i;
-          return (
-            <div key={i} className="border-b border-border">
-              <button
-                onClick={() => handleToggle(i)}
-                className="w-full flex items-center justify-between py-5 md:py-6 text-left group"
-              >
-                <div className="flex items-center gap-3 md:gap-4">
-                  <span className="text-[11px] tracking-wider text-primary shrink-0 w-[90px] md:w-[120px] font-sans">
-                    {item.label}
-                  </span>
-                  <span className={`font-bold text-[16px] md:text-[18px] transition-colors ${isOpen ? "text-foreground" : "text-muted-foreground md:group-hover:text-foreground"}`}>
-                    {item.title.split(": ")[1] || item.title}
-                  </span>
-                </div>
-                <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${isOpen ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"}`}>
-                  {isOpen ? <X size={16} /> : <Plus size={16} />}
-                </div>
-              </button>
+      {/* Two-column layout: image + rows */}
+      <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_1.3fr] gap-10 lg:gap-16 items-start">
+        {/* LEFT — image */}
+        <div className="lg:sticky lg:top-24">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={day.key}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.4 }}
+              className="relative rounded-2xl overflow-hidden aspect-[4/5] md:aspect-[3/4]"
+            >
+              <img
+                src={day.image}
+                alt={day.label + " — " + day.subtitle}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-7">
+                <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-white/60">
+                  {day.label}
+                </span>
+                <p className="font-editorial italic text-[22px] md:text-[28px] text-white mt-1 leading-tight">
+                  {day.subtitle}
+                </p>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
-              <AnimatePresence>
-                {isOpen && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.35, ease: "easeOut" }}
-                    className="overflow-hidden"
+        {/* RIGHT — rows (matches the PDF's icon + time + title rhythm) */}
+        <div className="min-w-0">
+          <AnimatePresence mode="wait">
+            <motion.ul
+              key={day.key}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="space-y-1"
+            >
+              {day.rows.map((row, i) => {
+                const Icon = row.icon;
+                return (
+                  <motion.li
+                    key={row.title}
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.35, delay: 0.05 + i * 0.04 }}
+                    className="flex items-center gap-4 md:gap-5 py-4 border-b border-white/[0.06] group"
                   >
-                    <div className="pb-6 pl-0 md:pl-[136px]">
-                      <p className="text-sm text-muted-foreground leading-relaxed max-w-[520px]">
-                        {item.desc}
-                      </p>
-                      {item.bullets && (
-                        <ul className="mt-3 space-y-1.5">
-                          {item.bullets.map((b, bi) => (
-                            <li key={bi} className="text-sm text-muted-foreground flex items-start gap-2">
-                              <span className="text-primary mt-0.5">→</span>
-                              <span>{b}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                      <p className="text-sm mt-4">
-                        <span className="text-primary font-medium">You'll have: </span>
-                        <span className="text-foreground">{item.outcome}</span>
-                      </p>
+                    <div className="shrink-0 w-11 h-11 md:w-12 md:h-12 rounded-xl flex items-center justify-center bg-[#1A6AFF]/10 text-[#3D7EFF] border border-[#1A6AFF]/20 group-hover:bg-[#1A6AFF]/18 transition-colors">
+                      <Icon size={18} strokeWidth={1.6} />
                     </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          );
-        })}
+                    <div className="min-w-0 flex-1">
+                      <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-[#3D7EFF]">
+                        {row.time}
+                      </p>
+                      <p className="text-[15px] md:text-[17px] font-semibold text-white leading-snug mt-1">
+                        {row.title}
+                      </p>
+                      {row.sub && (
+                        <p className="text-[13px] text-white/55 mt-1 leading-relaxed">{row.sub}</p>
+                      )}
+                    </div>
+                  </motion.li>
+                );
+              })}
+            </motion.ul>
+          </AnimatePresence>
+        </div>
       </div>
     </SectionWrapper>
   );

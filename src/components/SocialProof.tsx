@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
+import SectionHeading, { Accent } from "./SectionHeading";
 import { MapPin } from "lucide-react";
 
 const testimonials = [
@@ -90,17 +91,24 @@ const SocialProof = () => {
   };
 
   return (
-    <SectionWrapper label="FROM PAST FORGE PARTICIPANTS">
-      <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-4">
-        What happens when you build with the{" "}
-        <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>right people.</span>
-      </h2>
+    <SectionWrapper>
+      <SectionHeading
+        label="FROM PAST FORGE PARTICIPANTS"
+        description="Dreamers became builders not just because of the right guidance but the people they surrounded themselves with."
+      >
+        What happens when you build with the <Accent>right people.</Accent>
+      </SectionHeading>
 
-      <p className="text-sm text-center mb-12 text-muted-foreground">
-        Dreamers became builders not just because of the right guidance but the people they surrounded themselves with.
-      </p>
+      <div className="max-w-[820px] mx-auto overflow-hidden relative">
+        {/* Giant editorial quote mark */}
+        <span
+          aria-hidden
+          className="font-editorial italic text-primary/15 leading-none block select-none pointer-events-none text-center"
+          style={{ fontSize: "clamp(120px, 22vw, 260px)", fontWeight: 600 }}
+        >
+          &ldquo;
+        </span>
 
-      <div className="max-w-[640px] mx-auto overflow-hidden">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={current}
@@ -109,53 +117,42 @@ const SocialProof = () => {
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ duration: 0.4, ease: "easeOut" }}
+            transition={{ duration: 0.45, ease: "easeOut" }}
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={0.15}
             onDragEnd={handleDragEnd}
-            className="relative bg-card border border-border rounded-2xl overflow-hidden shadow-sm cursor-grab active:cursor-grabbing"
+            className="-mt-16 md:-mt-24 relative px-2 md:px-10 cursor-grab active:cursor-grabbing"
           >
-            {/* Primary accent line at top */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary/60 to-transparent" />
+            {/* Pure pullout — no card */}
+            <p
+              className="text-center text-foreground font-medium tracking-[-0.01em] leading-[1.45]"
+              style={{ fontSize: "clamp(20px, 2.6vw, 30px)" }}
+            >
+              {t.quote}
+            </p>
 
-            <div className="p-8 md:p-10">
-              {/* Decorative quote mark */}
-              <span
-                className="font-serif italic text-primary/20 text-[80px] md:text-[100px] leading-none block -mb-6 md:-mb-8 select-none"
-                aria-hidden="true"
-              >
-                "
-              </span>
-
-              {/* Quote */}
-              <p className="text-[17px] md:text-[20px] text-foreground font-medium leading-[1.7] mb-8">
-                {t.quote}
+            {/* Attribution */}
+            <div className="mt-10 md:mt-12 flex flex-col items-center gap-1">
+              <span className="h-px w-10 bg-primary/50 mb-3" />
+              <p className="font-semibold text-foreground text-[16px] md:text-[17px]">{t.name}</p>
+              <p className="text-[13px] md:text-[14px] text-muted-foreground">{t.role}</p>
+              <p className="text-[12px] text-muted-foreground/70 mt-0.5 flex items-center gap-1 font-mono uppercase tracking-[0.14em]">
+                <MapPin className="w-3 h-3" />
+                {t.location}
               </p>
-
-              {/* Attribution */}
-              <div className="border-t border-border pt-5">
-                <p className="font-semibold text-foreground text-[16px]">{t.name}</p>
-                <p className="text-[13px] text-muted-foreground mt-0.5">{t.role}</p>
-                <p className="text-[12px] text-muted-foreground/70 mt-1 flex items-center gap-1">
-                  <MapPin className="w-3 h-3" />
-                  {t.location}
-                </p>
-              </div>
             </div>
           </motion.div>
         </AnimatePresence>
 
         {/* Dots */}
-        <div className="flex justify-center gap-2 mt-6">
+        <div className="flex justify-center gap-1.5 mt-10 md:mt-14">
           {testimonials.map((_, i) => (
             <button
               key={i}
               onClick={() => goTo(i)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                i === current
-                  ? "bg-primary w-6"
-                  : "bg-border hover:bg-muted-foreground/40"
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                i === current ? "bg-primary w-8" : "bg-foreground/15 hover:bg-foreground/30 w-1.5"
               }`}
               aria-label={`Go to testimonial ${i + 1}`}
             />
