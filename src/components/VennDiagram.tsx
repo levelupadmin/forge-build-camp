@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
+import SectionHeading, { Accent } from "./SectionHeading";
 
 const narratives = [
   {
@@ -42,18 +43,13 @@ const VennDiagram = () => {
   ];
 
   return (
-    <SectionWrapper id="ethos" label="OUR ETHOS" variant="dark">
-      <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-6">
-        What makes{" "}
-        <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>
-          the Forge
-        </span>{" "}
-        different
-      </h2>
-
-      <p className="text-[16px] md:text-[17px] leading-[1.8] text-muted-foreground text-center max-w-[520px] mx-auto mb-16">
-        Three forces, one intersection. Every part of the residency is designed around this philosophy.
-      </p>
+    <SectionWrapper id="ethos">
+      <SectionHeading
+        label="OUR ETHOS"
+        description="Three forces, one intersection. Every part of the residency is designed around this philosophy."
+      >
+        What makes <Accent>the Forge</Accent> different
+      </SectionHeading>
 
       <div className="flex flex-col items-center">
         {/* Desktop SVG */}
@@ -86,7 +82,7 @@ const VennDiagram = () => {
                 cy={cy + pos.y * offset + 10}
                 r={r}
                 fill="none"
-                stroke="rgba(255,255,255,0.12)"
+                stroke="hsl(var(--primary) / 0.25)"
                 strokeWidth={1.5}
                 initial={{ opacity: 0, scale: 0.6 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -103,7 +99,7 @@ const VennDiagram = () => {
                 x={cx + pos.x * offset + labelOffsets[i].dx}
                 y={cy + pos.y * offset + 10 + labelOffsets[i].dy}
                 textAnchor="middle"
-                className="fill-white/50 text-[12px] font-semibold uppercase tracking-[0.18em]"
+                className="fill-foreground/60 text-[12px] font-semibold uppercase tracking-[0.18em]"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: false, amount: 0.3 }}
@@ -125,7 +121,7 @@ const VennDiagram = () => {
                 x={cx}
                 y={cy + 5}
                 textAnchor="middle"
-                className="fill-white/55 text-[13px] font-medium"
+                className="fill-foreground/55 text-[13px] font-medium"
               >
                 the
               </text>
@@ -133,7 +129,7 @@ const VennDiagram = () => {
                 x={cx}
                 y={cy + 28}
                 textAnchor="middle"
-                className="fill-primary text-[26px] font-serif italic font-bold"
+                className="fill-primary text-[26px] font-editorial italic font-bold"
               >
                 Forge
               </text>
@@ -169,7 +165,7 @@ const VennDiagram = () => {
                 cy={mcy + pos.y * moffset + 8}
                 r={mr}
                 fill="none"
-                stroke="rgba(255,255,255,0.12)"
+                stroke="hsl(var(--primary) / 0.25)"
                 strokeWidth={1.2}
                 initial={{ opacity: 0, scale: 0.6 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -191,7 +187,7 @@ const VennDiagram = () => {
                   x={mcx + pos.x * moffset + mLabelOffsets[i].dx}
                   y={mcy + pos.y * moffset + 8 + mLabelOffsets[i].dy}
                   textAnchor="middle"
-                  className="fill-white/50 text-[10px] font-semibold uppercase tracking-[0.14em]"
+                  className="fill-foreground/60 text-[10px] font-semibold uppercase tracking-[0.14em]"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: false, amount: 0.3 }}
@@ -209,8 +205,8 @@ const VennDiagram = () => {
               transition={{ duration: 0.7, delay: 1.4, ease: "easeOut" }}
               style={{ transformOrigin: `${mcx}px ${mcy + 8}px` }}
             >
-              <text x={mcx} y={mcy + 3} textAnchor="middle" className="fill-white/55 text-[11px] font-medium">the</text>
-              <text x={mcx} y={mcy + 22} textAnchor="middle" className="fill-primary text-[20px] font-serif italic font-bold">Forge</text>
+              <text x={mcx} y={mcy + 3} textAnchor="middle" className="fill-foreground/55 text-[11px] font-medium">the</text>
+              <text x={mcx} y={mcy + 22} textAnchor="middle" className="fill-primary text-[20px] font-editorial italic font-bold">Forge</text>
             </motion.g>
           </svg>
         </div>
@@ -226,10 +222,10 @@ const VennDiagram = () => {
               transition={{ duration: 0.6, delay: i * 0.15 + 0.2 }}
               className="text-center"
             >
-              <h3 className="font-serif italic text-[24px] md:text-[28px] text-foreground font-bold mb-3">
+              <h3 className="font-editorial italic text-[26px] md:text-[32px] text-primary font-bold mb-3 leading-none">
                 {n.label}
               </h3>
-              <p className="text-[14px] md:text-[15px] text-muted-foreground leading-[1.8]">
+              <p className="text-[14px] md:text-[15px] text-muted-foreground leading-[1.75]">
                 {n.description}
               </p>
             </motion.div>

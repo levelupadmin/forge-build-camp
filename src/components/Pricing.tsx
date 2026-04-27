@@ -39,7 +39,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
         <div className="relative rounded-2xl overflow-hidden aspect-[16/9] shadow-lg">
           <img
             src={dharamshalaImg}
-            alt="Dharamshala, Himachal Pradesh"
+            alt="Dharamshala"
             className="w-full h-full object-cover"
             loading="lazy"
             width={1280}
@@ -70,15 +70,15 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
             <span className="inline-block bg-primary/10 text-primary text-[10px] uppercase tracking-[0.15em] font-semibold px-3 py-1 rounded-full mb-2">
               Online
             </span>
-            <p className="font-bold text-foreground text-lg">6 Days</p>
-            <p className="text-muted-foreground text-[13px]">June 9 to 17, 2026</p>
+            <p className="font-bold text-foreground text-lg">9 Days</p>
+            <p className="text-muted-foreground text-[13px]">June 17 to 25, 2026</p>
           </div>
           <div className="bg-card border border-border rounded-xl p-4 text-center">
             <span className="inline-block bg-primary/10 text-primary text-[10px] uppercase tracking-[0.15em] font-semibold px-3 py-1 rounded-full mb-2">
               Offline
             </span>
-            <p className="font-bold text-foreground text-lg">9 Days</p>
-            <p className="text-muted-foreground text-[13px]">June 19 to 27, 2026</p>
+            <p className="font-bold text-foreground text-lg">8 Days</p>
+            <p className="text-muted-foreground text-[13px]">June 27 to July 4, 2026</p>
           </div>
         </div>
 

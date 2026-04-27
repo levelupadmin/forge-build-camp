@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, ArrowRight, X } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
+import SectionHeading, { Accent } from "./SectionHeading";
 import dharamshalaImg from "@/assets/pricing-dharamshala.jpg";
 
 interface ValueMathProps {
@@ -31,19 +32,14 @@ const ValueMath = ({ onOpenModal }: ValueMathProps) => {
   const [tab, setTab] = useState<"inclusions" | "exclusions">("inclusions");
   const items = tab === "inclusions" ? givens : exclusions;
   return (
-    <SectionWrapper id="value-math" label="THE MATH" variant="dark">
-      <div className="text-center max-w-3xl mx-auto">
-        <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.06] tracking-[-0.025em] text-foreground mb-5">
-          You pay once. You get back{" "}
-          <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>
-            multiples.
-          </span>
-        </h2>
-        <p className="text-muted-foreground text-[16px] md:text-[18px] leading-relaxed max-w-[620px] mx-auto mb-14">
-          It's not a course fee. It's the lowest-cost entry point we've seen into the AI builder
-          economy. Look at what shows up on your side of the ledger.
-        </p>
-      </div>
+    <SectionWrapper id="value-math" variant="dark">
+      <SectionHeading
+        label="THE MATH"
+        variant="dark"
+        description="It's not a course fee. It's the lowest-cost entry point we've seen into the AI builder economy. Look at what shows up on your side of the ledger."
+      >
+        You pay once. You get back <Accent>multiples.</Accent>
+      </SectionHeading>
 
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[minmax(0,280px)_1fr] gap-6 md:gap-8 items-start">
         {/* LEFT: You pay */}
@@ -52,13 +48,13 @@ const ValueMath = ({ onOpenModal }: ValueMathProps) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.5 }}
-          className="rounded-2xl border border-border bg-white/[0.02] md:sticky md:top-24 overflow-hidden"
+          className="rounded-2xl md:border md:border-white/10 md:bg-white/[0.02] md:sticky md:top-24 overflow-hidden"
         >
           {/* Location banner */}
           <div className="relative aspect-[16/10]">
             <img
               src={dharamshalaImg}
-              alt="Dharamshala, Himachal Pradesh"
+              alt="Dharamshala"
               className="w-full h-full object-cover"
               loading="lazy"
               width={1280}
@@ -72,7 +68,7 @@ const ValueMath = ({ onOpenModal }: ValueMathProps) => {
               <h3 className="text-white font-bold text-[24px] md:text-[28px] leading-none tracking-[-0.02em] mt-1">
                 DHARAMSHALA
               </h3>
-              <p className="text-white/70 text-[12px] mt-1">Himachal Pradesh · June 19–27, 2026</p>
+              <p className="text-white/70 text-[12px] mt-1">June 27 – July 4, 2026</p>
             </div>
           </div>
 

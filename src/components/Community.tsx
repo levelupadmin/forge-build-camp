@@ -1,4 +1,5 @@
 import SectionWrapper from "./SectionWrapper";
+import SectionHeading, { Accent } from "./SectionHeading";
 
 import imgMentors from "@/assets/community-mentors.jpg";
 import imgLectures from "@/assets/community-lectures.jpg";
@@ -20,20 +21,15 @@ interface CommunityProps {
 
 const Community = ({ onOpenModal }: CommunityProps) => {
   return (
-    <SectionWrapper label="THE COMMUNITY" variant="dark">
-      <h2 className="font-bold md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-4 text-3xl">
+    <SectionWrapper variant="dark">
+      <SectionHeading
+        label="THE COMMUNITY"
+        variant="dark"
+        description="The people in this room will go on to build companies, launch products, and do interesting things."
+      >
         Come for the learning. <br />
-        <span className="relative inline-block">
-          Stay for the community.
-          <span className="absolute bottom-0 left-0 w-full h-[6px] bg-primary/40 rounded-full -z-10 translate-y-[-4px]" />
-        </span>
-      </h2>
-
-      <div className="max-w-[560px] mx-auto mb-12">
-        <p className="text-[16px] leading-[1.8] text-muted-foreground mt-4 text-center">
-          The people in this room will go on to build companies, launch products, and do interesting things.
-        </p>
-      </div>
+        Stay for the <Accent>community.</Accent>
+      </SectionHeading>
 
       {/* Infinite scrolling marquee */}
       <div className="relative overflow-hidden w-screen -ml-[50vw] left-[50%]">

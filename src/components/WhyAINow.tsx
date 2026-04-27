@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
+import SectionHeading, { Accent } from "./SectionHeading";
 import { useMemo } from "react";
 
 const COLS = 40;
@@ -69,17 +70,15 @@ const DotGrid = () => {
 
 const WhyAINow = () => {
   return (
-    <SectionWrapper id="why-ai" label="WHY AI. WHY NOW." variant="dark">
-      <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-4">
-        AI is not the future.<br />
-        It is the&nbsp;Present.<br />
-      </h2>
-
-      <p className="text-[16px] md:text-[18px] text-muted-foreground max-w-[520px] mx-auto text-center mb-12 leading-relaxed">
-        The businesses that ignored the internet in 2005 did not survive 2015. The ones ignoring AI today will not survive 2030.
-        <br /><br />
-        You think AI is crowded because you're in an echo chamber, but the real world hasn't even started.
-      </p>
+    <SectionWrapper id="why-ai" variant="dark">
+      <SectionHeading
+        label="WHY AI. WHY NOW."
+        variant="dark"
+        description="The businesses that ignored the internet in 2005 did not survive 2015. The ones ignoring AI today will not survive 2030. You think AI is crowded because you're in an echo chamber, but the real world hasn't even started."
+      >
+        AI is not the future. <br />
+        It is the <Accent>Present.</Accent>
+      </SectionHeading>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}

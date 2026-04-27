@@ -31,12 +31,12 @@ const Index = () => {
       <WhatIsForge />
       <WhyAINow />
       <WhoIsFor onOpenModal={openTally} />
+      <VennDiagram />
       <Pillars onOpenModal={openTally} />
       <Outcomes onOpenModal={openTally} />
-      <PerksVault onOpenModal={openTally} />
-      <VennDiagram />
-      <Schedule />
       <Mentors />
+      <Schedule />
+      <PerksVault onOpenModal={openTally} />
       <Community onOpenModal={openTally} />
       <SocialProof />
       <ValueMath onOpenModal={openTally} />

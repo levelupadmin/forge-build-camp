@@ -13,7 +13,8 @@ export default {
     extend: {
       fontFamily: {
         sans: ['DM Sans', 'sans-serif'],
-        serif: ['Playfair Display', 'serif'],
+        serif: ['Instrument Serif', 'Playfair Display', 'serif'],
+        editorial: ['Instrument Serif', 'Playfair Display', 'serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
       colors: {
