@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Box, Workflow, Film, Users, Brain, Rocket } from "lucide-react";
+import { Box, Workflow, Film } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
 import SectionHeading, { Accent } from "./SectionHeading";
 
@@ -38,33 +38,12 @@ const heroOutcomes = [
   },
 ];
 
-const softOutcomes = [
-  {
-    icon: Users,
-    stat: "20",
-    label: "Serious builders",
-    sub: "in your lifetime cohort",
-  },
-  {
-    icon: Brain,
-    stat: "9 days",
-    label: "Building under pressure",
-    sub: "the skill is yours forever",
-  },
-  {
-    icon: Rocket,
-    stat: "∞",
-    label: "Head start",
-    sub: "on the next five years",
-  },
-];
-
 const Outcomes = ({ onOpenModal }: OutcomesProps) => {
   return (
     <SectionWrapper id="outcomes">
       <SectionHeading
         label="YOUR OUTCOMES"
-        description="Three deliverables shipped in nine days. Plus three things the program gives you that don't fit on a screenshot."
+        description="Three deliverables shipped in nine days. Things you can show, run, and ship the day you walk out."
       >
         Not just learning. <Accent>Real building.</Accent>
       </SectionHeading>
@@ -136,44 +115,6 @@ const Outcomes = ({ onOpenModal }: OutcomesProps) => {
                 </p>
               </motion.div>
             </div>
-          );
-        })}
-      </div>
-
-      {/* Divider */}
-      <div className="max-w-[1100px] mx-auto mt-24 md:mt-32 mb-10 md:mb-14 flex items-center gap-4">
-        <span className="h-px flex-1 bg-foreground/10" />
-        <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground">
-          And three things you can't screenshot
-        </span>
-        <span className="h-px flex-1 bg-foreground/10" />
-      </div>
-
-      {/* Soft outcomes — stat strip */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-8 max-w-[1100px] mx-auto">
-        {softOutcomes.map((s, i) => {
-          const Icon = s.icon;
-          return (
-            <motion.div
-              key={s.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="text-center md:text-left"
-            >
-              <Icon className="text-primary mx-auto md:mx-0 mb-3" size={22} strokeWidth={1.8} />
-              <div
-                className="font-editorial italic text-primary font-bold leading-none tracking-[-0.02em]"
-                style={{ fontSize: "clamp(44px, 7vw, 72px)", fontWeight: 600 }}
-              >
-                {s.stat}
-              </div>
-              <p className="mt-3 text-foreground font-semibold text-[16px] md:text-[18px]">
-                {s.label}
-              </p>
-              <p className="mt-1 text-muted-foreground text-[13px] md:text-[14px]">{s.sub}</p>
-            </motion.div>
           );
         })}
       </div>
