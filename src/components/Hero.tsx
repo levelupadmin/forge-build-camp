@@ -24,7 +24,7 @@ const Hero = ({ onOpenModal }: HeroProps) => {
           className="absolute inset-0 w-full h-full object-cover opacity-90 scale-110 md:object-center object-[50%_30%]"
           poster=""
         >
-          <source src="/hero-bg.mp4" type="video/mp4" />
+          <source src={`${import.meta.env.BASE_URL}hero-bg.mp4`} type="video/mp4" />
         </video>
       </div>
 
