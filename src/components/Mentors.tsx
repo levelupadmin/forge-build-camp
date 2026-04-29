@@ -147,22 +147,42 @@ const Mentors = () => {
         })}
       </div>
 
-      {/* Credentials rail */}
+      {/* Credentials rail — logo + name */}
       <div className="mt-12 md:mt-16 max-w-[1100px] mx-auto">
-        <p className="text-center font-mono text-[10px] tracking-[0.28em] uppercase text-muted-foreground mb-5">
+        <p className="text-center font-mono text-[10px] tracking-[0.28em] uppercase text-muted-foreground mb-6 md:mb-8">
           Built at · studied at · teaching at
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-6 md:gap-x-10 gap-y-3">
-          {["Perplexity", "Lovable", "n8n", "IIM Ahmedabad", "IIT Delhi", "Millennial Labs", "LevelUp Learning", "STEM Link"].map(
-            (org) => (
-              <span
-                key={org}
-                className="font-semibold text-[13px] md:text-[15px] text-foreground/70 tracking-tight"
-              >
-                {org}
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-x-4 gap-y-6 items-start">
+          {[
+            { name: "Perplexity", domain: "perplexity.ai" },
+            { name: "Lovable", domain: "lovable.dev" },
+            { name: "n8n", domain: "n8n.io" },
+            { name: "IIM Ahmedabad", domain: "iima.ac.in" },
+            { name: "IIT Delhi", domain: "iitd.ac.in" },
+            { name: "Millennial Labs", domain: "millenniallabs.in" },
+            { name: "LevelUp Learning", domain: "levelup.in" },
+            { name: "STEM Link", domain: "stemlink.app" },
+          ].map((org) => (
+            <div
+              key={org.name}
+              className="flex flex-col items-center gap-2.5 text-center"
+            >
+              <div className="h-9 md:h-10 flex items-center justify-center">
+                <img
+                  src={`https://logo.clearbit.com/${org.domain}?size=80`}
+                  alt={org.name}
+                  loading="lazy"
+                  className="max-h-9 md:max-h-10 max-w-[88px] object-contain grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-200"
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).style.display = "none";
+                  }}
+                />
+              </div>
+              <span className="font-semibold text-[11px] md:text-[12px] text-foreground/65 tracking-tight leading-tight">
+                {org.name}
               </span>
-            ),
-          )}
+            </div>
+          ))}
         </div>
       </div>
 
