@@ -20,7 +20,19 @@ import Footer from "@/components/Footer";
 const TALLY_URL = "https://tally.so/r/kdWEXR";
 
 const Index = () => {
-  const openTally = () => window.open(TALLY_URL, "_blank", "noopener,noreferrer");
+  const openTally = () => {
+    const incoming = window.location.search;
+    if (!incoming) {
+      window.open(TALLY_URL, "_blank", "noopener,noreferrer");
+      return;
+    }
+    const url = new URL(TALLY_URL);
+    const params = new URLSearchParams(incoming);
+    params.forEach((value, key) => {
+      url.searchParams.set(key, value);
+    });
+    window.open(url.toString(), "_blank", "noopener,noreferrer");
+  };
 
   return (
     <div className="min-h-screen bg-background">
