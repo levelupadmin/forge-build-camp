@@ -121,6 +121,7 @@ const Outcomes = ({ onOpenModal }: OutcomesProps) => {
 
       <div className="text-center mt-16 md:mt-20">
         <button
+            data-cta="outcomes"
           onClick={onOpenModal}
           className="bg-primary text-primary-foreground font-semibold rounded-full px-8 py-3.5 text-sm uppercase tracking-wider btn-glow"
         >

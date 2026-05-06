@@ -138,6 +138,7 @@ const PerksVault = ({ onOpenModal }: PerksVaultProps) => {
             </h3>
           </div>
           <button
+            data-cta="perksvault"
             onClick={onOpenModal}
             className="hidden md:inline-flex items-center gap-1.5 text-[13px] font-semibold text-primary hover:gap-2.5 transition-all"
           >
@@ -177,6 +178,7 @@ const PerksVault = ({ onOpenModal }: PerksVaultProps) => {
 
         <div className="mt-8 md:hidden text-center">
           <button
+            data-cta="perksvault"
             onClick={onOpenModal}
             className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-primary"
           >
@@ -193,6 +195,7 @@ const PerksVault = ({ onOpenModal }: PerksVaultProps) => {
           Approval is always at the partner's discretion.
         </p>
         <button
+            data-cta="perksvault"
           onClick={onOpenModal}
           className="mt-6 bg-primary text-primary-foreground font-semibold rounded-full px-8 py-3.5 text-sm uppercase tracking-wider btn-glow"
         >

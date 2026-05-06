@@ -214,6 +214,7 @@ const ValueMath = ({ onOpenModal }: ValueMathProps) => {
           </span>
         </p>
         <button
+            data-cta="valuemath"
           onClick={onOpenModal}
           className="mt-8 inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold rounded-full px-8 py-3.5 text-sm uppercase tracking-wider btn-glow"
         >
