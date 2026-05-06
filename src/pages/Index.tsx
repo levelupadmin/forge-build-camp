@@ -16,6 +16,7 @@ import SocialProof from "@/components/SocialProof";
 import FAQs from "@/components/FAQs";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
+import { fireLeadFormOpen } from "@/lib/gtag";
 
 const TALLY_URL = "https://tally.so/r/kdWEXR";
 
@@ -35,10 +36,11 @@ const readCookie = (name: string): string | undefined => {
  * Build the Tally URL with attribution context attached:
  *   - All UTM / click-ID query params from the current page URL (utm_*, gclid, fbclid, etc.)
  *   - Meta browser/click cookies (_fbp, _fbc) so server-side CAPI can match conversions
+ *   - cta_source = the CTA the user clicked, so we can attribute completes to surface
  *
  * Tally fills hidden fields whose names match these keys.
  */
-const buildTallyUrl = (): string => {
+const buildTallyUrl = (ctaSource: string): string => {
   const url = new URL(TALLY_URL);
 
   // Forward all query params from the landing page.
@@ -55,12 +57,24 @@ const buildTallyUrl = (): string => {
   const fbc = readCookie("_fbc");
   if (fbc) url.searchParams.set("_fbc", fbc);
 
+  // Tag which on-page CTA fired this open — Tally has a hidden field "cta_source"
+  if (ctaSource) url.searchParams.set("cta_source", ctaSource);
+
   return url.toString();
 };
 
 const Index = () => {
+  /** Determine which CTA fired by reading data-cta off the activeElement. */
+  const resolveSource = (): string => {
+    if (typeof document === "undefined") return "unknown";
+    const el = document.activeElement as HTMLElement | null;
+    return el?.getAttribute("data-cta") || "page";
+  };
+
   const openTally = () => {
-    window.open(buildTallyUrl(), "_blank", "noopener,noreferrer");
+    const source = resolveSource();
+    fireLeadFormOpen(source);
+    window.open(buildTallyUrl(source), "_blank", "noopener,noreferrer");
   };
 
   return (

@@ -1,14 +1,15 @@
 /**
- * Google Ads conversion tracking utilities.
+ * Google Ads + GA4 conversion / event tracking utilities.
  *
- * The gtag.js script is loaded site-wide from index.html. This module just exposes
- * typed helpers for firing conversion events from the React app.
+ * The gtag.js script is loaded site-wide from index.html. This module exposes
+ * typed helpers for firing conversion events and funnel events from the React app.
  */
 
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
     dataLayer?: unknown[];
+    fbq?: (...args: unknown[]) => void;
   }
 }
 
@@ -43,7 +44,6 @@ export function fireGoogleAdsConversion(
 ) {
   if (typeof window === "undefined") return;
   if (typeof window.gtag !== "function") {
-    // Tag hasn't loaded yet — push to dataLayer so it's processed once gtag.js is ready.
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push([
       "event",
@@ -70,4 +70,42 @@ function buildPayload(
     payload.transaction_id = transactionId;
   }
   return payload;
+}
+
+/**
+ * Fires a GA4-style "lead_form_open" event whenever a user clicks any CTA that
+ * opens the Tally application form. Lets us reconstruct the funnel:
+ *
+ *   pageview -> lead_form_open -> lead_form_submit (on /thank-you) -> payment (on /payment-confirmed)
+ *
+ * `source` should be a stable identifier for which CTA fired
+ * (e.g. "hero-primary", "nav-mobile", "final-cta", "value-math").
+ */
+export function fireLeadFormOpen(source: string) {
+  if (typeof window === "undefined") return;
+  // GA4 event via dataLayer (also picked up by GTM if anyone wires it later)
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "lead_form_open",
+    cta_source: source,
+    page_path: typeof location !== "undefined" ? location.pathname : undefined,
+  });
+  // Also send through gtag if it's loaded
+  if (typeof window.gtag === "function") {
+    window.gtag("event", "lead_form_open", {
+      cta_source: source,
+      send_to: GOOGLE_ADS_ID,
+    });
+  }
+  // Meta Pixel parity: fire ViewContent on intent-to-apply if pixel is loaded
+  if (typeof window.fbq === "function") {
+    try {
+      window.fbq("track", "ViewContent", {
+        content_name: "Forge AI Residency Application",
+        content_category: source,
+      });
+    } catch {
+      // ignore
+    }
+  }
 }

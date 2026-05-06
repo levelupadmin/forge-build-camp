@@ -299,6 +299,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
       {/* CTA */}
       <div className="text-center mt-10">
         <button
+            data-cta="pillars"
           onClick={onOpenModal}
           className="bg-primary text-primary-foreground font-semibold rounded-full px-8 py-3.5 text-sm uppercase tracking-wider hover:bg-primary/90 transition-colors"
         >

@@ -63,6 +63,7 @@ const Community = ({ onOpenModal }: CommunityProps) => {
 
       <div className="text-center mt-12">
         <button
+            data-cta="community"
           onClick={onOpenModal}
           className="bg-primary text-primary-foreground font-semibold rounded-full px-8 py-3.5 text-sm uppercase tracking-wider btn-glow"
         >
