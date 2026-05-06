@@ -1,84 +1,100 @@
-import { useEffect, useMemo } from "react";
-import { CheckCircle2 } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import forgeLogo from "@/assets/forge-logo.png";
 import { fireGoogleAdsConversion, CONVERSION_LABELS } from "@/lib/gtag";
 
-/**
- * Razorpay payment link applicants are sent to after submitting the Tally form.
- * Update this constant if the payment link changes.
- */
-const RAZORPAY_URL = "https://rzp.io/rzp/forge-ai"; // TODO: replace with the real Razorpay URL
+/** Payment gateway URL — applicants are sent here after submitting the Tally form. */
+const PAYMENT_URL = "https://rzp.io/rzp/wpzv8C7I";
 
-/** How long to show the confirmation screen before auto-redirecting. */
-const REDIRECT_DELAY_MS = 2000;
+/** Redirect delay — long enough to feel intentional, short enough to keep momentum. */
+const REDIRECT_DELAY_MS = 3000;
 
-/**
- * Pages user lands on right after submitting the Tally application form.
- * Fires the Google Ads "Application Submitted" conversion (primary bidding goal),
- * then auto-forwards to Razorpay with all UTMs / click IDs preserved.
- */
 const ThankYou = () => {
-  // Build the Razorpay URL with all incoming UTM/click-ID parameters forwarded.
-  const nextUrl = useMemo(() => buildNextUrl(RAZORPAY_URL), []);
+  const nextUrl = useMemo(() => buildNextUrl(PAYMENT_URL), []);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Fire Google Ads conversion (Application Submitted).
-    // Token value of 1 INR — Google needs *some* numeric value to optimize for it.
     fireGoogleAdsConversion(CONVERSION_LABELS.applicationSubmitted, {
       value: 1,
       currency: "INR",
     });
+  }, []);
 
-    // Auto-redirect to Razorpay after a short delay so the conversion has time to fire.
+  useEffect(() => {
+    const start = performance.now();
+    let raf: number;
+    const tick = (now: number) => {
+      const pct = Math.min(1, (now - start) / REDIRECT_DELAY_MS);
+      setProgress(pct);
+      if (pct < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
     const timer = setTimeout(() => {
       window.location.href = nextUrl;
     }, REDIRECT_DELAY_MS);
-
-    return () => clearTimeout(timer);
+    return () => {
+      cancelAnimationFrame(raf);
+      clearTimeout(timer);
+    };
   }, [nextUrl]);
 
   return (
-    <main className="min-h-screen bg-background flex items-center justify-center px-6 py-16">
-      <div className="text-center max-w-[460px] w-full">
-        <img src={forgeLogo} alt="The Forge AI" className="h-10 mx-auto mb-10 dark:invert" />
+    <main
+      className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 py-16"
+      style={{ background: "#000000" }}
+    >
+      <div className="forge-edges" aria-hidden />
+      <div className="forge-grain" aria-hidden />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
+      <div className="forge-glow-center" aria-hidden />
 
-        <div className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 mb-6">
-          <CheckCircle2 className="h-7 w-7 text-primary" strokeWidth={2} />
-        </div>
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        className="relative z-10 text-center max-w-[520px] w-full"
+      >
+        <img src={forgeLogo} alt="The Forge AI" className="h-9 md:h-10 mx-auto mb-12" />
 
         <h1
-          className="font-bold tracking-[-0.02em] leading-[1.1] text-foreground mb-4"
-          style={{ fontSize: "clamp(28px, 5vw, 40px)" }}
+          className="font-bold tracking-[-0.025em] leading-[0.98] text-white mb-6"
+          style={{ fontSize: "clamp(40px, 7vw, 80px)" }}
         >
-          Application <span className="font-editorial italic text-primary">received.</span>
+          Application <br />
+          <span className="font-editorial italic text-[#3D7EFF]">received.</span>
         </h1>
 
-        <p className="text-muted-foreground text-[15px] md:text-[16px] leading-[1.6] mb-10">
-          Now complete your <span className="font-semibold text-foreground">₹900 application fee</span> to
-          confirm your interview slot. Redirecting you to payment…
+        <p className="text-white/65 text-[15px] md:text-[17px] leading-[1.6] max-w-[380px] mx-auto mb-12">
+          Redirecting you to complete your application fee.
         </p>
 
-        <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground/80 font-mono uppercase tracking-[0.18em]">
-          <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-          Securely handing off
+        {/* Progress strip */}
+        <div className="w-full max-w-[280px] mx-auto mb-3">
+          <div className="h-[2px] w-full bg-white/[0.08] rounded-full overflow-hidden">
+            <motion.div
+              className="h-full bg-[#3D7EFF]"
+              style={{ width: `${progress * 100}%` }}
+              transition={{ ease: "linear" }}
+            />
+          </div>
         </div>
-
-        <p className="mt-8 text-[12px] text-muted-foreground/70">
-          Not redirected?{" "}
-          <a href={nextUrl} className="text-primary font-semibold underline underline-offset-4">
-            Continue to payment manually
-          </a>
+        <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-white/40 mb-10">
+          Opening payment gateway
         </p>
-      </div>
+
+        <a
+          href={nextUrl}
+          className="inline-flex items-center gap-2 text-white/80 hover:text-white text-[12px] font-mono uppercase tracking-[0.18em] transition-colors"
+        >
+          Continue manually <ArrowRight size={13} />
+        </a>
+      </motion.div>
     </main>
   );
 };
 
-/**
- * Build the redirect URL with UTM/click-ID params forwarded.
- * Defensively merges incoming params onto the destination so Razorpay's success
- * webhook can surface attribution data back when the user pays.
- */
 function buildNextUrl(baseUrl: string): string {
   if (typeof window === "undefined") return baseUrl;
   const incoming = window.location.search;
