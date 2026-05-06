@@ -19,19 +19,48 @@ import Footer from "@/components/Footer";
 
 const TALLY_URL = "https://tally.so/r/kdWEXR";
 
+/** Read a cookie value by name. Returns undefined if missing. */
+const readCookie = (name: string): string | undefined => {
+  if (typeof document === "undefined") return undefined;
+  const match = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith(`${encodeURIComponent(name)}=`) || row.startsWith(`${name}=`));
+  if (!match) return undefined;
+  const eq = match.indexOf("=");
+  if (eq === -1) return undefined;
+  return decodeURIComponent(match.slice(eq + 1));
+};
+
+/**
+ * Build the Tally URL with attribution context attached:
+ *   - All UTM / click-ID query params from the current page URL (utm_*, gclid, fbclid, etc.)
+ *   - Meta browser/click cookies (_fbp, _fbc) so server-side CAPI can match conversions
+ *
+ * Tally fills hidden fields whose names match these keys.
+ */
+const buildTallyUrl = (): string => {
+  const url = new URL(TALLY_URL);
+
+  // Forward all query params from the landing page.
+  if (typeof window !== "undefined" && window.location.search) {
+    const incoming = new URLSearchParams(window.location.search);
+    incoming.forEach((value, key) => {
+      if (value) url.searchParams.set(key, value);
+    });
+  }
+
+  // Forward Meta cookies if present (these carry click attribution server-side).
+  const fbp = readCookie("_fbp");
+  if (fbp) url.searchParams.set("_fbp", fbp);
+  const fbc = readCookie("_fbc");
+  if (fbc) url.searchParams.set("_fbc", fbc);
+
+  return url.toString();
+};
+
 const Index = () => {
   const openTally = () => {
-    const incoming = window.location.search;
-    if (!incoming) {
-      window.open(TALLY_URL, "_blank", "noopener,noreferrer");
-      return;
-    }
-    const url = new URL(TALLY_URL);
-    const params = new URLSearchParams(incoming);
-    params.forEach((value, key) => {
-      url.searchParams.set(key, value);
-    });
-    window.open(url.toString(), "_blank", "noopener,noreferrer");
+    window.open(buildTallyUrl(), "_blank", "noopener,noreferrer");
   };
 
   return (
