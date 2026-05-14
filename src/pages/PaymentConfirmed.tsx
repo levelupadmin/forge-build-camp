@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import forgeLogo from "@/assets/forge-logo.png";
 import { fireGoogleAdsConversion, CONVERSION_LABELS } from "@/lib/gtag";
+import { fireTwitterEvent, TWITTER_EVENT_IDS } from "@/lib/twitterPixel";
 
 /** Booking link — applicants are sent here after payment success. */
 const BOOKING_URL = "https://calendly.com/levelupedtech/the-forge-ai-interview";
@@ -23,6 +24,11 @@ const PaymentConfirmed = () => {
       value,
       currency: "INR",
       transactionId,
+    });
+    fireTwitterEvent(TWITTER_EVENT_IDS.applicationFeePaid, {
+      value,
+      currency: "INR",
+      conversionId: transactionId,
     });
   }, [value, transactionId]);
 
