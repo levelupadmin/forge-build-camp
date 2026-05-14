@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import forgeLogo from "@/assets/forge-logo.png";
 import { fireGoogleAdsConversion, CONVERSION_LABELS } from "@/lib/gtag";
+import { fireTwitterEvent, TWITTER_EVENT_IDS } from "@/lib/twitterPixel";
 
 /** Payment gateway URL — applicants are sent here after submitting the Tally form. */
 const PAYMENT_URL = "https://rzp.io/rzp/wpzv8C7I";
@@ -16,6 +17,10 @@ const ThankYou = () => {
 
   useEffect(() => {
     fireGoogleAdsConversion(CONVERSION_LABELS.applicationSubmitted, {
+      value: 1,
+      currency: "INR",
+    });
+    fireTwitterEvent(TWITTER_EVENT_IDS.formSubmitted, {
       value: 1,
       currency: "INR",
     });
