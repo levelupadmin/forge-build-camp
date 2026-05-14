@@ -24,6 +24,8 @@ export const TWITTER_PIXEL_ID = "o8b6y";
 export const TWITTER_EVENT_IDS = {
   /** Fires after a Tally form submission lands on /ai/thank-you. Lead-type event, primary X bidding goal. */
   formSubmitted: "tw-o8b6y-rcfb3",
+  /** Fires after Razorpay payment success lands on /ai/payment-confirmed. Purchase-type, high-value signal. */
+  applicationFeePaid: "tw-o8b6y-rcfbl",
 } as const;
 
 interface FireTwitterEventOptions {
