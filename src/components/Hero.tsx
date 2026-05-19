@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { useParallax } from "@/hooks/use-parallax";
 import forgeLogo from "@/assets/forge-logo.png";
 
@@ -8,9 +9,22 @@ interface HeroProps {
 
 const Hero = ({ onOpenModal }: HeroProps) => {
   const scrollY = useParallax();
+  const [videoReady, setVideoReady] = useState(false);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Brand gradient backdrop — visible while the hero video is still downloading,
+          so users on slower connections see the on-brand colour palette instead of a
+          black void. Once the video can play, it covers this layer. */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        aria-hidden
+        style={{
+          background:
+            "radial-gradient(ellipse 90% 70% at 50% 38%, hsl(217, 91%, 18%) 0%, hsl(217, 55%, 9%) 45%, #050810 75%, #000000 100%)",
+        }}
+      />
+
       {/* Video background */}
       <div
         className="absolute inset-0 will-change-transform"
@@ -21,7 +35,12 @@ const Hero = ({ onOpenModal }: HeroProps) => {
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-90 scale-110 md:object-center object-[50%_30%]"
+          preload="auto"
+          onLoadedData={() => setVideoReady(true)}
+          onCanPlay={() => setVideoReady(true)}
+          className={`absolute inset-0 w-full h-full object-cover scale-110 md:object-center object-[50%_30%] transition-opacity duration-700 ease-out ${
+            videoReady ? "opacity-90" : "opacity-0"
+          }`}
           poster=""
         >
           <source src={`${import.meta.env.BASE_URL}hero-bg.mp4`} type="video/mp4" />
