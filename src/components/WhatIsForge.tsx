@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
 import forgeLogoBlack from "@/assets/forge-ai-logo.png";
@@ -61,6 +61,7 @@ const ScrollWord = ({
 };
 
 const WhatIsForge = () => {
+  const [showVideo, setShowVideo] = useState(false);
 
   return (
     <SectionWrapper id="what-is-forge">
@@ -92,7 +93,8 @@ const WhatIsForge = () => {
 
         <ScrollBoldText text={descriptionText} />
 
-        {/* Group Photo */}
+        {/* Trailer — YouTube embed with click-to-load thumbnail (avoids loading the
+            ~1MB YouTube iframe + tracking until the user actually wants the video). */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -100,15 +102,57 @@ const WhatIsForge = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="max-w-[900px] mx-auto mb-8"
         >
-          <div className="relative rounded-2xl overflow-hidden border border-foreground/[0.08] shadow-lg">
-            <img
-              src={`${import.meta.env.BASE_URL}2d652f1e-e754-4017-ade5-55a42e443589.jpg`}
-              alt="Forge AI Residency group photo — outdoor team photo"
-              className="w-full h-auto object-cover"
-              loading="lazy"
-              width={1200}
-              height={800}
-            />
+          <div className="relative rounded-2xl overflow-hidden border border-foreground/[0.08] shadow-lg aspect-video bg-black">
+            {showVideo ? (
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/6uj2L0HjIQM?autoplay=1&rel=0&modestbranding=1"
+                title="Forge AI Residency — Trailer"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                loading="lazy"
+                className="absolute inset-0 w-full h-full"
+              />
+            ) : (
+              <button
+                type="button"
+                onClick={() => setShowVideo(true)}
+                className="absolute inset-0 w-full h-full group cursor-pointer"
+                aria-label="Play Forge AI Residency trailer"
+              >
+                <img
+                  src="https://i.ytimg.com/vi/6uj2L0HjIQM/maxresdefault.jpg"
+                  alt="Forge AI Residency trailer thumbnail"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                  width={1280}
+                  height={720}
+                  onError={(e) => {
+                    // maxresdefault doesn't always exist; fall back to hqdefault
+                    const img = e.currentTarget as HTMLImageElement;
+                    if (!img.dataset.fallback) {
+                      img.dataset.fallback = "1";
+                      img.src = "https://i.ytimg.com/vi/6uj2L0HjIQM/hqdefault.jpg";
+                    }
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/15 to-black/35 group-hover:from-black/15 group-hover:via-black/20 group-hover:to-black/40 transition-colors" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/95 flex items-center justify-center shadow-2xl group-hover:scale-105 transition-transform duration-300">
+                  <svg
+                    width="34"
+                    height="34"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="text-black ml-1"
+                    aria-hidden
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+                <span className="absolute bottom-4 left-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/55 backdrop-blur-sm text-white text-[11px] font-mono uppercase tracking-[0.16em]">
+                  Watch trailer · 0:00
+                </span>
+              </button>
+            )}
           </div>
         </motion.div>
 
