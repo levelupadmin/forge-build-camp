@@ -8,11 +8,16 @@ interface NavbarProps {
   onOpenModal: () => void;
 }
 
-const navLinks = [
+const navLinks: { label: string; href: string; external?: boolean }[] = [
   { label: "About", href: "#what-is-forge" },
   { label: "Outcomes", href: "#outcomes" },
   { label: "Schedule", href: "#schedule" },
   { label: "Pricing", href: "#pricing" },
+  {
+    label: "Detailed Brochure",
+    href: "https://drive.google.com/file/d/1cApmQLy9bkEbyKEfUv9bPnPAkia3rcry/view?usp=sharing",
+    external: true,
+  },
   { label: "\n", href: "#" },
 ];
 
@@ -53,6 +58,8 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
               <a
                 key={l.label}
                 href={l.href}
+                target={l.external ? "_blank" : undefined}
+                rel={l.external ? "noopener noreferrer" : undefined}
                 className={`text-[14px] font-medium transition-colors ${
                   scrolled ? "text-foreground/70 hover:text-foreground" : "text-white hover:text-white/80"
                 }`}
@@ -113,6 +120,8 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
                 <a
                   key={l.label}
                   href={l.href}
+                  target={l.external ? "_blank" : undefined}
+                  rel={l.external ? "noopener noreferrer" : undefined}
                   onClick={() => setMenuOpen(false)}
                   className="text-2xl font-bold text-foreground"
                 >
