@@ -7,8 +7,10 @@ import WhyAINow from "@/components/WhyAINow";
 import WhoIsFor from "@/components/WhoIsFor";
 import Pillars from "@/components/Pillars";
 import Outcomes from "@/components/Outcomes";
-import PerksVault from "@/components/PerksVault";
-import ValueMath from "@/components/ValueMath";
+// Temporarily hidden — uncomment to restore:
+// import PerksVault from "@/components/PerksVault";
+// import ValueMath from "@/components/ValueMath";
+import Pricing from "@/components/Pricing";
 import Schedule from "@/components/Schedule";
 import Mentors from "@/components/Mentors";
 import Community from "@/components/Community";
@@ -77,10 +79,11 @@ const Index = () => {
       <Outcomes onOpenModal={openTally} />
       <Mentors />
       <Schedule />
-      <PerksVault onOpenModal={openTally} />
+      {/* Temporarily hidden — restore: <PerksVault onOpenModal={openTally} /> */}
       <Community onOpenModal={openTally} />
       <SocialProof />
-      <ValueMath onOpenModal={openTally} />
+      {/* Temporarily hidden — restore: <ValueMath onOpenModal={openTally} /> */}
+      <Pricing onOpenModal={openTally} />
       <FAQs />
       <FinalCTA onOpenModal={openTally} />
       <Footer />
