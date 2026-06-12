@@ -14,7 +14,7 @@ const inclusions = [
   "Expert faculty throughout the residency",
   "Curated experiences during the program",
   "Community access after the program",
-  "Perks from partner brands",
+  // "Perks from partner brands",  // Temporarily hidden — restore by uncommenting
   "The Forge AI Goodie Bag",
   "Demo Day on Day 9",
 ];
