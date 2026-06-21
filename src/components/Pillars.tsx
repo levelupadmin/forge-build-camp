@@ -20,7 +20,7 @@ const pillars: PillarData[] = [
       "2 live AI automations and a personal AI assistant",
       "A knowledge-grounded agent + voice agent for your business",
     ],
-    tools: ["n8n", "Claude", "MCP", "Cowork"],
+    tools: ["n8n", "Claude", "Cowork", "MCP", "ElevenLabs", "Vapi", "Higgsfield", "RAG"],
   },
   {
     num: "02",
@@ -30,7 +30,7 @@ const pillars: PillarData[] = [
       "A functional AI product or internal tool live on a real URL",
       "An eval scorecard that proves it works on real tasks",
     ],
-    tools: ["Claude Code", "Lovable", "Supabase", "Vercel"],
+    tools: ["Claude Code", "Lovable", "Cursor", "Supabase", "Vercel", "Anthropic API", "Stripe", "OpenAI"],
   },
 ];
 
