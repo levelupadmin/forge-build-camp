@@ -115,7 +115,7 @@ const Mentors = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
               onClick={() => setOpenIndex(i)}
-              className="group relative text-left rounded-2xl overflow-hidden aspect-[3/4] md:aspect-[4/5] bg-foreground/5 border border-foreground/[0.06] hover:border-primary/30 transition-colors"
+              className="group relative text-left overflow-hidden aspect-[3/4] md:aspect-[4/5] bg-foreground/5 border border-foreground/[0.06] hover:border-primary/30 transition-colors"
             >
               <img
                 src={m.photo}
@@ -230,7 +230,7 @@ const Mentors = () => {
               exit={{ opacity: 0, y: 20, scale: 0.96 }}
               transition={{ duration: 0.3 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative bg-background rounded-3xl w-full max-w-[640px] max-h-[90vh] overflow-y-auto shadow-2xl"
+              className="relative bg-background rounded-xl w-full max-w-[640px] max-h-[90vh] overflow-y-auto shadow-2xl"
             >
               <button
                 onClick={() => setOpenIndex(null)}

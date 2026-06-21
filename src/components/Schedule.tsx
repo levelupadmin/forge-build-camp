@@ -199,7 +199,7 @@ const Schedule = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.4 }}
-              className="relative rounded-2xl overflow-hidden aspect-[4/5] md:aspect-[3/4]"
+              className="relative overflow-hidden aspect-[4/5] md:aspect-[3/4]"
             >
               <img
                 src={day.image}

@@ -48,7 +48,7 @@ const Experience = () => {
         </div>
 
         {/* Image with parallax */}
-        <div className="relative rounded-2xl overflow-hidden aspect-[16/9] md:aspect-[4/5]">
+        <div className="relative overflow-hidden aspect-[16/9] md:aspect-[4/5]">
           <div
             className="absolute inset-[-10%] will-change-transform"
             style={{ transform: `translateY(${scrollY * -0.08}px)` }}
@@ -60,7 +60,7 @@ const Experience = () => {
               loading="lazy"
             />
           </div>
-          <div className="absolute inset-0 rounded-2xl shadow-[inset_0_0_0_1px_rgba(240,165,0,0.15)]" />
+          <div className="absolute inset-0 shadow-[inset_0_0_0_1px_rgba(240,165,0,0.15)]" />
         </div>
       </div>
     </SectionWrapper>

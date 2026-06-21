@@ -18,7 +18,7 @@ const Trailer = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="relative rounded-2xl overflow-hidden aspect-video border border-black/[0.08] shadow-lg"
+          className="relative overflow-hidden aspect-video border border-black/[0.08] shadow-lg"
         >
           {!playing ? (
             <button

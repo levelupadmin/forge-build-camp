@@ -67,7 +67,7 @@ const Outcomes = ({ onOpenModal }: OutcomesProps) => {
                 >
                   {o.number}
                 </span>
-                <div className="relative rounded-2xl overflow-hidden aspect-[4/3] md:aspect-[5/4] shadow-xl border border-foreground/[0.06]">
+                <div className="relative overflow-hidden aspect-[4/3] md:aspect-[5/4] shadow-xl border border-foreground/[0.06]">
                   <img
                     src={o.image}
                     alt={o.title}
