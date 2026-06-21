@@ -10,6 +10,8 @@ import mentorSabilashan from "@/assets/mentor-sabilashan.png";
 import mentorRahul from "@/assets/mentor-rahul.jpg";
 import mentorAnkur from "@/assets/mentor-ankur.jpeg";
 import mentorParth from "@/assets/mentor-parth.png";
+import mentorAkhil from "@/assets/mentor-akhil.jpg";
+import mentorAshwin from "@/assets/mentor-ashwin.jpg";
 
 const mentors = [
   {
@@ -79,7 +81,7 @@ const mentors = [
   },
   {
     name: "Akhil Kumar Alampally",
-    photo: null,
+    photo: mentorAkhil,
     role: "AI Instructor + Builder",
     sub: "10,000+ builders taught",
     bullets: [
@@ -92,7 +94,7 @@ const mentors = [
   },
   {
     name: "Ashwin Goyal",
-    photo: null,
+    photo: mentorAshwin,
     role: "AI Product Manager",
     sub: "IIT Ropar",
     bullets: [

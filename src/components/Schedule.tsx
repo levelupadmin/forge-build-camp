@@ -1,156 +1,87 @@
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
 import SectionHeading, { Accent } from "./SectionHeading";
-import {
-  LogIn,
-  Compass,
-  BookOpen,
-  UtensilsCrossed,
-  Sparkles,
-  Workflow,
-  Rocket,
-  PartyPopper,
-  FileCheck2,
-  Users,
-  LucideIcon,
-} from "lucide-react";
 
 import imgOnlinePrep from "@/assets/schedule-online-prep.png";
 import imgDay1 from "@/assets/11de0180-9fd9-4966-a4a4-aa091c0adaf9.png";
 import imgDays23 from "@/assets/schedule-days23-v2.png";
 import imgDays45 from "@/assets/schedule-days45.png";
-import imgDays678 from "@/assets/schedule-days678.jpg";
 import imgDay4Ops from "@/assets/schedule-days45.jpg";
 import imgDay5Ops from "@/assets/schedule-default.jpg";
+import imgDays678 from "@/assets/schedule-days678.jpg";
 import imgDay9 from "@/assets/8254fb1b-ea7c-433b-b7a4-8796e3238dd5.jpg";
-
-interface Row {
-  icon: LucideIcon;
-  time: string;
-  title: string;
-  sub?: string;
-}
 
 interface ScheduleDay {
   key: string;
-  label: string;      // "DAY 1"
-  subtitle: string;   // "Welcome to the Forge"
+  label: string;
+  subtitle: string;
+  prose: string;
   image: string;
-  rows: Row[];
 }
 
 const days: ScheduleDay[] = [
   {
     key: "prep",
     label: "ONLINE PREP",
-    subtitle: "Five sessions before you travel",
+    subtitle: "Five sessions before you board the plane",
+    prose: "Before you arrive, we hand you the tools. Five sessions to install Claude, Claude Code, n8n, Supabase, Vercel, and lock the spec of what you will build. By the time you land, you are not learning. You are already building.",
     image: imgOnlinePrep,
-    rows: [
-      { icon: BookOpen, time: "Session", title: "Session 1. Orientation", sub: "Welcome to the Forge. Get every tool live: Claude, Claude Code, n8n, Supabase, Vercel. Build your second brain." },
-      { icon: BookOpen, time: "Session", title: "Session 2. Product Thinking Fundamentals", sub: "The AI-shaped problem filter, validating the idea, and the build spec that becomes your blueprint. With Ankur." },
-      { icon: BookOpen, time: "Session", title: "Session 3. Design Fundamentals", sub: "Visual hierarchy, layout, type and colour. What makes a product feel trustworthy." },
-      { icon: Workflow, time: "Session", title: "Session 4. Automation & Workflows 101", sub: "Triggers, steps, the think-act-observe loop. With Parth." },
-      { icon: FileCheck2, time: "Session", title: "Session 5. Review & Align (1-on-1)", sub: "Present your build brief, get live mentor feedback, leave with a locked plan." },
-    ],
   },
   {
     key: "d1",
     label: "DAY 1",
-    subtitle: "Arrival · The Psychology of Storytelling",
+    subtitle: "Arrival. The Psychology of Storytelling.",
+    prose: "You touch down. You meet the room. Rahul opens the week with the psychology behind every product, every pitch, every cohort. Tonight, the building starts.",
     image: imgDay1,
-    rows: [
-      { icon: LogIn, time: "Afternoon", title: "Check In" },
-      { icon: Compass, time: "Late Afternoon", title: "Orientation, meet the room" },
-      { icon: BookOpen, time: "Evening", title: "The Psychology Behind Storytelling, with Rahul" },
-      { icon: UtensilsCrossed, time: "Late Evening", title: "Dinner" },
-      { icon: BookOpen, time: "Late Evening", title: "Storytelling. Part II" },
-    ],
   },
   {
     key: "d2",
     label: "DAY 2",
-    subtitle: "Product I. Spec It & Make It Intelligent",
+    subtitle: "Product I. Spec It. Make It Intelligent.",
+    prose: "How LLMs actually work. The ₹999 problem-framing test. System design without code. By dinner you have written the spec for your real product. Ankur walks you into your first MCP tool with Claude Code.",
     image: imgDays23,
-    rows: [
-      { icon: Users, time: "Morning", title: "Morning Standup" },
-      { icon: Sparkles, time: "Morning", title: "How LLMs Actually Work + The ₹999 Problem-Framing Test" },
-      { icon: Sparkles, time: "Late Morning", title: "System Design Without Code + Write Your Spec" },
-      { icon: UtensilsCrossed, time: "Late Morning", title: "Lunch" },
-      { icon: Sparkles, time: "Afternoon", title: "Claude Code + Your First MCP Tool, with Ankur" },
-      { icon: UtensilsCrossed, time: "Evening", title: "Dinner + Build Night" },
-    ],
   },
   {
     key: "d3",
     label: "DAY 3",
-    subtitle: "Product II. Ship It & Prove It",
+    subtitle: "Product II. Ship It. Prove It.",
+    prose: "Production architecture. Messages API. Streaming. Prompt caching. Payments. End of day, Build One is live on a real URL. With an eval scorecard to prove it works.",
     image: imgDays45,
-    rows: [
-      { icon: Users, time: "Morning", title: "Morning Standup" },
-      { icon: Rocket, time: "Morning", title: "Production Architecture: UI, Postgres, Auth, RLS, Edge Functions" },
-      { icon: UtensilsCrossed, time: "Late Morning", title: "Lunch" },
-      { icon: Rocket, time: "Afternoon", title: "Messages API · Streaming · Prompt Caching · Webhooks + Payments" },
-      { icon: FileCheck2, time: "Late Afternoon", title: "Ship #1 Live + Build Your Eval Scorecard, with Ankur" },
-      { icon: UtensilsCrossed, time: "Evening", title: "Dinner + Build Night" },
-    ],
   },
   {
     key: "d4",
     label: "DAY 4",
-    subtitle: "Operations I. Automate It, Then Make It Think",
+    subtitle: "Operations I. Automate It, Then Make It Think.",
+    prose: "n8n unlocks the layer beneath your product. Triggers, steps, the think-act-observe loop. A ticket-classifying support agent. By the end of day, your apps connect to AI through MCP, and you have a personal assistant that knows your work.",
     image: imgDay4Ops,
-    rows: [
-      { icon: Users, time: "Morning", title: "Morning Standup" },
-      { icon: Workflow, time: "Morning", title: "Automation Thinking + AI Agents in n8n (brain, memory, tools)" },
-      { icon: UtensilsCrossed, time: "Late Morning", title: "Lunch" },
-      { icon: Workflow, time: "Afternoon", title: "Build a Ticket-Classifying Support Agent" },
-      { icon: Workflow, time: "Late Afternoon", title: "Connect Your Apps with MCP + Build Your Personal AI Assistant, with Parth" },
-      { icon: UtensilsCrossed, time: "Evening", title: "Dinner + Build Night" },
-    ],
   },
   {
     key: "d5",
     label: "DAY 5",
-    subtitle: "Operations II. Connect It, Ground It, Give It a Voice",
+    subtitle: "Operations II. Connect It, Ground It, Give It a Voice.",
+    prose: "Browser agents that fill forms while you sleep. RAG that grounds your agents in your own docs. Voice agents that handle outbound calls. Parth walks you through it, then sits with you one on one.",
     image: imgDay5Ops,
-    rows: [
-      { icon: Users, time: "Morning", title: "Morning Standup" },
-      { icon: Workflow, time: "Morning", title: "Browser Agents + Claude Cowork" },
-      { icon: UtensilsCrossed, time: "Late Morning", title: "Lunch" },
-      { icon: Workflow, time: "Afternoon", title: "Ground Agents in Your Docs (RAG)" },
-      { icon: Workflow, time: "Late Afternoon", title: "Voice Agents for Outbound Calling + Protected 1:1s, with Parth" },
-      { icon: UtensilsCrossed, time: "Evening", title: "Dinner + Build Night" },
-    ],
   },
   {
     key: "d6",
     label: "DAY 6",
-    subtitle: "Operations III · Full Pipeline & Outdoor Hackathon",
+    subtitle: "Operations III. The Full Pipeline.",
+    prose: "Multi-agent orchestration. Human-in-the-loop. An invoice and payment assistant. Then we take the work outside. An outdoor hackathon ends with the golden-hour showcase. Build Two ships.",
     image: imgDays678,
-    rows: [
-      { icon: Users, time: "Morning", title: "Morning Standup" },
-      { icon: Workflow, time: "Morning", title: "Design a Full Business Process · Multi-Agent Orchestration · Human-in-the-Loop" },
-      { icon: UtensilsCrossed, time: "Late Morning", title: "Lunch" },
-      { icon: Workflow, time: "Afternoon", title: "Build an Invoice & Payment Assistant" },
-      { icon: Sparkles, time: "Late Afternoon", title: "Outdoor Hackathon + Golden-Hour Showcase" },
-      { icon: UtensilsCrossed, time: "Evening", title: "Dinner + Build Night" },
-    ],
   },
   {
     key: "d7",
     label: "DAY 7",
-    subtitle: "Demo Day + Your 90-Day Roadmap",
+    subtitle: "Demo Day + the 90-Day Roadmap.",
+    prose: "Eight minutes each. No slides. Just real working demos in front of the room. Then your 90-day commitments, locked in front of the cohort. Then home, but you take the tribe with you.",
     image: imgDay9,
-    rows: [
-      { icon: UtensilsCrossed, time: "Morning", title: "Breakfast" },
-      { icon: Rocket, time: "Morning", title: "Demo Day, 8 minutes each, no slides, real working demo" },
-      { icon: PartyPopper, time: "Late Morning", title: "Farewell + 90-Day Roadmap Commitments" },
-      { icon: LogIn, time: "Afternoon", title: "Checkout" },
-    ],
   },
 ];
 
 const Schedule = () => {
+  const [activeIdx, setActiveIdx] = useState(0);
+
   return (
     <SectionWrapper id="schedule" variant="dark">
       <SectionHeading
@@ -162,75 +93,89 @@ const Schedule = () => {
         <span className="text-white/55">One unforgettable week.</span>
       </SectionHeading>
 
-      {/* Vertical scroll-reveal: every day stacks. Each block animates in as it enters the viewport. */}
-      <div className="space-y-20 md:space-y-32 max-w-[1100px] mx-auto">
-        {days.map((day, idx) => (
-          <motion.section
-            key={day.key}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-            className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_1.3fr] gap-8 lg:gap-14 items-start"
-          >
-            {/* LEFT: image with label overlay */}
-            <div className="relative overflow-hidden aspect-[4/5] md:aspect-[3/4]">
-              <img
-                src={day.image}
-                alt={day.label + ", " + day.subtitle}
-                className="w-full h-full object-cover"
-                loading="lazy"
+      {/* Sticky-image storytelling: image pins on left, prose scrolls on right.
+          The active image swaps as each day enters the viewport. */}
+      <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 max-w-[1200px] mx-auto">
+        {/* LEFT: sticky image stack (only one fades in at a time) */}
+        <div className="hidden lg:block">
+          <div className="sticky top-24 aspect-[4/5] overflow-hidden">
+            {days.map((d, i) => (
+              <motion.img
+                key={d.key}
+                src={d.image}
+                alt={d.subtitle}
+                className="absolute inset-0 w-full h-full object-cover"
+                initial={false}
+                animate={{ opacity: activeIdx === i ? 1 : 0 }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-5 md:p-7">
+            ))}
+            {/* Day label overlay (also crossfades) */}
+            <div className="absolute bottom-0 left-0 right-0 p-7 bg-gradient-to-t from-black/85 via-black/20 to-transparent">
+              <motion.div
+                key={days[activeIdx].key + "-label"}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+              >
                 <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-white/60">
+                  {days[activeIdx].label}
+                </span>
+                <p className="font-editorial italic text-[26px] text-white mt-1 leading-tight">
+                  {days[activeIdx].subtitle}
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT: prose blocks for each day. Each fires onViewportEnter to update active. */}
+        <div className="space-y-20 lg:space-y-40">
+          {days.map((day, i) => (
+            <motion.article
+              key={day.key}
+              onViewportEnter={() => setActiveIdx(i)}
+              viewport={{ margin: "-45% 0px -45% 0px" }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="lg:min-h-[55vh] flex flex-col justify-center"
+            >
+              {/* Mobile image (since left column hides on small) */}
+              <div className="lg:hidden relative aspect-[4/5] overflow-hidden mb-6">
+                <img src={day.image} alt={day.subtitle} className="w-full h-full object-cover" loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-white/60">
+                    {day.label}
+                  </span>
+                  <p className="font-editorial italic text-[22px] text-white mt-1 leading-tight">
+                    {day.subtitle}
+                  </p>
+                </div>
+              </div>
+
+              {/* Prose block */}
+              <div>
+                <div className="hidden lg:flex items-baseline gap-3 mb-4">
+                  <span className="font-mono text-[11px] tracking-[0.28em] uppercase text-white/45">
+                    {String(i + 1).padStart(2, "0")} / {String(days.length).padStart(2, "0")}
+                  </span>
+                  <span className="h-px flex-1 bg-white/[0.08]" />
+                </div>
+                <span className="hidden lg:inline font-mono text-[10px] tracking-[0.3em] uppercase text-white/50">
                   {day.label}
                 </span>
-                <p className="font-editorial italic text-[22px] md:text-[28px] text-white mt-1 leading-tight">
+                <h3 className="hidden lg:block font-editorial italic text-[26px] lg:text-[32px] text-white mt-2 mb-4 leading-tight">
                   {day.subtitle}
+                </h3>
+                <p className="text-white/70 text-[15px] lg:text-[17px] leading-[1.65] max-w-[480px]">
+                  {day.prose}
                 </p>
               </div>
-            </div>
-
-            {/* RIGHT: rows */}
-            <div className="min-w-0">
-              {/* Day number rail for desktop, helps the scroll-flow feel intentional */}
-              <div className="hidden lg:flex items-baseline gap-3 mb-5">
-                <span className="font-mono text-[11px] tracking-[0.28em] uppercase text-white/45">
-                  {String(idx + 1).padStart(2, "0")} / {String(days.length).padStart(2, "0")}
-                </span>
-                <span className="h-px flex-1 bg-white/[0.08]" />
-              </div>
-
-              <ul className="space-y-1">
-                {day.rows.map((row) => {
-                  const Icon = row.icon;
-                  return (
-                    <li
-                      key={row.title}
-                      className="flex items-center gap-4 md:gap-5 py-4 border-b border-white/[0.06] group"
-                    >
-                      <div className="shrink-0 w-11 h-11 md:w-12 md:h-12 rounded-xl flex items-center justify-center bg-[#1A6AFF]/10 text-[#3D7EFF] border border-[#1A6AFF]/20 group-hover:bg-[#1A6AFF]/18 transition-colors">
-                        <Icon size={18} strokeWidth={1.6} />
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-[#3D7EFF]">
-                          {row.time}
-                        </p>
-                        <p className="text-[15px] md:text-[17px] font-semibold text-white leading-snug mt-1">
-                          {row.title}
-                        </p>
-                        {row.sub && (
-                          <p className="text-[13px] text-white/55 mt-1 leading-relaxed">{row.sub}</p>
-                        )}
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          </motion.section>
-        ))}
+            </motion.article>
+          ))}
+        </div>
       </div>
     </SectionWrapper>
   );
