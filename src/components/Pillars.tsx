@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
 import SectionHeading, { Accent } from "./SectionHeading";
 import { toolLogos } from "@/lib/toolLogos";
-import pillar01 from "/pillars/pillar-01.jpg";
 import pillar02 from "/pillars/pillar-02.jpg";
 import pillar03 from "/pillars/pillar-03.jpg";
 
@@ -22,41 +21,28 @@ const pillars: PillarData[] = [
   {
     num: "01",
     tag: "PILLAR 01",
-    title: "CONTENT",
-    desc: "Create content, visuals, and video that used to need a full production team.",
+    title: "PRODUCT",
+    desc: "Build a working AI product without writing code. Spec it, prompt it, ship it live on a real URL with payments and security.",
     builds: [
-      "AI generated scripts, UGC ads and social media creatives",
-      "A content system you can repeat after you leave",
+      "A functional AI product or internal tool live on a real URL",
+      "An eval scorecard that proves it works on real tasks",
     ],
-    tools: ["Higgsfield", "Gemini", "Midjourney"],
-    image: pillar01,
-    gradient: "linear-gradient(135deg, #0d0818, #1a0d2e)",
+    tools: ["Claude Code", "Lovable", "Supabase", "Vercel"],
+    image: pillar03,
+    gradient: "linear-gradient(135deg, #0a0f1a, #1a0f08)",
   },
   {
     num: "02",
     tag: "PILLAR 02",
     title: "OPERATIONS",
-    desc: "Map the manual work in your business and build AI that handles it for you.",
+    desc: "Map the manual work in your business and build AI that handles it for you. Automations, agents, knowledge bases, voice — the layer that runs your business while you sleep.",
     builds: [
-      "2 live AI automations and an AI agent of your choice",
-      "A workflow saving at least 5 hours a week, running without you",
+      "2 live AI automations and a personal AI assistant",
+      "A knowledge-grounded agent + voice agent for your business",
     ],
-    tools: ["Claude", "n8n", "Claude Core"],
+    tools: ["n8n", "Claude", "MCP", "Cowork"],
     image: pillar02,
     gradient: "linear-gradient(135deg, #0a1a0f, #0f1a2e)",
-  },
-  {
-    num: "03",
-    tag: "PILLAR 03",
-    title: "PRODUCT",
-    desc: "Build a working product without writing a single line of code. Spec it, prompt it, ship it.",
-    builds: [
-      "A functional product or internal tool you can demo live on Day 9",
-      "The foundation to keep building back home",
-    ],
-    tools: ["Emergent", "Lizard AI", "OpenAI", "Perplexity"],
-    image: pillar03,
-    gradient: "linear-gradient(135deg, #0a0f1a, #1a0f08)",
   },
 ];
 
@@ -75,7 +61,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
     if (typeof window !== "undefined" && window.matchMedia("(max-width: 768px)").matches) return;
     timerRef.current = setInterval(() => {
       if (!isPaused.current) {
-        setActiveIndex((prev) => (prev + 1) % 3);
+        setActiveIndex((prev) => (prev + 1) % 2);
       }
     }, 5000);
   }, []);
@@ -100,8 +86,8 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
         variant="dark"
         description="Each pillar gives you real skills, real tools, and real output you take home."
       >
-        Three <Accent>Pillars.</Accent> <br />
-        Nine days.
+        Two <Accent>Pillars.</Accent> <br />
+        Seven days.
       </SectionHeading>
 
       {/* MOBILE: Image on top, content below */}

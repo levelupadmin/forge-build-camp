@@ -32,7 +32,7 @@ const FinalCTA = ({ onOpenModal }: FinalCTAProps) => {
         className="relative z-10 text-center max-w-[960px] mx-auto px-6"
       >
         <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-white/45">
-          Cohort 01 · 20 invites · June – July 2026
+          Cohort 01 · 20 invites · September 11 – 17, 2026 · Sri Lanka
         </span>
 
         <h2
@@ -49,8 +49,8 @@ const FinalCTA = ({ onOpenModal }: FinalCTAProps) => {
         </h2>
 
         <p className="mt-10 text-[16px] md:text-[18px] text-white/65 max-w-[520px] mx-auto leading-[1.6]">
-          Think YCombinator meets an AI hackathon — 20 builders, 9 days, one focus.
-          You leave with three real builds and a network you'll talk to every week.
+          Think YCombinator meets an AI hackathon — 20 builders, 7 days, one focus.
+          You leave with two real builds and a network you'll talk to every week.
         </p>
 
         <button

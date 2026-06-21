@@ -50,6 +50,32 @@ const mentors = [
     linkedin: "https://www.linkedin.com/in/sabilashanganeshan",
   },
   {
+    name: "Ankur Upadhyay",
+    photo: mentorRahul,  // TODO: replace with real Ankur photo when provided
+    role: "Product Mentor · Edition 1",
+    sub: "AB InBev · o9 Solutions",
+    bullets: [
+      "Platform & AI Product Leader, building AI before GenAI",
+      "ML systems for 3M+ merchants at AB InBev",
+      "Agentic AI for 15,000+ enterprise users at o9 Solutions",
+      "Leads the Product pillar of Forge AI Edition 1",
+    ],
+    linkedin: "https://www.linkedin.com/in/ankurupadhyay",
+  },
+  {
+    name: "Parth Bansal",
+    photo: mentorRahul,  // TODO: replace with real Parth photo when provided
+    role: "Operations Mentor · Edition 1",
+    sub: "AI Staff PM · Healthcare AI",
+    bullets: [
+      "AI Staff Product Manager at the AI–healthcare frontier",
+      "Builds operational AI for multi-billion-dollar hospital systems",
+      "Has mentored 500+ professionals across tech, law, CA, IAS",
+      "Leads the Operations pillar of Forge AI Edition 1",
+    ],
+    linkedin: "https://www.linkedin.com/in/parthbansal",
+  },
+  {
     name: "Rahul Reddy",
     photo: mentorRahul,
     role: "Founder · Storyteller",

@@ -10,7 +10,7 @@ interface PricingProps {
 const inclusions = [
   "Residential stay on double occupancy",
   "All meals throughout the program",
-  "All three tracks: Generative AI, Automations, Product Building",
+  "Both tracks: Product + Operations",
   "Expert faculty throughout the residency",
   "Curated experiences during the program",
   "Community access after the program",
@@ -39,7 +39,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
         <div className="relative rounded-2xl overflow-hidden aspect-[16/9] shadow-lg">
           <img
             src={dharamshalaImg}
-            alt="Dharamshala"
+            alt="Sri Lanka — the Forge AI Edition 1 venue"  // TODO: swap pricing-dharamshala.jpg with a Sri Lanka venue photo
             className="w-full h-full object-cover"
             loading="lazy"
             width={1280}
@@ -58,7 +58,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
           <div className="absolute bottom-0 left-0 right-0 p-6">
             <p className="text-white/40 text-[10px] uppercase tracking-[0.2em] font-semibold mb-1">{"\n"}</p>
             <h3 className="text-white font-bold text-[36px] md:text-[48px] leading-none tracking-[-0.02em]">
-              DHARAMSHALA
+              SRI LANKA
             </h3>
             <p className="text-white/60 text-sm mt-1">{"\n"}</p>
           </div>
@@ -70,15 +70,15 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
             <span className="inline-block bg-primary/10 text-primary text-[10px] uppercase tracking-[0.15em] font-semibold px-3 py-1 rounded-full mb-2">
               Online
             </span>
-            <p className="font-bold text-foreground text-lg">9 Days</p>
-            <p className="text-muted-foreground text-[13px]">June 17 to 25, 2026</p>
+            <p className="font-bold text-foreground text-lg">5 Sessions</p>
+            <p className="text-muted-foreground text-[13px]">Sept 5 to 9, 2026</p>
           </div>
           <div className="bg-card border border-border rounded-xl p-4 text-center">
             <span className="inline-block bg-primary/10 text-primary text-[10px] uppercase tracking-[0.15em] font-semibold px-3 py-1 rounded-full mb-2">
               Offline
             </span>
-            <p className="font-bold text-foreground text-lg">8 Days</p>
-            <p className="text-muted-foreground text-[13px]">June 27 to July 4, 2026</p>
+            <p className="font-bold text-foreground text-lg">7 Days</p>
+            <p className="text-muted-foreground text-[13px]">Sept 11 to 17, 2026</p>
           </div>
         </div>
 
@@ -87,7 +87,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
           <div className="flex items-center justify-between mb-1">
             <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground font-semibold">Program Fee</span>
           </div>
-          <p className="font-bold text-[36px] md:text-[44px] text-foreground leading-none">INR 1,20,000</p>
+          <p className="font-bold text-[36px] md:text-[44px] text-foreground leading-none">INR 1,50,000</p>
           <p className="text-sm text-muted-foreground mt-1 mb-6">per person, inclusive of GST</p>
 
           <button

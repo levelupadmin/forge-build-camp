@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Box, Workflow, Film } from "lucide-react";
+import { Box, Workflow } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
 import SectionHeading, { Accent } from "./SectionHeading";
 
@@ -9,7 +9,6 @@ interface OutcomesProps {
 
 import outcomeProduct from "@/assets/2e22c1e7-d613-4897-84a2-4783a9591a9d.png";
 import outcomeAutomation from "@/assets/9b52020a-7e98-4938-b652-f587cb24fd35.png";
-import outcomeContent from "@/assets/7729dfc9-8472-4b35-90a7-f8d61dbc9814.png";
 
 const heroOutcomes = [
   {
@@ -28,14 +27,6 @@ const heroOutcomes = [
     desc: "A workflow running without you, supported by AI agents. Saves you and your team hours every single week.",
     image: outcomeAutomation,
   },
-  {
-    number: "03",
-    icon: Film,
-    kicker: "Deliverable Three",
-    title: "An AI Content System",
-    desc: "A repeatable process for content, visuals, and video. A pack created by you with just your words and creativity.",
-    image: outcomeContent,
-  },
 ];
 
 const Outcomes = ({ onOpenModal }: OutcomesProps) => {
@@ -43,7 +34,7 @@ const Outcomes = ({ onOpenModal }: OutcomesProps) => {
     <SectionWrapper id="outcomes">
       <SectionHeading
         label="YOUR OUTCOMES"
-        description="Three deliverables shipped in nine days. Things you can show, run, and ship the day you walk out."
+        description="Two deliverables shipped in seven days. Things you can show, run, and ship the day you walk out."
       >
         Not just learning. <Accent>Real building.</Accent>
       </SectionHeading>

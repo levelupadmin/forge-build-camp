@@ -5,12 +5,12 @@ import forgeLogoBlack from "@/assets/forge-ai-logo.png";
 
 const stats = [
   { value: "20", label: "BUILDERS" },
-  { value: "9", label: "DAYS" },
+  { value: "7", label: "DAYS" },
   { value: "1", label: "BOOTCAMP" },
 ];
 
 const descriptionText =
-  "A 9-day fully residential program where handpicked founders, marketers, and operators learn to build with AI by creating products, automating their business, and creating AI-powered content while living and working alongside a community of like-minded builders and AI experts as their mentors.";
+  "A 7-day fully residential program in Sri Lanka where handpicked founders, marketers, and operators learn to build with AI by shipping real products and the operations that run them, while living and working alongside a community of like-minded builders and AI experts as their mentors.";
 
 const ScrollBoldText = ({ text }: { text: string }) => {
   const containerRef = useRef<HTMLParagraphElement>(null);
