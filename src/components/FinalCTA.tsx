@@ -55,7 +55,7 @@ const FinalCTA = ({ onOpenModal }: FinalCTAProps) => {
 
         <button
           onClick={onOpenModal}
-          className="group mt-10 inline-flex items-center gap-2.5 bg-[#1A6AFF] text-white font-semibold rounded-xl px-8 py-3.5 text-sm uppercase tracking-wider btn-glow"
+          className="group mt-10 w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#1A6AFF] text-white font-semibold rounded-xl px-8 py-4 text-sm uppercase tracking-wider btn-glow"
         >
           Request an invite
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform group-hover:translate-x-0.5">

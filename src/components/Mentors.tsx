@@ -4,12 +4,12 @@ import { Linkedin, Plus, X } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
 import SectionHeading, { Accent } from "./SectionHeading";
 
-import mentorVaibhav from "@/assets/mentor-vaibhav.png";
+import mentorVaibhav from "@/assets/mentor-vaibhav.jpg";
 import mentorKevin from "@/assets/mentor-kevin.jpg";
-import mentorSabilashan from "@/assets/mentor-sabilashan.png";
+import mentorSabilashan from "@/assets/mentor-sabilashan.jpg";
 import mentorRahul from "@/assets/mentor-rahul.jpg";
 import mentorAnkur from "@/assets/mentor-ankur.jpeg";
-import mentorParth from "@/assets/mentor-parth.png";
+import mentorParth from "@/assets/mentor-parth-opt.jpg";
 import mentorAkhil from "@/assets/mentor-akhil.jpg";
 import mentorAshwin from "@/assets/mentor-ashwin.jpg";
 
@@ -285,7 +285,7 @@ const Mentors = ({ onOpenModal }: MentorsProps) => {
       <div className="text-center mt-14">
         <button
           onClick={onOpenModal}
-          className="inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold rounded-xl px-8 py-3.5 text-sm uppercase tracking-wider btn-glow"
+          className="w-full sm:w-auto inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold rounded-xl px-8 py-4 text-sm uppercase tracking-wider btn-glow"
         >
           Request an Invite
         </button>

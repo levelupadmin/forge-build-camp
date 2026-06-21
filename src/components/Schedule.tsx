@@ -3,10 +3,10 @@ import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import SectionHeading, { Accent } from "./SectionHeading";
 
-import imgOnlinePrep from "@/assets/schedule-online-prep.png";
-import imgDay1 from "@/assets/11de0180-9fd9-4966-a4a4-aa091c0adaf9.png";
-import imgDays23 from "@/assets/schedule-days23-v2.png";
-import imgDays45 from "@/assets/schedule-days45.png";
+import imgOnlinePrep from "@/assets/schedule-online-prep-opt.jpg";
+import imgDay1 from "@/assets/schedule-day1-opt.jpg";
+import imgDays23 from "@/assets/schedule-days23-opt.jpg";
+import imgDays45 from "@/assets/schedule-days45-opt.jpg";
 import imgDays678 from "@/assets/schedule-days678.jpg";
 import imgDay9 from "@/assets/8254fb1b-ea7c-433b-b7a4-8796e3238dd5.jpg";
 import imgAIHills from "@/assets/schedule-ai-hills.jpg";
@@ -218,7 +218,7 @@ const Schedule = ({ onOpenModal }: ScheduleProps) => {
           <div className="text-center mt-8 md:mt-10">
             <button
           onClick={onOpenModal}
-          className="inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold rounded-xl px-8 py-3.5 text-sm uppercase tracking-wider btn-glow"
+          className="w-full sm:w-auto inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold rounded-xl px-8 py-4 text-sm uppercase tracking-wider btn-glow"
         >
           Request an Invite
         </button>

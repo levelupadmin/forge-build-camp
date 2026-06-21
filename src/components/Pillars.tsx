@@ -119,7 +119,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
       <div className="text-center mt-12 md:mt-16">
         <button
           onClick={onOpenModal}
-          className="inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold rounded-xl px-8 py-3.5 text-sm uppercase tracking-wider btn-glow"
+          className="w-full sm:w-auto inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold rounded-xl px-8 py-4 text-sm uppercase tracking-wider btn-glow"
         >
           Request an Invite
         </button>

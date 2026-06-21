@@ -54,7 +54,7 @@ const AaryaQuote = ({ onOpenModal }: AaryaQuoteProps) => {
           <div className="mt-10">
             <button
           onClick={onOpenModal}
-          className="inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold rounded-xl px-8 py-3.5 text-sm uppercase tracking-wider btn-glow"
+          className="w-full sm:w-auto inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold rounded-xl px-8 py-4 text-sm uppercase tracking-wider btn-glow"
         >
           Build with him
         </button>
