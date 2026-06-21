@@ -6,6 +6,7 @@ import VennDiagram from "@/components/VennDiagram";
 import WhyAINow from "@/components/WhyAINow";
 import WhoIsFor from "@/components/WhoIsFor";
 import Pillars from "@/components/Pillars";
+import Tribe from "@/components/Tribe";
 import Outcomes from "@/components/Outcomes";
 // Temporarily hidden — uncomment to restore:
 // import PerksVault from "@/components/PerksVault";
@@ -72,6 +73,7 @@ const Index = () => {
       <Hero onOpenModal={openTally} />
       <LogoStrip />
       <WhatIsForge />
+      <Tribe />
       <WhyAINow />
       <WhoIsFor onOpenModal={openTally} />
       <VennDiagram />
