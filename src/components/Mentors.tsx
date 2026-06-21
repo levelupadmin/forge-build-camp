@@ -54,7 +54,7 @@ const mentors = [
   {
     name: "Ankur Upadhyay",
     photo: mentorAnkur,
-    role: "Product Mentor · Edition 1",
+    role: "Senior Product Manager",
     sub: "AB InBev · o9 Solutions",
     bullets: [
       "Platform & AI Product Leader, building AI before GenAI",
@@ -67,7 +67,7 @@ const mentors = [
   {
     name: "Parth Bansal",
     photo: mentorParth,
-    role: "Operations Mentor · Edition 1",
+    role: "AI Product Manager",
     sub: "AI Staff PM · Healthcare AI",
     bullets: [
       "AI Staff Product Manager at the AI–healthcare frontier",

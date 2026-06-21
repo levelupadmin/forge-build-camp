@@ -32,7 +32,7 @@ const FinalCTA = ({ onOpenModal }: FinalCTAProps) => {
         className="relative z-10 text-center max-w-[960px] mx-auto px-6"
       >
         <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-white/45">
-          Cohort 01 · 20 invites · September 11 – 17, 2026
+          Cohort 01 · 20 invites
         </span>
 
         <h2
