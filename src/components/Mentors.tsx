@@ -8,6 +8,8 @@ import mentorVaibhav from "@/assets/mentor-vaibhav.png";
 import mentorKevin from "@/assets/mentor-kevin.jpg";
 import mentorSabilashan from "@/assets/mentor-sabilashan.png";
 import mentorRahul from "@/assets/mentor-rahul.jpg";
+import mentorAnkur from "@/assets/mentor-ankur.jpeg";
+import mentorParth from "@/assets/mentor-parth.png";
 
 const mentors = [
   {
@@ -51,7 +53,7 @@ const mentors = [
   },
   {
     name: "Ankur Upadhyay",
-    photo: mentorRahul,  // TODO: replace with real Ankur photo when provided
+    photo: mentorAnkur,
     role: "Product Mentor · Edition 1",
     sub: "AB InBev · o9 Solutions",
     bullets: [
@@ -64,7 +66,7 @@ const mentors = [
   },
   {
     name: "Parth Bansal",
-    photo: mentorRahul,  // TODO: replace with real Parth photo when provided
+    photo: mentorParth,
     role: "Operations Mentor · Edition 1",
     sub: "AI Staff PM · Healthcare AI",
     bullets: [

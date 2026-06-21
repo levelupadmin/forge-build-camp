@@ -1,7 +1,7 @@
 # Forge AI Residency
 
 The Forge AI Residency is a 7-day fully
-residential AI program in Sri Lanka run
+residential AI program run
 by LevelUp Learning. It is built for
 founders, marketers, and operators who
 want to learn how to build with AI by
@@ -19,8 +19,8 @@ layer — automation, agent, knowledge,
 voice — running a real function in
 their business.
 
-Edition 1 runs September 11–17, 2026 in
-Sri Lanka. Five online prep sessions
+Edition 1 runs September 11–17, 2026.
+Five online prep sessions
 happen the week before, September 5–9.
 Together, 5 online sessions + 7 days on
 the ground = 12 days of program total.
@@ -94,7 +94,7 @@ Phase 1 — Online prep
   get live mentor feedback, lock the
   plan.
 
-Phase 2 — Seven days in Sri Lanka
+Phase 2 — Seven days on the ground
 (Sept 11–17):
 
   Day 1 (Sept 11): Arrival, orientation,

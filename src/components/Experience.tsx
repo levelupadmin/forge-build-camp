@@ -55,7 +55,7 @@ const Experience = () => {
           >
             <img
               src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800&q=80"
-              alt="Tropical retreat in Sri Lanka for AI residency"
+              alt="Tropical retreat for AI residency"
               className="w-full h-full object-cover"
               loading="lazy"
             />

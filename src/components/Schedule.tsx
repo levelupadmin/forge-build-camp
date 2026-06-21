@@ -58,7 +58,7 @@ const days: ScheduleDay[] = [
     subtitle: "Arrival · The Psychology of Storytelling",
     image: imgDay1,
     rows: [
-      { icon: LogIn, time: "2:00 PM", title: "Check In to Sri Lanka" },
+      { icon: LogIn, time: "2:00 PM", title: "Check In" },
       { icon: Compass, time: "5:30 PM – 7:30 PM", title: "Orientation — meet the room" },
       { icon: BookOpen, time: "7:30 PM – 8:30 PM", title: "The Psychology Behind Storytelling — with Rahul" },
       { icon: UtensilsCrossed, time: "8:30 PM – 9:30 PM", title: "Dinner" },
@@ -158,10 +158,10 @@ const Schedule = () => {
       <SectionHeading
         label="THE GAMEPLAN"
         variant="dark"
-        description="Five pre-arrival sessions to prime you. Then you land in Sri Lanka and build with AI every day, morning to night, until you walk out with two shipped things — a product and the operations that run it."
+        description="Five pre-arrival sessions to prime you. Then you arrive on the ground and build with AI every day, morning to night, until you walk out with two shipped things — a product and the operations that run it."
       >
         <Accent>Seven&nbsp;days.</Accent> Two builds. <br className="md:hidden" />
-        <span className="text-white/55">One unforgettable week in Sri Lanka.</span>
+        <span className="text-white/55">One unforgettable week.</span>
       </SectionHeading>
 
       {/* Day tabs — horizontal scrolling strip */}
