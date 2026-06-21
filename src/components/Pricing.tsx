@@ -38,7 +38,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
 
       <div className="max-w-[520px] mx-auto space-y-4">
         {/* Location Hero Card */}
-        <div className="relative rounded-2xl overflow-hidden aspect-[16/9] shadow-lg">
+        <div className="relative overflow-hidden aspect-[16/9] shadow-lg">
           <img
             src={venueImage}
             alt="Sri Lanka — the Forge AI Edition 1 venue"
@@ -68,14 +68,14 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
 
         {/* Date Strip */}
         <div className="grid grid-cols-2 gap-3">
-          <div className="bg-card border border-border rounded-xl p-4 text-center">
+          <div className="bg-card border border-border p-4 text-center">
             <span className="inline-block bg-primary/10 text-primary text-[10px] uppercase tracking-[0.15em] font-semibold px-3 py-1 rounded-full mb-2">
               Online
             </span>
             <p className="font-bold text-foreground text-lg">5 Sessions</p>
             <p className="text-muted-foreground text-[13px]">Sept 5 to 9, 2026</p>
           </div>
-          <div className="bg-card border border-border rounded-xl p-4 text-center">
+          <div className="bg-card border border-border p-4 text-center">
             <span className="inline-block bg-primary/10 text-primary text-[10px] uppercase tracking-[0.15em] font-semibold px-3 py-1 rounded-full mb-2">
               Offline
             </span>
@@ -85,7 +85,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
         </div>
 
         {/* Price + CTA Card */}
-        <div className="bg-card border border-border rounded-2xl p-6 shadow-sm">
+        <div className="bg-card border border-border p-6 shadow-sm">
           <div className="flex items-center justify-between mb-1">
             <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground font-semibold">Program Fee</span>
           </div>
@@ -94,7 +94,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
 
           <button
             onClick={onOpenModal}
-            className="w-full bg-primary text-primary-foreground font-semibold rounded-full py-4 text-sm uppercase tracking-wider btn-glow"
+            className="w-full bg-primary text-primary-foreground font-semibold rounded-xl py-4 text-sm uppercase tracking-wider btn-glow"
           >
             REQUEST AN INVITE
           </button>
@@ -105,7 +105,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
         </div>
 
         {/* Inclusions / Exclusions Toggle Card */}
-        <div className="bg-card border border-border rounded-2xl p-6 shadow-sm">
+        <div className="bg-card border border-border p-6 shadow-sm">
           {/* Toggle Pills */}
           <div className="flex gap-2 mb-6">
             <button

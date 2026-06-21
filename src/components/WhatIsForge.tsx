@@ -102,7 +102,7 @@ const WhatIsForge = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="max-w-[900px] mx-auto mb-8"
         >
-          <div className="relative rounded-2xl overflow-hidden border border-foreground/[0.08] shadow-lg aspect-video bg-black">
+          <div className="relative overflow-hidden border border-foreground/[0.08] shadow-lg aspect-video bg-black">
             {showVideo ? (
               <iframe
                 src="https://www.youtube-nocookie.com/embed/6uj2L0HjIQM?autoplay=1&rel=0&modestbranding=1"
@@ -166,7 +166,7 @@ const WhatIsForge = () => {
         >
           {stats.map((s, i) => (
             <div key={s.label} className="flex items-center gap-3 md:gap-4">
-              <div className="bg-primary rounded-xl p-4 md:p-6 text-center min-w-[100px] md:min-w-[130px]">
+              <div className="bg-primary p-4 md:p-6 text-center min-w-[100px] md:min-w-[130px]">
                 <p className="text-primary-foreground font-bold text-[28px] md:text-[36px] leading-none">
                   {s.value}
                 </p>

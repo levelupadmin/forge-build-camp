@@ -109,7 +109,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
         </div>
 
         {/* Image */}
-        <div className="relative rounded-2xl overflow-hidden aspect-[16/10] mb-6">
+        <div className="relative overflow-hidden aspect-[16/10] mb-6">
           <AnimatePresence mode="wait">
             <motion.img
               key={activeIndex}
@@ -166,7 +166,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
 
       {/* DESKTOP: Full-bleed hero with thumbnail cards */}
       <div
-        className="hidden md:block relative rounded-2xl overflow-hidden h-[600px]"
+        className="hidden md:block relative overflow-hidden h-[600px]"
         onMouseEnter={() => (isPaused.current = true)}
         onMouseLeave={() => (isPaused.current = false)}
       >
@@ -251,7 +251,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
                 <div
                   key={i}
                   onClick={() => handleClick(i)}
-                  className="relative rounded-xl overflow-hidden cursor-pointer w-[200px] h-[280px] transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl"
+                  className="relative overflow-hidden cursor-pointer w-[200px] h-[280px] transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl"
                 >
                   <div
                     className="absolute inset-0 bg-cover bg-center"

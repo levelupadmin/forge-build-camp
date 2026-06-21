@@ -57,7 +57,7 @@ const WhoIsFor = ({ onOpenModal }: WhoIsForProps) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.5, delay: i * 0.08 }}
-            className="group relative rounded-2xl overflow-hidden aspect-[3/4] bg-foreground/5"
+            className="group relative overflow-hidden aspect-[3/4] bg-foreground/5"
           >
             <img
               src={p.image}
@@ -109,7 +109,7 @@ const WhoIsFor = ({ onOpenModal }: WhoIsForProps) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-foreground/5"
+            className="relative overflow-hidden aspect-[4/5] bg-foreground/5"
           >
             <img
               src={personas[active].image}
@@ -134,7 +134,7 @@ const WhoIsFor = ({ onOpenModal }: WhoIsForProps) => {
       <div className="text-center mt-10 md:mt-12">
         <button
           onClick={onOpenModal}
-          className="bg-primary text-primary-foreground font-semibold rounded-full px-8 py-3.5 text-sm uppercase tracking-wider btn-glow"
+          className="bg-primary text-primary-foreground font-semibold rounded-xl px-8 py-3.5 text-sm uppercase tracking-wider btn-glow"
         >
           REQUEST AN INVITE
         </button>

@@ -38,7 +38,7 @@ const Community = ({ onOpenModal }: CommunityProps) => {
           {[...cards, ...cards, ...cards].map((card, i) => (
             <div
               key={i}
-              className="shrink-0 w-[220px] md:w-[280px] aspect-[3/4] rounded-2xl overflow-hidden relative group mx-2"
+              className="shrink-0 w-[220px] md:w-[280px] aspect-[3/4] overflow-hidden relative group mx-2"
             >
               <img
                 src={card.image}
@@ -64,7 +64,7 @@ const Community = ({ onOpenModal }: CommunityProps) => {
       <div className="text-center mt-12">
         <button
           onClick={onOpenModal}
-          className="bg-primary text-primary-foreground font-semibold rounded-full px-8 py-3.5 text-sm uppercase tracking-wider btn-glow"
+          className="bg-primary text-primary-foreground font-semibold rounded-xl px-8 py-3.5 text-sm uppercase tracking-wider btn-glow"
         >
           REQUEST AN INVITE
         </button>
