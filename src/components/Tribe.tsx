@@ -1,5 +1,10 @@
 import SectionWrapper from "./SectionWrapper";
 import SectionHeading, { Accent } from "./SectionHeading";
+import studentVishal from "@/assets/community/student-vishal.jpg";
+import studentRuhani from "@/assets/community/student-ruhani.jpg";
+import studentJoginder from "@/assets/community/student-joginder.jpg";
+import studentAarya from "@/assets/community/student-aarya.jpg";
+
 
 interface TribeMember {
   name: string;
@@ -14,13 +19,13 @@ interface TribeMember {
 const tribe: TribeMember[] = [
   { name: "Saket", designation: "CEO - 2care AI", photo: "/images/community/saket-toshniwal.jpg", link: "https://instagram.com/Growwithsaket" },
   { name: "Tuhin", designation: "Ex-Creative Head - Coinbase", photo: "/images/community/tuhin-kalia.jpg", link: "https://instagram.com/tuhinkalyas" },
-  { name: "Vishal", designation: "Co-Founder - REConnect Energy", photo: null, link: "https://www.linkedin.com/in/meetvishalpandya/" },
-  { name: "Ruhani", designation: "Director - Minar Group", photo: null, link: "https://in.linkedin.com/in/ruhani-duggal-7b6a12146" },
+  { name: "Vishal", designation: "Co-Founder - REConnect Energy", photo: studentVishal, link: "https://www.linkedin.com/in/meetvishalpandya/" },
+  { name: "Ruhani", designation: "Director - Minar Group", photo: studentRuhani, link: "https://in.linkedin.com/in/ruhani-duggal-7b6a12146" },
   { name: "Aravind", designation: "Venture Capitalist", photo: "/images/community/aravind-suresh.jpg", link: "https://instagram.com/aravind_suresh" },
   { name: "Rahul", designation: "Founder + TedX Speaker", photo: "/images/community/rahul-narvekar.jpg", link: "https://instagram.com/Rahulnarvekar" },
-  { name: "Joginder", designation: "Founder - LeadMagnet", photo: null, link: "https://www.linkedin.com/in/dr-joginder-singh-bedi-91a05259/" },
+  { name: "Joginder", designation: "Founder - LeadMagnet", photo: studentJoginder, link: "https://www.linkedin.com/in/dr-joginder-singh-bedi-91a05259/" },
   { name: "Nischala", designation: "Founder - Nischala Reddy Label", photo: "/images/community/nischala-reddy.jpg", link: "https://instagram.com/nischala_reddyd" },
-  { name: "Aarya", designation: "Director - Naprod Life Sciences", photo: null, link: "https://www.linkedin.com/in/aarya-jain/" },
+  { name: "Aarya", designation: "Director - Naprod Life Sciences", photo: studentAarya, link: "https://www.linkedin.com/in/aarya-jain/" },
   { name: "Vanmathi", designation: "Founder - Coconut Sugar Co.", photo: "/images/community/vanmathi-velmurugan.jpg", link: "https://www.instagram.com/vanmathi_velmurugan/" },
   { name: "Siddhartha", designation: "Fashion Entrepreneur", photo: "/images/community/siddhartha-bhowmik.jpg", link: "https://www.instagram.com/sid_bhowmik" },
 ];
