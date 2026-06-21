@@ -4,6 +4,7 @@ import studentVishal from "@/assets/community/student-vishal.jpg";
 import studentRuhani from "@/assets/community/student-ruhani.jpg";
 import studentJoginder from "@/assets/community/student-joginder.jpg";
 import studentAarya from "@/assets/community/student-aarya.jpg";
+import studentSmitesh from "@/assets/community/student-smitesh.jpg";
 
 
 interface TribeMember {
@@ -28,6 +29,7 @@ const tribe: TribeMember[] = [
   { name: "Aarya", designation: "Director - Naprod Life Sciences", photo: studentAarya, link: "https://www.linkedin.com/in/aarya-jain/" },
   { name: "Vanmathi", designation: "Founder - Coconut Sugar Co.", photo: "/images/community/vanmathi-velmurugan.jpg", link: "https://www.instagram.com/vanmathi_velmurugan/" },
   { name: "Siddhartha", designation: "Fashion Entrepreneur", photo: "/images/community/siddhartha-bhowmik.jpg", link: "https://www.instagram.com/sid_bhowmik" },
+  { name: "Smitesh", designation: "Director - Global Implementation", photo: studentSmitesh, link: "https://www.linkedin.com/in/smitesh-panchal/" },
 ];
 
 const getInitials = (name: string) =>
