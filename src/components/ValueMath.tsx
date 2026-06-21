@@ -10,7 +10,7 @@ interface ValueMathProps {
 }
 
 const givens = [
-  { label: "9-day residency in Dharamshala", sub: "All meals, residential stay, curated experiences" },
+  { label: "7-day residency", sub: "All meals, residential stay, curated experiences" },
   { label: "20-builder curated cohort", sub: "Hand-selected from applications, not first come, first served" },
   { label: "Lifetime Forge community", sub: "Alumni guest lectures, meet-ups, private channel" },
   { label: "Three expert-led tracks", sub: "Generative AI · Automations · Product Building" },

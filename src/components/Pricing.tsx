@@ -18,7 +18,7 @@ const inclusions = [
   "Community access after the program",
   // "Perks from partner brands",  // Temporarily hidden, restore by uncommenting
   "The Forge AI Goodie Bag",
-  "Demo Day on Day 9",
+  "Demo Day on Day 7",
 ];
 
 const exclusions = [

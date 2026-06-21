@@ -6,7 +6,7 @@ import { MapPin } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "honestly did not expect to ship something real in 9 days. like actually real. i built an automation that now handles all my lead followups and a landing page for my new offer. my team thought i hired someone lol. the people in the room were the best part though, still talk and build with half of them every week.",
+    quote: "honestly did not expect to ship something real in 7 days. like actually real. i built an automation that now handles all my lead followups and a landing page for my new offer. my team thought i hired someone lol. the people in the room were the best part though, still talk and build with half of them every week.",
     name: "Rishi Malhotra",
     role: "Co-founder, Koda Labs",
     location: "Mumbai",
@@ -18,13 +18,13 @@ const testimonials = [
     location: "Chennai",
   },
   {
-    quote: "Was skeptical tbh. thought it would be a lot of 'AI is the future' type content. It wasn't. Day 2 I made my first AI video ad. Day 5 my automation was live. Day 8 I demoed a client dashboard I built from scratch. zero coding background. genuinely changed how I think about what's possible.",
+    quote: "Was skeptical tbh. thought it would be a lot of 'AI is the future' type content. It wasn't. Day 2 I made my first AI video ad. Day 5 my automation was live. Day 6 I demoed a client dashboard I built from scratch. zero coding background. genuinely changed how I think about what's possible.",
     name: "Kabir Sehgal",
     role: "Founder, Blok Studio",
     location: "Delhi",
   },
   {
-    quote: "the dot matrix slide alone was worth the trip. but what stayed with me was the people. a founder from Bangalore, a marketer from Delhi, an operator from Pune, all of us just heads down building for 9 days straight. made friends I'll keep for years. also my content output has 3x'd since I got back so.. yeah.",
+    quote: "the dot matrix slide alone was worth the trip. but what stayed with me was the people. a founder from Bangalore, a marketer from Delhi, an operator from Pune, all of us just heads down building for 7 days straight. made friends I'll keep for years. also my content output has 3x'd since I got back so.. yeah.",
     name: "Meera Nambiar",
     role: "Brand Strategist, Swiggy",
     location: "Bangalore",
@@ -42,7 +42,7 @@ const testimonials = [
     location: "Jaipur",
   },
   {
-    quote: "My biggest fear was being the least technical person in the room. I was probably top 3 non-technical. didn't matter at all?? the tools are genuinely built for people like us. and the mentors don't make you feel stupid for asking basic questions. best 9 days I've spent on my business in 3 years.",
+    quote: "My biggest fear was being the least technical person in the room. I was probably top 3 non-technical. didn't matter at all?? the tools are genuinely built for people like us. and the mentors don't make you feel stupid for asking basic questions. best 7 days I've spent on my business in 3 years.",
     name: "Vikram Nair",
     role: "Senior Marketing Manager, CRED",
     location: "Bangalore",
