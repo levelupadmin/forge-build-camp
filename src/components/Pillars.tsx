@@ -21,6 +21,19 @@ const pillars: PillarData[] = [
   {
     num: "01",
     tag: "PILLAR 01",
+    title: "OPERATIONS",
+    desc: "Map the manual work in your business and build AI that handles it for you. Automations, agents, knowledge bases, voice. The layer that runs your business while you sleep.",
+    builds: [
+      "2 live AI automations and a personal AI assistant",
+      "A knowledge-grounded agent + voice agent for your business",
+    ],
+    tools: ["n8n", "Claude", "MCP", "Cowork"],
+    image: pillar02,
+    gradient: "linear-gradient(135deg, #0a1a0f, #0f1a2e)",
+  },
+  {
+    num: "02",
+    tag: "PILLAR 02",
     title: "PRODUCT",
     desc: "Build a working AI product without writing code. Spec it, prompt it, ship it live on a real URL with payments and security.",
     builds: [
@@ -30,19 +43,6 @@ const pillars: PillarData[] = [
     tools: ["Claude Code", "Lovable", "Supabase", "Vercel"],
     image: pillar03,
     gradient: "linear-gradient(135deg, #0a0f1a, #1a0f08)",
-  },
-  {
-    num: "02",
-    tag: "PILLAR 02",
-    title: "OPERATIONS",
-    desc: "Map the manual work in your business and build AI that handles it for you. Automations, agents, knowledge bases, voice, the layer that runs your business while you sleep.",
-    builds: [
-      "2 live AI automations and a personal AI assistant",
-      "A knowledge-grounded agent + voice agent for your business",
-    ],
-    tools: ["n8n", "Claude", "MCP", "Cowork"],
-    image: pillar02,
-    gradient: "linear-gradient(135deg, #0a1a0f, #0f1a2e)",
   },
 ];
 
@@ -84,7 +84,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
       <SectionHeading
         label="THE CORE"
         variant="dark"
-        description="Each pillar gives you real skills, real tools, and real output you take home."
+        description="Each pillar gives you the skills, the tools, and the output you take home."
       >
         Two <Accent>Pillars.</Accent> <br />
         Seven days.

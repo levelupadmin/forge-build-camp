@@ -5,7 +5,9 @@ import SectionWrapper from "./SectionWrapper";
 import SectionHeading, { Accent } from "./SectionHeading";
 
 const faqs = [
-  { q: "Who is this for?", a: "Founders, marketers, operators, and working professionals who want to build with AI. No coding background needed." },
+  { q: "Who is this for?", a: "Founders, operators, and business leaders who want to build with AI. No coding background needed." },
+  { q: "How is this different from the 10 AI cohorts I have already paid for?", a: "You stop watching. You sit in a room with 19 other builders for 7 days. You do not leave until two real things are shipped. No replay tab. No catching up next week. Just the room, the mentors, and the work." },
+  { q: "I keep starting AI projects and abandoning them. How do I know I will finish here?", a: "Because the room will not let you. Mentor ratio is 1 to 5. Daily build standups. Outdoor hackathon on Day 6. Demo Day on Day 7 where you present a working build to the cohort. The structure exists so you cannot slip." },
   { q: "Do I need to know how to code?", a: "No. None of the three tracks require coding. If you can write a brief, you can build with these tools." },
   { q: "What is included in the program fee?", a: "Residential stay, all meals, both tracks (Product + Operations), expert faculty, curated experiences, community access, and the Forge AI Goodie Bag. Everything except your travel to the venue." },
   { q: "How many people are in each cohort?", a: "20. Hard limit. This is what allows faculty to actually work with you and not just present to you." },

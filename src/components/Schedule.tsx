@@ -35,7 +35,7 @@ const days: ScheduleDay[] = [
     prose: "Production architecture. Messages API. Streaming. Prompt caching. Payments. End of day, Build One is live on a real URL. With an eval scorecard to prove it works.",
     image: imgDays45 },
   { key: "d4", label: "DAY 4", subtitle: "Operations I. Automate It, Then Make It Think.",
-    prose: "n8n unlocks the layer beneath your product. Triggers, steps, the think-act-observe loop. A ticket-classifying support agent. By the end of day, your apps connect to AI through MCP, and you have a personal assistant that knows your work.",
+    prose: "n8n becomes the layer beneath your product. Triggers, steps, the think-act-observe loop. A ticket-classifying support agent. By the end of day, your apps connect to AI through MCP, and you have a personal assistant that knows your work.",
     image: imgAIBeach },
   { key: "d5", label: "DAY 5", subtitle: "Operations II. Connect It, Ground It, Give It a Voice.",
     prose: "Browser agents that fill forms while you sleep. RAG that grounds your agents in your own docs. Voice agents that handle outbound calls. Parth walks you through it, then sits with you one on one.",

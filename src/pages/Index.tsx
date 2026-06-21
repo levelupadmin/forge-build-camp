@@ -14,6 +14,7 @@ import Outcomes from "@/components/Outcomes";
 import Pricing from "@/components/Pricing";
 import Schedule from "@/components/Schedule";
 import Mentors from "@/components/Mentors";
+import AaryaQuote from "@/components/AaryaQuote";
 import Community from "@/components/Community";
 import SocialProof from "@/components/SocialProof";
 import FAQs from "@/components/FAQs";
@@ -78,6 +79,7 @@ const Index = () => {
       <Tribe />
       {/* Temporarily hidden: <WhoIsFor onOpenModal={openTally} /> */}
       <Pillars onOpenModal={openTally} />
+      <AaryaQuote />
       {/* Temporarily hidden: <Outcomes onOpenModal={openTally} /> (duplicates Pillars outcome story) */}
       <Mentors />
       <Schedule />

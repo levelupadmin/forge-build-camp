@@ -76,7 +76,7 @@ const Hero = ({ onOpenModal }: HeroProps) => {
         </h1>
 
         <p className="mt-6 md:text-[17px] tracking-wide leading-relaxed max-w-[540px] mx-auto text-sm text-primary-foreground">
-          An invite-only residency for founders, marketers, and operators who want to stop watching AI happen and start building with it.
+          An invite-only residency for founders, operators, and business leaders who want to stop watching AI happen and start building with it.
         </p>
 
         <div className="mt-8">
