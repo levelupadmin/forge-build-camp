@@ -4,6 +4,12 @@ import { Linkedin, Plus, X } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
 import SectionHeading, { Accent } from "./SectionHeading";
 
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Linkedin, Plus, X } from "lucide-react";
+import SectionWrapper from "./SectionWrapper";
+import SectionHeading, { Accent } from "./SectionHeading";
+
 import mentorVaibhav from "@/assets/mentor-vaibhav.jpg";
 import mentorKevin from "@/assets/mentor-kevin.jpg";
 import mentorSabilashan from "@/assets/mentor-sabilashan.jpg";
@@ -12,6 +18,7 @@ import mentorAnkur from "@/assets/mentor-ankur.jpeg";
 import mentorParth from "@/assets/mentor-parth-opt.jpg";
 import mentorAkhil from "@/assets/mentor-akhil.jpg";
 import mentorAshwin from "@/assets/mentor-ashwin.jpg";
+
 
 const mentors = [
   {
@@ -120,7 +127,9 @@ const mentors = [
   },
 ];
 
-interface MentorsProps { onOpenModal: () => void; }
+interface MentorsProps {
+  onOpenModal: () => void;
+}
 
 const Mentors = ({ onOpenModal }: MentorsProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -129,158 +138,89 @@ const Mentors = ({ onOpenModal }: MentorsProps) => {
     <SectionWrapper id="mentors" variant="dark">
       <SectionHeading
         label="YOUR MENTORS"
+        variant="dark"
         description="Every mentor at the Forge is a practitioner of their craft. A working builder, a published creator, a full-time operator. Not a professor."
       >
         Learn from builders who use AI for a <Accent>living.</Accent>
       </SectionHeading>
 
-      {/* Editorial grid, 2 cols mobile, 4 cols desktop. Hover on desktop reveals bio inline; tap opens modal on mobile */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 max-w-[1100px] mx-auto">
-        {mentors.map((m, i) => {
-          return (
+      {/* Editorial 2-col mobile, 4-col desktop. Tap reveals inline bio below the card. */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 max-w-[1200px] mx-auto">
+        {mentors.map((m, i) => (
+          <div key={m.name} className="flex flex-col">
             <motion.button
-              key={m.name}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              onClick={() => setOpenIndex(i)}
-              className="group relative text-left overflow-hidden aspect-[3/4] md:aspect-[4/5] bg-foreground/5 border border-foreground/[0.06] hover:border-primary/30 transition-colors"
+              transition={{ duration: 0.4, delay: (i % 4) * 0.06 }}
+              onClick={() => setOpenIndex(openIndex === i ? null : i)}
+              className="group relative text-left aspect-[4/5] overflow-hidden bg-white/[0.04] border border-white/[0.08] hover:border-primary/40 transition-colors"
             >
               {m.photo ? (
                 <img
                   src={m.photo}
                   alt={m.name}
                   loading="lazy"
-                  width={512}
-                  height={640}
                   className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
                 />
               ) : (
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/15 via-foreground/[0.04] to-foreground/[0.02] transition-transform duration-700 group-hover:scale-[1.04]">
-                  <span className="text-foreground/35 font-bold tracking-tight" style={{ fontSize: "clamp(48px, 9vw, 80px)" }}>
-                    {m.name.split(" ").filter(Boolean).slice(0, 2).map((w) => w[0]).join("").toUpperCase()}
+                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/15 via-white/[0.04] to-white/[0.02]">
+                  <span className="text-white/35 font-bold tracking-tight" style={{ fontSize: "clamp(36px, 7vw, 56px)" }}>
+                    {m.name.replace(/^(Dr\.|Mr\.|Ms\.)\s+/i, "").split(" ").filter(Boolean).slice(0, 2).map((w) => w[0]).join("").toUpperCase()}
                   </span>
                 </div>
               )}
-              {/* Default gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent transition-opacity duration-300 md:group-hover:opacity-0" />
-
-              {/* Default: name + role */}
-              <div className="absolute inset-0 flex flex-col justify-end p-3 md:p-5 md:group-hover:opacity-0 transition-opacity duration-300">
-                <p className="font-mono text-[9px] md:text-[10px] tracking-[0.22em] uppercase text-primary-foreground/70 mb-1.5">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent" />
+              <div className="absolute top-2.5 right-2.5 w-7 h-7 flex items-center justify-center bg-black/45 backdrop-blur-sm border border-white/20 text-white">
+                {openIndex === i ? <X size={12} strokeWidth={2} /> : <Plus size={12} strokeWidth={2} />}
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 text-white">
+                <p className="font-mono text-[8.5px] md:text-[9.5px] tracking-[0.22em] uppercase text-white/65 mb-1">
                   {m.sub}
                 </p>
-                <p className="font-bold text-white text-[15px] md:text-[20px] leading-tight">
+                <p className="font-bold text-[14px] md:text-[16px] leading-tight">
                   {m.name}
                 </p>
-                <p className="text-white/75 text-[11px] md:text-[13px] leading-snug mt-1">
+                <p className="text-white/72 text-[10.5px] md:text-[11.5px] mt-0.5 leading-snug">
                   {m.role}
                 </p>
               </div>
-
-              {/* Hover (desktop): primary-blue curtain with bullet summary */}
-              <div className="hidden md:flex absolute inset-0 flex-col justify-between p-5 bg-primary/95 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div>
-                  <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-white/75 mb-1.5">
-                    {m.sub}
-                  </p>
-                  <p className="font-bold text-white text-[20px] leading-tight">{m.name}</p>
-                  <p className="text-white/85 text-[12px] mt-1.5 font-semibold">{m.role}</p>
-                  <ul className="mt-4 space-y-1.5">
-                    {m.bullets.slice(0, 3).map((b, j) => (
-                      <li
-                        key={j}
-                        className="text-white/90 text-[11.5px] leading-[1.45] flex items-start gap-1.5"
-                      >
-                        <span className="mt-[6px] w-1 h-1 rounded-full bg-white shrink-0" />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <span className="inline-flex items-center gap-1.5 text-white text-[11px] font-semibold uppercase tracking-[0.14em]">
-                  View full bio <Plus size={12} />
-                </span>
-              </div>
-
-              {/* Plus icon, always visible on mobile, fades on desktop hover */}
-              <div className="absolute top-3 right-3 md:top-4 md:right-4 w-8 h-8 md:w-9 md:h-9 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 md:group-hover:opacity-0 transition-opacity">
-                <Plus size={16} className="text-white" />
-              </div>
             </motion.button>
-          );
-        })}
+
+            {/* Inline expanded bio (sits below the card it belongs to in the same flex column) */}
+            <AnimatePresence>
+              {openIndex === i && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                  className="overflow-hidden"
+                >
+                  <div className="pt-3 md:pt-4 pb-1">
+                    <ul className="space-y-1.5">
+                      {m.bullets.map((b, j) => (
+                        <li key={j} className="text-white/72 text-[11.5px] md:text-[12.5px] leading-snug flex gap-1.5">
+                          <span className="text-primary mt-0.5">·</span>
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <a
+                      href={m.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 mt-3 text-primary text-[11px] md:text-[12px] font-mono tracking-wider uppercase hover:underline"
+                    >
+                      <Linkedin size={11} strokeWidth={2} /> Profile
+                    </a>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        ))}
       </div>
-      {/* Modal-like expansion */}
-      <AnimatePresence>
-        {openIndex !== null && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setOpenIndex(null)}
-            className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 md:p-8"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 20, scale: 0.96 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 20, scale: 0.96 }}
-              transition={{ duration: 0.3 }}
-              onClick={(e) => e.stopPropagation()}
-              className="relative bg-background rounded-xl w-full max-w-[640px] max-h-[90vh] overflow-y-auto shadow-2xl"
-            >
-              <button
-                onClick={() => setOpenIndex(null)}
-                className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-foreground/5 hover:bg-foreground/10 flex items-center justify-center"
-                aria-label="Close"
-              >
-                <X size={18} />
-              </button>
-              <div className="grid md:grid-cols-[240px_1fr]">
-                <div className="aspect-[3/4] md:aspect-auto md:min-h-[360px] relative overflow-hidden md:rounded-l-3xl">
-                  <img
-                    src={mentors[openIndex].photo}
-                    alt={mentors[openIndex].name}
-                    className="absolute inset-0 w-full h-full object-cover object-top"
-                  />
-                </div>
-                <div className="p-6 md:p-7">
-                  <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-primary/80 mb-2">
-                    {mentors[openIndex].sub}
-                  </p>
-                  <h3 className="font-bold text-[26px] md:text-[36px] leading-[1.1] tracking-[-0.02em] text-foreground">
-                    {mentors[openIndex].name}
-                  </h3>
-                  <p className="text-primary text-[13px] md:text-[14px] font-semibold mt-1">
-                    {mentors[openIndex].role}
-                  </p>
-                  <ul className="mt-5 space-y-2.5">
-                    {mentors[openIndex].bullets.map((b, j) => (
-                      <li
-                        key={j}
-                        className="flex items-start gap-2.5 text-[13px] md:text-[14px] text-muted-foreground leading-[1.55]"
-                      >
-                        <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                  <a
-                    href={mentors[openIndex].linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-6 inline-flex items-center gap-2 text-[13px] text-primary hover:underline font-semibold"
-                  >
-                    <Linkedin size={15} />
-                    View LinkedIn
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       <div className="text-center mt-14">
         <button
