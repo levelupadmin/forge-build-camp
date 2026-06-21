@@ -94,7 +94,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
 
           <button
             onClick={onOpenModal}
-            className="w-full bg-primary text-primary-foreground font-semibold rounded-xl py-4 text-sm uppercase tracking-wider btn-glow"
+            className="w-full bg-primary text-primary-foreground font-semibold rounded-full py-4 text-sm uppercase tracking-wider btn-glow"
           >
             REQUEST AN INVITE
           </button>
