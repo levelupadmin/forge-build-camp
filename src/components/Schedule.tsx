@@ -102,8 +102,8 @@ const Schedule = () => {
         className="relative"
         style={{ height: `${days.length * 90}vh` }}
       >
-        <div className="sticky top-0 h-screen overflow-hidden flex flex-col justify-center bg-background">
-          <div className="max-w-[1300px] w-full mx-auto px-6 lg:px-12 py-6 md:py-10">
+        <div className="sticky top-0 h-screen overflow-hidden flex flex-col justify-center bg-background py-10 md:py-14">
+          <div className="max-w-[1300px] w-full mx-auto px-6 lg:px-12 py-2 md:py-4">
             <div className="text-center mb-4 md:mb-6">
               <span className="font-mono text-[10px] tracking-[0.28em] uppercase text-foreground/50">
                 THE GAMEPLAN
@@ -137,7 +137,7 @@ const Schedule = () => {
             {/* Single carousel: image + text crossfade */}
             <div className="relative grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-6 lg:gap-12 items-stretch max-w-[1100px] mx-auto">
               {/* LEFT: image */}
-              <div className="relative aspect-[16/10] md:aspect-[3/2] lg:aspect-[4/5] overflow-hidden bg-foreground/5">
+              <div className="relative aspect-[16/10] md:aspect-[3/2] lg:aspect-[4/5] max-h-[60vh] lg:max-h-[65vh] overflow-hidden bg-foreground/5">
                 <AnimatePresence>
                   <motion.img
                     key={day.key + "-img"}
