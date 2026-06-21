@@ -73,10 +73,10 @@ const Index = () => {
       <Hero onOpenModal={openTally} />
       <LogoStrip />
       <WhatIsForge />
-      <Tribe />
       <WhyAINow />
-      <WhoIsFor onOpenModal={openTally} />
       <VennDiagram />
+      <Tribe />
+      {/* Temporarily hidden: <WhoIsFor onOpenModal={openTally} /> */}
       <Pillars onOpenModal={openTally} />
       <Outcomes onOpenModal={openTally} />
       <Mentors />

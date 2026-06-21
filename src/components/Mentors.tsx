@@ -78,6 +78,32 @@ const mentors = [
     linkedin: "https://www.linkedin.com/in/parthbansal",
   },
   {
+    name: "Akhil Kumar Alampally",
+    photo: null,
+    role: "AI Instructor + Builder",
+    sub: "10,000+ builders taught",
+    bullets: [
+      "AI Instructor + Mentor at the intersection of AI, product, and execution",
+      "Previously at Outskill, Credera, BuildSchool, ADP, BYJUS",
+      "Built one of India's largest AI learning communities (10K+ builders)",
+      "Specializes in turning AI fluency into shipped product outcomes",
+    ],
+    linkedin: "https://www.linkedin.com/in/akhil-kumar-alampally/",
+  },
+  {
+    name: "Ashwin Goyal",
+    photo: null,
+    role: "AI Product Manager",
+    sub: "IIT Ropar",
+    bullets: [
+      "AI Product Manager building agentic AI systems",
+      "IIT Ropar alumnus, deep technical product background",
+      "Works at the frontier of agentic + generative AI in production",
+      "Mentors operators on shipping AI features end-to-end",
+    ],
+    linkedin: "https://www.linkedin.com/in/ashwin-goyal1/",
+  },
+  {
     name: "Rahul Reddy",
     photo: mentorRahul,
     role: "Founder · Storyteller",
@@ -117,14 +143,22 @@ const Mentors = () => {
               onClick={() => setOpenIndex(i)}
               className="group relative text-left overflow-hidden aspect-[3/4] md:aspect-[4/5] bg-foreground/5 border border-foreground/[0.06] hover:border-primary/30 transition-colors"
             >
-              <img
-                src={m.photo}
-                alt={m.name}
-                loading="lazy"
-                width={512}
-                height={640}
-                className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
-              />
+              {m.photo ? (
+                <img
+                  src={m.photo}
+                  alt={m.name}
+                  loading="lazy"
+                  width={512}
+                  height={640}
+                  className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
+                />
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/15 via-foreground/[0.04] to-foreground/[0.02] transition-transform duration-700 group-hover:scale-[1.04]">
+                  <span className="text-foreground/35 font-bold tracking-tight" style={{ fontSize: "clamp(48px, 9vw, 80px)" }}>
+                    {m.name.split(" ").filter(Boolean).slice(0, 2).map((w) => w[0]).join("").toUpperCase()}
+                  </span>
+                </div>
+              )}
               {/* Default gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent transition-opacity duration-300 md:group-hover:opacity-0" />
 
