@@ -25,7 +25,7 @@ const SectionWrapper = ({
   return (
     <section
       id={id}
-      className={`py-20 md:py-28 overflow-hidden relative ${className}`}
+      className={`py-14 md:py-20 lg:py-28 overflow-hidden relative ${className}`}
       style={isDark ? {
         background: "#000000",
         ["--foreground" as string]: "0 0% 98%",

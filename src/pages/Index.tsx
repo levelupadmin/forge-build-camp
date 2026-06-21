@@ -20,6 +20,7 @@ import SocialProof from "@/components/SocialProof";
 import FAQs from "@/components/FAQs";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
 
 const TALLY_URL = "https://tally.so/r/kdWEXR";
 
@@ -91,6 +92,7 @@ const Index = () => {
       <FAQs />
       <FinalCTA onOpenModal={openTally} />
       <Footer />
+      <StickyMobileCTA onOpenModal={openTally} />
     </div>
   );
 };
