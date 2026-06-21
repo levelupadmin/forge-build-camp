@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
 import SectionHeading, { Accent } from "./SectionHeading";
 import {
@@ -150,9 +149,6 @@ const days: ScheduleDay[] = [
 ];
 
 const Schedule = () => {
-  const [active, setActive] = useState(0);
-  const day = days[active];
-
   return (
     <SectionWrapper id="schedule" variant="dark">
       <SectionHeading
@@ -164,51 +160,27 @@ const Schedule = () => {
         <span className="text-white/55">One unforgettable week.</span>
       </SectionHeading>
 
-      {/* Day tabs, horizontal scrolling strip */}
-      <div className="mb-10 md:mb-14 -mx-6 lg:-mx-20 overflow-x-auto scrollbar-hide">
-        <div className="px-6 lg:px-20 flex gap-2 min-w-max">
-          {days.map((d, i) => {
-            const isActive = i === active;
-            return (
-              <button
-                key={d.key}
-                onClick={() => setActive(i)}
-                className={`group relative shrink-0 px-5 py-3 rounded-full border transition-all ${
-                  isActive
-                    ? "border-[#1A6AFF] bg-[#1A6AFF]/15 text-white"
-                    : "border-white/10 text-white/50 hover:text-white hover:border-white/20"
-                }`}
-              >
-                <span className="font-mono text-[10px] tracking-[0.2em] uppercase">
-                  {d.label}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Two-column layout: image + rows */}
-      <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_1.3fr] gap-10 lg:gap-16 items-start">
-        {/* LEFT, image */}
-        <div className="lg:sticky lg:top-24">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={day.key}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.4 }}
-              className="relative overflow-hidden aspect-[4/5] md:aspect-[3/4]"
-            >
+      {/* Vertical scroll-reveal: every day stacks. Each block animates in as it enters the viewport. */}
+      <div className="space-y-20 md:space-y-32 max-w-[1100px] mx-auto">
+        {days.map((day, idx) => (
+          <motion.section
+            key={day.key}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_1.3fr] gap-8 lg:gap-14 items-start"
+          >
+            {/* LEFT: image with label overlay */}
+            <div className="relative overflow-hidden aspect-[4/5] md:aspect-[3/4]">
               <img
                 src={day.image}
                 alt={day.label + ", " + day.subtitle}
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-7">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-5 md:p-7">
                 <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-white/60">
                   {day.label}
                 </span>
@@ -216,51 +188,47 @@ const Schedule = () => {
                   {day.subtitle}
                 </p>
               </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
+            </div>
 
-        {/* RIGHT, rows (matches the PDF's icon + time + title rhythm) */}
-        <div className="min-w-0">
-          <AnimatePresence mode="wait">
-            <motion.ul
-              key={day.key}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="space-y-1"
-            >
-              {day.rows.map((row, i) => {
-                const Icon = row.icon;
-                return (
-                  <motion.li
-                    key={row.title}
-                    initial={{ opacity: 0, x: -12 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.35, delay: 0.05 + i * 0.04 }}
-                    className="flex items-center gap-4 md:gap-5 py-4 border-b border-white/[0.06] group"
-                  >
-                    <div className="shrink-0 w-11 h-11 md:w-12 md:h-12 rounded-xl flex items-center justify-center bg-[#1A6AFF]/10 text-[#3D7EFF] border border-[#1A6AFF]/20 group-hover:bg-[#1A6AFF]/18 transition-colors">
-                      <Icon size={18} strokeWidth={1.6} />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-[#3D7EFF]">
-                        {row.time}
-                      </p>
-                      <p className="text-[15px] md:text-[17px] font-semibold text-white leading-snug mt-1">
-                        {row.title}
-                      </p>
-                      {row.sub && (
-                        <p className="text-[13px] text-white/55 mt-1 leading-relaxed">{row.sub}</p>
-                      )}
-                    </div>
-                  </motion.li>
-                );
-              })}
-            </motion.ul>
-          </AnimatePresence>
-        </div>
+            {/* RIGHT: rows */}
+            <div className="min-w-0">
+              {/* Day number rail for desktop, helps the scroll-flow feel intentional */}
+              <div className="hidden lg:flex items-baseline gap-3 mb-5">
+                <span className="font-mono text-[11px] tracking-[0.28em] uppercase text-white/45">
+                  {String(idx + 1).padStart(2, "0")} / {String(days.length).padStart(2, "0")}
+                </span>
+                <span className="h-px flex-1 bg-white/[0.08]" />
+              </div>
+
+              <ul className="space-y-1">
+                {day.rows.map((row) => {
+                  const Icon = row.icon;
+                  return (
+                    <li
+                      key={row.title}
+                      className="flex items-center gap-4 md:gap-5 py-4 border-b border-white/[0.06] group"
+                    >
+                      <div className="shrink-0 w-11 h-11 md:w-12 md:h-12 rounded-xl flex items-center justify-center bg-[#1A6AFF]/10 text-[#3D7EFF] border border-[#1A6AFF]/20 group-hover:bg-[#1A6AFF]/18 transition-colors">
+                        <Icon size={18} strokeWidth={1.6} />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-[#3D7EFF]">
+                          {row.time}
+                        </p>
+                        <p className="text-[15px] md:text-[17px] font-semibold text-white leading-snug mt-1">
+                          {row.title}
+                        </p>
+                        {row.sub && (
+                          <p className="text-[13px] text-white/55 mt-1 leading-relaxed">{row.sub}</p>
+                        )}
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </motion.section>
+        ))}
       </div>
     </SectionWrapper>
   );

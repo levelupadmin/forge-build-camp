@@ -71,7 +71,7 @@ const Index = () => {
       <div className="noise-overlay" />
       <Navbar onOpenModal={openTally} />
       <Hero onOpenModal={openTally} />
-      <LogoStrip />
+      {/* Temporarily hidden: <LogoStrip /> (text-only names without logos, removed) */}
       <WhatIsForge />
       <WhyAINow />
       <VennDiagram />
