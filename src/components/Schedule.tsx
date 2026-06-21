@@ -53,6 +53,7 @@ const Schedule = () => {
   const [activeIdx, setActiveIdx] = useState(0);
   const [paused, setPaused] = useState(false);
   const tabStripRef = useRef<HTMLDivElement>(null);
+  const didMountRef = useRef(false);
 
   // Auto-advance every 5.5s, pause on hover
   useEffect(() => {
@@ -62,12 +63,21 @@ const Schedule = () => {
   }, [paused]);
 
   // Auto-scroll the day-strip so the active chip stays visible
+  // Skip on first mount so the page does not jump to this section on load.
   useEffect(() => {
+    if (!didMountRef.current) {
+      didMountRef.current = true;
+      return;
+    }
     const strip = tabStripRef.current;
     if (!strip) return;
     const activeBtn = strip.querySelector(`[data-day-idx="${activeIdx}"]`) as HTMLElement | null;
-    if (activeBtn) {
-      activeBtn.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    if (activeBtn && strip.scrollWidth > strip.clientWidth) {
+      // Use scrollTo on the strip itself instead of scrollIntoView (which scrolls ancestors too).
+      const stripRect = strip.getBoundingClientRect();
+      const btnRect = activeBtn.getBoundingClientRect();
+      const offsetLeft = btnRect.left - stripRect.left + strip.scrollLeft - (stripRect.width - btnRect.width) / 2;
+      strip.scrollTo({ left: offsetLeft, behavior: "smooth" });
     }
   }, [activeIdx]);
 
@@ -137,12 +147,9 @@ const Schedule = () => {
                   exit={{ opacity: 0, y: -8 }}
                   transition={{ duration: 0.4 }}
                 >
-                  <span className="font-mono text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-white/65">
+                  <span className="font-mono text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-white/75 inline-block bg-black/40 backdrop-blur-sm px-2.5 py-1 border border-white/20">
                     {day.label}
                   </span>
-                  <p className="font-editorial italic text-[22px] md:text-[28px] text-white mt-1 leading-tight">
-                    {day.subtitle}
-                  </p>
                 </motion.div>
               </AnimatePresence>
             </div>
@@ -198,7 +205,7 @@ const Schedule = () => {
                 <h3 className="font-editorial italic text-[26px] md:text-[34px] lg:text-[38px] text-white mt-2 mb-5 leading-[1.1] tracking-[-0.01em]">
                   {day.subtitle}
                 </h3>
-                <p className="text-white/72 text-[15px] md:text-[17px] leading-[1.7]">
+                <p className="text-white/92 text-[15px] md:text-[17px] leading-[1.7]">
                   {day.prose}
                 </p>
               </motion.div>
