@@ -93,7 +93,7 @@ const InviteModal = ({ isOpen, onClose }: InviteModalProps) => {
                     </select>
                     <textarea required maxLength={200} rows={3} placeholder="I want to build..." value={form.build} onChange={(e) => setForm({ ...form, build: e.target.value })} className={`${inputClass} resize-none`} />
                     <input type="text" placeholder="Instagram / Friend / Other" value={form.source} onChange={(e) => setForm({ ...form, source: e.target.value })} className={inputClass} />
-                    <button type="submit" className="w-full bg-primary text-primary-foreground font-semibold rounded-full py-4 text-sm uppercase tracking-wider mt-2">
+                    <button type="submit" className="w-full bg-primary text-primary-foreground font-semibold rounded-xl py-4 text-sm uppercase tracking-wider mt-2">
                       Send My Request
                     </button>
                   </form>
