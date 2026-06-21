@@ -6,7 +6,9 @@ import studentAarya from "@/assets/community/student-aarya.jpg";
  * Sits between Pillars and Mentors. Establishes the kind of person who pays ₹1.5L
  * and what they came for. The voice is the buyer's, not ours.
  */
-const AaryaQuote = () => {
+interface AaryaQuoteProps { onOpenModal: () => void; }
+
+const AaryaQuote = ({ onOpenModal }: AaryaQuoteProps) => {
   return (
     <section className="bg-background py-20 md:py-28">
       <div className="max-w-[1100px] mx-auto px-6 lg:px-12">
@@ -48,6 +50,14 @@ const AaryaQuote = () => {
                 </p>
               </div>
             </div>
+          </div>
+          <div className="mt-10">
+            <button
+          onClick={onOpenModal}
+          className="inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold rounded-xl px-8 py-3.5 text-sm uppercase tracking-wider btn-glow"
+        >
+          Build with him
+        </button>
           </div>
         </motion.div>
       </div>

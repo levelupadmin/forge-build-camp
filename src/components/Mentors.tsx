@@ -120,7 +120,9 @@ const mentors = [
   },
 ];
 
-const Mentors = () => {
+interface MentorsProps { onOpenModal: () => void; }
+
+const Mentors = ({ onOpenModal }: MentorsProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
@@ -279,6 +281,15 @@ const Mentors = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <div className="text-center mt-14">
+        <button
+          onClick={onOpenModal}
+          className="inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold rounded-xl px-8 py-3.5 text-sm uppercase tracking-wider btn-glow"
+        >
+          Request an Invite
+        </button>
+      </div>
     </SectionWrapper>
   );
 };

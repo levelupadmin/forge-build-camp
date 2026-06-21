@@ -73,16 +73,16 @@ const Index = () => {
       <Navbar onOpenModal={openTally} />
       <Hero onOpenModal={openTally} />
       {/* Temporarily hidden: <LogoStrip /> (text-only names without logos, removed) */}
-      <WhatIsForge />
+      <WhatIsForge onOpenModal={openTally} />
       <WhyAINow />
       <VennDiagram />
-      <Tribe />
+      <Tribe onOpenModal={openTally} />
       {/* Temporarily hidden: <WhoIsFor onOpenModal={openTally} /> */}
       <Pillars onOpenModal={openTally} />
-      <AaryaQuote />
+      <AaryaQuote onOpenModal={openTally} />
       {/* Temporarily hidden: <Outcomes onOpenModal={openTally} /> (duplicates Pillars outcome story) */}
-      <Mentors />
-      <Schedule />
+      <Mentors onOpenModal={openTally} />
+      <Schedule onOpenModal={openTally} />
       {/* Temporarily hidden, restore: <PerksVault onOpenModal={openTally} /> */}
       <Community onOpenModal={openTally} />
       <SocialProof />

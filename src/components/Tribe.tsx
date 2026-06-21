@@ -35,7 +35,9 @@ const tribe: TribeMember[] = [
 const getInitials = (name: string) =>
   name.replace(/^(Dr\.|Mr\.|Ms\.|Mrs\.)\s+/i, "").split(" ").filter(Boolean).slice(0, 2).map((w) => w[0]).join("").toUpperCase();
 
-const Tribe = () => {
+interface TribeProps { onOpenModal: () => void; }
+
+const Tribe = ({ onOpenModal }: TribeProps) => {
   return (
     <SectionWrapper variant="dark">
       <SectionHeading
@@ -84,6 +86,14 @@ const Tribe = () => {
         These are the people you'll meet, build with, and stay in touch with, long after the residency ends.
         The room compounds. The relationships outlast the program.
       </p>
+      <div className="text-center mt-12">
+        <button
+          onClick={onOpenModal}
+          className="inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold rounded-xl px-8 py-3.5 text-sm uppercase tracking-wider btn-glow"
+        >
+          Request an Invite
+        </button>
+      </div>
     </SectionWrapper>
   );
 };

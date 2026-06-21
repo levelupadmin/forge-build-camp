@@ -48,7 +48,9 @@ const days: ScheduleDay[] = [
     image: imgDay9 },
 ];
 
-const Schedule = () => {
+interface ScheduleProps { onOpenModal: () => void; }
+
+const Schedule = ({ onOpenModal }: ScheduleProps) => {
   const sentinelRef = useRef<HTMLDivElement>(null);
   const tabStripRef = useRef<HTMLDivElement>(null);
   const didMountRef = useRef(false);
@@ -218,6 +220,14 @@ const Schedule = () => {
                 </AnimatePresence>
               </div>
             </div>
+          </div>
+          <div className="text-center mt-8 md:mt-10">
+            <button
+          onClick={onOpenModal}
+          className="inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold rounded-xl px-8 py-3.5 text-sm uppercase tracking-wider btn-glow"
+        >
+          Request an Invite
+        </button>
           </div>
         </div>
       </div>
