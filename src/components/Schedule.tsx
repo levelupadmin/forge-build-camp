@@ -198,12 +198,6 @@ const Schedule = ({ onOpenModal }: ScheduleProps) => {
                     exit={{ opacity: 0, y: -8 }}
                     transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    <div className="flex items-baseline gap-3 mb-3">
-                      <span className="font-mono text-[10px] tracking-[0.28em] uppercase text-foreground/55">
-                        {String(activeIdx + 1).padStart(2, "0")} / {String(days.length).padStart(2, "0")}
-                      </span>
-                      <span className="h-px flex-1 bg-foreground/15" />
-                    </div>
                     <span className="font-mono text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-foreground/55">
                       {day.label}
                     </span>
