@@ -222,7 +222,7 @@ const VennDiagram = () => {
               transition={{ duration: 0.6, delay: i * 0.15 + 0.2 }}
               className="text-center"
             >
-              <h3 className="font-editorial italic text-[26px] md:text-[32px] text-primary font-bold mb-3 leading-none">
+              <h3 className="font-editorial italic text-[26px] md:text-[36px] text-primary font-bold mb-3 leading-[1.1]">
                 {n.label}
               </h3>
               <p className="text-[14px] md:text-[15px] text-muted-foreground leading-[1.75]">

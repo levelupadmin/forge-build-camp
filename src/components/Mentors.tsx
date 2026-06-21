@@ -249,7 +249,7 @@ const Mentors = ({ onOpenModal }: MentorsProps) => {
                   <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-primary/80 mb-2">
                     {mentors[openIndex].sub}
                   </p>
-                  <h3 className="font-bold text-[24px] md:text-[28px] leading-tight text-foreground">
+                  <h3 className="font-bold text-[26px] md:text-[36px] leading-[1.1] tracking-[-0.02em] text-foreground">
                     {mentors[openIndex].name}
                   </h3>
                   <p className="text-primary text-[13px] md:text-[14px] font-semibold mt-1">

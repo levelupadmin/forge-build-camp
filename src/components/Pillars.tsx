@@ -71,7 +71,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
             </div>
 
             {/* Title */}
-            <h3 className="font-bold text-[36px] md:text-[44px] lg:text-[52px] leading-[0.95] tracking-[-0.02em] text-white mb-5 md:mb-6">
+            <h3 className="font-bold text-[26px] md:text-[36px] leading-[1.1] tracking-[-0.02em] text-white mb-5 md:mb-6">
               {p.title}
             </h3>
 

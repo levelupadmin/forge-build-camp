@@ -110,7 +110,7 @@ const Schedule = ({ onOpenModal }: ScheduleProps) => {
               <span className="font-mono text-[10px] tracking-[0.28em] uppercase text-foreground/50">
                 THE GAMEPLAN
               </span>
-              <h2 className="font-bold text-[26px] md:text-[40px] leading-[1.05] tracking-[-0.02em] text-foreground mt-2 md:mt-3">
+              <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.05] tracking-[-0.025em] text-foreground mt-2 md:mt-3">
                 <span className="font-editorial italic">Seven&nbsp;days.</span> Two builds.{" "}
                 <span className="text-foreground/55">One unforgettable week.</span>
               </h2>
@@ -207,7 +207,7 @@ const Schedule = ({ onOpenModal }: ScheduleProps) => {
                     <span className="font-mono text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-foreground/55">
                       {day.label}
                     </span>
-                    <h3 className="font-editorial italic text-[22px] md:text-[30px] lg:text-[34px] text-foreground mt-1.5 mb-3 md:mb-4 leading-[1.1] tracking-[-0.01em]">
+                    <h3 className="font-editorial italic text-[26px] md:text-[36px] text-foreground mt-1.5 mb-3 md:mb-4 leading-[1.1] tracking-[-0.01em]">
                       {day.subtitle}
                     </h3>
                     <p className="text-foreground text-[14px] md:text-[16px] leading-[1.65]" style={{ opacity: 1 }}>
