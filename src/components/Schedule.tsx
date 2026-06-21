@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import SectionWrapper from "./SectionWrapper";
 import SectionHeading, { Accent } from "./SectionHeading";
 
 import imgOnlinePrep from "@/assets/schedule-online-prep.png";
@@ -50,30 +49,30 @@ const days: ScheduleDay[] = [
 ];
 
 const Schedule = () => {
-  const [activeIdx, setActiveIdx] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const sentinelRef = useRef<HTMLDivElement>(null);
   const tabStripRef = useRef<HTMLDivElement>(null);
   const didMountRef = useRef(false);
+  const [activeIdx, setActiveIdx] = useState(0);
 
-  // Auto-advance every 5.5s, pause on hover
-  useEffect(() => {
-    if (paused) return;
-    const t = setInterval(() => setActiveIdx((i) => (i + 1) % days.length), 5500);
-    return () => clearInterval(t);
-  }, [paused]);
+  // Scroll-driven card change: the sentinel is (days.length * 90vh) tall.
+  // As the user scrolls through it, scrollYProgress goes 0 -> 1, mapped to days[0..N-1].
+  const { scrollYProgress } = useScroll({
+    target: sentinelRef,
+    offset: ["start start", "end end"],
+  });
 
-  // Auto-scroll the day-strip so the active chip stays visible
-  // Skip on first mount so the page does not jump to this section on load.
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    const idx = Math.min(days.length - 1, Math.max(0, Math.floor(latest * days.length)));
+    setActiveIdx(idx);
+  });
+
+  // Auto-scroll the strip horizontally (skip on first mount to avoid page jump)
   useEffect(() => {
-    if (!didMountRef.current) {
-      didMountRef.current = true;
-      return;
-    }
+    if (!didMountRef.current) { didMountRef.current = true; return; }
     const strip = tabStripRef.current;
     if (!strip) return;
     const activeBtn = strip.querySelector(`[data-day-idx="${activeIdx}"]`) as HTMLElement | null;
     if (activeBtn && strip.scrollWidth > strip.clientWidth) {
-      // Use scrollTo on the strip itself instead of scrollIntoView (which scrolls ancestors too).
       const stripRect = strip.getBoundingClientRect();
       const btnRect = activeBtn.getBoundingClientRect();
       const offsetLeft = btnRect.left - stripRect.left + strip.scrollLeft - (stripRect.width - btnRect.width) / 2;
@@ -82,138 +81,147 @@ const Schedule = () => {
   }, [activeIdx]);
 
   const day = days[activeIdx];
-  const goPrev = () => setActiveIdx((i) => (i - 1 + days.length) % days.length);
-  const goNext = () => setActiveIdx((i) => (i + 1) % days.length);
+
+  // Manual navigation: scroll the page by a fraction of the sentinel height
+  const scrollToDay = (idx: number) => {
+    const sentinel = sentinelRef.current;
+    if (!sentinel) return;
+    const rect = sentinel.getBoundingClientRect();
+    const sectionTop = window.scrollY + rect.top;
+    const target = sectionTop + (rect.height * idx) / days.length + 1;
+    window.scrollTo({ top: target, behavior: "smooth" });
+  };
+  const goPrev = () => scrollToDay(Math.max(0, activeIdx - 1));
+  const goNext = () => scrollToDay(Math.min(days.length - 1, activeIdx + 1));
 
   return (
-    <SectionWrapper id="schedule" variant="dark">
-      <SectionHeading
-        label="THE GAMEPLAN"
-        variant="dark"
-        description="Five pre-arrival sessions to prime you. Then you arrive on the ground and build with AI every day, morning to night, until you walk out with two shipped things, a product and the operations that run it."
-      >
-        <Accent>Seven&nbsp;days.</Accent> Two builds. <br className="md:hidden" />
-        <span className="text-white/55">One unforgettable week.</span>
-      </SectionHeading>
-
+    <section id="schedule" className="bg-background">
+      {/* Tall sentinel that drives scroll progress. Sticky inner panel stays in view through 8x viewport heights. */}
       <div
-        className="max-w-[1200px] mx-auto"
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => setPaused(false)}
+        ref={sentinelRef}
+        className="relative"
+        style={{ height: `${days.length * 90}vh` }}
       >
-        {/* Day picker strip — horizontal scrollable on mobile */}
-        <div ref={tabStripRef} className="-mx-6 lg:mx-0 overflow-x-auto scrollbar-hide mb-8 md:mb-12">
-          <div className="px-6 lg:px-0 flex gap-2 min-w-max">
-            {days.map((d, i) => (
-              <button
-                key={d.key}
-                data-day-idx={i}
-                onClick={() => setActiveIdx(i)}
-                className={`shrink-0 px-4 md:px-5 py-2.5 border transition-all text-[10px] md:text-[11px] tracking-[0.2em] uppercase font-mono ${
-                  activeIdx === i
-                    ? "border-[#1A6AFF] bg-[#1A6AFF]/15 text-white"
-                    : "border-white/10 text-white/45 hover:text-white/75 hover:border-white/20"
-                }`}
-              >
-                {d.label}
-              </button>
-            ))}
-          </div>
-        </div>
+        <div className="sticky top-0 h-screen overflow-hidden flex flex-col justify-center bg-background">
+          <div className="max-w-[1300px] w-full mx-auto px-6 lg:px-12 py-6 md:py-10">
+            <div className="text-center mb-4 md:mb-6">
+              <span className="font-mono text-[10px] tracking-[0.28em] uppercase text-foreground/50">
+                THE GAMEPLAN
+              </span>
+              <h2 className="font-bold text-[26px] md:text-[40px] leading-[1.05] tracking-[-0.02em] text-foreground mt-2 md:mt-3">
+                <span className="font-editorial italic">Seven&nbsp;days.</span> Two builds.{" "}
+                <span className="text-foreground/55">One unforgettable week.</span>
+              </h2>
+            </div>
 
-        {/* Single viewport carousel: image + text crossfade together */}
-        <div className="relative grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-8 lg:gap-14 items-stretch">
-          {/* LEFT: image carousel */}
-          <div className="relative aspect-[4/5] md:aspect-[5/6] lg:aspect-[4/5] overflow-hidden">
-            <AnimatePresence mode="sync">
-              <motion.img
-                key={day.key + "-img"}
-                src={day.image}
-                alt={day.subtitle}
-                className="absolute inset-0 w-full h-full object-cover"
-                initial={{ opacity: 0, scale: 1.04 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              />
-            </AnimatePresence>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={day.key + "-label"}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <span className="font-mono text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-white/75 inline-block bg-black/40 backdrop-blur-sm px-2.5 py-1 border border-white/20">
+            {/* Day picker strip */}
+            <div ref={tabStripRef} className="-mx-6 lg:mx-0 overflow-x-auto scrollbar-hide mb-4 md:mb-6">
+              <div className="px-6 lg:px-0 flex gap-1.5 md:gap-2 min-w-max justify-center">
+                {days.map((d, i) => (
+                  <button
+                    key={d.key}
+                    data-day-idx={i}
+                    onClick={() => scrollToDay(i)}
+                    className={`shrink-0 px-3 md:px-4 py-2 border transition-all text-[9px] md:text-[10px] tracking-[0.2em] uppercase font-mono ${
+                      activeIdx === i
+                        ? "border-primary bg-primary/15 text-foreground"
+                        : "border-foreground/15 text-foreground/45 hover:text-foreground/75 hover:border-foreground/30"
+                    }`}
+                  >
+                    {d.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Single carousel: image + text crossfade */}
+            <div className="relative grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-6 lg:gap-12 items-stretch max-w-[1100px] mx-auto">
+              {/* LEFT: image */}
+              <div className="relative aspect-[16/10] md:aspect-[3/2] lg:aspect-[4/5] overflow-hidden bg-foreground/5">
+                <AnimatePresence>
+                  <motion.img
+                    key={day.key + "-img"}
+                    src={day.image}
+                    alt={day.subtitle}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    initial={{ opacity: 0, scale: 1.04 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  />
+                </AnimatePresence>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent pointer-events-none" />
+                <div className="absolute bottom-3 left-3 md:bottom-5 md:left-5">
+                  <span className="font-mono text-[9px] md:text-[10px] tracking-[0.28em] uppercase text-white inline-block bg-black/55 backdrop-blur-sm px-2.5 py-1 border border-white/25">
                     {day.label}
                   </span>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-
-            {/* Prev / Next arrows */}
-            <button
-              onClick={goPrev}
-              className="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 w-9 h-9 md:w-10 md:h-10 flex items-center justify-center bg-black/30 backdrop-blur-sm hover:bg-black/50 text-white transition-colors border border-white/20"
-              aria-label="Previous day"
-            >
-              <ChevronLeft size={18} strokeWidth={1.8} />
-            </button>
-            <button
-              onClick={goNext}
-              className="absolute right-3 md:right-4 top-1/2 -translate-y-1/2 w-9 h-9 md:w-10 md:h-10 flex items-center justify-center bg-black/30 backdrop-blur-sm hover:bg-black/50 text-white transition-colors border border-white/20"
-              aria-label="Next day"
-            >
-              <ChevronRight size={18} strokeWidth={1.8} />
-            </button>
-
-            {/* Progress dots */}
-            <div className="absolute top-4 md:top-5 left-0 right-0 flex justify-center gap-1.5">
-              {days.map((_, i) => (
-                <div
-                  key={i}
-                  className={`h-[2px] transition-all duration-500 ${
-                    activeIdx === i ? "w-8 bg-white" : "w-4 bg-white/30"
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* RIGHT: prose */}
-          <div className="flex flex-col justify-center min-h-[320px] lg:min-h-[420px]">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={day.key + "-text"}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <div className="flex items-baseline gap-3 mb-4">
-                  <span className="font-mono text-[11px] tracking-[0.28em] uppercase text-white/50">
-                    {String(activeIdx + 1).padStart(2, "0")} / {String(days.length).padStart(2, "0")}
-                  </span>
-                  <span className="h-px flex-1 bg-white/[0.1]" />
                 </div>
-                <span className="font-mono text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-white/55">
-                  {day.label}
-                </span>
-                <h3 className="font-editorial italic text-[26px] md:text-[34px] lg:text-[38px] text-white mt-2 mb-5 leading-[1.1] tracking-[-0.01em]">
-                  {day.subtitle}
-                </h3>
-                <p className="text-white/92 text-[15px] md:text-[17px] leading-[1.7]">
-                  {day.prose}
-                </p>
-              </motion.div>
-            </AnimatePresence>
+
+                {/* Arrows */}
+                <button
+                  onClick={goPrev}
+                  className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-black/40 backdrop-blur-sm hover:bg-black/60 text-white transition-colors border border-white/25"
+                  aria-label="Previous day"
+                >
+                  <ChevronLeft size={16} strokeWidth={1.8} />
+                </button>
+                <button
+                  onClick={goNext}
+                  className="absolute right-2 md:right-3 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-black/40 backdrop-blur-sm hover:bg-black/60 text-white transition-colors border border-white/25"
+                  aria-label="Next day"
+                >
+                  <ChevronRight size={16} strokeWidth={1.8} />
+                </button>
+
+                {/* Progress bar */}
+                <div className="absolute top-2 md:top-3 left-3 right-3 flex gap-1">
+                  {days.map((_, i) => (
+                    <div
+                      key={i}
+                      className={`flex-1 h-[2px] transition-all duration-500 ${
+                        activeIdx >= i ? "bg-white" : "bg-white/25"
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* RIGHT: prose */}
+              <div className="flex flex-col justify-center">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={day.key + "-text"}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    <div className="flex items-baseline gap-3 mb-3">
+                      <span className="font-mono text-[10px] tracking-[0.28em] uppercase text-foreground/55">
+                        {String(activeIdx + 1).padStart(2, "0")} / {String(days.length).padStart(2, "0")}
+                      </span>
+                      <span className="h-px flex-1 bg-foreground/15" />
+                    </div>
+                    <span className="font-mono text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-foreground/55">
+                      {day.label}
+                    </span>
+                    <h3 className="font-editorial italic text-[22px] md:text-[30px] lg:text-[34px] text-foreground mt-1.5 mb-3 md:mb-4 leading-[1.1] tracking-[-0.01em]">
+                      {day.subtitle}
+                    </h3>
+                    <p className="text-foreground text-[14px] md:text-[16px] leading-[1.65]" style={{ opacity: 1 }}>
+                      {day.prose}
+                    </p>
+                    <p className="mt-4 text-foreground/40 text-[11px] tracking-wider uppercase font-mono">
+                      ↓ scroll to continue
+                    </p>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </SectionWrapper>
+    </section>
   );
 };
 
