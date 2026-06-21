@@ -78,7 +78,7 @@ const Index = () => {
       <Tribe />
       {/* Temporarily hidden: <WhoIsFor onOpenModal={openTally} /> */}
       <Pillars onOpenModal={openTally} />
-      <Outcomes onOpenModal={openTally} />
+      {/* Temporarily hidden: <Outcomes onOpenModal={openTally} /> (duplicates Pillars outcome story) */}
       <Mentors />
       <Schedule />
       {/* Temporarily hidden, restore: <PerksVault onOpenModal={openTally} /> */}

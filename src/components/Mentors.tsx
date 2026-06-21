@@ -122,7 +122,7 @@ const Mentors = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <SectionWrapper id="mentors">
+    <SectionWrapper id="mentors" variant="dark">
       <SectionHeading
         label="YOUR MENTORS"
         description="Every mentor at the Forge is a practitioner of their craft. A working builder, a published creator, a full-time operator. Not a professor."
