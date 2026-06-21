@@ -10,6 +10,9 @@ import imgDays45 from "@/assets/schedule-days45.png";
 import imgDay4Ops from "@/assets/schedule-days45.jpg";
 import imgDay5Ops from "@/assets/schedule-default.jpg";
 import imgDays678 from "@/assets/schedule-days678.jpg";
+import imgAIHills from "@/assets/schedule-ai-hills.jpg";
+import imgAIBeach from "@/assets/schedule-ai-beach.jpg";
+import imgAIGroup from "@/assets/schedule-ai-group.jpg";
 import imgDay9 from "@/assets/8254fb1b-ea7c-433b-b7a4-8796e3238dd5.jpg";
 
 interface ScheduleDay {
@@ -40,7 +43,7 @@ const days: ScheduleDay[] = [
     label: "DAY 2",
     subtitle: "Product I. Spec It. Make It Intelligent.",
     prose: "How LLMs actually work. The ₹999 problem-framing test. System design without code. By dinner you have written the spec for your real product. Ankur walks you into your first MCP tool with Claude Code.",
-    image: imgDays23,
+    image: imgAIHills,
   },
   {
     key: "d3",
@@ -54,7 +57,7 @@ const days: ScheduleDay[] = [
     label: "DAY 4",
     subtitle: "Operations I. Automate It, Then Make It Think.",
     prose: "n8n unlocks the layer beneath your product. Triggers, steps, the think-act-observe loop. A ticket-classifying support agent. By the end of day, your apps connect to AI through MCP, and you have a personal assistant that knows your work.",
-    image: imgDay4Ops,
+    image: imgAIBeach,
   },
   {
     key: "d5",
@@ -68,7 +71,7 @@ const days: ScheduleDay[] = [
     label: "DAY 6",
     subtitle: "Operations III. The Full Pipeline.",
     prose: "Multi-agent orchestration. Human-in-the-loop. An invoice and payment assistant. Then we take the work outside. An outdoor hackathon ends with the golden-hour showcase. Build Two ships.",
-    image: imgDays678,
+    image: imgAIGroup,
   },
   {
     key: "d7",
