@@ -10,7 +10,7 @@ const stats = [
 ];
 
 const descriptionText =
-  "A 7-day fully residential program in Sri Lanka where handpicked founders, marketers, and operators learn to build with AI by shipping real products and the operations that run them, while living and working alongside a community of like-minded builders and AI experts as their mentors.";
+  "A 7-day fully residential program where handpicked founders, marketers, and operators learn to build with AI by shipping real products and the operations that run them, while living and working alongside a community of like-minded builders and AI experts as their mentors.";
 
 const ScrollBoldText = ({ text }: { text: string }) => {
   const containerRef = useRef<HTMLParagraphElement>(null);

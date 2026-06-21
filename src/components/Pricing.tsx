@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
-import dharamshalaImg from "@/assets/pricing-dharamshala.jpg";
+// Stock Sri Lanka venue image (Unsplash). Swap to a real branded venue photo when ready —
+// just change this URL or replace with an import from src/assets/.
+const venueImageUrl = "https://images.unsplash.com/photo-1581112889881-edfc1ddd7dc3?auto=format&fit=crop&w=1280&q=85";
 
 interface PricingProps {
   onOpenModal: () => void;
@@ -38,8 +40,8 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
         {/* Location Hero Card */}
         <div className="relative rounded-2xl overflow-hidden aspect-[16/9] shadow-lg">
           <img
-            src={dharamshalaImg}
-            alt="Sri Lanka — the Forge AI Edition 1 venue"  // TODO: swap pricing-dharamshala.jpg with a Sri Lanka venue photo
+            src={venueImageUrl}
+            alt="Sri Lanka — the Forge AI Edition 1 venue"
             className="w-full h-full object-cover"
             loading="lazy"
             width={1280}
