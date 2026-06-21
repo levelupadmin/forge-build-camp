@@ -36,7 +36,7 @@ const fallbackInitials: Record<string, string> = {
   "HeyGen": "HG",
 };
 
-// Simple Icons are monochrome SVGs — render them white-tinted via CSS filter
+// Simple Icons are monochrome SVGs, render them white-tinted via CSS filter
 const svgFilter = "brightness(0) invert(1)";
 
 const ToolsOrbit = () => {

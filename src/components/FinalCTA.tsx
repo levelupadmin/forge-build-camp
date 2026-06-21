@@ -13,7 +13,7 @@ const FinalCTA = ({ onOpenModal }: FinalCTAProps) => {
         ["--muted-foreground" as string]: "0 0% 100% / 0.55",
       }}
     >
-      {/* Edge rays — signature */}
+      {/* Edge rays, signature */}
       <div className="forge-edges" aria-hidden />
       <div className="forge-grain" aria-hidden />
 
@@ -49,8 +49,8 @@ const FinalCTA = ({ onOpenModal }: FinalCTAProps) => {
         </h2>
 
         <p className="mt-10 text-[16px] md:text-[18px] text-white/65 max-w-[520px] mx-auto leading-[1.6]">
-          Think YCombinator meets an AI hackathon — 20 builders, 7 days, one focus.
-          You leave with two real builds and a network you'll talk to every week.
+          A room obsessed with shipping.
+          Not another tab of saved bookmarks.
         </p>
 
         <button

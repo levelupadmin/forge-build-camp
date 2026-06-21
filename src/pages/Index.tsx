@@ -8,7 +8,7 @@ import WhoIsFor from "@/components/WhoIsFor";
 import Pillars from "@/components/Pillars";
 import Tribe from "@/components/Tribe";
 import Outcomes from "@/components/Outcomes";
-// Temporarily hidden — uncomment to restore:
+// Temporarily hidden, uncomment to restore:
 // import PerksVault from "@/components/PerksVault";
 // import ValueMath from "@/components/ValueMath";
 import Pricing from "@/components/Pricing";
@@ -81,10 +81,10 @@ const Index = () => {
       <Outcomes onOpenModal={openTally} />
       <Mentors />
       <Schedule />
-      {/* Temporarily hidden — restore: <PerksVault onOpenModal={openTally} /> */}
+      {/* Temporarily hidden, restore: <PerksVault onOpenModal={openTally} /> */}
       <Community onOpenModal={openTally} />
       <SocialProof />
-      {/* Temporarily hidden — restore: <ValueMath onOpenModal={openTally} /> */}
+      {/* Temporarily hidden, restore: <ValueMath onOpenModal={openTally} /> */}
       <Pricing onOpenModal={openTally} />
       <FAQs />
       <FinalCTA onOpenModal={openTally} />

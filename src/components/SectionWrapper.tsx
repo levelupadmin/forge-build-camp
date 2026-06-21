@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 interface SectionWrapperProps {
   id?: string;
   label?: string;
-  /** Section number — "01 / 10" style. If provided, renders as a mono label above `label`. */
+  /** Section number, "01 / 10" style. If provided, renders as a mono label above `label`. */
   number?: string;
   children: ReactNode;
   className?: string;

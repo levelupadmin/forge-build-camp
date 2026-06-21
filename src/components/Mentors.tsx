@@ -70,7 +70,7 @@ const mentors = [
     role: "AI Product Manager",
     sub: "AI Staff PM · Healthcare AI",
     bullets: [
-      "AI Staff Product Manager at the AI–healthcare frontier",
+      "AI Staff Product Manager at the AI healthcare frontier",
       "Builds operational AI for multi-billion-dollar hospital systems",
       "Has mentored 500+ professionals across tech, law, CA, IAS",
       "Leads the Operations pillar of Forge AI Edition 1",
@@ -104,7 +104,7 @@ const Mentors = () => {
         Learn from builders who use AI for a <Accent>living.</Accent>
       </SectionHeading>
 
-      {/* Editorial grid — 2 cols mobile, 4 cols desktop. Hover on desktop reveals bio inline; tap opens modal on mobile */}
+      {/* Editorial grid, 2 cols mobile, 4 cols desktop. Hover on desktop reveals bio inline; tap opens modal on mobile */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 max-w-[1100px] mx-auto">
         {mentors.map((m, i) => {
           return (
@@ -166,7 +166,7 @@ const Mentors = () => {
                 </span>
               </div>
 
-              {/* Plus icon — always visible on mobile, fades on desktop hover */}
+              {/* Plus icon, always visible on mobile, fades on desktop hover */}
               <div className="absolute top-3 right-3 md:top-4 md:right-4 w-8 h-8 md:w-9 md:h-9 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 md:group-hover:opacity-0 transition-opacity">
                 <Plus size={16} className="text-white" />
               </div>
@@ -175,7 +175,7 @@ const Mentors = () => {
         })}
       </div>
 
-      {/* Credentials rail — logo + name */}
+      {/* Credentials rail, logo + name */}
       <div className="mt-12 md:mt-16 max-w-[1100px] mx-auto">
         <p className="text-center font-mono text-[10px] tracking-[0.28em] uppercase text-muted-foreground mb-6 md:mb-8">
           Built at · studied at · teaching at

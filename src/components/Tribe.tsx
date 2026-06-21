@@ -41,7 +41,7 @@ const Tribe = () => {
       <SectionHeading
         label="THE TRIBE"
         variant="dark"
-        description="Founders, CEOs, investors, and operators already part of the Forge community. You're not joining a course — you're joining the room."
+        description="Founders, CEOs, investors, and operators already part of the Forge community. You're not joining a course, you're joining the room."
       >
         Grow with <Accent>builders like you.</Accent>
       </SectionHeading>
@@ -81,7 +81,7 @@ const Tribe = () => {
       </div>
 
       <p className="mt-14 text-center text-[13px] md:text-sm text-white/45 max-w-[640px] mx-auto leading-relaxed">
-        These are the people you'll meet, build with, and stay in touch with — long after the residency ends.
+        These are the people you'll meet, build with, and stay in touch with, long after the residency ends.
         The room compounds. The relationships outlast the program.
       </p>
     </SectionWrapper>

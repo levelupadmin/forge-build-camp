@@ -124,7 +124,7 @@ const SocialProof = () => {
             onDragEnd={handleDragEnd}
             className="-mt-16 md:-mt-24 relative px-2 md:px-10 cursor-grab active:cursor-grabbing"
           >
-            {/* Pure pullout — no card */}
+            {/* Pure pullout, no card */}
             <p
               className="text-center text-foreground font-medium tracking-[-0.01em] leading-[1.45]"
               style={{ fontSize: "clamp(20px, 2.6vw, 30px)" }}

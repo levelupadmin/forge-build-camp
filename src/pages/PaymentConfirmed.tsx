@@ -5,13 +5,13 @@ import forgeLogo from "@/assets/forge-logo.png";
 import { fireGoogleAdsConversion, CONVERSION_LABELS } from "@/lib/gtag";
 import { fireTwitterEvent, TWITTER_EVENT_IDS } from "@/lib/twitterPixel";
 
-/** Booking link — applicants are sent here after payment success. */
+/** Booking link, applicants are sent here after payment success. */
 const BOOKING_URL = "https://calendly.com/levelupedtech/the-forge-ai-interview";
 
-/** Default ₹ value of the application fee — used internally for conversion tracking only, never displayed. */
+/** Default ₹ value of the application fee, used internally for conversion tracking only, never displayed. */
 const DEFAULT_FEE_VALUE = 900;
 
-/** Redirect delay — slightly longer here so applicants notice the payment landed. */
+/** Redirect delay, slightly longer here so applicants notice the payment landed. */
 const REDIRECT_DELAY_MS = 3500;
 
 const PaymentConfirmed = () => {

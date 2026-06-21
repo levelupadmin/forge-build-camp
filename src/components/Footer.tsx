@@ -26,7 +26,7 @@ const Footer = () => {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-20">
         <div className="grid md:grid-cols-2 gap-12 md:gap-20">
-          {/* Left — Brand */}
+          {/* Left. Brand */}
           <div>
             <img src={levelupLogoWhite} alt="LevelUp Learning" className="h-6 mb-4" />
             <img src={forgeLogoWhite} alt="Forge AI Residency" className="h-10 md:h-12 mt-3" />
@@ -36,7 +36,7 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Right — Link columns */}
+          {/* Right. Link columns */}
           <div className="grid grid-cols-2 gap-8">
             <div>
               <p className="text-white/40 text-[11px] uppercase font-semibold tracking-[0.15em] mb-4">Program</p>

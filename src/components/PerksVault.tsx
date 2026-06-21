@@ -25,7 +25,7 @@ const ALL_PERKS = (perksData as Perk[]).filter((p) => p.regions.includes("IN"));
 const TOTAL_CREDITS = ALL_PERKS.reduce((s, p) => s + p.creditsNumeric, 0);
 const CATEGORIES = new Set(ALL_PERKS.map((p) => p.category)).size;
 
-// Top 9 featured — modeled on getaiperks.com's editorial selection.
+// Top 9 featured, modeled on getaiperks.com's editorial selection.
 // Skews toward AI tools most relevant to Forge builders + curated for Indian founders
 // (US-only perks like OpenAI-via-partner, Mercury, Ramp, Carta intentionally excluded).
 const FEATURED_9: Array<{ company: string; creditsMatch?: string }> = [
@@ -69,12 +69,12 @@ const PerksVault = ({ onOpenModal }: PerksVaultProps) => {
       <div className="text-center max-w-3xl mx-auto">
         <SectionHeading
           label="THE VAULT"
-          description="A curated, always-updating directory of grants, credits, discounts and partner offers that AI and startup tools publish for founders. We don't hand out credits — we show you every live offer worth claiming, who's most likely to approve you, and exactly how to apply. Access stays yours for life."
+          description="A curated, always-updating directory of grants, credits, discounts and partner offers that AI and startup tools publish for founders. We don't hand out credits, we show you every live offer worth claiming, who's most likely to approve you, and exactly how to apply. Access stays yours for life."
         >
           Your invite unlocks <Accent>the directory.</Accent>
         </SectionHeading>
 
-        {/* The Number — animated counter */}
+        {/* The Number, animated counter */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -188,7 +188,7 @@ const PerksVault = ({ onOpenModal }: PerksVaultProps) => {
       {/* Legitimacy line */}
       <div className="mt-14 md:mt-20 max-w-2xl mx-auto text-center">
         <p className="text-muted-foreground text-[14px] md:text-[15px] leading-relaxed">
-          Every offer in the directory comes from the partner program itself — we don't issue or resell credits.{" "}
+          Every offer in the directory comes from the partner program itself, we don't issue or resell credits.{" "}
           <span className="text-foreground">We track what's live, rate your odds of approval, and give you the exact application playbook.</span>{" "}
           Approval is always at the partner's discretion.
         </p>

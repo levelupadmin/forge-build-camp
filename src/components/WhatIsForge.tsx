@@ -93,7 +93,7 @@ const WhatIsForge = () => {
 
         <ScrollBoldText text={descriptionText} />
 
-        {/* Trailer — YouTube embed with click-to-load thumbnail (avoids loading the
+        {/* Trailer. YouTube embed with click-to-load thumbnail (avoids loading the
             ~1MB YouTube iframe + tracking until the user actually wants the video). */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
@@ -106,7 +106,7 @@ const WhatIsForge = () => {
             {showVideo ? (
               <iframe
                 src="https://www.youtube-nocookie.com/embed/6uj2L0HjIQM?autoplay=1&rel=0&modestbranding=1"
-                title="Forge AI Residency — Trailer"
+                title="Forge AI Residency. Trailer"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
                 loading="lazy"

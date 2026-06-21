@@ -5,10 +5,10 @@ import forgeLogo from "@/assets/forge-logo.png";
 import { fireGoogleAdsConversion, CONVERSION_LABELS } from "@/lib/gtag";
 import { fireTwitterEvent, TWITTER_EVENT_IDS } from "@/lib/twitterPixel";
 
-/** Payment gateway URL — applicants are sent here after submitting the Tally form. */
+/** Payment gateway URL, applicants are sent here after submitting the Tally form. */
 const PAYMENT_URL = "https://rzp.io/rzp/wpzv8C7I";
 
-/** Redirect delay — long enough to feel intentional, short enough to keep momentum. */
+/** Redirect delay, long enough to feel intentional, short enough to keep momentum. */
 const REDIRECT_DELAY_MS = 3000;
 
 const ThankYou = () => {

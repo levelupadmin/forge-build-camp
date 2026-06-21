@@ -45,11 +45,11 @@ const days: ScheduleDay[] = [
     subtitle: "Five sessions before you travel",
     image: imgOnlinePrep,
     rows: [
-      { icon: BookOpen, time: "Session", title: "Session 1 — Orientation", sub: "Welcome to the Forge. Get every tool live: Claude, Claude Code, n8n, Supabase, Vercel. Build your second brain." },
-      { icon: BookOpen, time: "Session", title: "Session 2 — Product Thinking Fundamentals", sub: "The AI-shaped problem filter, validating the idea, and the build spec that becomes your blueprint. With Ankur." },
-      { icon: BookOpen, time: "Session", title: "Session 3 — Design Fundamentals", sub: "Visual hierarchy, layout, type and colour. What makes a product feel trustworthy." },
-      { icon: Workflow, time: "Session", title: "Session 4 — Automation & Workflows 101", sub: "Triggers, steps, the think-act-observe loop. With Parth." },
-      { icon: FileCheck2, time: "Session", title: "Session 5 — Review & Align (1-on-1)", sub: "Present your build brief, get live mentor feedback, leave with a locked plan." },
+      { icon: BookOpen, time: "Session", title: "Session 1. Orientation", sub: "Welcome to the Forge. Get every tool live: Claude, Claude Code, n8n, Supabase, Vercel. Build your second brain." },
+      { icon: BookOpen, time: "Session", title: "Session 2. Product Thinking Fundamentals", sub: "The AI-shaped problem filter, validating the idea, and the build spec that becomes your blueprint. With Ankur." },
+      { icon: BookOpen, time: "Session", title: "Session 3. Design Fundamentals", sub: "Visual hierarchy, layout, type and colour. What makes a product feel trustworthy." },
+      { icon: Workflow, time: "Session", title: "Session 4. Automation & Workflows 101", sub: "Triggers, steps, the think-act-observe loop. With Parth." },
+      { icon: FileCheck2, time: "Session", title: "Session 5. Review & Align (1-on-1)", sub: "Present your build brief, get live mentor feedback, leave with a locked plan." },
     ],
   },
   {
@@ -59,65 +59,65 @@ const days: ScheduleDay[] = [
     image: imgDay1,
     rows: [
       { icon: LogIn, time: "Afternoon", title: "Check In" },
-      { icon: Compass, time: "Late Afternoon", title: "Orientation — meet the room" },
-      { icon: BookOpen, time: "Evening", title: "The Psychology Behind Storytelling — with Rahul" },
+      { icon: Compass, time: "Late Afternoon", title: "Orientation, meet the room" },
+      { icon: BookOpen, time: "Evening", title: "The Psychology Behind Storytelling, with Rahul" },
       { icon: UtensilsCrossed, time: "Late Evening", title: "Dinner" },
-      { icon: BookOpen, time: "Late Evening", title: "Storytelling — Part II" },
+      { icon: BookOpen, time: "Late Evening", title: "Storytelling. Part II" },
     ],
   },
   {
     key: "d2",
     label: "DAY 2",
-    subtitle: "Product I — Spec It & Make It Intelligent",
+    subtitle: "Product I. Spec It & Make It Intelligent",
     image: imgDays23,
     rows: [
       { icon: Users, time: "Morning", title: "Morning Standup" },
       { icon: Sparkles, time: "Morning", title: "How LLMs Actually Work + The ₹999 Problem-Framing Test" },
       { icon: Sparkles, time: "Late Morning", title: "System Design Without Code + Write Your Spec" },
       { icon: UtensilsCrossed, time: "Late Morning", title: "Lunch" },
-      { icon: Sparkles, time: "Afternoon", title: "Claude Code + Your First MCP Tool — with Ankur" },
+      { icon: Sparkles, time: "Afternoon", title: "Claude Code + Your First MCP Tool, with Ankur" },
       { icon: UtensilsCrossed, time: "Evening", title: "Dinner + Build Night" },
     ],
   },
   {
     key: "d3",
     label: "DAY 3",
-    subtitle: "Product II — Ship It & Prove It",
+    subtitle: "Product II. Ship It & Prove It",
     image: imgDays45,
     rows: [
       { icon: Users, time: "Morning", title: "Morning Standup" },
       { icon: Rocket, time: "Morning", title: "Production Architecture: UI, Postgres, Auth, RLS, Edge Functions" },
       { icon: UtensilsCrossed, time: "Late Morning", title: "Lunch" },
       { icon: Rocket, time: "Afternoon", title: "Messages API · Streaming · Prompt Caching · Webhooks + Payments" },
-      { icon: FileCheck2, time: "Late Afternoon", title: "Ship #1 Live + Build Your Eval Scorecard — with Ankur" },
+      { icon: FileCheck2, time: "Late Afternoon", title: "Ship #1 Live + Build Your Eval Scorecard, with Ankur" },
       { icon: UtensilsCrossed, time: "Evening", title: "Dinner + Build Night" },
     ],
   },
   {
     key: "d4",
     label: "DAY 4",
-    subtitle: "Operations I — Automate It, Then Make It Think",
+    subtitle: "Operations I. Automate It, Then Make It Think",
     image: imgDays678,
     rows: [
       { icon: Users, time: "Morning", title: "Morning Standup" },
       { icon: Workflow, time: "Morning", title: "Automation Thinking + AI Agents in n8n (brain, memory, tools)" },
       { icon: UtensilsCrossed, time: "Late Morning", title: "Lunch" },
       { icon: Workflow, time: "Afternoon", title: "Build a Ticket-Classifying Support Agent" },
-      { icon: Workflow, time: "Late Afternoon", title: "Connect Your Apps with MCP + Build Your Personal AI Assistant — with Parth" },
+      { icon: Workflow, time: "Late Afternoon", title: "Connect Your Apps with MCP + Build Your Personal AI Assistant, with Parth" },
       { icon: UtensilsCrossed, time: "Evening", title: "Dinner + Build Night" },
     ],
   },
   {
     key: "d5",
     label: "DAY 5",
-    subtitle: "Operations II — Connect It, Ground It, Give It a Voice",
+    subtitle: "Operations II. Connect It, Ground It, Give It a Voice",
     image: imgDays678,
     rows: [
       { icon: Users, time: "Morning", title: "Morning Standup" },
       { icon: Workflow, time: "Morning", title: "Browser Agents + Claude Cowork" },
       { icon: UtensilsCrossed, time: "Late Morning", title: "Lunch" },
       { icon: Workflow, time: "Afternoon", title: "Ground Agents in Your Docs (RAG)" },
-      { icon: Workflow, time: "Late Afternoon", title: "Voice Agents for Outbound Calling + Protected 1:1s — with Parth" },
+      { icon: Workflow, time: "Late Afternoon", title: "Voice Agents for Outbound Calling + Protected 1:1s, with Parth" },
       { icon: UtensilsCrossed, time: "Evening", title: "Dinner + Build Night" },
     ],
   },
@@ -142,7 +142,7 @@ const days: ScheduleDay[] = [
     image: imgDay9,
     rows: [
       { icon: UtensilsCrossed, time: "Morning", title: "Breakfast" },
-      { icon: Rocket, time: "Morning", title: "Demo Day — 8 minutes each, no slides, real working demo" },
+      { icon: Rocket, time: "Morning", title: "Demo Day, 8 minutes each, no slides, real working demo" },
       { icon: PartyPopper, time: "Late Morning", title: "Farewell + 90-Day Roadmap Commitments" },
       { icon: LogIn, time: "Afternoon", title: "Checkout" },
     ],
@@ -158,13 +158,13 @@ const Schedule = () => {
       <SectionHeading
         label="THE GAMEPLAN"
         variant="dark"
-        description="Five pre-arrival sessions to prime you. Then you arrive on the ground and build with AI every day, morning to night, until you walk out with two shipped things — a product and the operations that run it."
+        description="Five pre-arrival sessions to prime you. Then you arrive on the ground and build with AI every day, morning to night, until you walk out with two shipped things, a product and the operations that run it."
       >
         <Accent>Seven&nbsp;days.</Accent> Two builds. <br className="md:hidden" />
         <span className="text-white/55">One unforgettable week.</span>
       </SectionHeading>
 
-      {/* Day tabs — horizontal scrolling strip */}
+      {/* Day tabs, horizontal scrolling strip */}
       <div className="mb-10 md:mb-14 -mx-6 lg:-mx-20 overflow-x-auto scrollbar-hide">
         <div className="px-6 lg:px-20 flex gap-2 min-w-max">
           {days.map((d, i) => {
@@ -190,7 +190,7 @@ const Schedule = () => {
 
       {/* Two-column layout: image + rows */}
       <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_1.3fr] gap-10 lg:gap-16 items-start">
-        {/* LEFT — image */}
+        {/* LEFT, image */}
         <div className="lg:sticky lg:top-24">
           <AnimatePresence mode="wait">
             <motion.div
@@ -203,7 +203,7 @@ const Schedule = () => {
             >
               <img
                 src={day.image}
-                alt={day.label + " — " + day.subtitle}
+                alt={day.label + ", " + day.subtitle}
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -220,7 +220,7 @@ const Schedule = () => {
           </AnimatePresence>
         </div>
 
-        {/* RIGHT — rows (matches the PDF's icon + time + title rhythm) */}
+        {/* RIGHT, rows (matches the PDF's icon + time + title rhythm) */}
         <div className="min-w-0">
           <AnimatePresence mode="wait">
             <motion.ul

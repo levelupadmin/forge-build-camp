@@ -13,7 +13,7 @@ const Hero = ({ onOpenModal }: HeroProps) => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Brand gradient backdrop — visible while the hero video is still downloading,
+      {/* Brand gradient backdrop, visible while the hero video is still downloading,
           so users on slower connections see the on-brand colour palette instead of a
           black void. Once the video can play, it covers this layer. */}
       <div

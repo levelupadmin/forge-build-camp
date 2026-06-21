@@ -16,7 +16,7 @@ const personas = [
   {
     title: "The Founder",
     tagline: "Ship faster. Smaller team.",
-    desc: "Your competitors are shipping faster, spending less, and doing it with smaller teams. AI is why. You don't need to hire more — you need to build smarter.",
+    desc: "Your competitors are shipping faster, spending less, and doing it with smaller teams. AI is why. You don't need to hire more, you need to build smarter.",
     image: founderImg,
   },
   {
@@ -67,7 +67,7 @@ const WhoIsFor = ({ onOpenModal }: WhoIsForProps) => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/40 to-transparent" />
 
-            {/* Default state — name + tagline */}
+            {/* Default state, name + tagline */}
             <div className="absolute inset-0 flex flex-col justify-end p-5 transition-opacity duration-300 group-hover:opacity-0">
               <p className="font-bold text-white text-[20px] leading-tight">{p.title}</p>
               <p className="text-primary text-[12px] font-semibold uppercase tracking-[0.14em] mt-1.5 font-mono">
@@ -75,7 +75,7 @@ const WhoIsFor = ({ onOpenModal }: WhoIsForProps) => {
               </p>
             </div>
 
-            {/* Hover — full description */}
+            {/* Hover, full description */}
             <div className="absolute inset-0 flex flex-col justify-end p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <p className="font-bold text-white text-[20px] leading-tight">{p.title}</p>
               <p className="text-white/80 text-[13px] mt-2 leading-[1.55]">{p.desc}</p>

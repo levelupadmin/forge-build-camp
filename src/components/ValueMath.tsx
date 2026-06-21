@@ -11,12 +11,12 @@ interface ValueMathProps {
 
 const givens = [
   { label: "9-day residency in Dharamshala", sub: "All meals, residential stay, curated experiences" },
-  { label: "20-builder curated cohort", sub: "Hand-selected from applications — not first come, first served" },
+  { label: "20-builder curated cohort", sub: "Hand-selected from applications, not first come, first served" },
   { label: "Lifetime Forge community", sub: "Alumni guest lectures, meet-ups, private channel" },
   { label: "Three expert-led tracks", sub: "Generative AI · Automations · Product Building" },
   { label: "Mentor access + Demo Day", sub: "Working builders, not lecturers" },
   {
-    label: "AI Perks Vault — $7,627,856+ in credits",
+    label: "AI Perks Vault, $7,627,856+ in credits",
     sub: "210 tools curated for Indian founders. Lifetime access. Updated weekly.",
     emphasize: true,
   },
@@ -68,7 +68,7 @@ const ValueMath = ({ onOpenModal }: ValueMathProps) => {
               <h3 className="text-white font-bold text-[24px] md:text-[28px] leading-none tracking-[-0.02em] mt-1">
                 DHARAMSHALA
               </h3>
-              <p className="text-white/70 text-[12px] mt-1">June 27 – July 4, 2026</p>
+              <p className="text-white/70 text-[12px] mt-1">June 27 , July 4, 2026</p>
             </div>
           </div>
 

@@ -8,9 +8,9 @@ interface SectionHeadingProps {
   children: ReactNode;
   /** Optional description paragraph below the headline */
   description?: ReactNode;
-  /** Alignment — center by default */
+  /** Alignment, center by default */
   align?: "left" | "center";
-  /** Variant — controls label/text colors in dark sections */
+  /** Variant, controls label/text colors in dark sections */
   variant?: "light" | "dark";
   className?: string;
 }

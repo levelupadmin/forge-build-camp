@@ -9,12 +9,12 @@ const faqs = [
   { q: "Do I need to know how to code?", a: "No. None of the three tracks require coding. If you can write a brief, you can build with these tools." },
   { q: "What is included in the program fee?", a: "Residential stay, all meals, both tracks (Product + Operations), expert faculty, curated experiences, community access, and the Forge AI Goodie Bag. Everything except your travel to the venue." },
   { q: "How many people are in each cohort?", a: "20. Hard limit. This is what allows faculty to actually work with you and not just present to you." },
-  // Temporarily hidden — restore by uncommenting:
-  // { q: "What is the AI Perks Vault — are the credits really free?", a: "Yes. 210 real perks across AWS, Claude, OpenAI, Vercel, Gemini, ElevenLabs and more — total face value of $7.63M+. The list is curated for Indian founders, so US-only perks like Mercury, Brex, Ramp, and Carta are intentionally excluded. You apply through the Forge dashboard; each perk has its own eligibility, which we've graded with an approval index so you know what's realistic. We don't pool or resell — every credit stays on your account." },
-  // Temporarily hidden — restore by uncommenting:
+  // Temporarily hidden, restore by uncommenting:
+  // { q: "What is the AI Perks Vault, are the credits really free?", a: "Yes. 210 real perks across AWS, Claude, OpenAI, Vercel, Gemini, ElevenLabs and more, total face value of $7.63M+. The list is curated for Indian founders, so US-only perks like Mercury, Brex, Ramp, and Carta are intentionally excluded. You apply through the Forge dashboard; each perk has its own eligibility, which we've graded with an approval index so you know what's realistic. We don't pool or resell, every credit stays on your account." },
+  // Temporarily hidden, restore by uncommenting:
   // { q: "Do I keep the perks access after the program ends?", a: "Yes. Vault access is lifetime. We add new perks weekly as partners onboard." },
-  // Temporarily hidden — restore by uncommenting:
-  // { q: "What happens if a perk provider rejects my application?", a: "Approval isn't guaranteed on every single perk — most high-value providers do their own review. That's why we publish an approval index per perk. Even claiming 2–3% of the vault pays for the program multiple times over." },
+  // Temporarily hidden, restore by uncommenting:
+  // { q: "What happens if a perk provider rejects my application?", a: "Approval isn't guaranteed on every single perk, most high-value providers do their own review. That's why we publish an approval index per perk. Even claiming 2 to 3% of the vault pays for the program multiple times over." },
   { q: "What is the application fee for?", a: "It books your interview slot and signals intent to our selection team. It is separate from the program fee." },
   { q: "What do I actually leave with?", a: "A working product, a live automation that runs your business, a 90-day roadmap, and a network of 20 serious builders." },
   { q: "I have a full-time job. Can I attend?", a: "Yes. Most participants are working professionals. You take a fixed block of time off and come back with something done." },

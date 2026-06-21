@@ -35,7 +35,7 @@ const pillars: PillarData[] = [
     num: "02",
     tag: "PILLAR 02",
     title: "OPERATIONS",
-    desc: "Map the manual work in your business and build AI that handles it for you. Automations, agents, knowledge bases, voice — the layer that runs your business while you sleep.",
+    desc: "Map the manual work in your business and build AI that handles it for you. Automations, agents, knowledge bases, voice, the layer that runs your business while you sleep.",
     builds: [
       "2 live AI automations and a personal AI assistant",
       "A knowledge-grounded agent + voice agent for your business",
@@ -57,7 +57,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
 
   const startTimer = useCallback(() => {
     if (timerRef.current) clearInterval(timerRef.current);
-    // Disable auto-advance on mobile/touch — it's jarring while reading
+    // Disable auto-advance on mobile/touch, it's jarring while reading
     if (typeof window !== "undefined" && window.matchMedia("(max-width: 768px)").matches) return;
     timerRef.current = setInterval(() => {
       if (!isPaused.current) {

@@ -39,7 +39,7 @@ const Outcomes = ({ onOpenModal }: OutcomesProps) => {
         Not just learning. <Accent>Real building.</Accent>
       </SectionHeading>
 
-      {/* Hero deliverables — editorial numbered blocks */}
+      {/* Hero deliverables, editorial numbered blocks */}
       <div className="space-y-20 md:space-y-32 max-w-[1100px] mx-auto">
         {heroOutcomes.map((o, i) => {
           const isReversed = i % 2 === 1;

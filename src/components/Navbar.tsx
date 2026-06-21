@@ -71,7 +71,7 @@ const Navbar = ({ onOpenModal }: NavbarProps) => {
         </div>
       </nav>
 
-      {/* Mobile Navbar — always visible */}
+      {/* Mobile Navbar, always visible */}
       <nav
         className="fixed top-0 left-0 right-0 z-40 md:hidden transition-all duration-300"
         style={{

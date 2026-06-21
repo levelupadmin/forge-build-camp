@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
-// Sri Lanka venue image — bundled locally so the image always loads.
+// Sri Lanka venue image, bundled locally so the image always loads.
 // Swap for a real branded venue photo when ready by replacing src/assets/venue-srilanka.jpg.
 import venueImage from "@/assets/venue-srilanka.jpg";
 
@@ -16,7 +16,7 @@ const inclusions = [
   "Expert faculty throughout the residency",
   "Curated experiences during the program",
   "Community access after the program",
-  // "Perks from partner brands",  // Temporarily hidden — restore by uncommenting
+  // "Perks from partner brands",  // Temporarily hidden, restore by uncommenting
   "The Forge AI Goodie Bag",
   "Demo Day on Day 9",
 ];
@@ -41,7 +41,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
         <div className="relative overflow-hidden aspect-[16/9] shadow-lg">
           <img
             src={venueImage}
-            alt="Sri Lanka — the Forge AI Edition 1 venue"
+            alt="Sri Lanka, the Forge AI Edition 1 venue"
             className="w-full h-full object-cover"
             loading="lazy"
             width={1280}
