@@ -10,7 +10,7 @@ const phases = [
   {
     num: "02",
     verb: "Build",
-    desc: "Create real products, automations, and content. Ship something tangible every single day.",
+    desc: "Create real products and the automations that run them. Ship something tangible every single day.",
   },
   {
     num: "03",
@@ -23,7 +23,7 @@ const Process = () => {
   return (
     <SectionWrapper label="THE ARC">
       <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.1] tracking-[-0.025em] text-foreground text-center mb-16">
-        Nine days. One{" "}
+        Seven days. One{" "}
         <span className="font-serif italic text-primary" style={{ fontWeight: 700 }}>
           narrative.
         </span>

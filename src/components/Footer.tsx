@@ -32,7 +32,7 @@ const Footer = () => {
             <img src={forgeLogoWhite} alt="Forge AI Residency" className="h-10 md:h-12 mt-3" />
             <p className="text-white text-[15px] font-medium mt-1">Learn AI by Building with AI.</p>
             <p className="text-white/60 text-[14px] mt-3 max-w-[360px] leading-relaxed">
-              A 9-day residential program for founders, marketers, and operators who want to stop watching AI happen and start building with it.
+              A 7-day residential program in Sri Lanka for founders, marketers, and operators who want to stop watching AI happen and start building with it.
             </p>
           </div>
 
