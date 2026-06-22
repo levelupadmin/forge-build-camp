@@ -39,7 +39,7 @@ interface TribeProps { onOpenModal: () => void; }
 
 const Tribe = ({ onOpenModal }: TribeProps) => {
   return (
-    <SectionWrapper variant="dark">
+    <SectionWrapper id="tribe" variant="dark">
       <SectionHeading
         variant="dark"
         description="Founders, CEOs, investors, and operators already part of the Forge community. You're not joining a course, you're joining the room."

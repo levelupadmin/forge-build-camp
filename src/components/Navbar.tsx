@@ -10,7 +10,7 @@ interface NavbarProps {
 
 const navLinks: { label: string; href: string; external?: boolean }[] = [
   { label: "About", href: "#what-is-forge" },
-  { label: "Outcomes", href: "#outcomes" },
+  { label: "Tribe", href: "#tribe" },
   { label: "Schedule", href: "#schedule" },
   { label: "Pricing", href: "#pricing" },
   {
