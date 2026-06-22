@@ -183,18 +183,6 @@ const WhatIsForge = ({ onOpenModal }: WhatIsForgeProps) => {
           ))}
         </motion.div>
       </div>
-
-      <div className="text-center mt-14 md:mt-16">
-        <button
-          onClick={onOpenModal}
-          className="w-full sm:w-auto inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold rounded-xl px-8 py-4 text-sm uppercase tracking-wider btn-glow"
-        >
-          Request an Invite
-        </button>
-        <p className="mt-4 font-mono text-[10px] tracking-[0.24em] uppercase text-foreground/40">
-          20 invites per cohort
-        </p>
-      </div>
     </SectionWrapper>
   );
 };

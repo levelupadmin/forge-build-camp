@@ -86,14 +86,6 @@ const Tribe = ({ onOpenModal }: TribeProps) => {
         These are the people you'll meet, build with, and stay in touch with, long after the residency ends.
         The room compounds. The relationships outlast the program.
       </p>
-      <div className="text-center mt-12">
-        <button
-          onClick={onOpenModal}
-          className="w-full sm:w-auto inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold rounded-xl px-8 py-4 text-sm uppercase tracking-wider btn-glow"
-        >
-          Request an Invite
-        </button>
-      </div>
     </SectionWrapper>
   );
 };

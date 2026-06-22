@@ -215,14 +215,6 @@ const Schedule = ({ onOpenModal }: ScheduleProps) => {
               </div>
             </div>
           </div>
-          <div className="text-center mt-8 md:mt-10">
-            <button
-          onClick={onOpenModal}
-          className="w-full sm:w-auto inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold rounded-xl px-8 py-4 text-sm uppercase tracking-wider btn-glow"
-        >
-          Request an Invite
-        </button>
-          </div>
         </div>
       </div>
     </section>

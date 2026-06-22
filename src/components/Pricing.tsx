@@ -102,7 +102,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
             <div className="flex items-baseline gap-2">
               <span className="font-mono text-[14px] md:text-[16px] text-foreground/55 self-start mt-3">INR</span>
               <span className="font-bold text-[60px] md:text-[88px] leading-[0.9] tracking-[-0.03em] text-foreground tabular-nums">
-                1,50,000
+                1,20,000
               </span>
             </div>
             <p className="text-foreground/55 text-[13px] md:text-[14px] mt-2">

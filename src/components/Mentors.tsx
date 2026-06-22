@@ -221,15 +221,6 @@ const Mentors = ({ onOpenModal }: MentorsProps) => {
           </div>
         ))}
       </div>
-
-      <div className="text-center mt-14">
-        <button
-          onClick={onOpenModal}
-          className="w-full sm:w-auto inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold rounded-xl px-8 py-4 text-sm uppercase tracking-wider btn-glow"
-        >
-          Request an Invite
-        </button>
-      </div>
     </SectionWrapper>
   );
 };
