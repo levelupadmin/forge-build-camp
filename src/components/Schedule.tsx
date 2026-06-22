@@ -107,12 +107,9 @@ const Schedule = ({ onOpenModal }: ScheduleProps) => {
         <div className="sticky top-0 h-screen overflow-hidden flex flex-col justify-center bg-background py-10 md:py-14">
           <div className="max-w-[1300px] w-full mx-auto px-6 lg:px-12 py-2 md:py-4">
             <div className="text-center mb-4 md:mb-6">
-              <span className="text-[10px] tracking-[0.28em] uppercase text-foreground/50">
-                THE GAMEPLAN
-              </span>
-              <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.05] tracking-[-0.025em] text-foreground mt-2 md:mt-3">
-                <span className="font-editorial italic">Seven&nbsp;days.</span> Two builds.{" "}
-                <span className="text-foreground/55">One unforgettable week.</span>
+              <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.05] tracking-[-0.025em] text-foreground">
+                Seven days. Two builds.{" "}
+                <span className="font-editorial italic text-primary" style={{ fontWeight: 600 }}>One unforgettable week.</span>
               </h2>
             </div>
 
