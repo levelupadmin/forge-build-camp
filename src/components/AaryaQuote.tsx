@@ -33,9 +33,6 @@ const AaryaQuote = ({ onOpenModal }: AaryaQuoteProps) => {
 
           {/* Quote column */}
           <div>
-            <span className="text-[10px] tracking-[0.3em] uppercase text-foreground/45 block mb-5">
-              WHY WE BUILT THIS
-            </span>
             <blockquote className="font-editorial italic text-[24px] md:text-[34px] lg:text-[40px] leading-[1.15] tracking-[-0.01em] text-foreground">
               <span className="text-primary">&ldquo;</span>What excites me most about AI is not content generation or productivity hacks. It is the possibility of redesigning how organizations think and execute.<span className="text-primary">&rdquo;</span>
             </blockquote>
