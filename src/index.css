@@ -317,3 +317,8 @@
 .pillar-progress-bar {
   animation: pillar-progress 5s linear forwards;
 }
+
+
+html {
+  scroll-padding-top: 88px;
+}

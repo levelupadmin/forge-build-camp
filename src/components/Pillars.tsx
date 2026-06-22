@@ -40,7 +40,7 @@ interface PillarsProps {
 
 const Pillars = ({ onOpenModal }: PillarsProps) => {
   return (
-    <SectionWrapper id="pillars" variant="dark">
+    <SectionWrapper id="pillars" variant="dark" className="!pt-10 md:!pt-14 lg:!pt-16">
       <SectionHeading
         variant="dark"
         description="Each pillar gives you the skills, the tools, and the output you take home."

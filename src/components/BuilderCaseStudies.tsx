@@ -232,7 +232,7 @@ const BuilderCaseStudies = () => {
         Builds <Accent>in flight.</Accent>
       </SectionHeading>
 
-      <div className="space-y-12 md:space-y-16 mt-2">
+      <div className="space-y-8 md:space-y-10 mt-2">
         {builders.map((b, i) => {
           const reverse = i % 2 === 1;
           return (
@@ -247,7 +247,7 @@ const BuilderCaseStudies = () => {
               }`}
             >
               {/* Dashboard mockup */}
-              <div className="min-h-[280px] md:min-h-[360px]">
+              <div>
                 {b.dashboard}
               </div>
 
