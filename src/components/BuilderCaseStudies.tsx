@@ -1,10 +1,12 @@
 import SectionWrapper from "./SectionWrapper";
 import SectionHeading, { Accent } from "./SectionHeading";
 import { motion } from "framer-motion";
+import aaryaPhoto from "@/assets/community/student-aarya.jpg";
 
 interface Builder {
   name: string;
   initials: string;
+  photo?: string;
   role: string;
   company: string;
   walkedIn: string;
@@ -167,6 +169,7 @@ const builders: Builder[] = [
   {
     name: "Aarya Jain",
     initials: "AJ",
+    photo: aaryaPhoto,
     role: "Director",
     company: "Naprod Life Sciences",
     walkedIn: "AI-assisted workflow design across pharma operations, but unable to deploy without breaking under regulatory pressure.",
@@ -244,9 +247,13 @@ const BuilderCaseStudies = () => {
               <div className="flex flex-col justify-center">
                 {/* Identity */}
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="w-12 h-12 md:w-14 md:h-14 bg-primary text-primary-foreground flex items-center justify-center font-bold text-[14px] md:text-[16px] shrink-0">
-                    {b.initials}
-                  </div>
+                  {b.photo ? (
+                    <img src={b.photo} alt={b.name} className="w-12 h-12 md:w-14 md:h-14 object-cover shrink-0" />
+                  ) : (
+                    <div className="w-12 h-12 md:w-14 md:h-14 bg-primary text-primary-foreground flex items-center justify-center font-bold text-[14px] md:text-[16px] shrink-0">
+                      {b.initials}
+                    </div>
+                  )}
                   <div>
                     <p className="font-bold text-foreground text-[16px] md:text-[18px] leading-tight">{b.name}</p>
                     <p className="text-foreground/55 text-[12px] md:text-[13px] mt-0.5">{b.role} · {b.company}</p>

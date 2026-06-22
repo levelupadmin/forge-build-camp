@@ -82,10 +82,10 @@ const Index = () => {
       {/* Temporarily hidden: <WhoIsFor onOpenModal={openTally} /> */}
       <Pillars onOpenModal={openTally} />
       <AaryaQuote onOpenModal={openTally} />
+      <BuilderCaseStudies />
       {/* Temporarily hidden: <Outcomes onOpenModal={openTally} /> (duplicates Pillars outcome story) */}
       <Mentors onOpenModal={openTally} />
       <Schedule onOpenModal={openTally} />
-      <BuilderCaseStudies />
       {/* Temporarily hidden, restore: <PerksVault onOpenModal={openTally} /> */}
       <Community onOpenModal={openTally} />
       <SocialProof />
