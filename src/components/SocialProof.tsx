@@ -93,7 +93,6 @@ const SocialProof = () => {
   return (
     <SectionWrapper>
       <SectionHeading
-        label="FROM PAST FORGE PARTICIPANTS"
         description="Dreamers became builders not just because of the right guidance but the people they surrounded themselves with."
       >
         What happens when you build with the <Accent>right people.</Accent>

@@ -27,7 +27,7 @@ const exclusions = [
 
 const Pricing = ({ onOpenModal }: PricingProps) => {
   return (
-    <SectionWrapper id="pricing" label="THE INVESTMENT">
+    <SectionWrapper id="pricing">
       <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.05] tracking-[-0.025em] text-foreground text-center mb-3">
         What it costs to be in <span className="font-editorial italic text-primary">the room.</span>
       </h2>
@@ -42,8 +42,9 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6 }}
-          className="relative overflow-hidden aspect-[4/5] lg:aspect-auto lg:min-h-[640px] shadow-lg"
+          className="flex flex-col gap-3"
         >
+        <div className="relative overflow-hidden aspect-[4/5] lg:aspect-[4/5.2] shadow-lg">
           <img
             src={venueImage}
             alt="Sri Lanka, the Forge AI Edition 1 venue"
@@ -54,10 +55,10 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
 
           {/* Top badge */}
           <div className="absolute top-5 left-5 right-5 flex items-start justify-between">
-            <span className="font-mono text-[10px] tracking-[0.28em] uppercase text-white/90 bg-black/40 backdrop-blur-sm px-3 py-1.5 border border-white/20">
+            <span className="text-[10px] tracking-[0.28em] uppercase text-white/90 bg-black/40 backdrop-blur-sm px-3 py-1.5 border border-white/20">
               VENUE
             </span>
-            <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-white bg-primary px-3 py-1.5">
+            <span className="text-[10px] tracking-[0.18em] uppercase text-white bg-primary px-3 py-1.5">
               Early Bird Open
             </span>
           </div>
@@ -67,23 +68,25 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
             <p className="font-editorial italic text-[42px] md:text-[56px] leading-[0.95] tracking-[-0.02em]">
               Sri Lanka
             </p>
-            <p className="text-white/70 text-[14px] md:text-[15px] mt-3 max-w-[320px] leading-[1.5]">
+            <p className="text-white/80 text-[14px] md:text-[15px] mt-3 max-w-[340px] leading-[1.5]">
               A 7-day residency at a private villa estate. The room, the meals, the work, the magic. All inside.
             </p>
-
-            <div className="grid grid-cols-2 gap-3 mt-7">
-              <div>
-                <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-white/55 mb-1.5">Online prep</p>
-                <p className="font-bold text-[18px] md:text-[20px]">5 sessions</p>
-                <p className="text-white/60 text-[12px] mt-0.5">Sept 5 to 9, 2026</p>
-              </div>
-              <div>
-                <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-white/55 mb-1.5">In residence</p>
-                <p className="font-bold text-[18px] md:text-[20px]">7 days</p>
-                <p className="text-white/60 text-[12px] mt-0.5">Sept 11 to 17, 2026</p>
-              </div>
-            </div>
           </div>
+        </div>
+
+        {/* Dates row directly below venue image */}
+        <div className="grid grid-cols-2 gap-3">
+          <div className="bg-card border border-border p-4 md:p-5">
+            <p className="text-[10px] uppercase tracking-wider text-foreground/55 font-semibold mb-1">Online Prep</p>
+            <p className="font-bold text-[18px] md:text-[20px] text-foreground leading-tight">5 sessions</p>
+            <p className="text-foreground/60 text-[12px] md:text-[13px] mt-1">Sept 5 to 9, 2026</p>
+          </div>
+          <div className="bg-card border border-border p-4 md:p-5">
+            <p className="text-[10px] uppercase tracking-wider text-foreground/55 font-semibold mb-1">In Residence</p>
+            <p className="font-bold text-[18px] md:text-[20px] text-foreground leading-tight">7 days</p>
+            <p className="text-foreground/60 text-[12px] md:text-[13px] mt-1">Sept 11 to 17, 2026</p>
+          </div>
+        </div>
         </motion.div>
 
         {/* RIGHT: Price + Inclusions */}
@@ -96,7 +99,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
         >
           {/* Price block */}
           <div className="bg-card border border-border p-7 md:p-9 mb-6">
-            <p className="font-mono text-[10px] tracking-[0.28em] uppercase text-foreground/55 mb-3">
+            <p className="text-[10px] tracking-[0.28em] uppercase text-foreground/55 mb-3">
               Program fee
             </p>
             <div className="flex items-baseline gap-2">
@@ -122,7 +125,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
 
           {/* What is included */}
           <div className="bg-card border border-border p-7 md:p-9">
-            <p className="font-mono text-[10px] tracking-[0.28em] uppercase text-foreground/55 mb-5">
+            <p className="text-[10px] tracking-[0.28em] uppercase text-foreground/55 mb-5">
               What is included
             </p>
             <ul className="space-y-3">
@@ -135,7 +138,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
             </ul>
 
             <div className="mt-7 pt-5 border-t border-border/60">
-              <p className="font-mono text-[10px] tracking-[0.28em] uppercase text-foreground/45 mb-3">
+              <p className="text-[10px] tracking-[0.28em] uppercase text-foreground/45 mb-3">
                 Not included
               </p>
               <ul className="space-y-2">

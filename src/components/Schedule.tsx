@@ -107,7 +107,7 @@ const Schedule = ({ onOpenModal }: ScheduleProps) => {
         <div className="sticky top-0 h-screen overflow-hidden flex flex-col justify-center bg-background py-10 md:py-14">
           <div className="max-w-[1300px] w-full mx-auto px-6 lg:px-12 py-2 md:py-4">
             <div className="text-center mb-4 md:mb-6">
-              <span className="font-mono text-[10px] tracking-[0.28em] uppercase text-foreground/50">
+              <span className="text-[10px] tracking-[0.28em] uppercase text-foreground/50">
                 THE GAMEPLAN
               </span>
               <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.05] tracking-[-0.025em] text-foreground mt-2 md:mt-3">
@@ -154,7 +154,7 @@ const Schedule = ({ onOpenModal }: ScheduleProps) => {
                 </AnimatePresence>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent pointer-events-none" />
                 <div className="absolute bottom-3 left-3 md:bottom-5 md:left-5">
-                  <span className="font-mono text-[9px] md:text-[10px] tracking-[0.28em] uppercase text-white inline-block bg-black/55 backdrop-blur-sm px-2.5 py-1 border border-white/25">
+                  <span className="text-[9px] md:text-[10px] tracking-[0.28em] uppercase text-white inline-block bg-black/55 backdrop-blur-sm px-2.5 py-1 border border-white/25">
                     {day.label}
                   </span>
                 </div>
@@ -198,7 +198,7 @@ const Schedule = ({ onOpenModal }: ScheduleProps) => {
                     exit={{ opacity: 0, y: -8 }}
                     transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    <span className="font-mono text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-foreground/55">
+                    <span className="text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-foreground/55">
                       {day.label}
                     </span>
                     <h3 className="font-editorial italic text-[26px] md:text-[36px] text-foreground mt-1.5 mb-3 md:mb-4 leading-[1.1] tracking-[-0.01em]">

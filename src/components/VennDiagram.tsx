@@ -45,7 +45,6 @@ const VennDiagram = () => {
   return (
     <SectionWrapper id="ethos">
       <SectionHeading
-        label="OUR ETHOS"
         description="Three forces, one intersection. Every part of the residency is designed around this philosophy."
       >
         What makes <Accent>the Forge</Accent> different

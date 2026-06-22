@@ -58,7 +58,7 @@ const FAQs = () => {
 
   return (
     <SectionWrapper id="faqs">
-      <SectionHeading label="FAQS">
+      <SectionHeading>
         Questions we get <Accent>asked a lot.</Accent>
       </SectionHeading>
 

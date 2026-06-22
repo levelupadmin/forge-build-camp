@@ -23,7 +23,6 @@ const Community = ({ onOpenModal }: CommunityProps) => {
   return (
     <SectionWrapper variant="dark">
       <SectionHeading
-        label="THE COMMUNITY"
         variant="dark"
         description="The people in this room will go on to build companies, launch products, and do interesting things."
       >

@@ -33,7 +33,7 @@ const AaryaQuote = ({ onOpenModal }: AaryaQuoteProps) => {
 
           {/* Quote column */}
           <div>
-            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-foreground/45 block mb-5">
+            <span className="text-[10px] tracking-[0.3em] uppercase text-foreground/45 block mb-5">
               WHY WE BUILT THIS
             </span>
             <blockquote className="font-editorial italic text-[24px] md:text-[34px] lg:text-[40px] leading-[1.15] tracking-[-0.01em] text-foreground">

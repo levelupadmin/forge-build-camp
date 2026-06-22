@@ -42,7 +42,6 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
   return (
     <SectionWrapper id="pillars" variant="dark">
       <SectionHeading
-        label="THE CORE"
         variant="dark"
         description="Each pillar gives you the skills, the tools, and the output you take home."
       >
@@ -65,7 +64,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
               <span className="font-mono text-[40px] md:text-[56px] leading-none font-bold text-primary tabular-nums">
                 {p.num}
               </span>
-              <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-white/40">
+              <span className="text-[10px] tracking-[0.3em] uppercase text-white/40">
                 PILLAR
               </span>
             </div>
@@ -82,7 +81,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
 
             {/* What you'll build */}
             <div className="mb-8 md:mb-10">
-              <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-white/45 mb-4">
+              <p className="text-[10px] tracking-[0.25em] uppercase text-white/45 mb-4">
                 What you ship
               </p>
               <ul className="space-y-3">
@@ -97,7 +96,7 @@ const Pillars = ({ onOpenModal }: PillarsProps) => {
 
             {/* Tools */}
             <div className="mt-auto pt-6 md:pt-8 border-t border-white/[0.08]">
-              <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-white/45 mb-3">
+              <p className="text-[10px] tracking-[0.25em] uppercase text-white/45 mb-3">
                 Tools
               </p>
               <div className="flex flex-wrap gap-2">

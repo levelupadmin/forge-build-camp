@@ -49,7 +49,7 @@ const SectionHeading = ({
         >
           <span className="h-px w-6 bg-primary/50" />
           <span
-            className={`font-mono text-[10px] md:text-[11px] tracking-[0.28em] uppercase ${
+            className={`text-[10px] md:text-[11px] tracking-[0.28em] uppercase ${
               isDark ? "text-white/55" : "text-primary/70"
             }`}
           >

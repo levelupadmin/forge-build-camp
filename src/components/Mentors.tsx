@@ -137,7 +137,6 @@ const Mentors = ({ onOpenModal }: MentorsProps) => {
   return (
     <SectionWrapper id="mentors" variant="dark">
       <SectionHeading
-        label="YOUR MENTORS"
         variant="dark"
         description="Every mentor at the Forge is a practitioner of their craft. A working builder, a published creator, a full-time operator. Not a professor."
       >
@@ -175,7 +174,7 @@ const Mentors = ({ onOpenModal }: MentorsProps) => {
                 {openIndex === i ? <X size={12} strokeWidth={2} /> : <Plus size={12} strokeWidth={2} />}
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 text-white">
-                <p className="font-mono text-[8.5px] md:text-[9.5px] tracking-[0.22em] uppercase text-white/65 mb-1">
+                <p className="text-[8.5px] md:text-[9.5px] tracking-[0.22em] uppercase text-white/65 mb-1">
                   {m.sub}
                 </p>
                 <p className="font-bold text-[14px] md:text-[16px] leading-tight">

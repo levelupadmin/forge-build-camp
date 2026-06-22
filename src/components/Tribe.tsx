@@ -41,7 +41,6 @@ const Tribe = ({ onOpenModal }: TribeProps) => {
   return (
     <SectionWrapper variant="dark">
       <SectionHeading
-        label="THE TRIBE"
         variant="dark"
         description="Founders, CEOs, investors, and operators already part of the Forge community. You're not joining a course, you're joining the room."
       >

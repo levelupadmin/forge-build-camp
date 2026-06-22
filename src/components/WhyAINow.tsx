@@ -72,7 +72,6 @@ const WhyAINow = () => {
   return (
     <SectionWrapper id="why-ai" variant="dark">
       <SectionHeading
-        label="WHY AI. WHY NOW."
         variant="dark"
         description="The businesses that ignored the internet in 2005 did not survive 2015. The ones ignoring AI today will not survive 2030. You think AI is crowded because you're in an echo chamber, but the real world hasn't even started."
       >
