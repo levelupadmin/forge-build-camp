@@ -15,7 +15,7 @@ const navLinks: { label: string; href: string; external?: boolean }[] = [
   { label: "Pricing", href: "#pricing" },
   {
     label: "Detailed Brochure",
-    href: "https://drive.google.com/file/d/1cApmQLy9bkEbyKEfUv9bPnPAkia3rcry/view?usp=sharing",
+    href: "https://drive.google.com/file/d/1mmSDErBHNLadebUQwNjNtJDDw2JDhqeY/view?usp=sharing",
     external: true,
   },
   { label: "\n", href: "#" },
