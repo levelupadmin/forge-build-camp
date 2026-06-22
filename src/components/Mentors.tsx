@@ -197,11 +197,11 @@ const Mentors = ({ onOpenModal }: MentorsProps) => {
                   transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                   className="overflow-hidden"
                 >
-                  <div className="pt-3 md:pt-4 pb-1">
-                    <ul className="space-y-1.5">
+                  <div className="mt-2 md:mt-3 bg-white/[0.05] border border-white/[0.1] p-4 md:p-5">
+                    <ul className="space-y-2">
                       {m.bullets.map((b, j) => (
-                        <li key={j} className="text-white/72 text-[11.5px] md:text-[12.5px] leading-snug flex gap-1.5">
-                          <span className="text-primary mt-0.5">·</span>
+                        <li key={j} className="text-white text-[12px] md:text-[13px] leading-[1.55] flex gap-2">
+                          <span className="text-primary mt-0.5 shrink-0">·</span>
                           <span>{b}</span>
                         </li>
                       ))}
@@ -210,9 +210,9 @@ const Mentors = ({ onOpenModal }: MentorsProps) => {
                       href={m.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 mt-3 text-primary text-[11px] md:text-[12px] font-mono tracking-wider uppercase hover:underline"
+                      className="inline-flex items-center gap-1.5 mt-4 text-primary text-[11px] md:text-[12px] font-mono tracking-[0.15em] uppercase hover:opacity-80 transition-opacity"
                     >
-                      <Linkedin size={11} strokeWidth={2} /> Profile
+                      <Linkedin size={11} strokeWidth={2} /> View Profile
                     </a>
                   </div>
                 </motion.div>
