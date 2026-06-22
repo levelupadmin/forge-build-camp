@@ -38,12 +38,13 @@ const Hero = ({ onOpenModal }: HeroProps) => {
           preload="auto"
           onLoadedData={() => setVideoReady(true)}
           onCanPlay={() => setVideoReady(true)}
-          className={`absolute inset-0 w-full h-full object-cover scale-110 md:object-center object-[50%_30%] transition-opacity duration-700 ease-out ${
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-out ${
             videoReady ? "opacity-90" : "opacity-0"
           }`}
           poster=""
         >
-          <source src={`${import.meta.env.BASE_URL}hero-bg.mp4`} type="video/mp4" />
+          <source src={`${import.meta.env.BASE_URL}hero-vertical.mp4`} media="(max-width: 767px)" type="video/mp4" />
+          <source src={`${import.meta.env.BASE_URL}hero-landscape.mp4`} type="video/mp4" />
         </video>
       </div>
 
