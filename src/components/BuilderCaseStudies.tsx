@@ -2,6 +2,10 @@ import SectionWrapper from "./SectionWrapper";
 import SectionHeading, { Accent } from "./SectionHeading";
 import { motion } from "framer-motion";
 import aaryaPhoto from "@/assets/community/student-aarya.jpg";
+import ruhaniPhoto from "@/assets/community/student-ruhani.jpg";
+import sagarikkaPhoto from "@/assets/community/student-sagarikka.jpg";
+import riyasPhoto from "@/assets/community/student-riyas.jpg";
+import naveenPhoto from "@/assets/community/student-naveen.jpg";
 
 interface Builder {
   name: string;
@@ -179,6 +183,7 @@ const builders: Builder[] = [
   {
     name: "Ruhani Duggal",
     initials: "RD",
+    photo: ruhaniPhoto,
     role: "Director",
     company: "Minar Group (Travel, Aviation, Tourism)",
     walkedIn: "An early AI-powered ops backend with individual wins that did not add up to anything organization-wide.",
@@ -188,6 +193,7 @@ const builders: Builder[] = [
   {
     name: "Sagarikka Sivakumar",
     initials: "SS",
+    photo: sagarikkaPhoto,
     role: "Founder",
     company: "Trichy Plus (28-year coaching institute)",
     walkedIn: "A Lovable-built CRM and team tool. Unable to integrate the pieces into a single agent or n8n workflow.",
@@ -197,6 +203,7 @@ const builders: Builder[] = [
   {
     name: "Riyas Hasan",
     initials: "RH",
+    photo: riyasPhoto,
     role: "Founder",
     company: "Hotelo + Mika's Bistro + a third venture",
     walkedIn: "Basic GPT and Claude for marketing copy. No time to learn deeper, and three businesses pulling in three directions.",
@@ -206,6 +213,7 @@ const builders: Builder[] = [
   {
     name: "Naveen Mitikiri",
     initials: "NM",
+    photo: naveenPhoto,
     role: "Head of Operations",
     company: "B2B Marketing Agency",
     walkedIn: "Years of marketing automation experience but no real AI ownership. Team buried under client deliverables.",
@@ -221,7 +229,7 @@ const BuilderCaseStudies = () => {
         align="center"
         description="Five operators. Five real businesses. Live builds shipping at the residency."
       >
-        Builds in flight at <Accent>Edition 1.</Accent>
+        Builds <Accent>in flight.</Accent>
       </SectionHeading>
 
       <div className="space-y-12 md:space-y-16 mt-2">
