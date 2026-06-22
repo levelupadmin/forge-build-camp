@@ -29,7 +29,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
   return (
     <SectionWrapper id="pricing">
       <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.05] tracking-[-0.025em] text-foreground text-center mb-3">
-        What it costs to be in <span className="font-editorial italic text-primary">the room.</span>
+        What it costs to be in <span className="font-editorial italic text-primary" style={{ fontWeight: 600 }}>the room.</span>
       </h2>
       <p className="text-center text-foreground/55 text-[15px] md:text-[16px] mb-14 md:mb-16 max-w-[520px] mx-auto">
         One fee. Everything covered. Twenty seats per cohort.

@@ -40,11 +40,11 @@ const FinalCTA = ({ onOpenModal }: FinalCTAProps) => {
           style={{ fontSize: "clamp(44px, 8.5vw, 110px)" }}
         >
           <span className="block">
-            <span className="font-editorial italic text-primary">Build.</span>
+            <span className="font-editorial italic text-primary" style={{ fontWeight: 600 }}>Build.</span>
           </span>
           <span className="block">Automate.</span>
           <span className="block">
-            <span className="font-editorial italic text-primary">Launch.</span>
+            <span className="font-editorial italic text-primary" style={{ fontWeight: 600 }}>Launch.</span>
           </span>
         </h2>
 
