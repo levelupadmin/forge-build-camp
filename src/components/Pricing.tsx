@@ -112,6 +112,14 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
               Per person. Inclusive of GST.
             </p>
 
+            {/* EMI option */}
+            <div className="mt-5 border-t border-border pt-5">
+              <p className="text-[10px] uppercase tracking-wider text-primary font-semibold mb-2">No-cost EMI available</p>
+              <p className="text-foreground/70 text-[13px] md:text-[14px] leading-relaxed">
+                Pay 20% on confirmation after you are accepted into the program. The balance over 6 months, no-cost EMI.
+              </p>
+            </div>
+
             <button
               onClick={onOpenModal}
               className="w-full mt-7 bg-primary text-primary-foreground font-semibold rounded-xl py-4 text-sm uppercase tracking-wider btn-glow"
