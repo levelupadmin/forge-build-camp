@@ -87,12 +87,12 @@ const Index = () => {
       {/* Temporarily hidden: <Outcomes onOpenModal={openTally} /> (duplicates Pillars outcome story) */}
       <Mentors onOpenModal={openTally} />
       <Schedule onOpenModal={openTally} />
+      <LevelUpAIVault />
       {/* Temporarily hidden, restore: <PerksVault onOpenModal={openTally} /> */}
       <Community onOpenModal={openTally} />
       <SocialProof />
       {/* Temporarily hidden, restore: <ValueMath onOpenModal={openTally} /> */}
       <Pricing onOpenModal={openTally} />
-      <LevelUpAIVault />
       <FAQs />
       <FinalCTA onOpenModal={openTally} />
       <Footer />
