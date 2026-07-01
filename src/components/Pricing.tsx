@@ -15,6 +15,7 @@ const inclusions = [
   "Expert faculty throughout the residency",
   "Curated experiences during the program",
   "Community access after the program",
+  "LevelUp AI Vault access · 14,000+ resources",
   "The Forge AI Goodie Bag",
   "Demo Day on Day 7",
 ];
