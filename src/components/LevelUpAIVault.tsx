@@ -1,7 +1,7 @@
 import SectionWrapper from "./SectionWrapper";
 import SectionHeading, { Accent } from "./SectionHeading";
 import { motion } from "framer-motion";
-import { Search, Brain, Wrench, Server, Bot, MessageSquare, Palette } from "lucide-react";
+import { Search, Lock, Brain, Wrench, Server, Bot, MessageSquare, Palette } from "lucide-react";
 
 const categories = [
   { icon: Brain, label: "Agent skills", count: "7,748" },
@@ -37,7 +37,10 @@ const LevelUpAIVault = () => {
               <div className="w-2 h-2 rounded-full bg-[#ff5f57]" />
               <div className="w-2 h-2 rounded-full bg-[#febc2e]" />
               <div className="w-2 h-2 rounded-full bg-[#28c840]" />
-              <span className="text-[10px] md:text-[11px] text-black/45 ml-3 font-mono">leveluplearning.in/aivault</span>
+              <div className="flex items-center gap-1.5 ml-3">
+                <Lock size={10} className="text-black/40" strokeWidth={2.5} />
+                <span className="text-[10px] md:text-[11px] text-black/45 font-semibold uppercase tracking-wider">Private · Forge builders only</span>
+              </div>
             </div>
             <span className="hidden md:inline text-[9px] uppercase tracking-wider text-black/40 font-semibold">Live preview</span>
           </div>
