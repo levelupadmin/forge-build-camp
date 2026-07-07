@@ -83,6 +83,39 @@ const SariAIDash = () => (
   </div>
 );
 
+const VilasaDash = () => (
+  <div className="bg-card border border-border p-5 md:p-6 h-full">
+    <div className="flex items-center justify-between mb-4">
+      <span className="text-[10px] uppercase tracking-wider text-foreground/55 font-semibold">Vilasa · Operations Layer</span>
+      <span className="text-[10px] text-primary font-semibold">● live</span>
+    </div>
+    <div className="grid grid-cols-4 gap-2 mb-4">
+      {[
+        { l: "Bookings", v: "68" },
+        { l: "Guests", v: "142" },
+        { l: "Revenue", v: "₹42L" },
+        { l: "NPS", v: "72" },
+      ].map((m, i) => (
+        <div key={i} className="border border-border p-2">
+          <div className="text-[9px] uppercase tracking-wider text-foreground/55 font-semibold mb-1">{m.l}</div>
+          <div className="text-[16px] md:text-[18px] font-bold text-foreground leading-tight">{m.v}</div>
+        </div>
+      ))}
+    </div>
+    <div className="text-[10px] uppercase tracking-wider text-foreground/55 font-semibold mb-2">Concierge alerts</div>
+    {[
+      { p: "high", t: "VIP arrival at Villa 12, 3:40pm", c: "text-red-500" },
+      { p: "med",  t: "Anniversary setup requested, room 208", c: "text-orange-500" },
+      { p: "low",  t: "Spa slot request from guest #2287", c: "text-foreground/50" },
+    ].map((r, i) => (
+      <div key={i} className="flex items-center justify-between border-b border-border last:border-0 py-1.5">
+        <span className="text-[11px] text-foreground">{r.t}</span>
+        <span className={`text-[9px] uppercase font-semibold ${r.c}`}>{r.p}</span>
+      </div>
+    ))}
+  </div>
+);
+
 const IdeaValidatorDash = () => (
   <div className="bg-card border border-border p-5 md:p-6 h-full">
     <div className="flex items-center justify-between mb-4">
@@ -197,8 +230,17 @@ const builders: Builder[] = [
     initials: "RD",
     photo: ruhaniPhoto,
     role: "Director",
-    company: "Minar Group",
-    walkedIn: "15 years in tech and 5-7 years actively building with AI, watching the same gap founders hit at idea-stage: the things they do not even know they do not know.",
+    company: "Vilasa (luxury travel)",
+    walkedIn: "An early AI-powered ops backend and 15 years of tech leadership, but every win was individual and none added up to a single view of the business.",
+    shipped: "An operating system dashboard for the entire luxury travel business. Bookings, guests, concierge alerts, property health, revenue and NPS unified into one live view her team runs from every morning.",
+    dashboard: <VilasaDash />,
+  },
+  {
+    name: "Bhupinder Shergill",
+    initials: "BS",
+    role: "Enterprise systems principal",
+    company: "Formerly consulting, North America",
+    walkedIn: "Twenty years of enterprise consulting and a personal habit of building multi-agent systems and AI harnesses on the side, but no unified place to put the pattern.",
     shipped: "A neural network engine for idea validation. It surfaces what a founder already knows, flags the known gaps, and mines the wider internet beyond their industry for the unknown unknowns that would otherwise sink the idea.",
     dashboard: <IdeaValidatorDash />,
   },
@@ -247,12 +289,9 @@ const BuilderCaseStudies = () => {
                 reverse ? "lg:[&>*:first-child]:order-2" : ""
               }`}
             >
-              {/* Dashboard mockup */}
               <div>{b.dashboard}</div>
 
-              {/* Builder narrative */}
               <div className="flex flex-col justify-center">
-                {/* Identity */}
                 <div className="flex items-center gap-3 mb-5">
                   {b.photo ? (
                     <img src={b.photo} alt={b.name} className="w-12 h-12 md:w-14 md:h-14 object-cover shrink-0" />
@@ -267,7 +306,6 @@ const BuilderCaseStudies = () => {
                   </div>
                 </div>
 
-                {/* Walked in / Shipped */}
                 <div className="space-y-4">
                   <div>
                     <p className="text-[10px] uppercase tracking-wider text-white/45 font-semibold mb-1.5">Walked in with</p>
