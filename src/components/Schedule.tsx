@@ -12,6 +12,10 @@ import imgDay9 from "@/assets/8254fb1b-ea7c-433b-b7a4-8796e3238dd5.jpg";
 import imgAIHills from "@/assets/schedule-ai-hills.jpg";
 import imgAIBeach from "@/assets/schedule-ai-beach.jpg";
 import imgAIGroup from "@/assets/schedule-ai-group.jpg";
+import imgDay1Cohort from "@/assets/schedule-day1-cohort.jpg";
+import imgDay3Cohort from "@/assets/schedule-day3-cohort.jpg";
+import imgDay5Cohort from "@/assets/schedule-day5-cohort.jpg";
+import imgDay7Cohort from "@/assets/schedule-day7-cohort.jpg";
 
 interface ScheduleDay {
   key: string;
@@ -27,25 +31,25 @@ const days: ScheduleDay[] = [
     image: imgOnlinePrep },
   { key: "d1", label: "DAY 1", subtitle: "First, learn to tell the story that makes people care.",
     prose: "You arrive, meet the cohort, and spend the evening on the one tool every founder underuses: the story behind what you sell. Most products fail not because they do not work, but because nobody understands why they matter. You walk out with a narrative framework you will use across pitches, sales conversations, ad copy, and the way you describe your business for years.",
-    image: imgDay1 },
+    image: imgDay1Cohort },
   { key: "d2", label: "DAY 2", subtitle: "Turn a vague idea into a working AI feature.",
     prose: "How LLMs actually work and where they break, so you stop guessing at \"where AI fits\" and start with a customer-grade problem. A framing test that scopes what you build down to the one thing customers will pay for. System design without code, then your first AI feature making real model calls by dinner. You leave with a spec your business can stand behind and the first working version of it.",
     image: imgAIHills },
   { key: "d3", label: "DAY 3", subtitle: "Production architecture and a live URL by the end of the day.",
     prose: "A real product stack: a database that stores customer data safely, user accounts with access controls, payment hookups, and the plumbing connecting it to the AI model. By dinner you have a working product live on a real URL, plus a before/after scorecard that proves the AI is actually doing the job. The product you leave with is one you can put in front of a paying customer the day you get home.",
-    image: imgDays45 },
+    image: imgDay3Cohort },
   { key: "d4", label: "DAY 4", subtitle: "Build the agent that runs your back office while you sleep.",
     prose: "The agent loop in plain terms, then a real automation triaging tickets, leads, or customer requests in n8n. Wired into the apps your business already runs on (email, CRM, sheets, calendar, WhatsApp). Every hour your team currently spends on busywork becomes a candidate for automation. You walk out with the first version of your own personal AI assistant already running.",
     image: imgAIBeach },
   { key: "d5", label: "DAY 5", subtitle: "Stop guessing. Answer from what your business actually knows.",
     prose: "Most AI fails inside a business because it knows nothing about that specific business. Today you fix that with RAG over your own documents (SOPs, contracts, product catalogs, sales call transcripts) so the AI answers from your data, not the open internet. Plus voice agents that handle outbound calls on your behalf. You leave with an assistant that knows your business and can speak on its behalf.",
-    image: imgDays23 },
+    image: imgDay5Cohort },
   { key: "d6", label: "DAY 6", subtitle: "Multiple agents working together. A human in the loop where it matters.",
     prose: "Multi-agent orchestration: one agent classifies, another responds, a third escalates, and you stay in control of the calls that matter. Build an invoice and payments assistant that handles the workflow end-to-end. Then an outdoor hackathon where you stress-test the whole thing in the wild, against real pressure, in front of the cohort. You leave with an operations layer running a real function inside your business, not a single demo trick.",
     image: imgAIGroup },
   { key: "d7", label: "DAY 7", subtitle: "Show the real thing. Commit the next three builds.",
     prose: "Eight minutes each. No slides. No \"imagine this works.\" Live demos to the room of what you actually shipped, with the impact in real numbers if you have them. Then you write down the next three builds you will do across the 90 days after, and step into the cohort that holds you to it.",
-    image: imgDay9 },
+    image: imgDay7Cohort },
 ];
 
 interface ScheduleProps { onOpenModal: () => void; }
