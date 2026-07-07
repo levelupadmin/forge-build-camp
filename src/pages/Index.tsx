@@ -12,6 +12,7 @@ import Outcomes from "@/components/Outcomes";
 // import PerksVault from "@/components/PerksVault";
 // import ValueMath from "@/components/ValueMath";
 import Pricing from "@/components/Pricing";
+import Gallery from "@/components/Gallery";
 import LevelUpAIVault from "@/components/LevelUpAIVault";
 import Schedule from "@/components/Schedule";
 import BuilderCaseStudies from "@/components/BuilderCaseStudies";
@@ -91,6 +92,7 @@ const Index = () => {
       {/* Temporarily hidden, restore: <PerksVault onOpenModal={openTally} /> */}
       <Community onOpenModal={openTally} />
       <SocialProof />
+      <Gallery />
       {/* Temporarily hidden, restore: <ValueMath onOpenModal={openTally} /> */}
       <Pricing onOpenModal={openTally} />
       <FAQs />
