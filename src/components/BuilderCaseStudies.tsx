@@ -4,6 +4,9 @@ import { motion } from "framer-motion";
 import aaryaPhoto from "@/assets/community/student-aarya.jpg";
 import ruhaniPhoto from "@/assets/community/student-ruhani.jpg";
 import smiteshPhoto from "@/assets/community/student-smitesh.jpg";
+import ankurPhoto from "@/assets/community/student-ankur.jpg";
+import bhupinderPhoto from "@/assets/community/student-bhupinder.jpg";
+import gautamPhoto from "@/assets/community/student-gautam.jpg";
 
 interface Builder {
   name: string;
@@ -219,6 +222,7 @@ const builders: Builder[] = [
   {
     name: "Ankur Jain",
     initials: "AJ",
+    photo: ankurPhoto,
     role: "Founder",
     company: "Saree manufacturing business",
     walkedIn: "A family saree business bleeding hours and lakhs every month on model shoots, photography, and video production for every new collection.",
@@ -238,6 +242,7 @@ const builders: Builder[] = [
   {
     name: "Bhupinder Shergill",
     initials: "BS",
+    photo: bhupinderPhoto,
     role: "Enterprise systems principal",
     company: "Formerly consulting, North America",
     walkedIn: "Twenty years of enterprise consulting and a personal habit of building multi-agent systems and AI harnesses on the side, but no unified place to put the pattern.",
@@ -247,6 +252,7 @@ const builders: Builder[] = [
   {
     name: "Gautam Shankar",
     initials: "GS",
+    photo: gautamPhoto,
     role: "Journalist",
     company: "Indian newsroom",
     walkedIn: "A journalist watching newsrooms drown in incoming feeds, ranking systems, and copy production spread across five different channels.",
