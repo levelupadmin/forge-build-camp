@@ -16,7 +16,6 @@ import mentorSabilashan from "@/assets/mentor-sabilashan.jpg";
 import mentorRahul from "@/assets/mentor-rahul.jpg";
 import mentorAnkur from "@/assets/mentor-ankur.jpeg";
 import mentorParth from "@/assets/mentor-parth-opt.jpg";
-import mentorAkhil from "@/assets/mentor-akhil.jpg";
 import mentorAshwin from "@/assets/mentor-ashwin.jpg";
 
 
@@ -85,19 +84,6 @@ const mentors = [
       "Leads the Operations pillar of Forge AI Edition 1",
     ],
     linkedin: "https://www.linkedin.com/in/parthbansal",
-  },
-  {
-    name: "Akhil Kumar Alampally",
-    photo: mentorAkhil,
-    role: "AI Instructor + Builder",
-    sub: "10,000+ builders taught",
-    bullets: [
-      "AI Instructor + Mentor at the intersection of AI, product, and execution",
-      "Previously at Outskill, Credera, BuildSchool, ADP, BYJUS",
-      "Built one of India's largest AI learning communities (10K+ builders)",
-      "Specializes in turning AI fluency into shipped product outcomes",
-    ],
-    linkedin: "https://www.linkedin.com/in/akhil-kumar-alampally/",
   },
   {
     name: "Ashwin Goyal",
