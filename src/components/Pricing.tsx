@@ -80,7 +80,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
           <div className="bg-card border border-border p-4 md:p-5">
             <p className="text-[10px] uppercase tracking-wider text-foreground/55 font-semibold mb-1">Online Prep</p>
             <p className="font-bold text-[18px] md:text-[20px] text-foreground leading-tight">5 sessions</p>
-            <p className="text-foreground/60 text-[12px] md:text-[13px] mt-1">Oct 2 to 7, 2026</p>
+            <p className="text-foreground/60 text-[12px] md:text-[13px] mt-1">Sep 30 to Oct 5, 2026</p>
           </div>
           <div className="bg-card border border-border p-4 md:p-5">
             <p className="text-[10px] uppercase tracking-wider text-foreground/55 font-semibold mb-1">In Residence</p>
