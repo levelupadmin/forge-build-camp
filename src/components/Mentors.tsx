@@ -207,7 +207,10 @@ const Mentors = ({ onOpenModal }: MentorsProps) => {
         ))}
       </div>
 
-      <p className="max-w-[760px] mx-auto mt-8 md:mt-10 text-center text-white/45 text-[11.5px] md:text-[13px] leading-[1.65]">
+      <p
+        className="text-center text-white/45"
+        style={{ maxWidth: "720px", margin: "36px auto 0", fontSize: "clamp(11.5px, 2.6vw, 13px)", lineHeight: 1.65 }}
+      >
         This is our mentor pool based on availability and requirement. 2-3 mentors will be coming to the program, and this is subject to change.
       </p>
     </SectionWrapper>
