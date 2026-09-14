@@ -16,6 +16,7 @@ const faqs = [
   { q: "I have a full-time job. Can I attend?", a: "Yes. Most participants are working professionals. You take a fixed block of time off and come back with something done." },
   { q: "What if I have never used AI tools before?", a: "The pre-program sessions bring you up to speed before Day 1. You arrive ready to build, not to catch up." },
   { q: "Why pay for this when free AI content exists everywhere?", a: "You have probably already found the free content. The question is whether it has actually moved anything forward for you. Forge is for people who are done watching and ready to build." },
+  { q: "Will every mentor listed be at my edition?", a: "This is our mentor pool based on availability and requirement. 2-3 mentors will be coming to the program, and this is subject to change." },
 ];
 
 const FAQs = () => {

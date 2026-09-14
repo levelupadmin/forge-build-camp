@@ -206,6 +206,10 @@ const Mentors = ({ onOpenModal }: MentorsProps) => {
           </div>
         ))}
       </div>
+
+      <p className="max-w-[760px] mx-auto mt-8 md:mt-10 text-center text-white/45 text-[11.5px] md:text-[13px] leading-[1.65]">
+        This is our mentor pool based on availability and requirement. 2-3 mentors will be coming to the program, and this is subject to change.
+      </p>
     </SectionWrapper>
   );
 };
