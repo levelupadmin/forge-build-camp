@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import SectionHeading, { Accent } from "./SectionHeading";
 
@@ -55,17 +55,8 @@ const Schedule = ({ onOpenModal }: ScheduleProps) => {
   const didMountRef = useRef(false);
   const [activeIdx, setActiveIdx] = useState(0);
 
-  // Scroll-driven card change: the sentinel is (days.length * 90vh) tall.
-  // As the user scrolls through it, scrollYProgress goes 0 -> 1, mapped to days[0..N-1].
-  const { scrollYProgress } = useScroll({
-    target: sentinelRef,
-    offset: ["start start", "end end"],
-  });
-
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const idx = Math.min(days.length - 1, Math.max(0, Math.floor(latest * days.length)));
-    setActiveIdx(idx);
-  });
+  // The section scrolls past like any other. Days change only when the visitor
+  // picks one, through the day tabs or the arrows.
 
   // Auto-scroll the strip horizontally (skip on first mount to avoid page jump)
   useEffect(() => {
@@ -83,27 +74,19 @@ const Schedule = ({ onOpenModal }: ScheduleProps) => {
 
   const day = days[activeIdx];
 
-  // Manual navigation: scroll the page by a fraction of the sentinel height
-  const scrollToDay = (idx: number) => {
-    const sentinel = sentinelRef.current;
-    if (!sentinel) return;
-    const rect = sentinel.getBoundingClientRect();
-    const sectionTop = window.scrollY + rect.top;
-    const target = sectionTop + (rect.height * idx) / days.length + 1;
-    window.scrollTo({ top: target, behavior: "smooth" });
-  };
+  // Switch the day in place, no page scrolling.
+  const scrollToDay = (idx: number) => setActiveIdx(idx);
   const goPrev = () => scrollToDay(Math.max(0, activeIdx - 1));
   const goNext = () => scrollToDay(Math.min(days.length - 1, activeIdx + 1));
 
   return (
     <section id="schedule" className="bg-background">
-      {/* Tall sentinel that drives scroll progress. Sticky inner panel stays in view through 8x viewport heights. */}
+      {/* Normal-flow section. Day tabs and arrows switch the day in place. */}
       <div
         ref={sentinelRef}
         className="relative"
-        style={{ height: `${days.length * 90}vh` }}
       >
-        <div className="sticky top-0 h-screen overflow-hidden flex flex-col justify-center bg-background py-10 md:py-14">
+        <div className="flex flex-col justify-center bg-background py-16 md:py-24">
           <div className="max-w-[1300px] w-full mx-auto px-6 lg:px-12 py-2 md:py-4">
             <div className="text-center mb-4 md:mb-6">
               <h2 className="font-bold text-[36px] md:text-[56px] leading-[1.05] tracking-[-0.025em] text-foreground">
@@ -202,9 +185,6 @@ const Schedule = ({ onOpenModal }: ScheduleProps) => {
                     </h3>
                     <p className="text-foreground text-[14px] md:text-[16px] leading-[1.65]" style={{ opacity: 1 }}>
                       {day.prose}
-                    </p>
-                    <p className="mt-4 text-foreground/40 text-[11px] tracking-wider uppercase font-mono">
-                      ↓ scroll to continue
                     </p>
                   </motion.div>
                 </AnimatePresence>

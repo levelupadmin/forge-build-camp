@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
-// Goa venue image bundled locally so the image always loads.
-import venueImage from "@/assets/venue-goa.jpg";
+// Dharamshala venue image bundled locally so the image always loads.
+import venueImage from "@/assets/venue-dharamshala.jpg";
 
 interface PricingProps {
   onOpenModal: () => void;
@@ -48,7 +48,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
         <div className="relative overflow-hidden aspect-[4/5] lg:aspect-[4/5.2] shadow-lg">
           <img
             src={venueImage}
-            alt="Goa, the Forge AI Edition 1 venue"
+            alt="Dharamshala, the Forge AI Residency venue"
             className="absolute inset-0 w-full h-full object-cover"
             loading="lazy"
           />
@@ -67,10 +67,10 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
           {/* Bottom content */}
           <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
             <p className="font-editorial italic text-[42px] md:text-[56px] leading-[0.95] tracking-[-0.02em]">
-              Goa
+              Dharamshala
             </p>
             <p className="text-white/80 text-[14px] md:text-[15px] mt-3 max-w-[340px] leading-[1.5]">
-              A 7-day residency at a private villa estate. The room, the meals, the work, the magic. All inside.
+              A 7-day residency at a mountain property in the Himalayan foothills. The room, the meals, the work, the magic. All inside.
             </p>
           </div>
         </div>
@@ -80,12 +80,12 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
           <div className="bg-card border border-border p-4 md:p-5">
             <p className="text-[10px] uppercase tracking-wider text-foreground/55 font-semibold mb-1">Online Prep</p>
             <p className="font-bold text-[18px] md:text-[20px] text-foreground leading-tight">5 sessions</p>
-            <p className="text-foreground/60 text-[12px] md:text-[13px] mt-1">Sep 30 to Oct 5, 2026</p>
+            <p className="text-foreground/60 text-[12px] md:text-[13px] mt-1">Nov 12 to 17, 2026</p>
           </div>
           <div className="bg-card border border-border p-4 md:p-5">
             <p className="text-[10px] uppercase tracking-wider text-foreground/55 font-semibold mb-1">In Residence</p>
             <p className="font-bold text-[18px] md:text-[20px] text-foreground leading-tight">7 days</p>
-            <p className="text-foreground/60 text-[12px] md:text-[13px] mt-1">Oct 7 to 13, 2026</p>
+            <p className="text-foreground/60 text-[12px] md:text-[13px] mt-1">Nov 19 to 25, 2026</p>
           </div>
         </div>
         </motion.div>
@@ -106,7 +106,7 @@ const Pricing = ({ onOpenModal }: PricingProps) => {
             <div className="flex items-baseline gap-2">
               <span className="font-mono text-[14px] md:text-[16px] text-foreground/55 self-start mt-3">INR</span>
               <span className="font-bold text-[60px] md:text-[88px] leading-[0.9] tracking-[-0.03em] text-foreground tabular-nums">
-                1,20,000
+                1,30,000
               </span>
             </div>
             <p className="text-foreground/55 text-[13px] md:text-[14px] mt-2">
