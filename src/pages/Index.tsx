@@ -15,6 +15,7 @@ import Pricing from "@/components/Pricing";
 import Gallery from "@/components/Gallery";
 import LevelUpAIVault from "@/components/LevelUpAIVault";
 import Schedule from "@/components/Schedule";
+import Venue from "@/components/Venue";
 import BuilderCaseStudies from "@/components/BuilderCaseStudies";
 import Mentors from "@/components/Mentors";
 import AaryaQuote from "@/components/AaryaQuote";
@@ -88,6 +89,7 @@ const Index = () => {
       {/* Temporarily hidden: <Outcomes onOpenModal={openTally} /> (duplicates Pillars outcome story) */}
       <Mentors onOpenModal={openTally} />
       <Schedule onOpenModal={openTally} />
+      <Venue />
       <LevelUpAIVault />
       {/* Temporarily hidden, restore: <PerksVault onOpenModal={openTally} /> */}
       <Community onOpenModal={openTally} />
