@@ -68,7 +68,7 @@ const ValueMath = ({ onOpenModal }: ValueMathProps) => {
               <h3 className="text-white font-bold text-[24px] md:text-[28px] leading-none tracking-[-0.02em] mt-1">
                 DHARAMSHALA
               </h3>
-              <p className="text-white/70 text-[12px] mt-1">June 27 , July 4, 2026</p>
+              <p className="text-white/70 text-[12px] mt-1">Nov 19 to 25, 2026</p>
             </div>
           </div>
 
@@ -79,10 +79,10 @@ const ValueMath = ({ onOpenModal }: ValueMathProps) => {
             <div className="mt-3">
               <div className="text-[13px] text-muted-foreground mb-1">Program fee</div>
               <div className="font-bold text-[44px] md:text-[52px] text-foreground leading-none tabular-nums">
-                ₹1,20,000
+                ₹1,30,000
               </div>
               <div className="text-[12px] text-muted-foreground mt-2">
-                ≈ <span className="tabular-nums">$1,440</span> inclusive of GST. One-time.
+                ≈ <span className="tabular-nums">$1,560</span> inclusive of GST. One-time.
               </div>
             </div>
             <div className="mt-8 pt-8 border-t border-border">
@@ -207,7 +207,7 @@ const ValueMath = ({ onOpenModal }: ValueMathProps) => {
           The headline
         </p>
         <p className="font-bold text-foreground text-[22px] md:text-[32px] leading-[1.25] tracking-[-0.015em]">
-          ₹1,20,000 in. <span className="text-primary">Up to $7.63M</span> back in AI credits.{" "}
+          ₹1,30,000 in. <span className="text-primary">Up to $7.63M</span> back in AI credits.{" "}
           <br className="hidden md:block" />
           <span className="font-serif italic text-muted-foreground" style={{ fontWeight: 500 }}>
             Plus everything else.
