@@ -12,9 +12,9 @@ import SectionHeading, { Accent } from "./SectionHeading";
 
 import mentorVaibhav from "@/assets/mentor-vaibhav.jpg";
 import mentorKevin from "@/assets/mentor-kevin.jpg";
-import mentorSabilashan from "@/assets/mentor-sabilashan.jpg";
+import mentorAvinash from "@/assets/mentor-avinash.jpg";
 import mentorRahul from "@/assets/mentor-rahul.jpg";
-import mentorAnkur from "@/assets/mentor-ankur.jpeg";
+import mentorHiresh from "@/assets/mentor-hiresh.jpg";
 import mentorParth from "@/assets/mentor-parth-opt.jpg";
 import mentorAshwin from "@/assets/mentor-ashwin.jpg";
 
@@ -47,30 +47,27 @@ const mentors = [
     linkedin: "https://www.linkedin.com/in/ikevinadams",
   },
   {
-    name: "Sabilashan Ganeshan",
-    photo: mentorSabilashan,
-    role: "Country Lead @ Perplexity",
-    sub: "Ambassador @ Lovable",
+    name: "Avinash Balachander",
+    photo: mentorAvinash,
+    role: "VP, LevelUp Live",
+    sub: "LevelUp Learning",
     bullets: [
-      "Country Lead at Perplexity AI, frontier of AI search products",
-      "Ambassador at Lovable, ships AI-built products rapidly",
-      "Head of Product at STEM Link; AI strategy at Amor",
-      "BASIS AI Fellow & Harvard-nominated innovator in AI education",
+      "VP of LevelUp Live at LevelUp Learning",
+      "Leads LevelUp's live online programs and cohorts",
     ],
-    linkedin: "https://www.linkedin.com/in/sabilashanganeshan",
+    linkedin: "",
   },
   {
-    name: "Ankur Upadhyay",
-    photo: mentorAnkur,
-    role: "Senior Product Manager",
-    sub: "AB InBev · o9 Solutions",
+    name: "Hiresh Nichani",
+    photo: mentorHiresh,
+    role: "VP, The Forge",
+    sub: "LevelUp Learning",
     bullets: [
-      "Platform & AI Product Leader, building AI before GenAI",
-      "ML systems for 3M+ merchants at AB InBev",
-      "Agentic AI for 15,000+ enterprise users at o9 Solutions",
-      "Leads the Product pillar of Forge AI Edition 1",
+      "VP of the Forge at LevelUp Learning, running its residencies across AI, creators, writing and filmmaking",
+      "Growth builder who runs marketing, funnels and operations with AI tools every day",
+      "Shapes the Forge AI Residency experience end to end",
     ],
-    linkedin: "https://www.linkedin.com/in/ankurupadhyay",
+    linkedin: "https://in.linkedin.com/in/hireshr",
   },
   {
     name: "Parth Bansal",
@@ -191,6 +188,7 @@ const Mentors = ({ onOpenModal }: MentorsProps) => {
                         </li>
                       ))}
                     </ul>
+                    {m.linkedin && (
                     <a
                       href={m.linkedin}
                       target="_blank"
@@ -199,6 +197,7 @@ const Mentors = ({ onOpenModal }: MentorsProps) => {
                     >
                       <Linkedin size={11} strokeWidth={2} /> View Profile
                     </a>
+                    )}
                   </div>
                 </motion.div>
               )}
