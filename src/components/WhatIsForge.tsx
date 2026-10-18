@@ -107,7 +107,7 @@ const WhatIsForge = ({ onOpenModal }: WhatIsForgeProps) => {
           <div className="relative overflow-hidden border border-foreground/[0.08] shadow-lg aspect-video bg-black">
             {showVideo ? (
               <iframe
-                src="https://www.youtube-nocookie.com/embed/6uj2L0HjIQM?autoplay=1&rel=0&modestbranding=1"
+                src="https://www.youtube-nocookie.com/embed/mhT7sVfcy5o?autoplay=1&rel=0&modestbranding=1"
                 title="Forge AI Residency. Trailer"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
@@ -122,7 +122,7 @@ const WhatIsForge = ({ onOpenModal }: WhatIsForgeProps) => {
                 aria-label="Play Forge AI Residency trailer"
               >
                 <img
-                  src="https://i.ytimg.com/vi/6uj2L0HjIQM/maxresdefault.jpg"
+                  src="https://i.ytimg.com/vi/mhT7sVfcy5o/maxresdefault.jpg"
                   alt="Forge AI Residency trailer thumbnail"
                   className="absolute inset-0 w-full h-full object-cover"
                   loading="lazy"
@@ -133,7 +133,7 @@ const WhatIsForge = ({ onOpenModal }: WhatIsForgeProps) => {
                     const img = e.currentTarget as HTMLImageElement;
                     if (!img.dataset.fallback) {
                       img.dataset.fallback = "1";
-                      img.src = "https://i.ytimg.com/vi/6uj2L0HjIQM/hqdefault.jpg";
+                      img.src = "https://i.ytimg.com/vi/mhT7sVfcy5o/hqdefault.jpg";
                     }
                   }}
                 />
