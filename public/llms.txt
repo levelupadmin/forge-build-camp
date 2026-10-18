@@ -17,6 +17,8 @@ Edition 1 ran in Dharamshala and wrapped on July 5, 2026. All 17 builders shippe
 
 ## Edition 2, Dharamshala, November 2026
 
+Powered by Taqsha by The Times of India.
+
 The next cohort runs in Dharamshala. Applications are open at https://forgebylevelup.com/ai/.
 
 - Online prep sessions: November 12 to 17, 2026 (5 live evening sessions)
@@ -24,7 +26,7 @@ The next cohort runs in Dharamshala. Applications are open at https://forgebylev
 - Location: Dharamshala, Himachal Pradesh, India
 - Venue: Asia Spa Resort, McLeod Ganj. A property in the hills above McLeod Ganj, with misty mornings and snow-capped peaks. For seven days builders leave their work back home behind and focus completely on building and learning something new.
 - Cohort size: 20 builders. Hard limit.
-- Program fee: INR 1.3L (1,30,000) all-inclusive of GST. Includes residential stay on double occupancy, all meals, both tracks (Operations and Product), expert faculty throughout, curated experiences, community access after the program, and the LevelUp AI Vault.
+- Program fee: INR 1.5L (1,50,000), inclusive of GST. Includes residential stay on double occupancy, all meals, both tracks (Operations and Product), expert faculty throughout, curated experiences, community access after the program, and the LevelUp AI Vault.
 - Payment plan: 20% on confirmation after acceptance, balance over 6 months no-cost EMI.
 - Application fee: INR 900. Books an interview slot with the admissions team. Reviewed within 48 hours.
 - Not included: travel to Dharamshala, travel insurance, personal expenses.
@@ -42,11 +44,9 @@ Each builder leaves with:
 
 ## Mentors
 
-Ankur Upadhyay leads the Product pillar. Platform and AI Product Leader with ML systems for 3M+ merchants at AB InBev and agentic AI for 15,000+ users at o9 Solutions.
-
 Parth Bansal leads the Operations pillar. AI Staff Product Manager building operational AI for multi-billion-dollar hospital systems.
 
-Rahul Reddy hosts and runs storytelling and firesides. Additional mentors include Vaibhav Kejriwal (n8n Bangalore Ambassador, IIM-A + IIT-D), Kevin Adams (Founder Millennial Labs, 500+ brands), Sabilashan Ganeshan (Country Lead at Perplexity), and Ashwin Goyal (AI Product Manager, IIT Ropar).
+Rahul Reddy hosts and runs storytelling and firesides. Additional mentors include Vaibhav Kejriwal (n8n Bangalore Ambassador, IIM-A + IIT-D), Kevin Adams (Founder Millennial Labs, 500+ brands), Ashwin Goyal (AI Product Manager, IIT Ropar), Hiresh Nichani (VP, The Forge, LevelUp Learning), and Avinash Balachander (VP, LevelUp Live, LevelUp Learning).
 
 This is a mentor pool. Based on availability and requirement, 2 to 3 mentors attend each edition in person, and the lineup is subject to change.
 
@@ -75,4 +75,4 @@ Applications: https://forgebylevelup.com/ai/
 Email: forge@leveluplearning.in
 Detailed brochure: https://forgebylevelup.com/ai/forge-ai-residency-brochure.pdf
 
-Last updated: September 2026.
+Last updated: October 2026.
